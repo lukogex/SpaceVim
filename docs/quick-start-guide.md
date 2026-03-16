@@ -24,7 +24,7 @@ It will give you a good idea of what SpaceVim is like.
 
 ## Installation
 
-First of all, you need to [install Vim or Neovim](../install-vim-or-neovim-with-python-support/), preferably with `+python3` support enabled.
+First of all, you need to [install Vim or Neovim](posts/2017-02-20-install-vim-or-neovim-with-python-support/), preferably with `+python3` support enabled.
 
 Also, you need to have `git` and `curl` installed in your system,
 which are needed for downloading plugins and fonts.

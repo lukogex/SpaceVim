@@ -6,31 +6,6 @@ set -ue -o pipefail
 # Prevent commands misbehaving due to locale differences
 export LC_ALL=C
 
-install_vim() {
-    local URL=https://github.com/vim/vim
-    local tag=$1
-    local ext=$([[ $tag == "nightly" ]] && echo "" || echo "-b $tag")
-    local tmp="$(mktemp -d)"
-    local out="${DEPS}/_vim/$tag"
-    mkdir -p $out
-    git clone --depth 1 --single-branch $ext $URL $tmp
-    cd $tmp
-
-    # Apply Vim patch v8.0.1635 to fix build with Python.
-    if grep -q _POSIX_THREADS src/if_python3.c; then
-      sed -i '/#ifdef _POSIX_THREADS/,+2 d' src/if_python3.c
-    fi
-
-    ./configure \
-        --with-features=huge \
-        --enable-pythoninterp \
-        --enable-python3interp \
-        --enable-luainterp \
-        --prefix=${out}
-    make
-    make install
-}
-
 install_nvim() {
     local URL=https://github.com/neovim/neovim
     local tag=$1
@@ -63,7 +38,7 @@ install() {
     if [[ $vim == "nvim" ]]; then
         install_nvim $tag
     else
-        install_vim $tag
+        echo "Only Neovim is supported from version v3.0.0 onwards."
     fi
 }
 

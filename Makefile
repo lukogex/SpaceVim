@@ -31,4 +31,4 @@ clean:
 
 .PHONY: run
 run:
-	vim -u $(CURDIR)/init.vim
+	nvim -u $(CURDIR)/init.vim
