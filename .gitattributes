@@ -1,4 +1,4 @@
-autoload/SpaceVim/api/iconv/**  linguist-vendored
+autoload/spacevim/api/iconv/**  linguist-vendored
 lua/spacevim/api/iconv/**  linguist-vendored
 bundle/** linguist-vendored
 bundle/bookmarks.vim/** linguist-vendored=false

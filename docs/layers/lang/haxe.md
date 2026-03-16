@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#haxe layer"
+title: "spacevim lang#haxe layer"
 description: "This layer is for haxe development, provides syntax checking, code runner for haxe files."
 ---
 

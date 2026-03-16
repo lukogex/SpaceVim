@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#rust layer"
+title: "spacevim lang#rust layer"
 description: "This layer is for Rust development, provides autocompletion, syntax checking, and code formatting for Rust files."
 ---
 
@@ -35,7 +35,7 @@ This layer is for Rust development.
 - Cargo integration
 - Code formatting
 
-SpaceVim also provides code runner and Language Server Protocol support for Rust. To enable LSP, you need to load the `lsp` layer for Rust.
+spacevim also provides code runner and Language Server Protocol support for Rust. To enable LSP, you need to load the `lsp` layer for Rust.
 
 ## Install
 

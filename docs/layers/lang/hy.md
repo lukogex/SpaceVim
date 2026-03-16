@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#hy layer"
+title: "spacevim lang#hy layer"
 description: "This layer is for hy development, provides syntax checking, code runner and repl support for hy files."
 ---
 

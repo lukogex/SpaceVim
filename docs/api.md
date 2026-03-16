@@ -1,6 +1,6 @@
 ---
 title: Available APIs
-description: "A list of available APIs in SpaceVim. Was providing compatible functions for vim and neovim but vim support is not maintained anymore since version v3.0.0."
+description: "A list of available APIs in spacevim. Was providing compatible functions for vim and neovim but vim support is not maintained anymore since version v3.0.0."
 ---
 
 # [Home](../) >> APIs
@@ -14,13 +14,13 @@ description: "A list of available APIs in SpaceVim. Was providing compatible fun
 
 ## Introduction
 
-SpaceVim provides many public APIs that you can use in your plugins.
+spacevim provides many public APIs that you can use in your plugins.
 The following example shows how to load and use an API.
 
 ```vim
-" use SpaceVim#api#import() to load the API
-let s:file = SpaceVim#api#import('file')
-let s:system = SpaceVim#api#import('system')
+" use spacevim#api#import() to load the API
+let s:file = spacevim#api#import('file')
+let s:system = spacevim#api#import('system')
 
 " check the if current os is Windows.
 if s:system.isWindows
@@ -31,14 +31,14 @@ echom s:file.pathSeparator
 ```
 
 <!--
-call SpaceVim#dev#api#update()
+call spacevim#dev#api#update()
 -->
 
-<!-- SpaceVim api list start -->
+<!-- spacevim api list start -->
 
 ## Available APIs
 
-Here is the list of all available APIs, and welcome to contribute to SpaceVim.
+Here is the list of all available APIs, and welcome to contribute to spacevim.
 
 | Name                                  | Description                                                                                        |
 | ------------------------------------- | -------------------------------------------------------------------------------------------------- |
@@ -71,4 +71,4 @@ Here is the list of all available APIs, and welcome to contribute to SpaceVim.
 | [web#http](web/http/)                 | web#http API provides some basic functions and values for http request                             |
 | [web#xml](web/xml/)                   | web#xml API provides some basic functions and values for parser xml file.                          |
 
-<!-- SpaceVim api list end -->
+<!-- spacevim api list end -->

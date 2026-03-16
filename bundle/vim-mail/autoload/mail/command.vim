@@ -5,7 +5,7 @@
 " LIST
 " SELECT
 
-let s:PASSWORD = SpaceVim#api#import('password')
+let s:PASSWORD = spacevim#api#import('password')
 let s:cmd_prefix = s:PASSWORD.generate_simple(5)
 function! mail#command#login(username, password)
     return join([s:cmd_prefix, 'LOGIN', a:username, a:password], ' ')

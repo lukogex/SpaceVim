@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#dockerfile layer"
+title: "spacevim lang#dockerfile layer"
 description: "Dockerfile language support, including syntax highlighting and code formatting."
 ---
 
@@ -15,7 +15,7 @@ description: "Dockerfile language support, including syntax highlighting and cod
 
 ## Description
 
-This layer adds Dockerfile language support to SpaceVim.
+This layer adds Dockerfile language support to spacevim.
 
 ## Features
 

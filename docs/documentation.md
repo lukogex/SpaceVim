@@ -1,6 +1,6 @@
 ---
 title: "Documentation"
-description: "General documentation about how to use SpaceVim, including the quick start guide and FAQs."
+description: "General documentation about how to use spacevim, including the quick start guide and FAQs."
 ---
 
 # Documentation
@@ -9,10 +9,10 @@ description: "General documentation about how to use SpaceVim, including the qui
 
 - [New Concepts](#new-concepts)
 - [Update and Rollback](#update-and-rollback)
-  - [Update SpaceVim itself](#update-spacevim-itself)
+  - [Update spacevim itself](#update-spacevim-itself)
   - [Update plugins](#update-plugins)
   - [Reinstall plugins](#reinstall-plugins)
-  - [Get SpaceVim log](#get-spacevim-log)
+  - [Get spacevim log](#get-spacevim-log)
 - [Custom Configuration](#custom-configuration)
   - [Bootstrap Functions](#bootstrap-functions)
   - [Vim compatible mode](#vim-compatible-mode)
@@ -55,7 +55,7 @@ description: "General documentation about how to use SpaceVim, including the qui
     - [Create a new empty buffer](#create-a-new-empty-buffer)
     - [Special Buffers](#special-buffers)
     - [File manipulation key bindings](#file-manipulation-key-bindings)
-    - [Vim and SpaceVim files](#vim-and-spacevim-files)
+    - [Vim and spacevim files](#vim-and-spacevim-files)
   - [Available layers](#available-layers)
   - [Fuzzy finder](#fuzzy-finder)
     - [With an external tool](#with-an-external-tool)
@@ -98,7 +98,7 @@ description: "General documentation about how to use SpaceVim, including the qui
 
 **Transient-states**
 
-SpaceVim defines a wide variety of transient states (temporary overlay maps)
+spacevim defines a wide variety of transient states (temporary overlay maps)
 where it makes sense. This prevents one from doing repetitive and tedious
 presses on the `SPC` (space) key.
 
@@ -111,9 +111,9 @@ Move Text Transient State:
 
 ## Update and Rollback
 
-### Update SpaceVim itself
+### Update spacevim itself
 
-There are several methods of updating the core files of SpaceVim.
+There are several methods of updating the core files of spacevim.
 It is recommended to update the packages first; see the next section.
 
 **Automatic Updates**
@@ -128,27 +128,27 @@ add the following to your custom configuration file.
     automatic_update = true
 ```
 
-SpaceVim will automatically check for a new version
+spacevim will automatically check for a new version
 every startup. You have to restart Vim after updating.
 
-**Updating from the SpaceVim Buffer**
+**Updating from the spacevim Buffer**
 
-Users can use command `:SPUpdate SpaceVim` to update SpaceVim.
+Users can use command `:SPUpdate spacevim` to update spacevim.
 This command will open a new buffer to show the process of updating.
 
 **Updating Manually with git**
 
 For users who prefer to use the command line, they can use the following command
-in a terminal to update SpaceVim manually:
+in a terminal to update spacevim manually:
 
 ```
-git -C ~/.SpaceVim pull
+git -C ~/.spacevim pull
 ```
 
 ### Update plugins
 
 Use `:SPUpdate` command to update all the plugins and
-SpaceVim itself. After `:SPUpdate`, you can assign
+spacevim itself. After `:SPUpdate`, you can assign
 plugins need to be updated. Use `Tab` to complete
 plugin names after `:SPUpdate`.
 
@@ -163,36 +163,36 @@ For example:
 :SPReinstall echodoc.vim
 ```
 
-### Get SpaceVim log
+### Get spacevim log
 
-The runtime log of SpaceVim can be obtained via the key binding `SPC h L`.
-To get the debug information about the current SpaceVim environment,
+The runtime log of spacevim can be obtained via the key binding `SPC h L`.
+To get the debug information about the current spacevim environment,
 Use the command `:SPDebugInfo!`. This command will open a new buffer where default information will be shown.
-You can also use `SPC h I` to open a buffer with SpaceVim's issue template.
+You can also use `SPC h I` to open a buffer with spacevim's issue template.
 
 ## Custom Configuration
 
-The very first time SpaceVim starts up, it will ask you to choose a mode, `basic mode` or `dark powered mode`.
-Then it will create a `SpaceVim.d/init.toml` in your `$HOME` directory.
-All the user configuration files are stored in `~/.SpaceVim.d/` directory.
+The very first time spacevim starts up, it will ask you to choose a mode, `basic mode` or `dark powered mode`.
+Then it will create a `spacevim.d/init.toml` in your `$HOME` directory.
+All the user configuration files are stored in `~/.spacevim.d/` directory.
 
-`~/.SpaceVim.d/` will be added to `&runtimepath`.
+`~/.spacevim.d/` will be added to `&runtimepath`.
 
-It is also possible to override the location of `~/.SpaceVim.d/` using the environment variable `SPACEVIMDIR`.
+It is also possible to override the location of `~/.spacevim.d/` using the environment variable `SPACEVIMDIR`.
 Of course, you can also use symlinks to change the location of this directory.
 
-SpaceVim also supports project specific configuration files.
-The init file is `.SpaceVim.d/init.toml` in the root of your project.
-The local `.SpaceVim.d/` will also be added to the `&runtimepath`.
+spacevim also supports project specific configuration files.
+The init file is `.spacevim.d/init.toml` in the root of your project.
+The local `.spacevim.d/` will also be added to the `&runtimepath`.
 
 Please be aware that if there are errors in your `init.toml`, the setting will not be applied. See [FAQ](../faq/#why-are-the-options-in-toml-file-not-applied).
 
-All SpaceVim options can be found in `:h SpaceVim-options`,
+All spacevim options can be found in `:h spacevim-options`,
 the key is the same as the option name without the `g:spacevim_` prefix.
 
-Comprehensive documentation is available in `:h SpaceVim`.
+Comprehensive documentation is available in `:h spacevim`.
 Users can also use `SPC h SPC` to fuzzy find the documentation
-of SpaceVim options. This key binding requires one fuzzy finder
+of spacevim options. This key binding requires one fuzzy finder
 layer to be loaded.
 
 **Add custom plugins**
@@ -242,8 +242,8 @@ For adding multiple custom plugins:
 
 **disable existing plugins**
 
-If you want to disable plugins which are added by SpaceVim,
-you can use SpaceVim `disabled_plugins` in the `[options]` section of your configuration file.
+If you want to disable plugins which are added by spacevim,
+you can use spacevim `disabled_plugins` in the `[options]` section of your configuration file.
 
 ```toml
 [options]
@@ -253,11 +253,11 @@ you can use SpaceVim `disabled_plugins` in the `[options]` section of your confi
 
 ### Bootstrap Functions
 
-Due to the limitations of toml syntax, SpaceVim provides two bootstrap function options
+Due to the limitations of toml syntax, spacevim provides two bootstrap function options
 `bootstrap_before` and `bootstrap_after`, which specify two Vim custom functions.
 
 To enable this feature you need to add the following config to the `[options]` section of your
-configuration file `~/.SpaceVim.d/init.toml`.
+configuration file `~/.spacevim.d/init.toml`.
 
 ```toml
 [options]
@@ -265,12 +265,12 @@ configuration file `~/.SpaceVim.d/init.toml`.
     bootstrap_after = 'myspacevim#after'
 ```
 
-The difference is that the bootstrap before function will be called before SpaceVim core,
+The difference is that the bootstrap before function will be called before spacevim core,
 and the bootstrap after function is called on autocmd `VimEnter`, so you can override defaults
 key bindings in `bootstrap_after` function.
 
 The bootstrap functions should be placed in the `autoload` directory
-in `~/.SpaceVim.d/`. In our case, create file `~/.SpaceVim.d/autoload/myspacevim.vim`
+in `~/.spacevim.d/`. In our case, create file `~/.spacevim.d/autoload/myspacevim.vim`
 with the following contents, for example:
 
 ```vim
@@ -306,31 +306,31 @@ The `bootstrap_before` will be called after custom configuration file is loaded.
 And the `bootstrap_after` will be called after Vim Enter autocmd.
 
 If you want to add custom `SPC` prefix key bindings, you can add them to
-bootstrap function, **make sure** the key bindings are not used in SpaceVim.
+bootstrap function, **make sure** the key bindings are not used in spacevim.
 
 ```vim
 function! myspacevim#before() abort
-    call SpaceVim#custom#SPCGroupName(['G'], '+TestGroup')
-    call SpaceVim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
+    call spacevim#custom#SPCGroupName(['G'], '+TestGroup')
+    call spacevim#custom#SPC('nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
 endfunction
 ```
 
 Similarly, if you want to add custom key bindings prefixed by language leader key,
 which is typically `,`, you can add them to the bootstrap function. **Make sure** that the
-key bindings are not used by SpaceVim.
+key bindings are not used by spacevim.
 
 ```vim
 function! myspacevim#before() abort
-    call SpaceVim#custom#LangSPCGroupName('python', ['G'], '+TestGroup')
-    call SpaceVim#custom#LangSPC('python', 'nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
+    call spacevim#custom#LangSPCGroupName('python', ['G'], '+TestGroup')
+    call spacevim#custom#LangSPC('python', 'nore', ['G', 't'], 'echom 1', 'echomessage 1', 1)
 endfunction
 ```
 
 ### Vim compatible mode
 
-The different key bindings between SpaceVim and vim are shown as below.
+The different key bindings between spacevim and vim are shown as below.
 
-- In vim the `s` key replaces the character under the cursor. In SpaceVim it is the `Window` key
+- In vim the `s` key replaces the character under the cursor. In spacevim it is the `Window` key
   binding's specific leader in **Normal** mode. This leader can be changed via the
   `windows_leader` option which uses `s` as the default variable. If you still prefer the original function of `s`,
   you can use an empty string to disable this feature.
@@ -340,7 +340,7 @@ The different key bindings between SpaceVim and vim are shown as below.
       windows_leader = ''
   ```
 
-- In vim the `,` key repeats the last `f`, `F`, `t` and `T`, but in SpaceVim it is the language specific Leader key.
+- In vim the `,` key repeats the last `f`, `F`, `t` and `T`, but in spacevim it is the language specific Leader key.
   To disable this feature, set the option `enable_language_specific_leader` to `false` in the `[options]` section of your configuration file.
 
   ```toml
@@ -348,7 +348,7 @@ The different key bindings between SpaceVim and vim are shown as below.
       enable_language_specific_leader = false
   ```
 
-- In vim the `q` key does recording, but in SpaceVim it is used to close current window.
+- In vim the `q` key does recording, but in spacevim it is used to close current window.
   The option for setting the key binding to close the current window is `windows_smartclose`,
   and the default value is `q`.
   If you prefer to use the original function of `q`, you can use an empty string to disable this feature.
@@ -358,23 +358,23 @@ The different key bindings between SpaceVim and vim are shown as below.
       windows_smartclose = ''
   ```
 
-- In SpaceVim the `jk` key (press `j` then `k` in succession) has been mapped to `<Esc>` in insert mode. To disable this key binding, set `escape_key_binding` to an empty string.
+- In spacevim the `jk` key (press `j` then `k` in succession) has been mapped to `<Esc>` in insert mode. To disable this key binding, set `escape_key_binding` to an empty string.
 
   ```toml
   [options]
       escape_key_binding = ''
   ```
 
-- In vim the `Ctrl-a` binding on the command line can auto-complete variable names, but in SpaceVim it moves to the cursor to the beginning of the command line.
-- In SpaceVim the `Ctrl-b` binding on the command line is mapped to `<Left>`, which will move cursor to the left.
-- In SpaceVim the `Ctrl-f` binding on the command line is mapped to `<Right>`, which will move cursor to the right.
+- In vim the `Ctrl-a` binding on the command line can auto-complete variable names, but in spacevim it moves to the cursor to the beginning of the command line.
+- In spacevim the `Ctrl-b` binding on the command line is mapped to `<Left>`, which will move cursor to the left.
+- In spacevim the `Ctrl-f` binding on the command line is mapped to `<Right>`, which will move cursor to the right.
 
-SpaceVim provides a vimcompatible mode, in vimcompatible mode, all the differences above will disappear.
+spacevim provides a vimcompatible mode, in vimcompatible mode, all the differences above will disappear.
 You can enable the vimcompatible mode by adding `vimcompatible = true` to the `[options]` section of your configuration file.
 
 If you want to disable any differences above, use the relevant options.
 For example, in order to disable language specific leader, you may add the following lines to the `[options]` section of
-`~/.SpaceVim.d/init.toml`:
+`~/.spacevim.d/init.toml`:
 
 ```toml
 [options]
@@ -388,7 +388,7 @@ found in this section.
 
 This section is an overview of layers. A more extensive
 introduction to writing configuration layers can be found in
-[SpaceVim's layers page](http://spacevim.org/layers/)
+[spacevim's layers page](http://spacevim.org/layers/)
 (recommended reading!).
 
 **Purpose**
@@ -400,13 +400,13 @@ To install all the `python` features users only need to add the `lang#python` la
 
 **Structure**
 
-In SpaceVim, a layer is a single file. In a layer, for example, `autocomplete` layer, the file is `autoload/SpaceVim/layers/autocomplete.vim`,
+In spacevim, a layer is a single file. In a layer, for example, `autocomplete` layer, the file is `autoload/spacevim/layers/autocomplete.vim`,
 and there are three public functions:
 
-- `SpaceVim#layers#autocomplete#plugins()`: returns a list of the plugins used by this plugin
-- `SpaceVim#layers#autocomplete#config()`: The layer's configuration, such as key bindings and autocmds
-- `SpaceVim#layers#autocomplete#set_variable()`: Function for setting layer options
-- `SpaceVim#layers#autocomplete#get_options()`: Returns a list of all the available layer options
+- `spacevim#layers#autocomplete#plugins()`: returns a list of the plugins used by this plugin
+- `spacevim#layers#autocomplete#config()`: The layer's configuration, such as key bindings and autocmds
+- `spacevim#layers#autocomplete#set_variable()`: Function for setting layer options
+- `spacevim#layers#autocomplete#get_options()`: Returns a list of all the available layer options
 
 ### Debug upstream plugins
 
@@ -440,18 +440,18 @@ endfunction
 
 ## Interface elements
 
-SpaceVim has a minimalistic and distraction free UI:
+spacevim has a minimalistic and distraction free UI:
 
 - custom airline with color feedback according to current check status
 - custom icon in sign column and error feedbacks for checker.
 
 ### Colorschemes
 
-The default colorscheme of SpaceVim is [gruvbox](https://github.com/morhetz/gruvbox).
+The default colorscheme of spacevim is [gruvbox](https://github.com/morhetz/gruvbox).
 There are two variants of this colorscheme, dark and light. Some aspects
 of these colorschemes can be customized in the custom configuration file, read `:h gruvbox`.
 
-It is possible to change the colorscheme in `~/.SpaceVim.d/init.toml` with
+It is possible to change the colorscheme in `~/.spacevim.d/init.toml` with
 the variable `colorscheme`. For instance, to specify `desert` add the following to the `[options]` section:
 
 ```toml
@@ -467,11 +467,11 @@ the variable `colorscheme`. For instance, to specify `desert` add the following 
 
 All the included colorschemes can be found in [colorscheme layer](../layers/colorscheme/).
 
-SpaceVim supports true colors in terminal, and it is disabled by default, to enable this feature,
+spacevim supports true colors in terminal, and it is disabled by default, to enable this feature,
 you should make sure your terminal supports true colors.
 For more information see: [Colours in terminal](https://gist.github.com/XVilka/8346728).
 
-If your terminal does not support true colors, you can disable SpaceVim true colors feature in `[options]` section:
+If your terminal does not support true colors, you can disable spacevim true colors feature in `[options]` section:
 
 ```toml
 enable_guicolors = false
@@ -479,10 +479,10 @@ enable_guicolors = false
 
 ### Font
 
-The default font used by SpaceVim is [Sauce Code Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro).
+The default font used by spacevim is [Sauce Code Nerd Font](https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro).
 It is recommended to install it on your system if you wish to use it.
 
-To change the default font set the variable `guifont` in your `~/.SpaceVim.d/init.toml` file. By default its value is:
+To change the default font set the variable `guifont` in your `~/.spacevim.d/init.toml` file. By default its value is:
 
 ```toml
 [options]
@@ -606,7 +606,7 @@ Some elements can be dynamically toggled:
 
 **nerd font installation:**
 
-By default SpaceVim uses nerd-fonts, which can be downloaded from their [website](https://nerdfonts.com/font-downloads).
+By default spacevim uses nerd-fonts, which can be downloaded from their [website](https://nerdfonts.com/font-downloads).
 
 **syntax checking integration:**
 
@@ -616,15 +616,15 @@ The default highlight group and colors are:
 
 | highlight group             | color     |
 | --------------------------- | --------- |
-| `SpaceVim_statusline_error` | `#ffc0b9` |
-| `SpaceVim_statusline_warn`  | `#fce094` |
-| `SpaceVim_statusline_info`  | `#8cf8f7` |
-| `SpaceVim_statusline_hint`  | `#a6dbff` |
+| `spacevim_statusline_error` | `#ffc0b9` |
+| `spacevim_statusline_warn`  | `#fce094` |
+| `spacevim_statusline_info`  | `#8cf8f7` |
+| `spacevim_statusline_hint`  | `#a6dbff` |
 
 **Search index integration:**
 
 Search index shows the number of occurrences when performing a search via `/` or `?`.
-SpaceVim integrates the search status nicely by displaying it temporarily when `n` or `N` are being pressed.
+spacevim integrates the search status nicely by displaying it temporarily when `n` or `N` are being pressed.
 See the 20/22 segment in the screenshot below.
 
 ![search status](https://img.spacevim.org/578cc68c-3f3c-11e7-9259-a27419d49572.png)
@@ -697,7 +697,7 @@ If you want to disable major mode cache, you need to charge the layer option of 
 
 **colorscheme of statusline:**
 
-By default SpaceVim only supports colorschemes included in [colorscheme layer](../layers/colorscheme/).
+By default spacevim only supports colorschemes included in [colorscheme layer](../layers/colorscheme/).
 
 If you want to contribute a theme please check the template of a statusline theme.
 
@@ -722,7 +722,7 @@ If you want to contribute a theme please check the template of a statusline them
 " group_r: window id in select mode
 " group_ii: window id in iedit-insert mode
 " group_in: windows id in iedit-normal mode
-function! SpaceVim#mapping#guide#theme#gruvbox#palette() abort
+function! spacevim#mapping#guide#theme#gruvbox#palette() abort
     return [
     \ ['#282828', '#a89984', 246, 235],
     \ ['#a89984', '#504945', 239, 246],
@@ -764,7 +764,7 @@ You can use the bootstrap function to add a custom section to the statusline, fo
 function! s:test_section() abort
   return 'ok'
 endfunction
-call SpaceVim#layers#core#statusline#register_sections('test', function('s:test_section'))
+call spacevim#layers#core#statusline#register_sections('test', function('s:test_section'))
 ```
 
 Then, add `test` section to `statusline_right_sections` option:
@@ -804,7 +804,7 @@ The following two key bindings require neovim v0.10.0+.
 **Note:** `SPC Tab` is the key binding for switching to alternate buffer.
 Read [Buffers and Files](#buffers-and-files) section for more info.
 
-SpaceVim tabline also supports mouse click, the left mouse button will switch to the buffer,
+spacevim tabline also supports mouse click, the left mouse button will switch to the buffer,
 while the middle mouse button will delete the buffer.
 
 **NOTE:** This feature is only supported in Neovim with `has('tablineat')`.
@@ -833,14 +833,14 @@ Key bindings within the tab manager window:
 
 ### File tree
 
-SpaceVim uses `nerdtree` as the default file tree, the default key binding is `<F3>`.
-SpaceVim also provides `SPC f t` and `SPC f T` to open the file tree.
+spacevim uses `nerdtree` as the default file tree, the default key binding is `<F3>`.
+spacevim also provides `SPC f t` and `SPC f T` to open the file tree.
 
 To change the filemanager plugin insert the following to the `[options]` section of your configuration file.
 
 ```toml
 [options]
-    # file manager plugins supported in SpaceVim:
+    # file manager plugins supported in spacevim:
     # - nerdtree (default)
     # - vimfiler: you need to build the vimproc.vim in bundle/vimproc.vim directory
     # - defx: requires +py3 feature
@@ -961,7 +961,7 @@ The following key bindings are the general key bindings for moving the cursor.
 ### Native functions
 
 When vimcompatible is not enabled, some native key bindings of vim
-has been overrided. To use them, SpaceVim provides
+has been overrided. To use them, spacevim provides
 alternate key bindings:
 
 | Key bindings     | Mode   | Action                            |
@@ -998,8 +998,8 @@ The prefixes are mapped to the following keys by default:
 
 | Prefix name | Custom options and default values | Descriptions                        |
 | ----------- | --------------------------------- | ----------------------------------- |
-| `[SPC]`     | NONE / `<Space>`                  | default mapping prefix of SpaceVim  |
-| `[WIN]`     | `windows_leader` / `s`            | window mapping prefix of SpaceVim   |
+| `[SPC]`     | NONE / `<Space>`                  | default mapping prefix of spacevim  |
+| `[WIN]`     | `windows_leader` / `s`            | window mapping prefix of spacevim   |
 | `<Leader>`  | default vim leader                | default leader prefix of vim/Neovim |
 
 The default value of `<Leader>` is `\`, if you want to change this key,
@@ -1033,10 +1033,10 @@ After pressing `Ctrl-h` in guide buffer, you will get paging and help info in th
 | `n`  | next page of guide buffer     |
 | `p`  | previous page of guide buffer |
 
-Use `SpaceVim#custom#SPC()` to define custom SPC mappings. For instance:
+Use `spacevim#custom#SPC()` to define custom SPC mappings. For instance:
 
 ```vim
-call SpaceVim#custom#SPC('nnoremap', ['f', 't'], 'echom "hello world"', 'test custom SPC', 1)
+call spacevim#custom#SPC('nnoremap', ['f', 't'], 'echom "hello world"', 'test custom SPC', 1)
 ```
 
 The first parameter sets the type of shortcut key,
@@ -1079,7 +1079,7 @@ The default mapping guide theme is `leaderguide`, which is same as [vim-leadergu
 #### Code indentation
 
 The default indentation of code is 2, which is controlled by the option `default_indent`.
-If you prefer to use 4 as code indentation. Just add the following snippet to the `[options]` section in the SpaceVim's
+If you prefer to use 4 as code indentation. Just add the following snippet to the `[options]` section in the spacevim's
 configuration file:
 
 ```toml
@@ -1314,7 +1314,7 @@ Key bindings within undo tree windows:
 
 #### Multi-Encodings
 
-SpaceVim uses utf-8 as the default encoding. There are four options for this:
+spacevim uses utf-8 as the default encoding. There are four options for this:
 
 - fileencodings (fencs): ucs-bom,utf-8,default,latin1
 - fileencoding (fenc): utf-8
@@ -1354,7 +1354,7 @@ can change it via `windows_leader` in the `[options]` section:
 | `WIN Q`      | Close current buffer (:close)                      |
 | `Shift-Tab`  | Switch to alternate window (switch back and forth) |
 
-SpaceVim has mapped normal `q` (record a macro) as smart buffer close, and record a macro (vim's `q`) has been mapped to `<Leader> q r`, if you want to disable this feature, you can use `vimcompatible` mode.
+spacevim has mapped normal `q` (record a macro) as smart buffer close, and record a macro (vim's `q`) has been mapped to `<Leader> q r`, if you want to disable this feature, you can use `vimcompatible` mode.
 
 #### General Editor windows
 
@@ -1524,21 +1524,21 @@ It is `[]` by default.
 
 The first item is the name of the tool, the second one is the default searching command.
 
-#### Vim and SpaceVim files
+#### Vim and spacevim files
 
-Convenient key bindings are located under the prefix `SPC f v` to quickly navigate between Vim and SpaceVim specific files.
+Convenient key bindings are located under the prefix `SPC f v` to quickly navigate between Vim and spacevim specific files.
 
 | Key Bindings | Descriptions                                     |
 | ------------ | ------------------------------------------------ |
-| `SPC f v v`  | display and copy SpaceVim version                |
-| `SPC f v d`  | open SpaceVim custom configuration file          |
+| `SPC f v v`  | display and copy spacevim version                |
+| `SPC f v d`  | open spacevim custom configuration file          |
 | `SPC f v s`  | list all loaded vim scripts, like `:scriptnames` |
 
 ### Available layers
 
 All layers can be easily discovered via `:SPLayer -l` accessible with `SPC h l`.
 
-**Available plugins in SpaceVim**
+**Available plugins in spacevim**
 
 All plugins can be easily discovered via `<Leader> f p`.
 
@@ -1618,7 +1618,7 @@ The above key bindings are only part of fuzzy finder layers, please read the lay
 
 #### With an external tool
 
-SpaceVim can be interfaced with different searching tools like:
+spacevim can be interfaced with different searching tools like:
 
 - [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
 - [ag - the silver searcher](https://github.com/ggreer/the_silver_searcher)
@@ -1626,7 +1626,7 @@ SpaceVim can be interfaced with different searching tools like:
 - [ack](https://beyondgrep.com/)
 - grep
 
-The search commands in SpaceVim are organized under the `SPC s`
+The search commands in spacevim are organized under the `SPC s`
 prefix with the next key being the tool to use and the last key is the scope.
 For instance, `SPC s a b` will search in all opened buffers using `ag`.
 
@@ -1673,9 +1673,9 @@ The following example shows how to change the default option of searching tool `
 
 ```vim
 function! myspacevim#before() abort
-    let profile = SpaceVim#mapping#search#getprofile('rg')
+    let profile = spacevim#mapping#search#getprofile('rg')
     let default_opt = profile.default_opts + ['--no-ignore-vcs']
-    call SpaceVim#mapping#search#profile({'rg' : {'default_opts' : default_opt}})
+    call spacevim#mapping#search#profile({'rg' : {'default_opts' : default_opt}})
 endfunction
 ```
 
@@ -1779,7 +1779,7 @@ When this option is `true`, `SPC s /` and `SPC s P` will use `flygrep.nvim`. And
 
 #### Persistent highlighting
 
-SpaceVim uses `search_highlight_persist` to keep the searched expression highlighted until the next search.
+spacevim uses `search_highlight_persist` to keep the searched expression highlighted until the next search.
 It is also possible to clear the highlighting by pressing `[SPC] s c` or executing the ex command `:noh`.
 
 #### Getting help
@@ -1790,7 +1790,7 @@ getting help info about functions, variables etc:
 
 | Key Bindings | Descriptions                                                                  |
 | ------------ | ----------------------------------------------------------------------------- |
-| `SPC h SPC`  | discover SpaceVim documentation, layers and packages using fuzzy finder layer |
+| `SPC h SPC`  | discover spacevim documentation, layers and packages using fuzzy finder layer |
 | `SPC h i`    | get help with the symbol at point                                             |
 | `SPC h g`    | run `:helpgrep` asynchronously                                                |
 | `SPC h G`    | run `:helpgrep` asynchronously with the word under cursor                     |
@@ -1803,7 +1803,7 @@ Reporting an issue:
 
 | Key Bindings | Descriptions                                                    |
 | ------------ | --------------------------------------------------------------- |
-| `SPC h I`    | Open SpaceVim GitHub issue template with pre-filled information |
+| `SPC h I`    | Open spacevim GitHub issue template with pre-filled information |
 
 ### Unimpaired bindings
 
@@ -1984,7 +1984,7 @@ which contains short descriptions of all the mappings starting with `z`.
 
 ### Managing projects
 
-When you open a file, SpaceVim will change the current directory to the root
+When you open a file, spacevim will change the current directory to the root
 directory of the project that contains this file. The project's root directory detection
 is based on the `project_rooter_patterns` in the `[options]` section, and the default value is:
 
@@ -2077,14 +2077,14 @@ To disable the cross session cache, change `enable_projects_cache` to `false`.
 To manage the alternate file of the project, you need to create a `.project_alt.json` file
 in the root of your project. Then you can use the command `:A` to jump to the alternate file of
 current file. You can also specific the type of alternate file, for example `:A doc`.
-With a bang `:A!`, SpaceVim will parse the configuration file additionally. If no type is specified,
+With a bang `:A!`, spacevim will parse the configuration file additionally. If no type is specified,
 the default type `alternate` will be used.
 
 here is an example of `.project_alt.json`:
 
 ```json
 {
-  "autoload/SpaceVim/layers/lang/*.vim": {
+  "autoload/spacevim/layers/lang/*.vim": {
     "doc": "docs/layers/lang/{}.md",
     "test": "test/layer/lang/{}.vader"
   }
@@ -2094,7 +2094,7 @@ here is an example of `.project_alt.json`:
 Instead of using json file, the alternate file manager also support toml file, for example:
 
 ```toml
-["autoload/SpaceVim/layers/lang/*.vim"]
+["autoload/spacevim/layers/lang/*.vim"]
     # You can use comments in toml file.
     doc = "docs/layers/lang/{}.md"
     test = "test/layer/lang/{}.vader"
@@ -2140,7 +2140,7 @@ the `tools` layer:
 | `m p`        | Jump to previous bookmark            |
 | `m i`        | Annotate bookmark                    |
 
-As SpaceVim uses the above mappings, you cannot use the `a`, `c`, `m`, `n`,
+As spacevim uses the above mappings, you cannot use the `a`, `c`, `m`, `n`,
 `p` or `i` registers to mark the current position, but other registers should work well.
 If you really need to use these registers, you can map `<Leader> m` to `m`
 in your bootstrap function, then you can use the registers via `<Leader> m <register>`.
@@ -2153,11 +2153,11 @@ endfunction
 
 ### Tasks
 
-To integrate with external tools, SpaceVim introduced a task manager system,
+To integrate with external tools, spacevim introduced a task manager system,
 which is similar to VSCode's tasks-manager. There are two kinds of task configurations file:
 
-- `~/.SpaceVim.d/tasks.toml`: global tasks configuration
-- `.SpaceVim.d/tasks.toml`: project local tasks configuration
+- `~/.spacevim.d/tasks.toml`: global tasks configuration
+- `.spacevim.d/tasks.toml`: project local tasks configuration
 
 The tasks defined in the global tasks configuration can be overrided by project local
 tasks configuration.
@@ -2213,7 +2213,7 @@ The following task properties are available:
 **Note**: When a new task is executed, it will kill the previous task. If you want to keep the task,
 run it in background by setting `isBackground` to `true`.
 
-SpaceVim supports variable substitution in the task properties, The following predefined variables are supported:
+spacevim supports variable substitution in the task properties, The following predefined variables are supported:
 
 | Name                        | Description                                            |
 | --------------------------- | ------------------------------------------------------ |
@@ -2260,7 +2260,7 @@ If the `errorformat` property is not defined, the `&errorformat` option will be 
 ```toml
 [test_problemMatcher]
     command = "echo"
-    args = ['.SpaceVim.d/tasks.toml:6:1 test error message']
+    args = ['.spacevim.d/tasks.toml:6:1 test error message']
     isBackground = true
 [test_problemMatcher.problemMatcher]
     useStdout = true
@@ -2273,7 +2273,7 @@ Here is an example:
 ```toml
 [test_regexp]
     command = "echo"
-    args = ['.SpaceVim.d/tasks.toml:12:1 test error message']
+    args = ['.spacevim.d/tasks.toml:12:1 test error message']
     isBackground = true
 [test_regexp.problemMatcher]
     useStdout = true
@@ -2288,7 +2288,7 @@ Here is an example:
 
 #### Task auto-detection
 
-Currently, SpaceVim can auto-detect tasks for npm.
+Currently, spacevim can auto-detect tasks for npm.
 the tasks manager will parse the `package.json` file for npm packages.
 If you have cloned the [eslint-starter](https://github.com/spicydonuts/eslint-starter). for example, pressing `SPC p t r` shows the following list:
 
@@ -2328,7 +2328,7 @@ function! s:make_tasks() abort
         return {}
     endif
 endfunction
-call SpaceVim#plugins#tasks#reg_provider(function('s:make_tasks'))
+call spacevim#plugins#tasks#reg_provider(function('s:make_tasks'))
 ```
 
 The provider also can be implemented in lua, for example:
@@ -2368,7 +2368,7 @@ end
 task.reg_provider(make_tasks)
 ```
 
-With the above configuration, you will see the following tasks in the SpaceVim repo:
+With the above configuration, you will see the following tasks in the spacevim repo:
 
 ![task-make](https://img.spacevim.org/75105016-084cac80-564b-11ea-9fe6-75d86a0dbb9b.png)
 
@@ -2405,7 +2405,7 @@ To fix this issue, you need to install other searching tool, for example `rg`. a
 
 ### Replace text with iedit
 
-SpaceVim uses a powerful iedit mode to quickly edit multiple occurrences of a symbol or selection.
+spacevim uses a powerful iedit mode to quickly edit multiple occurrences of a symbol or selection.
 
 **Two new modes:** `iedit-Normal`/`iedit-Insert`
 
@@ -2472,14 +2472,14 @@ The default color for iedit is `red`/`green` which is based on the current color
 
 ### Code runner
 
-SpaceVim provides an asynchronous code runner plugin. In most language layers,
+spacevim provides an asynchronous code runner plugin. In most language layers,
 the key binding `SPC l r` is defined for running the current buffer.
 To close the code runner windows, you can use ``Ctrl-` `` key binding.
 If you need to add new commands, you can use the bootstrap function. For example:
 Use `F5` to build the project asynchronously.
 
 ```vim
-nnoremap <silent> <F5> :call SpaceVim#plugins#runner#open('make')
+nnoremap <silent> <F5> :call spacevim#plugins#runner#open('make')
 ```
 
 Key bindings within code runner buffer:
@@ -2491,12 +2491,12 @@ Key bindings within code runner buffer:
 
 #### Custom runner
 
-If you want to set custom code runner for specific language. You need to use `SpaceVim#plugins#runner#reg_runner(ft, runner)` api in bootstrap function.
+If you want to set custom code runner for specific language. You need to use `spacevim#plugins#runner#reg_runner(ft, runner)` api in bootstrap function.
 
 example:
 
 ```vim
-call SpaceVim#plugins#runner#reg_runner('lua', {
+call spacevim#plugins#runner#reg_runner('lua', {
       \ 'exe' : 'lua',
       \ 'opt' : ['-'],
       \ 'usestdin' : 1,
@@ -2517,7 +2517,7 @@ Key bindings within repl buffer:
 
 ### Highlight current symbol
 
-SpaceVim supports highlighting current symbol on demand and add a transient
+spacevim supports highlighting current symbol on demand and add a transient
 state to easily navigate and rename these symbols.
 
 It is also possible to change the range of the navigation on the fly, the
@@ -2553,7 +2553,7 @@ In highlight symbol transient state, the following key bindings can be used:
 
 ### Error handling
 
-SpaceVim uses [neomake](https://github.com/neomake/neomake) to give error feedback on the fly.
+spacevim uses [neomake](https://github.com/neomake/neomake) to give error feedback on the fly.
 The checks are only performed at save time by default.
 
 Error management mappings (start with e):
@@ -2590,6 +2590,6 @@ Custom sign symbol:
 
 ### EditorConfig
 
-SpaceVim supports [EditorConfig](https://editorconfig.org/), a configuration file to “define and maintain consistent coding styles between different editors and IDEs.”
+spacevim supports [EditorConfig](https://editorconfig.org/), a configuration file to “define and maintain consistent coding styles between different editors and IDEs.”
 
 To customize your editorconfig experience, read the [editorconfig-vim package’s documentation](https://github.com/editorconfig/editorconfig-vim/blob/master/README.md).

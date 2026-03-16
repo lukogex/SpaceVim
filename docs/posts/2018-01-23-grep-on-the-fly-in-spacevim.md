@@ -1,5 +1,5 @@
 ---
-title: "Grep on the fly in SpaceVim"
+title: "Grep on the fly in spacevim"
 categories: [feature, blog]
 description: "Grep and replace asynchronously, display searching results on the fly based on user input"
 image: https://img.spacevim.org/80607963-b704d300-8a68-11ea-99c4-5b5bd653cb24.gif
@@ -15,7 +15,7 @@ FlyGrep means **grep on the fly**, it will update the result as you type. Of cou
 asynchronously. Before using this feature, you need to install a searching tool. FlyGrep works
 through search tools: `ag`, `rg`, `ack`, `pt` and `grep`, Choose one you like.
 
-This ia a built-in plugin in SpaceVim, and we also separated a plugin : [FlyGrep.vim](https://github.com/wsdjeg/FlyGrep.vim)
+This ia a built-in plugin in spacevim, and we also separated a plugin : [FlyGrep.vim](https://github.com/wsdjeg/FlyGrep.vim)
 
 ## Install
 
@@ -29,7 +29,7 @@ In linux os, flygrep use grep by default, if you want a more fast tool, you can 
 
 - **Search in a project**
 
-In SpaceVim, you can use `SPC s p` or `SPC s /` to search in the current project.
+In spacevim, you can use `SPC s p` or `SPC s /` to search in the current project.
 
 ![searching project](https://img.spacevim.org/80607963-b704d300-8a68-11ea-99c4-5b5bd653cb24.gif)
 
@@ -56,7 +56,7 @@ If you need background searching, you can press `SPC s j`, after searching is do
 
 ## Key bindings
 
-The search commands in SpaceVim are organized under the `SPC s` prefix with the next key is the tool to use and the last key is the scope. For instance `SPC s a b` will search in all opened buffers using `ag`.
+The search commands in spacevim are organized under the `SPC s` prefix with the next key is the tool to use and the last key is the scope. For instance `SPC s a b` will search in all opened buffers using `ag`.
 
 If the last key (determining the scope) is uppercase then the current word under the cursor is used as default input for the search. For instance `SPC s a B` will search with word under cursor.
 

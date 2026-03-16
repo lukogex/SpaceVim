@@ -23,20 +23,20 @@ local function def_colors()
     t = vim.g.spacevim_custom_color_palette
   else
     local ok = pcall(function()
-      t = vim.fn['SpaceVim#mapping#guide#theme#' .. name .. '#palette']()
+      t = vim.fn['spacevim#mapping#guide#theme#' .. name .. '#palette']()
     end)
 
     if not ok then
-      t = vim.fn['SpaceVim#mapping#guide#theme#gruvbox#palette']()
+      t = vim.fn['spacevim#mapping#guide#theme#gruvbox#palette']()
     end
   end
-  vim.api.nvim_set_hl(0, 'SpaceVim_winbar', {
+  vim.api.nvim_set_hl(0, 'spacevim_winbar', {
     fg = t[2][1],
     bg = t[2][2],
     ctermfg = t[2][4],
     ctermbg = t[2][3],
   })
-  highlight.hi_separator('SpaceVim_winbar', 'Normal')
+  highlight.hi_separator('spacevim_winbar', 'Normal')
 end
 
 local function redraw_winbar()
@@ -46,7 +46,7 @@ local function redraw_winbar()
     return
   end
 
-  local value = '%#SpaceVim_winbar#' .. file_name .. ' %#SpaceVim_winbar_Normal#' .. default_conf.winbar_seperator .. '%#Normal#'
+  local value = '%#spacevim_winbar#' .. file_name .. ' %#spacevim_winbar_Normal#' .. default_conf.winbar_seperator .. '%#Normal#'
 
   vim.api.nvim_set_option_value('winbar', value, { scope = 'local' })
 end

@@ -6,7 +6,7 @@
 " License: GPLv3
 "=============================================================================
 
-let s:LOGGER =SpaceVim#logger#derive('clipboard')
+let s:LOGGER =spacevim#logger#derive('clipboard')
 
 " This script is based on kamilkrz (Kamil Krześ)'s idea about using clipboard.
 

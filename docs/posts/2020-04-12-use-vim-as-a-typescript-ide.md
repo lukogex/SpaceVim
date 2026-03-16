@@ -2,7 +2,7 @@
 title: "Use Vim as a TypeScript IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/79134364-2bd8db80-7de0-11ea-848e-71d3f07cb79d.png
-description: "A general guide for using SpaceVim as TypeScript IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as TypeScript IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a TypeScript IDE"
@@ -11,7 +11,7 @@ language: TypeScript
 
 # [Blogs](../blog/) >> Use Vim as a TypeScript IDE
 
-This is a general guide for using SpaceVim as a TypeScript IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a TypeScript IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -29,14 +29,14 @@ Each of the following sections will be covered:
 
 This tutorial is not intended to teach you TypeScript itself.
 
-If you have any problems, feel free to join the [SpaceVim gitter chatting room](https://gitter.im/SpaceVim/SpaceVim) for general discussion.
+If you have any problems, feel free to join the [spacevim gitter chatting room](https://gitter.im/spacevim/spacevim) for general discussion.
 
 ### Enable language layer
 
-TypeScript language support in SpaceVim is provided by `lang#typescript` layer.
-This layer is not loaded by default. To add TypeScript language support in SpaceVim,
+TypeScript language support in spacevim is provided by `lang#typescript` layer.
+This layer is not loaded by default. To add TypeScript language support in spacevim,
 you need to enable the `lang#typescript` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]
@@ -66,7 +66,7 @@ npm install -g eslint
 
 ### Jump to test file
 
-SpaceVim use built-in plugin to manage the files in a project,
+spacevim use built-in plugin to manage the files in a project,
 you can add a `.project_alt.json` to the root of your project with following content:
 
 ```json

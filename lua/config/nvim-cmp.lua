@@ -4,7 +4,7 @@ local cmp = require('cmp')
 --
 vim.o.tagbsearch = false
 
-local copt = vim.fn['SpaceVim#layers#autocomplete#get_variable']()
+local copt = vim.fn['spacevim#layers#autocomplete#get_variable']()
 
 local feedkey = function(key, mode)
   vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)

@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim autocomplete layer"
-description: "Autocomplete code within SpaceVim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically"
+title: "spacevim autocomplete layer"
+description: "Autocomplete code within spacevim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically"
 ---
 
 # [Home](../../) >> [Layers](../) >> autocomplete
@@ -23,7 +23,7 @@ description: "Autocomplete code within SpaceVim, fuzzy find the candidates from 
 
 ## Description
 
-This layer provides auto-completion in SpaceVim.
+This layer provides auto-completion in spacevim.
 
 The following completion engines are supported:
 
@@ -51,7 +51,7 @@ To use this configuration layer, add the following snippet to your custom config
 
 ### Completion engine
 
-By default, SpaceVim will choose the completion engine automatically based on your vim version.
+By default, spacevim will choose the completion engine automatically based on your vim version.
 But you can choose the completion engine to be used with the following variable:
 
 - `autocomplete_method`: the possible values are:
@@ -87,9 +87,9 @@ The following snippets repos have been added by default:
 
 If the `snippet_engine` is `neosnippet`, the following directories will be used:
 
-- `~/.SpaceVim/snippets/`: SpaceVim runtime snippets.
-- `~/.SpaceVim.d/snippets/`: custom global snippets.
-- `./.SpaceVim.d/snippets/`: custom local snippets (project's snippets)
+- `~/.spacevim/snippets/`: spacevim runtime snippets.
+- `~/.spacevim.d/snippets/`: custom global snippets.
+- `./.spacevim.d/snippets/`: custom local snippets (project's snippets)
 
 You can provide additional directories by setting the
 variable `g:neosnippet#snippets_directory` which can take a string
@@ -97,9 +97,9 @@ in case of a single path or a list of paths.
 
 If the `snippet_engine` is `ultisnips`, the following directories will be used:
 
-- `~/.SpaceVim/UltiSnips/`: SpaceVim runtime snippets.
-- `~/.SpaceVim.d/UltiSnips/`: custom global snippets.
-- `./.SpaceVim.d/UltiSnips/`: custom local snippets (project's snippets)
+- `~/.spacevim/UltiSnips/`: spacevim runtime snippets.
+- `~/.spacevim.d/UltiSnips/`: custom global snippets.
+- `./.spacevim.d/UltiSnips/`: custom local snippets (project's snippets)
 
 ### Complete parens
 

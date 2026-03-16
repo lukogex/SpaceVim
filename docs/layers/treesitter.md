@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim treesitter layer"
+title: "spacevim treesitter layer"
 description: "This layers adds extensive support for treesitter"
 ---
 

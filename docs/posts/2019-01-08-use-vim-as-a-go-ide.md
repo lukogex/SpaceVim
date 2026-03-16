@@ -2,7 +2,7 @@
 title: "使用 Vim 搭建 Go 开发环境"
 categories: [tutorials_cn, blog_cn]
 image: https://img.spacevim.org/57321608-4a484880-7134-11e9-8e43-5fa05085d7e5.png
-description: "这篇文章主要介绍如何使用 SpaceVim 搭建 Go 的开发环境，简介 lang#go 模块所支持的功能特性以及使用技巧"
+description: "这篇文章主要介绍如何使用 spacevim 搭建 Go 的开发环境，简介 lang#go 模块所支持的功能特性以及使用技巧"
 permalink: /cn/:title/
 lang: zh
 type: article
@@ -13,8 +13,8 @@ language: Golang
 
 # [Blogs](../blog/) >> 使用 Vim 搭建 Go 开发环境
 
-SpaceVim 是一个模块化的 Vim IDE，针对 Go 这一语言的支持主要依靠 `lang#go` 模块以及与之相关的其他模块。
-的这篇文章主要介绍如何使用 SpaceVim 搭建 Go 的开发环境，侧重介绍跟 Go 开发相关使用技巧。
+spacevim 是一个模块化的 Vim IDE，针对 Go 这一语言的支持主要依靠 `lang#go` 模块以及与之相关的其他模块。
+的这篇文章主要介绍如何使用 spacevim 搭建 Go 的开发环境，侧重介绍跟 Go 开发相关使用技巧。
 在阅读这篇文章之前，可以先阅读《[使用 Vim 搭建基础的开发环境](../use-vim-as-ide/)》，对语言相关以外的功能有一个大致的了解。
 
 <!-- vim-markdown-toc GFM -->
@@ -31,7 +31,7 @@ SpaceVim 是一个模块化的 Vim IDE，针对 Go 这一语言的支持主要�
 
 ### 安装模块
 
-SpaceVim 初次安装时默认并未启用相关语言模块。首先需要启用
+spacevim 初次安装时默认并未启用相关语言模块。首先需要启用
 `lang#go` 模块, 通过快捷键 `SPC f v d` 打开配置文件，添加：
 
 ```toml
@@ -44,19 +44,19 @@ SpaceVim 初次安装时默认并未启用相关语言模块。首先需要启�
 
 ### 代码自动补全
 
-`autocomplete` 模块为 SpaceVim 提供了自动补全功能，
+`autocomplete` 模块为 spacevim 提供了自动补全功能，
 该模块会根据当前环境自动在多种补全引擎之间选择合适的，
 默认的补全引擎有：deoplete、neocomplete、ycm、asyncomplete 以及 neocomplcache。
 几种自动补全引擎当中，要数 deoplete 的体验效果最好。
 
 ### 语法检查
 
-`checkers` 模块为 SpaceVim 提供了语法检查的功能，该模块默认已经载入。该模块默认使用 [neomake](https://github.com/neomake/neomake)
+`checkers` 模块为 spacevim 提供了语法检查的功能，该模块默认已经载入。该模块默认使用 [neomake](https://github.com/neomake/neomake)
 这一异步语法检查工具。对于 luac 的支持，是通过异步调用 luac 命令来完成的。
 
 ### 工程文件跳转
 
-SpaceVim 自带工程管理插件，可以识别项目根目录，自动跳转alternate文件。
+spacevim 自带工程管理插件，可以识别项目根目录，自动跳转alternate文件。
 
 ### 快速运行
 

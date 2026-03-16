@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim language server protocol layer"
+title: "spacevim language server protocol layer"
 description: "This layers provides language server protocol for vim and neovim"
 ---
 

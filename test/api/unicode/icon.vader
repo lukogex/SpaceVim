@@ -1,6 +1,6 @@
-Execute ( SpaceVim api: unicode#icon ):
+Execute ( spacevim api: unicode#icon ):
   let &encoding = 'utf-8'
-  let icon = SpaceVim#api#import('unicode#icon')
+  let icon = spacevim#api#import('unicode#icon')
   AssertEqual icon.battery_status(90), ''
   AssertEqual icon.battery_status(75), ''
   AssertEqual icon.battery_status(50), ''

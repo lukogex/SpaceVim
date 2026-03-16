@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#clojure layer"
+title: "spacevim lang#clojure layer"
 description: "This layer is for Clojure development, provides autocompletion, syntax checking, code format for Clojure files."
 ---
 

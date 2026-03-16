@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#wolfram layer"
+title: "spacevim lang#wolfram layer"
 description: "This layer is for wolfram development, provides syntax checking, code runner and repl support for wolfram files."
 ---
 

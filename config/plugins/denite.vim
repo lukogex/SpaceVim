@@ -1,6 +1,6 @@
 scriptencoding utf-8
 " load api
-let s:sys = SpaceVim#api#import('system')
+let s:sys = spacevim#api#import('system')
 
 
 " denite option
@@ -40,13 +40,13 @@ if !s:sys.isWindows
     " Note: It is slower than ag
     call denite#custom#var('file/rec', 'command',
           \ ['rg', '--hidden', '--files', '--glob', '!.git', '--glob', '']
-          \ + SpaceVim#util#Generate_ignore(g:spacevim_wildignore, 'rg')
+          \ + spacevim#util#Generate_ignore(g:spacevim_wildignore, 'rg')
           \ )
   elseif executable('ag')
     " Change file/rec command.
     call denite#custom#var('file/rec', 'command',
           \ ['ag' , '--nocolor', '--nogroup', '-g', '']
-          \ + SpaceVim#util#Generate_ignore(g:spacevim_wildignore, 'ag')
+          \ + spacevim#util#Generate_ignore(g:spacevim_wildignore, 'ag')
           \ )
   endif
 else
@@ -245,7 +245,7 @@ function! s:denite_backspace() abort
 endfunction
 
 function! s:delete_action() abort
-  if SpaceVim#layers#core#statusline#denite_status("sources") =~# '^buffer'
+  if spacevim#layers#core#statusline#denite_status("sources") =~# '^buffer'
     return denite#do_map('do_action', 'delete')
   else
     return ''

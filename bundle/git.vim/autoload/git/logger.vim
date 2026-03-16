@@ -1,9 +1,9 @@
 if exists('g:spacevim_version')
-  let s:LOG = SpaceVim#logger#derive('git.vim')
+  let s:LOG = spacevim#logger#derive('git.vim')
   call s:LOG.start_debug()
-  let s:NOTI = SpaceVim#api#import('notify')
+  let s:NOTI = spacevim#api#import('notify')
   function! git#logger#view()
-    call SpaceVim#logger#viewRuntimeLog()
+    call spacevim#logger#viewRuntimeLog()
   endfunction
 
   function! git#logger#clear() abort
@@ -11,7 +11,7 @@ if exists('g:spacevim_version')
     call s:NOTI.notify('using derived logger, can not clear log')
   endfunction
 else
-  let s:LOG = SpaceVim#api#import('logger')
+  let s:LOG = spacevim#api#import('logger')
 
   call s:LOG.set_name('git.vim')
   call s:LOG.set_level(1)

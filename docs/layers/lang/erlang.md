@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#elang layer"
+title: "spacevim lang#elang layer"
 description: "This layer is for Erlang development, provides autocompletion, syntax checking and code formatting for Erlang files."
 ---
 
@@ -27,7 +27,7 @@ This layer is for Erlang development.
 - syntax highlighting
 - syntax checking
 
-SpaceVim also provides REPL, code runner and Language Server protocol support for Erlang. To enable language server protocol
+spacevim also provides REPL, code runner and Language Server protocol support for Erlang. To enable language server protocol
 for Erlang, you need to load `lsp` layer for Erlang.
 
 ## Install

@@ -1,7 +1,7 @@
 ---
 title: "Newsletter #2 - Never lost, Never give up"
 categories: [newsletter, blog]
-description: "We know exactly what is the purpose of SpaceVim, and we keep trying to get it, never get lost, never give up..."
+description: "We know exactly what is the purpose of spacevim, and we keep trying to get it, never get lost, never give up..."
 image: https://img.spacevim.org/80607642-54abd280-8a68-11ea-98ec-4998d099d797.png
 commentsID: "Never lost Never give up"
 comments: true
@@ -9,21 +9,21 @@ comments: true
 
 # [newsletter](https://spacevim.org/development#newsletter) > Never lost, Never give up
 
-Welcome to the second newsletter for SpaceVim, a project that hopes to turn vim into a modular IDE for most languages.
+Welcome to the second newsletter for spacevim, a project that hopes to turn vim into a modular IDE for most languages.
 
-## What is SpaceVim
+## What is spacevim
 
-SpaceVim is a vim distribution which's inspired by spacemacs. It manages collection of plugins in layers, which help collect related packages together to provide features. For example, the [python layer](http://spacevim.org/layers/lang/python/) collects [deoplete.nvim](https://github.com/Shougo/deoplete.nvim/), [neomake](https://github.com/neomake/neomake) and [deoplete-jedi](https://github.com/zchee/deoplete-jedi) together to provides autocompletion, syntax checking, and documentation lookup. This approach helps keep configuration organized and reduces overhead for users by keeping them from having to think about what packages to install.
+spacevim is a vim distribution which's inspired by spacemacs. It manages collection of plugins in layers, which help collect related packages together to provide features. For example, the [python layer](http://spacevim.org/layers/lang/python/) collects [deoplete.nvim](https://github.com/Shougo/deoplete.nvim/), [neomake](https://github.com/neomake/neomake) and [deoplete-jedi](https://github.com/zchee/deoplete-jedi) together to provides autocompletion, syntax checking, and documentation lookup. This approach helps keep configuration organized and reduces overhead for users by keeping them from having to think about what packages to install.
 
-The development of SpaceVim happened on github: <https://github.com/SpaceVim/SpaceVim>.
+The development of spacevim happened on github: <https://github.com/spacevim/spacevim>.
 
 ## Participating
 
-If you are interested in contributing to SpaceVim, read the [development](http://spacevim.org/development/) page to get start. You can also join our [community channels](http://spacevim.org/community/).
+If you are interested in contributing to spacevim, read the [development](http://spacevim.org/development/) page to get start. You can also join our [community channels](http://spacevim.org/community/).
 
 ## What's new
 
-The last newsletter was posted on May 31, SpaceVim has released 4 releases.
+The last newsletter was posted on May 31, spacevim has released 4 releases.
 
 ### Release 0.3.1
 
@@ -39,11 +39,11 @@ new features in this release:
 - `z` prefix key bindings guide
 - `SPC s` prefix key bindings for searching && searching index
 
-for more info, please check the [release page of 0.3.1](https://spacevim.org/SpaceVim-release-v0.3.1/)
+for more info, please check the [release page of 0.3.1](https://spacevim.org/spacevim-release-v0.3.1/)
 
 ### Release 0.4.0
 
-Next let’s see what happened in 0.4.0. As before, check out the [release notes](https://spacevim.org/SpaceVim-release-v0.4.0/) for details.
+Next let’s see what happened in 0.4.0. As before, check out the [release notes](https://spacevim.org/spacevim-release-v0.4.0/) for details.
 
 - background searching and grep on the fly in incsearch layer
 - add prompt and web api
@@ -61,11 +61,11 @@ This release is a big release after 0.4.0, three months development brings many 
 - project manager and remote manager
 - new language layers
 
-for more info, please check the [release page of 0.5.0](https://spacevim.org/SpaceVim-release-v0.5.0/)
+for more info, please check the [release page of 0.5.0](https://spacevim.org/spacevim-release-v0.5.0/)
 
 ### Release 0.6.0
 
-The latest release brings a host of fixes and improvements. We will list some new features here, and be sure to check the [release page](https://spacevim.org/SpaceVim-release-v0.6.0/) for all the details.
+The latest release brings a host of fixes and improvements. We will list some new features here, and be sure to check the [release page](https://spacevim.org/spacevim-release-v0.6.0/) for all the details.
 
 - gf support in windows for plugin manager
 - runner/debuger/REPL support for language layer
@@ -74,22 +74,22 @@ The latest release brings a host of fixes and improvements. We will list some ne
 
 ### 0.7.0-dev
 
-The develop version of SpaceVim is 0.7.0-dev now, here is a list of new features.
+The develop version of spacevim is 0.7.0-dev now, here is a list of new features.
 
 - Guide for windows key bindings: `s` prefix
 - new language layer: `lang#dart`
 - new layer: `cscope`
 - key bindings help describe
 
-for more info, you can check the [pull requests](https://github.com/SpaceVim/SpaceVim/pulls?q=is%3Apr+is%3Aclosed)
+for more info, you can check the [pull requests](https://github.com/spacevim/spacevim/pulls?q=is%3Apr+is%3Aclosed)
 
 ### Upcoming features
 
-we recommand to read the [roadmap](https://spacevim.org/roadmap/) of SpaceVim. You can also check the PR list of SpaceVim:
+we recommand to read the [roadmap](https://spacevim.org/roadmap/) of spacevim. You can also check the PR list of spacevim:
 
-https://github.com/SpaceVim/SpaceVim/pulls
+https://github.com/spacevim/spacevim/pulls
 
-[#1102](https://github.com/SpaceVim/SpaceVim/pull/1102) is PR for useing floating windows for grep on the fly, But this need a new neovim [WIP feature](https://github.com/neovim/neovim/pull/6619).
+[#1102](https://github.com/spacevim/spacevim/pull/1102) is PR for useing floating windows for grep on the fly, But this need a new neovim [WIP feature](https://github.com/neovim/neovim/pull/6619).
 
 ## Thanks
 

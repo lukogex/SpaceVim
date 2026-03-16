@@ -1,4 +1,4 @@
-let s:LOGGER = SpaceVim#logger#derive('bookmark')
+let s:LOGGER = spacevim#logger#derive('bookmark')
 
 function! bookmarks#logger#info(msg) abort
   call s:LOGGER.info(a:msg)

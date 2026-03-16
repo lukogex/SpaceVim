@@ -8,7 +8,7 @@
 
 local default_opt = {
   timeoutlen = 60 * 5 * 1000,
-  backupdir = '~/.cache/SpaceVim/backup/',
+  backupdir = '~/.cache/spacevim/backup/',
   save_all_buffers = false,
   event = { 'InsertLeave', 'TextChanged' },
   filetype = {},

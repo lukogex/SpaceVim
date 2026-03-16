@@ -2,7 +2,7 @@
 title: "Use Vim as a Clojure IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/95338841-f07a1e00-08e5-11eb-9e1b-6dbc5c4ad7de.png
-description: "A general guide for using SpaceVim as Clojure IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Clojure IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Clojure IDE"
@@ -11,7 +11,7 @@ language: Clojure
 
 # [Blogs](../blog/) >> Use Vim as a Clojure IDE
 
-This is a general guide for using SpaceVim as a Clojure IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a Clojure IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 ![clojure-ide](https://img.spacevim.org/95338841-f07a1e00-08e5-11eb-9e1b-6dbc5c4ad7de.png)
@@ -33,10 +33,10 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-`lang#clojure` layer provides clojure language specific features for SpaceVim.
+`lang#clojure` layer provides clojure language specific features for spacevim.
 This layer is not enabled by default. To write clojure language,
 you need to enable the `lang#clojure` layer.
-Press `SPC f v d` to open SpaceVim configuration file, and add following configuration:
+Press `SPC f v d` to open spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]
@@ -146,7 +146,7 @@ And the default key binding is `SPC b f`.
 
 ### Tasks manage
 
-SpaceVim will detect [`lein`](https://leiningen.org/) project tasks automatically. If there is `project.clj` file in the root directory
+spacevim will detect [`lein`](https://leiningen.org/) project tasks automatically. If there is `project.clj` file in the root directory
 of your project. following tasks will be detected:
 
 ![taskmanager](https://img.spacevim.org/95338987-1a334500-08e6-11eb-80c4-ad811095d8c8.png)

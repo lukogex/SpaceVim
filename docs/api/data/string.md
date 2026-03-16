@@ -17,7 +17,7 @@ description: "data#string API provides some basic functions and values for strin
 `data#string` API provides some functions to manipulate a string. Here is an example for using this api:
 
 ```vim
-let s:STR = SpaceVim#api#import('data#string')
+let s:STR = spacevim#api#import('data#string')
 let str1 = '  hello world   '
 let str2 = s:STR.trim(str1)
 echo str1

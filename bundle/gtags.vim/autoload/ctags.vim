@@ -20,7 +20,7 @@ if has('nvim-0.7.0')
 endif
 
 
-let s:LOGGER =SpaceVim#logger#derive('ctags')
+let s:LOGGER =spacevim#logger#derive('ctags')
 
 if !exists('g:gtags_ctags_bin')
   let g:gtags_ctags_bin = 'ctags'
@@ -31,8 +31,8 @@ if !executable(g:gtags_ctags_bin)
   finish
 endif
 
-let s:JOB = SpaceVim#api#import('job')
-let s:FILE = SpaceVim#api#import('file')
+let s:JOB = spacevim#api#import('job')
+let s:FILE = spacevim#api#import('file')
 
 
 let s:is_u_ctags = 0
@@ -109,9 +109,9 @@ endfunction
 
 function! s:on_update_exit(id, data, event) abort
   " @bug on exit function is not called when failed
-  " C:\Users\wsdjeg\.SpaceVim>C:\Users\wsdjeg\.SpaceVim\bundle\phpcomplete.vim\bin\ctags.exe -R -o C:/Users/wsdjeg/.cache/SpaceVim/tags/C__Users_wsdjeg__SpaceVim_/tags C:\Users\wsdjeg\.SpaceVim
+  " C:\Users\wsdjeg\.spacevim>C:\Users\wsdjeg\.spacevim\bundle\phpcomplete.vim\bin\ctags.exe -R -o C:/Users/wsdjeg/.cache/spacevim/tags/C__Users_wsdjeg__spacevim_/tags C:\Users\wsdjeg\.spacevim
   "
-  " C:\Users\wsdjeg\.SpaceVim>echo %ERRORLEVEL%
+  " C:\Users\wsdjeg\.spacevim>echo %ERRORLEVEL%
   " -1073741819
   " https://github.com/neovim/neovim/issues/20856
   if a:data != 0

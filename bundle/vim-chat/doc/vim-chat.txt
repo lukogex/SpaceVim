@@ -9,7 +9,7 @@ CONTENTS                                                   *vim-chat-contents*
 INTRODUCTION                                                  *vim-chat-intro*
 
 vim-chat is a simple plugin for chatting in vim and neovim. This plugin
-requires SpaceVim API and |job| support.
+requires spacevim API and |job| support.
 
 
 vim:tw=78:ts=8:ft=help:norl:

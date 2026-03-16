@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#c layer"
-description: "C/C++/Object-C language support for SpaceVim, including code completion, jump to definition, and quick runner."
+title: "spacevim lang#c layer"
+description: "C/C++/Object-C language support for spacevim, including code completion, jump to definition, and quick runner."
 ---
 
 # [Available Layers](../../) >> lang#c
@@ -21,7 +21,7 @@ description: "C/C++/Object-C language support for SpaceVim, including code compl
 
 ## Description
 
-`lang#c` layer provides c/c++/object-c language support for SpaceVim.
+`lang#c` layer provides c/c++/object-c language support for spacevim.
 
 ## Install
 
@@ -92,7 +92,7 @@ Here is an example how to use above options:
 ```
 
 Instead of using `clang_flag` options, You can also create a `.clang` file
-in the root directory of your project. SpaceVim will load the options
+in the root directory of your project. spacevim will load the options
 defined in `.clang` file. For example:
 
 ```

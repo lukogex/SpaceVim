@@ -1,12 +1,12 @@
 ---
-title: SpaceVim release v2.4.0
+title: spacevim release v2.4.0
 categories: [changelog, blog]
-description: "SpaceVim releases v2.4.0, which optimizes Neovim support and rewrites the core plugin using Lua"
+description: "spacevim releases v2.4.0, which optimizes Neovim support and rewrites the core plugin using Lua"
 type: article
 image: https://img.spacevim.org/workflow.png
 ---
 
-# [Changelogs](../development#changelog) > SpaceVim release v2.4.0
+# [Changelogs](../development#changelog) > spacevim release v2.4.0
 
 <!-- vim-markdown-toc GFM -->
 
@@ -19,14 +19,14 @@ image: https://img.spacevim.org/workflow.png
 
 <!-- vim-markdown-toc -->
 
-SpaceVim releases v2.4.0, which optimizes Neovim support and rewrites the core plug-in using Lua.
+spacevim releases v2.4.0, which optimizes Neovim support and rewrites the core plug-in using Lua.
 So let's take a look at what happened since last release.
 
 ![work-flow](https://img.spacevim.org/workflow.png)
 
-- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning SpaceVim
-- [documentation](../documentation/): the primary official document of SpaceVim
-- [available layers](../layers/): a list of available layers which can be used in SpaceVim
+- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning spacevim
+- [documentation](../documentation/): the primary official document of spacevim
+- [available layers](../layers/): a list of available layers which can be used in spacevim
 
 ## New features
 
@@ -87,7 +87,7 @@ So let's take a look at what happened since last release.
 - perf(core): lazy load core plugins
 - perf(edit): lazy load grammarous and tabular
 - perf(checkers): lazy load neomake
-- feat(autocmd): add SpaceVimLspSetup autocmd
+- feat(autocmd): add spacevimLspSetup autocmd
 - perf(start): lazy load plugins
 - perf(cmp): lazy load nvim-cmp
 - perf(telescope): lazy load telescope
@@ -253,7 +253,7 @@ So let's take a look at what happened since last release.
 - docs(record-key): typo in readme
 - docs(record-key): update readme
 - docs(zettelkasten): update readme
-- docs(website): remove r/SpaceVim
+- docs(website): remove r/spacevim
 - docs(website): update following-head page
 - docs(docker): update docker link
 - docs(zettelkasten): update vim-zettelkasten readme
@@ -282,10 +282,10 @@ So let's take a look at what happened since last release.
 - docs(error): update doc for error handling
 - docs(help): update buffer/file doc
 - docs(highlighter): add doc for SPC s h
-- docs(help): update help SpaceVim-options
+- docs(help): update help spacevim-options
 - docs(guide): update help doc for mapping guide
 - docs(help): update doc
-- docs(help): add `:h SpaceVim-roadmap/community`
+- docs(help): add `:h spacevim-roadmap/community`
 - docs(website): update following head and roadmap
 - docs(scrollbar): add doc
 - docs(tabline): add doc for ctrl-shift-letf/right
@@ -296,7 +296,7 @@ So let's take a look at what happened since last release.
 - docs(index): update test version
 - docs(index): update tested versions
 - docs(about): update about page
-- docs(go): update `:h SpaceVim-layers-lang-go`
+- docs(go): update `:h spacevim-layers-lang-go`
 - docs(go): lsp for golang
 - docs(vimdoc): add extra space
 - docs(website): update doc

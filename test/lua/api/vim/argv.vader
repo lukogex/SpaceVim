@@ -1,4 +1,4 @@
-Execute ( SpaceVim lua api: vim.keys.t(str) ):
+Execute ( spacevim lua api: vim.keys.t(str) ):
   if !has('nvim-0.7.2')
     Log 'skip lua test'
     finish

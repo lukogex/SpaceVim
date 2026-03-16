@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#lua layer"
+title: "spacevim lang#lua layer"
 description: "This layer is for Lua development, provides autocompletion, syntax checking, and code format for Lua files."
 ---
 

@@ -1,5 +1,5 @@
 --=============================================================================
--- todo.lua --- todo manager for SpaceVim
+-- todo.lua --- todo manager for spacevim
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- URL: https://spacevim.org
@@ -270,7 +270,7 @@ local function open_win() -- {{{
   vim.cmd('resize ' .. lines)
   vim.cmd([[
   setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber winfixheight nomodifiable
-  set filetype=SpaceVimTodoManager
+  set filetype=spacevimTodoManager
   ]])
   bufnr = vim.fn.bufnr('%')
   update_todo_content()

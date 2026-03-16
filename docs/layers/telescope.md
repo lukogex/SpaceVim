@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim telescope layer"
+title: "spacevim telescope layer"
 description: "This layer provides a heavily customized telescope centric workflow"
 ---
 
@@ -27,7 +27,7 @@ To use this configuration layer, update your custom configuration file with:
 
 ## Configuration
 
-SpaceVim uses `f` as the default customized key binding prefix for telescope layer.
+spacevim uses `f` as the default customized key binding prefix for telescope layer.
 
 ## Key bindings
 

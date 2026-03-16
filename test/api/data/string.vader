@@ -1,5 +1,5 @@
-Execute ( SpaceVim api: data#string ):
-  let str = SpaceVim#api#import('data#string')
+Execute ( spacevim api: data#string ):
+  let str = spacevim#api#import('data#string')
   Log 'test trim()'
   AssertEqual str.trim(' s b '), 's b'
   Log 'test strcharpart()'

@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#nix layer"
-description: "This layer adds Nix language support to SpaceVim."
+title: "spacevim lang#nix layer"
+description: "This layer adds Nix language support to spacevim."
 ---
 
 # [Available Layers](../../) >> lang#nix
@@ -15,7 +15,7 @@ description: "This layer adds Nix language support to SpaceVim."
 
 ## Description
 
-This layer adds [Nix](https://nixos.org/nix/manual/) language support to SpaceVim.
+This layer adds [Nix](https://nixos.org/nix/manual/) language support to spacevim.
 
 ## Features
 

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#janet layer"
+title: "spacevim lang#janet layer"
 description: "This layer is for janet development, provides code runner and repl support for janet files."
 ---
 

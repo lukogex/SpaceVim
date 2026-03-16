@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim colorscheme layer"
-description: "colorscheme provides a list of colorschemes for SpaceVim, the default colorscheme is gruvbox with dark theme."
+title: "spacevim colorscheme layer"
+description: "colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme."
 ---
 
 # [Available Layers](../) >> colorschemes
@@ -15,11 +15,11 @@ description: "colorscheme provides a list of colorschemes for SpaceVim, the defa
 
 ## Description
 
-This layer provides many Vim colorschemes for SpaceVim, the default colorscheme is gruvbox.
+This layer provides many Vim colorschemes for spacevim, the default colorscheme is gruvbox.
 
 ## Install
 
-This layer is disabled by default in SpaceVim.
+This layer is disabled by default in spacevim.
 
 To use this configuration layer, add this snippet to your custom configuration file.
 
@@ -53,7 +53,7 @@ Colorscheme list
 | hybrid       | yes  | yes   | yes  | yes | yes        |
 | material     | yes  | yes   | yes  | yes | yes        |
 | dracula      | yes  | yes   | yes  | yes | yes        |
-| SpaceVim     | yes  | yes   | yes  | yes | yes        |
+| spacevim     | yes  | yes   | yes  | yes | yes        |
 
 By default this layer only includes above colorschemes. If you want to use other colorschemes which
 are available on Github, use the `custom_plugins` section in the configuration file. For example:
@@ -70,7 +70,7 @@ are available on Github, use the `custom_plugins` section in the configuration f
 ```
 
 Some colorschemes offer dark and light styles. Most of them are set by changing
-Vim's background color. SpaceVim supports changing the background color with `colorscheme_bg`:
+Vim's background color. spacevim supports changing the background color with `colorscheme_bg`:
 
 ```toml
 [options]

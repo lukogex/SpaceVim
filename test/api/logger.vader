@@ -1,5 +1,5 @@
-Execute ( SpaceVim api: logger ):
-  let log = SpaceVim#api#import('logger')
+Execute ( spacevim api: logger ):
+  let log = spacevim#api#import('logger')
   call log.set_name('TestLog')
   AssertEqual log.name, 'TestLog'
   call log.info('info test')

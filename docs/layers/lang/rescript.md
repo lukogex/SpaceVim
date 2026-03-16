@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#rescript layer"
+title: "spacevim lang#rescript layer"
 description: "This layer is for ReScript development, provides syntax checking, code runner and repl support for ReScript files."
 ---
 

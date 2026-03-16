@@ -1,12 +1,12 @@
-if exists('b:current_syntax') && b:current_syntax ==# 'SpaceVimREPL'
+if exists('b:current_syntax') && b:current_syntax ==# 'spacevimREPL'
   finish
 endif
-let b:current_syntax = 'SpaceVimREPL'
+let b:current_syntax = 'spacevimREPL'
 syntax case ignore
-syn match SpaceVimREPLLabel /\[REPL executable\]/
-syn match SpaceVimREPLRunnerCmd /\(\[REPL executable\]\ \)\@<=.*/
-hi def link SpaceVimREPLLabel String
-hi def link SpaceVimREPLRunnerCmd Comment
+syn match spacevimREPLLabel /\[REPL executable\]/
+syn match spacevimREPLRunnerCmd /\(\[REPL executable\]\ \)\@<=.*/
+hi def link spacevimREPLLabel String
+hi def link spacevimREPLRunnerCmd Comment
 let s:shellcmd_colors =
       \ [
       \ '#6c6c6c', '#ff6666', '#66ff66', '#ffd30a',
@@ -58,24 +58,24 @@ function! s:highlight_shell_cmd() abort
     endfor
   endfor
 
-  syntax match SpaceVimRunner__Output_Shellcmd_Conceal
+  syntax match spacevimRunner__Output_Shellcmd_Conceal
         \ contained conceal    '\e\[[0-9;]*m'
-        \ containedin=SpaceVimRunner__Output_Shellcmd
+        \ containedin=spacevimRunner__Output_Shellcmd
 
-  syntax match SpaceVimRunner__Output_Shellcmd_Conceal
+  syntax match spacevimRunner__Output_Shellcmd_Conceal
         \ contained conceal    '\e\[?1h'
-        \ containedin=SpaceVimRunner__Output_Shellcmd
+        \ containedin=spacevimRunner__Output_Shellcmd
 
   syntax match uniteSource__Output_Shellcmd_Ignore
         \ contained conceal    '\e\[?\d[hl]\|\e=\r\|\r\|\e>'
-        \ containedin=SpaceVimRunner__Output_Shellcmd
+        \ containedin=spacevimRunner__Output_Shellcmd
 
   for [key, highlight] in items(highlight_table)
-    let syntax_name = 'SpaceVimRunner__Output_Shellcmd_Color'
+    let syntax_name = 'spacevimRunner__Output_Shellcmd_Color'
           \ . substitute(key, ';', '_', 'g')
     let syntax_command = printf('start=+\e\[0\?%sm+ end=+\ze\e[\[0*m]\|$+ ' .
-          \ 'contains=SpaceVimRunner__Output_Shellcmd_Conceal ' .
-          \ 'containedin=SpaceVimRunner__Output_Shellcmd oneline', key)
+          \ 'contains=spacevimRunner__Output_Shellcmd_Conceal ' .
+          \ 'containedin=spacevimRunner__Output_Shellcmd oneline', key)
 
     execute 'syntax region' syntax_name syntax_command
     execute 'highlight' syntax_name highlight

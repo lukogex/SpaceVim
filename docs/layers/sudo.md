@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim sudo layer"
-description: "sudo layer provides the ability to read and write files with elevated privileges in SpaceVim"
+title: "spacevim sudo layer"
+description: "sudo layer provides the ability to read and write files with elevated privileges in spacevim"
 ---
 
 # [Available Layers](../) >> sudo

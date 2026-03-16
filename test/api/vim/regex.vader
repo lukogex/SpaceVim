@@ -1,5 +1,5 @@
-Execute ( SpaceVim api: vim#key ):
-  let regex = SpaceVim#api#import('vim#regex')
+Execute ( spacevim api: vim#key ):
+  let regex = spacevim#api#import('vim#regex')
   AssertEqual regex.parser('(?i)abc', 0), '\v\cabc'
   AssertEqual regex.parser('(?-i)abc', 0), '\v\Cabc'
   AssertEqual regex.parser('(?:exp)', 0), '\v%(exp)'

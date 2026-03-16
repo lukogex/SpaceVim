@@ -1,5 +1,5 @@
-Execute ( SpaceVim api: data#dict ):
-  let dict = SpaceVim#api#import('data#dict')
+Execute ( spacevim api: data#dict ):
+  let dict = spacevim#api#import('data#dict')
   AssertEqual dict.make(['a','b'], [1, 2]), {'a':1, 'b':2}
   AssertEqual dict.swap({'a' : 1, 'b' : 2}), {'1' : 'a', '2' : 'b'}
   AssertEqual dict.make_index(['a', 'b']), {'a' : 1, 'b' : 1}

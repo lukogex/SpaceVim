@@ -10,8 +10,8 @@ let g:chat_irc_server_address = 'irc.libera.chat'
 let g:char_irc_server_port = '6667'
 let s:server_lib = g:_spacevim_root_dir . 'bundle/Chatting-server/target'
 
-let s:LOG = SpaceVim#logger#derive('irc')
-let s:JOB = SpaceVim#api#import('job')
+let s:LOG = spacevim#logger#derive('irc')
+let s:JOB = spacevim#api#import('job')
 
 function! chat#irc#send(room, msg) abort
   call chat#irc#send_raw(printf('PRIVMSG %s %s', a:room, a:msg))

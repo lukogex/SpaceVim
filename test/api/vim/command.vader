@@ -1,5 +1,5 @@
-Execute ( SpaceVim api: data#command complete):
-  let cmd = SpaceVim#api#import('vim#command')
+Execute ( spacevim api: data#command complete):
+  let cmd = spacevim#api#import('vim#command')
   let cmd.options = {
     \ '-d' : {
       \ 'complete' : ['foo', 'baa'],

@@ -2,7 +2,7 @@
 title: "Use Vim as a Ruby IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/53355518-20202080-3964-11e9-92f3-476060f2761e.png
-description: "A general guide for using SpaceVim as Ruby IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Ruby IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Ruby IDE"
@@ -11,7 +11,7 @@ language: Ruby
 
 # [Blogs](../blog/) >> Use Vim as a Ruby IDE
 
-This is a general guide for using SpaceVim as a Ruby IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a Ruby IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 
@@ -30,8 +30,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add Ruby language support in SpaceVim, you need to enable the `lang#ruby` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add the following snippet:
+To add Ruby language support in spacevim, you need to enable the `lang#ruby` layer. Press `SPC f v d` to open
+spacevim configuration file, and add the following snippet:
 
 ```toml
 [[layers]]
@@ -85,7 +85,7 @@ gem install rubocop
 
 ### Jump to test file
 
-SpaceVim use built-in plugin to manager the files in a project, you can add a `.project_alt.json` to the root of your project with the following content:
+spacevim use built-in plugin to manager the files in a project, you can add a `.project_alt.json` to the root of your project with the following content:
 
 ```json
 {

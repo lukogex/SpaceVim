@@ -1,9 +1,9 @@
-Execute ( SpaceVim plugin: flygrep ):
-  runtime autoload/SpaceVim.vim
+Execute ( spacevim plugin: flygrep ):
+  runtime autoload/spacevim.vim
   edit Makefile
   let g:_spacevim_input_list = ["\<C-u>", 'b', 'u', 'i', 'l', 'd', '/', 'v', 'a', 'd', 'e', 'r', ':', "\<Enter>"]
   let g:_spacevim_input_timeout = 400
-  exe 'call SpaceVim#plugins#flygrep#open({"input" : expand("<cword>"), "files": bufname("%")})'
+  exe 'call spacevim#plugins#flygrep#open({"input" : expand("<cword>"), "files": bufname("%")})'
   let g:_spacevim_input_timeout = 0
   let lnr = 0
   let current_line = line('.')

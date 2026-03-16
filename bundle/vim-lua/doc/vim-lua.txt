@@ -1,5 +1,5 @@
 *vim-lua.txt*	lua development plugin for Vim
-SpaceVim                                                             *vim-lua*
+spacevim                                                             *vim-lua*
 
 ==============================================================================
 CONTENTS                                                    *vim-lua-contents*

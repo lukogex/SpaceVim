@@ -1,7 +1,7 @@
 ---
 title: "Use Vim as a Scala IDE"
 categories: [tutorials, blog]
-description: "A general guide for using SpaceVim as Scala IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Scala IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Scala IDE"
@@ -10,7 +10,7 @@ language: Scala
 
 # [Blogs](../blog/) >> Use Vim as a Scala IDE
 
-This is a general guide for using SpaceVim as a Scala IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a Scala IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -42,10 +42,10 @@ coursier install metals
 
 ### Enable language layer
 
-`lang#scala` layer provides scala language specific features for SpaceVim.
+`lang#scala` layer provides scala language specific features for spacevim.
 This layer is not enabled by default. To write scala language,
 you need to enable the `lang#scala` layer.
-Press `SPC f v d` to open SpaceVim configuration file, and add following configuration:
+Press `SPC f v d` to open spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]

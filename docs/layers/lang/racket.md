@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#racket layer"
-description: "This layer adds racket language support to SpaceVim, including syntax highlighting, code runner and REPL support."
+title: "spacevim lang#racket layer"
+description: "This layer adds racket language support to spacevim, including syntax highlighting, code runner and REPL support."
 ---
 
 # [Available Layers](../../) >> lang#racket
@@ -18,7 +18,7 @@ description: "This layer adds racket language support to SpaceVim, including syn
 
 ## Description
 
-This layer adds racket language support to SpaceVim.
+This layer adds racket language support to spacevim.
 
 ## Features
 

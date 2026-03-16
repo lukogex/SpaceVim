@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim zettelkasten layer"
+title: "spacevim zettelkasten layer"
 description: "This layers adds extensive support for zettelkasten"
 ---
 

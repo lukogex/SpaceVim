@@ -1,5 +1,5 @@
 "=============================================================================
-" SpaceVim.vim --- SpaceVim colorscheme
+" spacevim.vim --- spacevim colorscheme
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
@@ -18,11 +18,11 @@ if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 
   " prevent change statuslines
   finish
 else
-  let g:colors_name='SpaceVim'
+  let g:colors_name='spacevim'
 endif
 
-let s:HIAPI = SpaceVim#api#import('vim#highlight')
-let s:COLOR = SpaceVim#api#import('color')
+let s:HIAPI = spacevim#api#import('vim#highlight')
+let s:COLOR = spacevim#api#import('color')
 let s:is_dark=(&background ==# 'dark')
 
 function! s:hi(item, fg, bg, cterm, gui) abort

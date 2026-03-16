@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#asciidoc layer"
+title: "spacevim lang#asciidoc layer"
 description: "Edit AsciiDoc within vim, autopreview AsciiDoc in the default browser, with this layer you can also format AsciiDoc files."
 ---
 

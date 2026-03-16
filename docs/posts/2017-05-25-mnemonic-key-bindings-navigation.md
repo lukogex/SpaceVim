@@ -30,8 +30,8 @@ Otherwise, it will be displayed in split Window.
 
 | Prefix name | custom option and default value                         | description                        |
 | ----------- | ------------------------------------------------------- | ---------------------------------- |
-| `[SPC]`     | NONE / `<Space>`                                        | default mapping prefix of SpaceVim |
-| `[Window]`  | `g:spacevim_windows_leader` / `s`                       | window mapping prefix of SpaceVim  |
+| `[SPC]`     | NONE / `<Space>`                                        | default mapping prefix of spacevim |
+| `[Window]`  | `g:spacevim_windows_leader` / `s`                       | window mapping prefix of spacevim  |
 | `<leader>`  | `mapleader` / `\` | default leader prefix of vim/neovim |
 
 By default the guide buffer will be displayed 1000ms after the key has been pressed. You can change the delay by setting `'timeoutlen'` option to your liking (the value is in milliseconds).

@@ -1,7 +1,7 @@
 ---
 title: "Manage project alternate files"
 categories: [feature, blog]
-description: "Manage the alternate file of current project within SpaceVim."
+description: "Manage the alternate file of current project within spacevim."
 image: https://img.spacevim.org/80495522-9d955580-899a-11ea-9e2e-b621b1d821d8.png
 commentsID: "Manage project alternate files"
 comments: true
@@ -21,7 +21,7 @@ comments: true
 
 ## Causes and purposes
 
-At first, when managing the SpaceVim project,
+At first, when managing the spacevim project,
 every time you edited a module source file,
 you always need to pay attention to the following things:
 
@@ -34,12 +34,12 @@ In view of the above two points, the following requirements are derived:
 2. When editing Chinese documents, quickly jump to English documents and vice versa;
 3. When editing the source file, quickly jump to the test file and vice versa;
 
-At present, this plugin built into SpaceVim basically implements the above functions, in order to quickly jump between related files.
+At present, this plugin built into spacevim basically implements the above functions, in order to quickly jump between related files.
 
 
 ## Basic usage
 
-SpaceVim provides a built-in alternate file manager, the command is `:A`.
+spacevim provides a built-in alternate file manager, the command is `:A`.
 
 ![a](https://img.spacevim.org/80495522-9d955580-899a-11ea-9e2e-b621b1d821d8.png)
 
@@ -47,9 +47,9 @@ To use this feature, you can create a `.project_alt.json` file in the root of yo
 
 ```json
 {
-  "autoload/SpaceVim/layers/lang/*.vim": {"doc": "docs/layers/lang/{}.md"},
+  "autoload/spacevim/layers/lang/*.vim": {"doc": "docs/layers/lang/{}.md"},
 }
 ```
 
-after adding this configuration, when edit `autoload/SpaceVim/layers/lang/java.vim`,
+after adding this configuration, when edit `autoload/spacevim/layers/lang/java.vim`,
 you can use `:A doc` switch to `docs/layers/lang/java.md`

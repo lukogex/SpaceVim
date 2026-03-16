@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#postscript layer"
+title: "spacevim lang#postscript layer"
 description: "This layer is for postscript development, includes syntax highlighting for postscript file."
 ---
 

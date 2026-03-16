@@ -2,42 +2,42 @@
 [Documentation](docs/documentation.md) \|
 [Layers](docs/layers/)
 
-# SpaceVim
+# spacevim
 
-The [SpaceVim project](https://github.com/wsdjeg/SpaceVim) originated in December 2016 and stopped maintenance on February 21, 2025.
+The [spacevim project](https://github.com/wsdjeg/spacevim) originated in December 2016 and stopped maintenance on February 21, 2025.
 Main Maintainer was [Eric Wong](https://github.com/wsdjeg).
 
-SpaceVim is a modular configuration of Vim and Neovim.
+spacevim is a modular configuration of Vim and Neovim.
 It's inspired by Spacemacs.
 It manages collections of plugins in layers, which help to collect related packages together to provide features.
 This approach helps keep the configuration organized and reduces overhead for the user by keeping them from having to think about what packages to install.
 
 ## Forked Project
 
-I use SpaceVim as my main editor and really love it.
+I use spacevim as my main editor and really love it.
 Thus I decided to give it a try to proceed with the project on my own.
 One consequence of this is that I'll reduce the project scope and features to the ones I'm using, mainly due to the limited time I have.
 
 ### Compatibility
 
-In contrast to the former SpaceVim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) and Linux.
+In contrast to the former spacevim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) and Linux.
 I'm not sure about [Neovim QT](https://github.com/equalsraf/neovim-qt) and how much effort this is, I'll keep related configs by now.
 
 Reasoning:
 - I cant spare additional time to implement and test for other systems.
-- I used SpaceVim with Vim for quite some time and had a lot of troubles, Neovim simply works far better.
+- I used spacevim with Vim for quite some time and had a lot of troubles, Neovim simply works far better.
 
 ### Credits
 
 This project wouldn't exist without the work from Eric Wong and all the people who contributed.
-Please check the [origin project](https://github.com/wsdjeg/SpaceVim) for further details.
+Please check the [origin project](https://github.com/wsdjeg/spacevim) for further details.
 
 ## Features
 
-The following features from origin SpaceVim implementation remains as goals:
+The following features from origin spacevim implementation remains as goals:
 
 - **Modularization:** Plugins and functions are organized in [layers](docs/layers/).
-- **Great documentation:** ~~Online documentation~~ and `:h SpaceVim`.
+- **Great documentation:** ~~Online documentation~~ and `:h spacevim`.
   By now the "online documentation" are the markdown files in the Github repository.
 - **Better experience:** Rewrite core plugins using lua.
 - **Beautiful UI:** The interface has been carefully designed.
@@ -65,13 +65,13 @@ As the focus is on [Neovim](https://neovim.io/) we structure it after [Neovim pl
 ```txt
 ├─ .ci/                           build automation
 ├─ .github/                       issue/PR templates
-├─ .SpaceVim.d/                   project specific configuration
+├─ .spacevim.d/                   project specific configuration
 ├─ after/                         overrule or add to the distributed defaults
-├─ autoload/SpaceVim.vim          SpaceVim core file
-├─ autoload/SpaceVim/api/         Public APIs
-├─ autoload/SpaceVim/layers/      available layers
-├─ autoload/SpaceVim/plugins/     builtin plugins
-├─ autoload/SpaceVim/mapping/     mapping guide
+├─ autoload/spacevim.vim          spacevim core file
+├─ autoload/spacevim/api/         Public APIs
+├─ autoload/spacevim/layers/      available layers
+├─ autoload/spacevim/plugins/     builtin plugins
+├─ autoload/spacevim/mapping/     mapping guide
 ├─ colors/                        default colorscheme
 ├─ docker/                        docker image generator
 ├─ bundle/                        bundle plugins

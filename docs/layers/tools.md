@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim tools layer"
+title: "spacevim tools layer"
 description: "This layer provides some tools for vim"
 ---
 
@@ -15,7 +15,7 @@ description: "This layer provides some tools for vim"
 
 ## Description
 
-This layer provides some extra vim tools for SpaceVim.
+This layer provides some extra vim tools for spacevim.
 All tools can be called via command or key binding.
 
 ## Install

@@ -1,5 +1,5 @@
 Execute (Test cmdlinemenu api):
-  let g:menu = SpaceVim#api#import('cmdlinemenu')
+  let g:menu = spacevim#api#import('cmdlinemenu')
   let g:cmdlinemenu_rst = ''
   function! s:dark_mode() abort
       let g:cmdlinemenu_rst = 'dark mode'

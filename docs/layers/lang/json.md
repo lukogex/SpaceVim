@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#json layer"
+title: "spacevim lang#json layer"
 description: "json and json5 language support, include syntax highlighting."
 ---
 

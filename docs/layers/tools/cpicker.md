@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim cpicker layer"
-description: "This layer provides color picker for SpaceVim"
+title: "spacevim cpicker layer"
+description: "This layer provides color picker for spacevim"
 ---
 
 # [Available Layers](../../) >> tools#cpicker
@@ -17,11 +17,11 @@ description: "This layer provides color picker for SpaceVim"
 
 ## Description
 
-This layer provides color picker for SpaceVim. It requires neovim 0.10+.
+This layer provides color picker for spacevim. It requires neovim 0.10+.
 
 ## Install
 
-To use this configuration layer, add it to your `~/.SpaceVim.d/init.toml`.
+To use this configuration layer, add it to your `~/.spacevim.d/init.toml`.
 
 ```vim
 [[layers]]

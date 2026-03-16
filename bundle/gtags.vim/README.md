@@ -1,13 +1,13 @@
 # gtags.vim
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
-[![Build Status](https://travis-ci.org/SpaceVim/gtags.vim.svg?branch=master)](https://travis-ci.org/SpaceVim/gtags.vim)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
+[![Build Status](https://travis-ci.org/spacevim/gtags.vim.svg?branch=master)](https://travis-ci.org/spacevim/gtags.vim)
 
 The gtags.vim plugin script integrates the GNU GLOBAL source code tag system with Vim.
 
 ## Installation
 
-This is part of SpaceVim's tags layer, and based on SpaceVim's API.
+This is part of spacevim's tags layer, and based on spacevim's API.
 
 Features:
 

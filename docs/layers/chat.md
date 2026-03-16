@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim chat layer"
-description: "SpaceVim chatting layer provides chatting with weixin in vim."
+title: "spacevim chat layer"
+description: "spacevim chatting layer provides chatting with weixin in vim."
 ---
 
 # [Available Layers](../) >> chat
@@ -17,7 +17,7 @@ description: "SpaceVim chatting layer provides chatting with weixin in vim."
 
 ## Description
 
-SpaceVim chatting layer provides chatting feature in vim.
+spacevim chatting layer provides chatting feature in vim.
 
 ![vim-chat](https://img.spacevim.org/166000148-4cdbe294-7d61-40e1-b503-63c70ddaf592.png)
 

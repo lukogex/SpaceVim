@@ -133,7 +133,7 @@ function M.open()
   vim.api.nvim_command(
     'setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber winfixheight nomodifiable  winfixwidth'
   )
-  vim.api.nvim_command('set filetype=SpaceVimGitBranchManager')
+  vim.api.nvim_command('set filetype=spacevimGitBranchManager')
   branch_manager_bufnr = vim.api.nvim_get_current_buf()
   update()
   vim.api.nvim_buf_set_keymap(branch_manager_bufnr, 'n', '<Enter>', '', {

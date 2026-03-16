@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#fsharp layer"
-description: "This layer adds FSharp language support to SpaceVim"
+title: "spacevim lang#fsharp layer"
+description: "This layer adds FSharp language support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#fsharp
@@ -17,7 +17,7 @@ description: "This layer adds FSharp language support to SpaceVim"
 
 ## Description
 
-This layer adds FSharp language support to SpaceVim.
+This layer adds FSharp language support to spacevim.
 
 ## Features
 

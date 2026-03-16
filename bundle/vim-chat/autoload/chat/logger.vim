@@ -6,7 +6,7 @@
 " License: GPLv3
 "=============================================================================
 
-let s:LOGGER =SpaceVim#logger#derive('vim-chat')
+let s:LOGGER =spacevim#logger#derive('vim-chat')
 
 function! chat#logger#info(msg)
   call s:LOGGER.info(a:msg)

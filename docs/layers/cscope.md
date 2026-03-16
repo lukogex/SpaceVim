@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim cscope layer"
-description: "cscope layer provides a smart cscope and pycscope helper for SpaceVim, help users win at cscope"
+title: "spacevim cscope layer"
+description: "cscope layer provides a smart cscope and pycscope helper for spacevim, help users win at cscope"
 ---
 
 # [Available Layers](../) >> cscope
@@ -18,7 +18,7 @@ description: "cscope layer provides a smart cscope and pycscope helper for Space
 
 ## Intro
 
-This layer provides a smart [Cscope](http://cscope.sourceforge.net/) and [PyCscope](https://github.com/portante/pycscope) helper for SpaceVim.
+This layer provides a smart [Cscope](http://cscope.sourceforge.net/) and [PyCscope](https://github.com/portante/pycscope) helper for spacevim.
 
 For more info about the differences between Cscope and other similar tools, please read [Comparison with Similar Tools](https://github.com/oracle/opengrok/wiki/Comparison-with-Similar-Tools)
 

@@ -1,5 +1,5 @@
 --=============================================================================
--- a.lua --- alternate plugin for SpaceVim
+-- a.lua --- alternate plugin for spacevim
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- URL: https://spacevim.org
@@ -21,7 +21,7 @@ local nt = require('spacevim.api').import('notify')
 local alternate_conf = {}
 alternate_conf['_'] = '.project_alt.json'
 
-local cache_path = sp_file.unify_path(sp_opt.data_dir, ':p') .. 'SpaceVim/a.json'
+local cache_path = sp_file.unify_path(sp_opt.data_dir, ':p') .. 'spacevim/a.json'
 
 local project_config = {}
 

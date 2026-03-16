@@ -291,7 +291,7 @@ function M.open()
   vim.api.nvim_command(
     'setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber winfixheight nomodifiable  winfixwidth'
   )
-  vim.api.nvim_command('set filetype=SpaceVimGitRemoteManager')
+  vim.api.nvim_command('set filetype=spacevimGitRemoteManager')
   bufnr = vim.api.nvim_get_current_buf()
   update()
   local id = vim.api.nvim_create_augroup('spc_git_remote_manager', {

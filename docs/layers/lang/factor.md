@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#factor layer"
+title: "spacevim lang#factor layer"
 description: "This layer is for factor development, provide syntax checking, code runner and repl support for factor file."
 ---
 

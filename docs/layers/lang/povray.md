@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#povray layer"
+title: "spacevim lang#povray layer"
 description: "This layer is for povray development, provides syntax highlighting, and viewing images."
 ---
 

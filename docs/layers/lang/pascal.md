@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#pascal layer"
+title: "spacevim lang#pascal layer"
 description: "This layer is for pascal development, provides syntax highlighting, and code runner for pascal files."
 ---
 

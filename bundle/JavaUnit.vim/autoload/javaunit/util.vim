@@ -34,7 +34,7 @@ endfunction
 
 function! javaunit#util#ExecCMD(cmd)
     if exists('g:spacevim_version')
-        call SpaceVim#plugins#runner#open(a:cmd)
+        call spacevim#plugins#runner#open(a:cmd)
     elseif exists(':Unite')
         call unite#start([['output/shellcmd', s:EscapeCMD(a:cmd)]], {'log': 1, 'wrap': 1,'start_insert':0})
     else

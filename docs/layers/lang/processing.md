@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#processing layer"
+title: "spacevim lang#processing layer"
 description: "This layer is for working on Processing sketches. It provides syntax checking and an app runner"
 ---
 

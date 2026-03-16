@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim edit layer"
-description: "Improve code edit experience in SpaceVim, provides more text objects."
+title: "spacevim edit layer"
+description: "Improve code edit experience in spacevim, provides more text objects."
 ---
 
 # [Available Layers](../) >> edit
@@ -15,7 +15,7 @@ description: "Improve code edit experience in SpaceVim, provides more text objec
 
 ## Description
 
-This layer provides many edit key bindings for SpaceVim, and also provides more text objects.
+This layer provides many edit key bindings for spacevim, and also provides more text objects.
 
 ## Features
 

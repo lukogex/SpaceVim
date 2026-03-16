@@ -1,4 +1,4 @@
-let s:NOTI = SpaceVim#api#import('notify')
+let s:NOTI = spacevim#api#import('notify')
 
 
 function! javacomplete#classpath#gradle#IfGradle()

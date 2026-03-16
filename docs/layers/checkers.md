@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim checkers layer"
-description: "Syntax checking automatically within SpaceVim, display error on the sign column and statusline."
+title: "spacevim checkers layer"
+description: "Syntax checking automatically within spacevim, display error on the sign column and statusline."
 ---
 
 # [Available Layers](../) >> checkers
@@ -35,7 +35,7 @@ global options and layer options.
 
 **Global options:**
 
-All of the SpaceVim global options should be put into the `[options]` section.
+All of the spacevim global options should be put into the `[options]` section.
 
 | Name          | default value | description         |
 | ------------- | ------------- | ------------------- |

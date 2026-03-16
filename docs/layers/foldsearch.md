@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim foldsearch layer"
+title: "spacevim foldsearch layer"
 description: "This layer provides functions that fold away lines that don't match a specific search pattern."
 ---
 

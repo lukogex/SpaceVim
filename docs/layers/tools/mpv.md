@@ -1,9 +1,9 @@
 ---
-title: "SpaceVim tools#mpv layer"
-description: "This layer provides mpv integration for SpaceVim"
+title: "spacevim tools#mpv layer"
+description: "This layer provides mpv integration for spacevim"
 ---
 
-# [SpaceVim Layers:](https://spacevim.org/layers) tools#mpv
+# [spacevim Layers:](https://spacevim.org/layers) tools#mpv
 
 <!-- vim-markdown-toc GFM -->
 
@@ -16,11 +16,11 @@ description: "This layer provides mpv integration for SpaceVim"
 
 ## Description
 
-This layer provides mpv integration for SpaceVim.
+This layer provides mpv integration for spacevim.
 
 ## Install
 
-To use this configuration layer, add it to your `~/.SpaceVim.d/init.toml`.
+To use this configuration layer, add it to your `~/.spacevim.d/init.toml`.
 
 ```toml
 [[layers]]

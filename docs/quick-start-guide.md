@@ -1,25 +1,25 @@
 ---
 title: "Quick start guide"
-description: "A quick start guide which will tell you how to install and configure SpaceVim, also provides a list of resources for learning SpaceVim."
+description: "A quick start guide which will tell you how to install and configure spacevim, also provides a list of resources for learning spacevim."
 ---
 
 # Quick start guide
 
-This is a quick start guide for SpaceVim. It will show you how to install,
-configure, and use SpaceVim. It also lists a series of resources for learning SpaceVim.
+This is a quick start guide for spacevim. It will show you how to install,
+configure, and use spacevim. It also lists a series of resources for learning spacevim.
 
-If you've never heard of SpaceVim, this is the best place to start.
-It will give you a good idea of what SpaceVim is like.
+If you've never heard of spacevim, this is the best place to start.
+It will give you a good idea of what spacevim is like.
 
 <!-- vim-markdown-toc GFM -->
 
 - [Installation](#installation)
   - [Linux and macOS](#linux-and-macos)
   - [Where is my old vim configuration?](#where-is-my-old-vim-configuration)
-  - [How to install SpaceVim manually?](#how-to-install-spacevim-manually)
-  - [Can I try SpaceVim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
+  - [How to install spacevim manually?](#how-to-install-spacevim-manually)
+  - [Can I try spacevim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
 - [Configuration](#configuration)
-- [Learning SpaceVim](#learning-spacevim)
+- [Learning spacevim](#learning-spacevim)
 - [User experiences](#user-experiences)
 
 <!-- vim-markdown-toc -->
@@ -36,7 +36,7 @@ If you are using a terminal emulator, you will need to set the font in the termi
 curl -sLf https://spacevim.org/install.sh | bash
 ```
 
-After SpaceVim is installed launch `spacevim`, all plugins will be downloaded **automatically**.
+After spacevim is installed launch `spacevim`, all plugins will be downloaded **automatically**.
 
 For more info about the install script, please check:
 
@@ -44,18 +44,18 @@ For more info about the install script, please check:
 curl -sLf https://spacevim.org/install.sh | bash -s -- -h
 ```
 
-By default the latest version of SpaceVim will be installed.
+By default the latest version of spacevim will be installed.
 If you want to switch to specific version, for example `v1.8.0`, run following command in your terminal.
 
 ```
-cd ~/.SpaceVim
+cd ~/.spacevim
 git checkout v1.8.0
 ```
 
 If you got a vimproc error like this:
 
 ```
-[vimproc] vimproc's DLL: "~/.SpaceVim/bundle/vimproc.vim/lib/vimproc_linux64.so" is not found.
+[vimproc] vimproc's DLL: "~/.spacevim/bundle/vimproc.vim/lib/vimproc_linux64.so" is not found.
 ```
 
 Please read `:help vimproc` and make it, you may need to install make (from `build-essential`)
@@ -65,13 +65,13 @@ and a C compiler (like `gcc`) to build the dll.
 
 In Linux/MacOS, the old vim configuration file `~/.vimrc` will be renamed to `~/.vimrc_back`, and the directory `~/.vim` also will be renamed to `~/.vim_back`.
 
-### How to install SpaceVim manually?
+### How to install spacevim manually?
 
-The following section will document how to install SpaceVim manually on Linux.
-First, you need to clone the repository to `~/.SpaceVim`.
+The following section will document how to install spacevim manually on Linux.
+First, you need to clone the repository to `~/.spacevim`.
 
 ```
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
+git clone https://spacevim.org/git/repos/spacevim/ ~/.spacevim
 ```
 
 Then, backup your old Neovim/Vim configuration file:
@@ -82,40 +82,40 @@ mv ~/.vim ~/.vim_back
 mv ~/.config/nvim ~/.config/nvim_back
 ```
 
-Link `~/.SpaceVim` to Vim and Neovim user folder:
+Link `~/.spacevim` to Vim and Neovim user folder:
 
 ```
-ln -s ~/.SpaceVim ~/.vim
-ln -s ~/.SpaceVim ~/.config/nvim
+ln -s ~/.spacevim ~/.vim
+ln -s ~/.spacevim ~/.config/nvim
 ```
 
-### Can I try SpaceVim without overwriting my vimrc?
+### Can I try spacevim without overwriting my vimrc?
 
-The SpaceVim install script will move your `~/.vimrc` to `~/.vimrc_back`. If you want to have a try SpaceVim without
+The spacevim install script will move your `~/.vimrc` to `~/.vimrc_back`. If you want to have a try spacevim without
 overwriting your own Vim configuration you can:
 
-Clone SpaceVim manually.
+Clone spacevim manually.
 
 ```sh
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
+git clone https://spacevim.org/git/repos/spacevim/ ~/.spacevim
 ```
 
-Then, start Vim via `vim -u ~/.SpaceVim/vimrc`. You can also put this alias into your bashrc.
+Then, start Vim via `vim -u ~/.spacevim/vimrc`. You can also put this alias into your bashrc.
 
 ```sh
-alias svim='vim -u ~/.SpaceVim/vimrc'
+alias svim='vim -u ~/.spacevim/vimrc'
 ```
 
 ## Configuration
 
-The default configuration file of SpaceVim is `~/.SpaceVim.d/init.toml`.
-This is an example for basic usage of SpaceVim.
+The default configuration file of spacevim is `~/.spacevim.d/init.toml`.
+This is an example for basic usage of spacevim.
 For more info, please check out [documentation](../documentation/) and [available layers](../layers/).
 
 ```toml
-# This is a basic configuration example for SpaceVim
+# This is a basic configuration example for spacevim
 
-# All SpaceVim options are below [options] snippet
+# All spacevim options are below [options] snippet
 [options]
     # set spacevim theme. by default colorscheme layer is not loaded,
     # if you want to use more colorscheme, please load the colorscheme
@@ -154,19 +154,19 @@ For more info, please check out [documentation](../documentation/) and [availabl
     merged = false
 ```
 
-If you want to use vim script to configure SpaceVim, please check out the
+If you want to use vim script to configure spacevim, please check out the
 [bootstrap function](../documentation/#bootstrap-functions) section.
 
 If there are errors in your `init.toml`, the setting will not be applied. See [FAQ](../faq/#why-are-the-options-in-toml-file-not-applied). There should be only one `[options]` section in `init.toml`.
 
-## Learning SpaceVim
+## Learning spacevim
 
-- [SpaceVim Documentation](../documentation).
-  The SpaceVim Documentation will introduce you to the main topics important to using SpaceVim.
-- [Hack-SpaceVim](https://github.com/Gabirel/Hack-SpaceVim). Teaches you how to hack SpaceVim.
+- [spacevim Documentation](../documentation).
+  The spacevim Documentation will introduce you to the main topics important to using spacevim.
+- [Hack-spacevim](https://github.com/Gabirel/Hack-spacevim). Teaches you how to hack spacevim.
 
 ## User experiences
 
-Here is a list of User experiences about using SpaceVim:
+Here is a list of User experiences about using spacevim:
 
 - [Vim as an IDE, not the text editor](https://blog.ghaiklor.com/2019/10/12/vim-as-an-ide-not-the-text-editor/) - Eugene Obrezkov

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#cmake layer"
+title: "spacevim lang#cmake layer"
 description: "This layer is for cmake script, provides syntax highlighting and language server protocol support."
 ---
 

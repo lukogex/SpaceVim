@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#r layer"
+title: "spacevim lang#r layer"
 description: "This layer is for R development, provides autocompletion, syntax checking and code formatting."
 ---
 

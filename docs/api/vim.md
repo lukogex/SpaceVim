@@ -35,7 +35,7 @@ vim API provides general vim functions.
 here is an example for using type checking functions:
 
 ```vim
-let s:VIM = SpaceVim#api#import('vim')
+let s:VIM = spacevim#api#import('vim')
 let var = 'hello world'
 if s:VIM.is_string(var)
   echo 'It is a string'
@@ -49,7 +49,7 @@ endif
 - `setbufvar(bufnr, dict)`: the second argv is a dictionary, set all the options based on the keys in `dict`.
 for example:
   ```vim
-  let s:VIM = SpaceVim#api#import('vim')
+  let s:VIM = spacevim#api#import('vim')
   call s:VIM.setbufvar(s:bufnr, {
         \ '&filetype' : 'leaderGuide',
         \ '&number' : 0,

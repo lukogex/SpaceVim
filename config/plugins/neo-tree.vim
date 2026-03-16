@@ -1,4 +1,4 @@
-let s:WIN = SpaceVim#api#import('vim#window')
+let s:WIN = spacevim#api#import('vim#window')
 augroup vfinit
   au!
   autocmd FileType neo-tree call s:nvim_tree_init()

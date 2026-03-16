@@ -1,9 +1,9 @@
 ---
-title: "SpaceVim zeal layer"
-description: "This layer provides Zeal integration for SpaceVim"
+title: "spacevim zeal layer"
+description: "This layer provides Zeal integration for spacevim"
 ---
 
-# [SpaceVim Layers:](https://spacevim.org/layers) tools#zeal
+# [spacevim Layers:](https://spacevim.org/layers) tools#zeal
 
 <!-- vim-markdown-toc GFM -->
 
@@ -15,11 +15,11 @@ description: "This layer provides Zeal integration for SpaceVim"
 
 ## Description
 
-This layer provides Zeal integration for SpaceVim.
+This layer provides Zeal integration for spacevim.
 
 ## Layer Installation
 
-To use this configuration layer, add it to your `~/.SpaceVim.d/init.toml`.
+To use this configuration layer, add it to your `~/.spacevim.d/init.toml`.
 
 
 ```toml

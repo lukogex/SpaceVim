@@ -14,7 +14,7 @@ comments: true
 {{ page.date | date_to_string }}
 
 
-SpaceVim use dein as default plugin manager, and implement a UI for dein. 
+spacevim use dein as default plugin manager, and implement a UI for dein. 
 
 ![dein ui](https://img.spacevim.org/80597767-e1e82a80-8a5a-11ea-85ad-031a6f3240f0.gif)
 

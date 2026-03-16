@@ -2,7 +2,7 @@
 title: "Use Vim as a PHP IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/57497567-c6948480-730a-11e9-95ec-e44bf6e79984.png
-description: "A general guide for using SpaceVim as PHP IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as PHP IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a PHP IDE"
@@ -11,7 +11,7 @@ language: PHP
 
 # [Blogs](../blog/) >> Use Vim as a PHP IDE
 
-This is a general guide for using SpaceVim as a PHP IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a PHP IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -30,8 +30,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add PHP language support in SpaceVim, you need to enable the `lang#php` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add the following snippet:
+To add PHP language support in spacevim, you need to enable the `lang#php` layer. Press `SPC f v d` to open
+spacevim configuration file, and add the following snippet:
 
 ```toml
 [[layers]]

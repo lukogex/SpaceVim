@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#gosu layer"
+title: "spacevim lang#gosu layer"
 description: "This layer is for gosu development, provides syntax checking, code runner and repl support for gosu files."
 ---
 

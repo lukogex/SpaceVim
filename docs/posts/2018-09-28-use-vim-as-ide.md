@@ -1,7 +1,7 @@
 ---
 title: "Use Vim as IDE"
 categories: [blog]
-description: "A general guide for using SpaceVim as general IDE"
+description: "A general guide for using spacevim as general IDE"
 type: article
 comments: true
 commentsID: "Use Vim as IDE"
@@ -9,7 +9,7 @@ commentsID: "Use Vim as IDE"
 
 # [Blogs](../blog/) >> Use Vim as IDE
 
-This is a general guide for using SpaceVim as IDE. including following sections:
+This is a general guide for using spacevim as IDE. including following sections:
 
 <!-- vim-markdown-toc GFM -->
 
@@ -27,7 +27,7 @@ This is a general guide for using SpaceVim as IDE. including following sections:
 
 ### Installation
 
-SpaceVim is a Vim configuration, so you need to install vim or neovim,
+spacevim is a Vim configuration, so you need to install vim or neovim,
 to enable `+python3` and `+python` support for neovim, you need to install `pynvim`:
 
 ```
@@ -35,7 +35,7 @@ pip install --user pynvim
 pip3 install --user pynvim
 ```
 
-following the [quick start guide](../quick-start-guide/) to install SpaceVim,
+following the [quick start guide](../quick-start-guide/) to install spacevim,
 
 ### Key binding guide
 
@@ -56,12 +56,12 @@ and the key binding of filetree is `<F3>`. Tagbar's key binding is `<F2>`, it wi
 
 ### project manager
 
-SpaceVim detect the project root based on the `project_rooter_patterns` option.
+spacevim detect the project root based on the `project_rooter_patterns` option.
 This is a list of patterns of filename or directory.
 the default value is `['.git/', '_darcs/', '.hg/', '.bzr/', '.svn/']`.
 read the [documentation](../documentation/#managing-projects) for more info.
 
-SpaceVim will change switch to project root automatically based on `project_rooter_patterns` option.
+spacevim will change switch to project root automatically based on `project_rooter_patterns` option.
 By default it will find outermost directory by default, to find nearest directory,
 you need to change `project_rooter_outermost` to `false`.
 
@@ -77,7 +77,7 @@ for example `telescope` layer, the the key binding `SPC p p` is available for yo
 
 ### Fuzzy finder
 
-SpaceVim provides 5 fuzzy finder layer, they are unite, denite, fzf, leaderf and ctrlp.
+spacevim provides 5 fuzzy finder layer, they are unite, denite, fzf, leaderf and ctrlp.
 To use fuzzy finder feature, you need to enable a
 fuzzy finder layer. for example enable denite layer:
 
@@ -88,7 +88,7 @@ fuzzy finder layer. for example enable denite layer:
 
 ### Git integration
 
-The `git` layer and `VersionControl` layer provide Version control integration for SpaceVim.
+The `git` layer and `VersionControl` layer provide Version control integration for spacevim.
 These layers are not loaded by default. To use these features, you need to enable these layers
 in your configuration file.
 
@@ -103,7 +103,7 @@ in your configuration file.
 
 The windows ID will be shown on the statusline, and users can use `SPC + number` to jump to specific windows,
 the buffer index or tabpage index will be shown on the tabline.
-To jump to specific tab, you can use `Leader + number` the default leader in SpaceVim is `\`.
+To jump to specific tab, you can use `Leader + number` the default leader in spacevim is `\`.
 
 ### Search and replace
 
@@ -114,5 +114,5 @@ promote.
 
 ### Language support
 
-By default, SpaceVim does not load any language layer, please checkout the [available layers](../layers/) page.
+By default, spacevim does not load any language layer, please checkout the [available layers](../layers/) page.
 

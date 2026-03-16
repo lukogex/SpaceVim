@@ -1,6 +1,6 @@
 scriptencoding utf-8
-let s:VCOP = SpaceVim#api#import('vim#compatible')
-let s:FILE = SpaceVim#api#import('file')
+let s:VCOP = spacevim#api#import('vim#compatible')
+let s:FILE = spacevim#api#import('file')
 if get(g:, 'spacevim_filetree_direction', 'right') ==# 'right'
   let g:NERDTreeWinPos = 'rightbelow'
 else

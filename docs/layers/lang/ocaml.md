@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#ocaml layer"
+title: "spacevim lang#ocaml layer"
 description: "This layer is for OCaml development, provides autocompletion, syntax checking, and code formatting for OCaml files."
 ---
 

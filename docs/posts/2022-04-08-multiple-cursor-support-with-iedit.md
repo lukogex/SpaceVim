@@ -22,7 +22,7 @@ comments: true
 
 ## Design causes
 
-Many times in order to quickly edit multiple pieces of the same content, SpaceVim implements a feature called `iedit`,
+Many times in order to quickly edit multiple pieces of the same content, spacevim implements a feature called `iedit`,
 which is same as the `iedit-mode` of emacs.
 
 ## Mode introduction
@@ -34,4 +34,4 @@ With the `core#statusline` layer, the `IEDIT-NORMAL` or `IEDIT-INSERT` modu text
 
 ## About documentation
 
-You can read online doc: [Replace text with iedit](../documentation/#replace-text-with-iedit), or read `:h spacevim-plugins-iedit` in SpaceVim
+You can read online doc: [Replace text with iedit](../documentation/#replace-text-with-iedit), or read `:h spacevim-plugins-iedit` in spacevim

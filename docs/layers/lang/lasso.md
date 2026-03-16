@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#lasso layer"
+title: "spacevim lang#lasso layer"
 description: "Lasso language support, include syntax highlighting."
 ---
 

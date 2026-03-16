@@ -2,7 +2,7 @@
 title: "Use Vim as a Nim IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/102889616-f075cd00-4495-11eb-819f-1ff4721cbd69.png
-description: "A general guide for using SpaceVim as Nim IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Nim IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Nim IDE"
@@ -11,7 +11,7 @@ language: Nim
 
 # [Blogs](../blog/) >> Use Vim as a Nim IDE
 
-This is a general guide for using SpaceVim as a Nim IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a Nim IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 ![nim-ide](https://img.spacevim.org/102889616-f075cd00-4495-11eb-819f-1ff4721cbd69.png)
@@ -30,10 +30,10 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-`lang#nim` layer provides nim language specific features for SpaceVim.
+`lang#nim` layer provides nim language specific features for spacevim.
 This layer is not enabled by default. To write nim language,
 you need to enable the `lang#nim` layer.
-Press `SPC f v d` to open SpaceVim configuration file, and add following configuration:
+Press `SPC f v d` to open spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]
@@ -94,7 +94,7 @@ The default format engine is `neoformat`, it will run `nimpretty` asynchronously
 
 ### Tasks manage
 
-SpaceVim will detect `nimble` project tasks automatically. If there is `*.nimble` file in the root directory
+spacevim will detect `nimble` project tasks automatically. If there is `*.nimble` file in the root directory
 of your project. The following nimble tesks will be detected automatically.
 
 ![nim-tasks](https://img.spacevim.org/102893478-9c221b80-449c-11eb-8179-0397acfb72e2.png)

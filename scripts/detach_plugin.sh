@@ -19,7 +19,7 @@ _default_readme () {
 # $1
 > $2
 
-This plugin is automatically detach from [SpaceVim](https://github.com/SpaceVim/SpaceVim/). you can use it without SpaceVim.
+This plugin is automatically detach from [spacevim](https://github.com/spacevim/spacevim/). you can use it without spacevim.
 EOT
 } 
 
@@ -30,35 +30,35 @@ main () {
             git clone https://github.com/wsdjeg/$1.git detach/$1
             cd detach/$1
             _checkdir syntax/
-            _checkdir autoload/SpaceVim/api
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/neovim
-            _checkdir autoload/SpaceVim/api/data
-            _checkdir autoload/SpaceVim/mapping
-            _checkdir autoload/SpaceVim/plugins
-            _detact autoload/SpaceVim/plugins/flygrep.vim
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/logger.vim
-            _detact autoload/SpaceVim/api/vim/buffer.vim
-            _detact autoload/SpaceVim/api/vim/regex.vim
-            _detact autoload/SpaceVim/api/vim/compatible.vim
-            _detact autoload/SpaceVim/api/vim/floating.vim
-            _detact autoload/SpaceVim/api/vim/highlight.vim
-            _detact autoload/SpaceVim/api/vim/statusline.vim
-            _detact autoload/SpaceVim/api/vim/window.vim
-            _detact autoload/SpaceVim/api/neovim/floating.vim
-            _detact autoload/SpaceVim/api/data/dict.vim
-            _detact autoload/SpaceVim/api/data/list.vim
-            _detact autoload/SpaceVim/api/data/json.vim
-            _detact autoload/SpaceVim/api/data/string.vim
-            _detact autoload/SpaceVim/api/prompt.vim
-            _detact autoload/SpaceVim/api/job.vim
-            _detact autoload/SpaceVim/api/vim.vim
-            _detact autoload/SpaceVim/api/file.vim
-            _detact autoload/SpaceVim/api/system.vim
-            _detact autoload/SpaceVim/api/time.vim
-            _detact autoload/SpaceVim/mapping/search.vim
-            _detact autoload/SpaceVim/logger.vim
+            _checkdir autoload/spacevim/api
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/neovim
+            _checkdir autoload/spacevim/api/data
+            _checkdir autoload/spacevim/mapping
+            _checkdir autoload/spacevim/plugins
+            _detact autoload/spacevim/plugins/flygrep.vim
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/logger.vim
+            _detact autoload/spacevim/api/vim/buffer.vim
+            _detact autoload/spacevim/api/vim/regex.vim
+            _detact autoload/spacevim/api/vim/compatible.vim
+            _detact autoload/spacevim/api/vim/floating.vim
+            _detact autoload/spacevim/api/vim/highlight.vim
+            _detact autoload/spacevim/api/vim/statusline.vim
+            _detact autoload/spacevim/api/vim/window.vim
+            _detact autoload/spacevim/api/neovim/floating.vim
+            _detact autoload/spacevim/api/data/dict.vim
+            _detact autoload/spacevim/api/data/list.vim
+            _detact autoload/spacevim/api/data/json.vim
+            _detact autoload/spacevim/api/data/string.vim
+            _detact autoload/spacevim/api/prompt.vim
+            _detact autoload/spacevim/api/job.vim
+            _detact autoload/spacevim/api/vim.vim
+            _detact autoload/spacevim/api/file.vim
+            _detact autoload/spacevim/api/system.vim
+            _detact autoload/spacevim/api/time.vim
+            _detact autoload/spacevim/mapping/search.vim
+            _detact autoload/spacevim/logger.vim
             # detach lua version flygrep
             _checkdir lua/spacevim/api
             _checkdir lua/spacevim/api/vim
@@ -84,7 +84,7 @@ main () {
             _detact lua/spacevim/api/vim/window.lua
             _detact lua/spacevim/api/vim/statusline.lua
             # detach syntax/ftplugin etc
-            _detact syntax/SpaceVimFlyGrep.vim
+            _detact syntax/spacevimFlyGrep.vim
             # detach bundle
             _checkdir plugin
             _detact_bundle FlyGrep plugin/FlyGrep.vim
@@ -119,20 +119,20 @@ main () {
             git clone https://github.com/wsdjeg/dein-ui.vim.git detach/$1
             cd detach/$1
             _checkdir syntax/
-            _checkdir autoload/SpaceVim/api
-            _checkdir autoload/SpaceVim/api/data
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/mapping
-            _checkdir autoload/SpaceVim/plugins
-            _detact autoload/SpaceVim/plugins/manager.vim
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/commands.vim
-            _detact autoload/SpaceVim/logger.vim
-            _detact autoload/SpaceVim/api/job.vim
-            _detact autoload/SpaceVim/api/system.vim
-            _detact autoload/SpaceVim/api/data/list.vim
-            _detact autoload/SpaceVim/api/vim/compatible.vim
-            _detact syntax/SpaceVimPlugManager.vim
+            _checkdir autoload/spacevim/api
+            _checkdir autoload/spacevim/api/data
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/mapping
+            _checkdir autoload/spacevim/plugins
+            _detact autoload/spacevim/plugins/manager.vim
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/commands.vim
+            _detact autoload/spacevim/logger.vim
+            _detact autoload/spacevim/api/job.vim
+            _detact autoload/spacevim/api/system.vim
+            _detact autoload/spacevim/api/data/list.vim
+            _detact autoload/spacevim/api/vim/compatible.vim
+            _detact syntax/spacevimPlugManager.vim
             _detact LICENSE
             _detact_bundle dein-ui.vim README.md
             _detact_bundle dein-ui.vim plugin/deinui.vim
@@ -185,14 +185,14 @@ main () {
             _detact lua/spacevim/api/notify.lua
             _detact lua/easing.lua
             _detact lua/spacevim/api/password.lua
-            _checkdir autoload/SpaceVim/api/neovim
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/notify.vim
-            _detact autoload/SpaceVim/api/neovim/floating.vim
-            _detact autoload/SpaceVim/api/vim/floating.vim
-            _detact autoload/SpaceVim/api/data/dict.vim
+            _checkdir autoload/spacevim/api/neovim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/notify.vim
+            _detact autoload/spacevim/api/neovim/floating.vim
+            _detact autoload/spacevim/api/vim/floating.vim
+            _detact autoload/spacevim/api/data/dict.vim
             ;;
         record-key.nvim)
             git clone https://github.com/wsdjeg/record-key.nvim.git detach/$1
@@ -210,14 +210,14 @@ main () {
             _detact lua/spacevim/api/notify.lua
             _detact lua/easing.lua
             _detact lua/spacevim/api/password.lua
-            _checkdir autoload/SpaceVim/api/neovim
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/notify.vim
-            _detact autoload/SpaceVim/api/neovim/floating.vim
-            _detact autoload/SpaceVim/api/vim/floating.vim
-            _detact autoload/SpaceVim/api/data/dict.vim
+            _checkdir autoload/spacevim/api/neovim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/notify.vim
+            _detact autoload/spacevim/api/neovim/floating.vim
+            _detact autoload/spacevim/api/vim/floating.vim
+            _detact autoload/spacevim/api/data/dict.vim
             ;;
         cpicker.nvim)
             git clone https://github.com/wsdjeg/cpicker.nvim.git detach/$1
@@ -245,15 +245,15 @@ main () {
             _detact lua/spacevim/api/notify.lua
             _detact lua/easing.lua
             _detact lua/spacevim/api/password.lua
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _detact autoload/SpaceVim/api/notify.vim
-            _detact autoload/SpaceVim/api/data/string.vim
-            _detact autoload/SpaceVim/api/data/number.vim
-            _detact autoload/SpaceVim/api/vim/buffer.vim
-            _detact autoload/SpaceVim/api/vim/floatting.vim
-            _checkdir autoload/SpaceVim/api/neovim
-            _detact autoload/SpaceVim/api/neovim/floatting.vim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _detact autoload/spacevim/api/notify.vim
+            _detact autoload/spacevim/api/data/string.vim
+            _detact autoload/spacevim/api/data/number.vim
+            _detact autoload/spacevim/api/vim/buffer.vim
+            _detact autoload/spacevim/api/vim/floatting.vim
+            _checkdir autoload/spacevim/api/neovim
+            _detact autoload/spacevim/api/neovim/floatting.vim
             _detact LICENSE
             ;;
         SourceCounter.vim)
@@ -270,27 +270,27 @@ main () {
             _detact LICENSE
             _checkdir pic
             _detact_bundle SourceCounter.vim pic/screen.png
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _detact autoload/SpaceVim/api/notify.vim
-            _detact autoload/SpaceVim/api/data/string.vim
-            _detact autoload/SpaceVim/api/data/number.vim
-            _detact autoload/SpaceVim/api/vim/buffer.vim
-            _detact autoload/SpaceVim/api/vim/floatting.vim
-            _checkdir autoload/SpaceVim/api/neovim
-            _detact autoload/SpaceVim/api/neovim/floatting.vim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _detact autoload/spacevim/api/notify.vim
+            _detact autoload/spacevim/api/data/string.vim
+            _detact autoload/spacevim/api/data/number.vim
+            _detact autoload/spacevim/api/vim/buffer.vim
+            _detact autoload/spacevim/api/vim/floatting.vim
+            _checkdir autoload/spacevim/api/neovim
+            _detact autoload/spacevim/api/neovim/floatting.vim
             ;;
         iedit.vim)
             git clone https://github.com/wsdjeg/iedit.vim.git detach/$1
             cd detach/$1
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _checkdir autoload/SpaceVim/plugins
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/vim/compatible.vim
-            _detact autoload/SpaceVim/api/vim/highlight.vim
-            _detact autoload/SpaceVim/api/data/string.vim
-            _detact autoload/SpaceVim/plugins/iedit.vim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _checkdir autoload/spacevim/plugins
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/vim/compatible.vim
+            _detact autoload/spacevim/api/vim/highlight.vim
+            _detact autoload/spacevim/api/data/string.vim
+            _detact autoload/spacevim/plugins/iedit.vim
             _checkdir autoload/plugin
             cat <<EOT > autoload/plugin/iedit.vim
 "=============================================================================
@@ -310,7 +310,7 @@ main () {
 " 8.0+.
 "
 
-command! -nargs=0 Iedit call SpaceVim#plugins#iedit#start()
+command! -nargs=0 Iedit call spacevim#plugins#iedit#start()
 EOT
             _detact LICENSE
             _default_readme "iedit.vim" "multiple cussor support for Vim/Neovim"
@@ -319,27 +319,27 @@ EOT
             git clone https://github.com/wsdjeg/vim-todo.git detach/$1
             cd detach/$1
             _checkdir syntax/
-            _detact syntax/SpaceVimTodoManager.vim
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _checkdir autoload/SpaceVim/plugins
-            _checkdir autoload/SpaceVim/mapping
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/logger.vim
-            _detact autoload/SpaceVim/api/job.vim
-            _detact autoload/SpaceVim/api/system.vim
-            _detact autoload/SpaceVim/api/data/string.vim
-            _detact autoload/SpaceVim/api/file.vim
-            _detact autoload/SpaceVim/api/vim/buffer.vim
-            _detact autoload/SpaceVim/api/vim/regex.vim
-            _detact autoload/SpaceVim/api/vim/compatible.vim
-            _detact autoload/SpaceVim/logger.vim
-            _detact autoload/SpaceVim/mapping/search.vim
-            _detact autoload/SpaceVim/plugins/todo.vim
+            _detact syntax/spacevimTodoManager.vim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _checkdir autoload/spacevim/plugins
+            _checkdir autoload/spacevim/mapping
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/logger.vim
+            _detact autoload/spacevim/api/job.vim
+            _detact autoload/spacevim/api/system.vim
+            _detact autoload/spacevim/api/data/string.vim
+            _detact autoload/spacevim/api/file.vim
+            _detact autoload/spacevim/api/vim/buffer.vim
+            _detact autoload/spacevim/api/vim/regex.vim
+            _detact autoload/spacevim/api/vim/compatible.vim
+            _detact autoload/spacevim/logger.vim
+            _detact autoload/spacevim/mapping/search.vim
+            _detact autoload/spacevim/plugins/todo.vim
             _checkdir plugin
             cat <<EOT > plugin/todo.vim
 "=============================================================================
-" todo.vim --- todo manager for SpaceVim
+" todo.vim --- todo manager for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
@@ -354,9 +354,9 @@ EOT
             git clone https://github.com/wsdjeg/vim-chat.git detach/$1
             cd detach/$1
             _detact LICENSE
-            _checkdir autoload/SpaceVim/api
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/job.vim
+            _checkdir autoload/spacevim/api
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/job.vim
             _checkdir autoload/chat/
             _detact_bundle vim-chat autoload/chat.vim
             _detact_bundle vim-chat autoload/chat/gitter.vim
@@ -375,18 +375,18 @@ EOT
             git clone https://github.com/wsdjeg/JavaUnit.vim.git detach/$1
             cd detach/$1
             # _detact LICENSE
-            # _checkdir autoload/SpaceVim/api
-            # _detact autoload/SpaceVim/api.vim
-            # _detact autoload/SpaceVim/api/job.vim
+            # _checkdir autoload/spacevim/api
+            # _detact autoload/spacevim/api.vim
+            # _detact autoload/spacevim/api/job.vim
             # _checkdir autoload/chat/
             _detact_bundle JavaUnit.vim README.md
             ;;
         git.vim)
             git clone https://github.com/wsdjeg/git.vim.git detach/$1
             cd detach/$1
-            _checkdir autoload/SpaceVim/api
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/job.vim
+            _checkdir autoload/spacevim/api
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/job.vim
             _detact_bundle git.vim LICENSE
             _detact_bundle git.vim README.md
             _detact_bundle git.vim addon-info.json
@@ -527,15 +527,15 @@ EOT
             _detact lua/easing.lua
             _detact lua/spacevim/api/password.lua
             _detact lua/spacevim/api/vim/highlight.lua
-            _checkdir autoload/SpaceVim/api
-            _checkdir autoload/SpaceVim/api/neovim
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/data
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/notify.vim
-            _detact autoload/SpaceVim/api/neovim/floating.vim
-            _detact autoload/SpaceVim/api/vim/floating.vim
-            _detact autoload/SpaceVim/api/data/dict.vim
+            _checkdir autoload/spacevim/api
+            _checkdir autoload/spacevim/api/neovim
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/data
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/notify.vim
+            _detact autoload/spacevim/api/neovim/floating.vim
+            _detact autoload/spacevim/api/vim/floating.vim
+            _detact autoload/spacevim/api/data/dict.vim
             ;;
         xmake.vim)
             git clone https://github.com/wsdjeg/xmake.vim.git detach/$1
@@ -582,25 +582,25 @@ EOT
         scrollbar.vim)
             git clone https://github.com/wsdjeg/scrollbar.vim.git detach/$1
             cd detach/$1
-            _checkdir autoload/SpaceVim/api/
-            _checkdir autoload/SpaceVim/api/vim
-            _checkdir autoload/SpaceVim/api/neovim
-            _checkdir autoload/SpaceVim/api/data
-            _detact autoload/SpaceVim/api.vim
-            _detact autoload/SpaceVim/api/vim.vim
-            _detact autoload/SpaceVim/api/system.vim
-            _detact autoload/SpaceVim/api/logger.vim
-            _detact autoload/SpaceVim/api/time.vim
-            _detact autoload/SpaceVim/api/vim/compatible.vim
-            _detact autoload/SpaceVim/api/vim/buffer.vim
-            _detact autoload/SpaceVim/api/vim/window.vim
-            _detact autoload/SpaceVim/api/vim/floating.vim
-            _detact autoload/SpaceVim/api/vim/highlight.vim
-            _detact autoload/SpaceVim/api/neovim/floating.vim
-            _detact autoload/SpaceVim/api/data/dict.vim
-            _detact autoload/SpaceVim/api/data/string.vim
-            _checkdir autoload/SpaceVim/plugins/
-            _detact autoload/SpaceVim/plugins/scrollbar.vim
+            _checkdir autoload/spacevim/api/
+            _checkdir autoload/spacevim/api/vim
+            _checkdir autoload/spacevim/api/neovim
+            _checkdir autoload/spacevim/api/data
+            _detact autoload/spacevim/api.vim
+            _detact autoload/spacevim/api/vim.vim
+            _detact autoload/spacevim/api/system.vim
+            _detact autoload/spacevim/api/logger.vim
+            _detact autoload/spacevim/api/time.vim
+            _detact autoload/spacevim/api/vim/compatible.vim
+            _detact autoload/spacevim/api/vim/buffer.vim
+            _detact autoload/spacevim/api/vim/window.vim
+            _detact autoload/spacevim/api/vim/floating.vim
+            _detact autoload/spacevim/api/vim/highlight.vim
+            _detact autoload/spacevim/api/neovim/floating.vim
+            _detact autoload/spacevim/api/data/dict.vim
+            _detact autoload/spacevim/api/data/string.vim
+            _checkdir autoload/spacevim/plugins/
+            _detact autoload/spacevim/plugins/scrollbar.vim
             _detact LICENSE
             _detact_bundle scrollbar.vim README.md
             _checkdir plugin
@@ -612,7 +612,7 @@ EOT
             _checkdir lua/spacevim/api/vim
             _detact lua/spacevim/api/vim/buffer.lua
             _detact lua/spacevim/api/vim/window.lua
-            _detact autoload/SpaceVim/logger.vim
+            _detact autoload/spacevim/logger.vim
             ;;
         quickfix.nvim)
             git clone https://github.com/wsdjeg/quickfix.nvim.git detach/$1
@@ -633,8 +633,8 @@ EOT
             _detact_bundle winbar.nvim plugin/winbar.lua
             _detact LICENSE
             _detact_bundle winbar.nvim README.md
-            _checkdir autoload/SpaceVim/mapping/guide/theme
-            _detact autoload/SpaceVim/mapping/guide/theme/gruvbox.vim
+            _checkdir autoload/spacevim/mapping/guide/theme
+            _detact autoload/spacevim/mapping/guide/theme/gruvbox.vim
             _checkdir lua/spacevim/api/vim
             _detact lua/spacevim/api/vim/highlight.lua
             ;;
@@ -654,8 +654,8 @@ EOT
     git add .
     git config user.email "wsdjeg@outlook.com"
     git config user.name  "Eric Wong"
-    git commit -m "${SpaceVim_COMMIT_MSG}"
-    git remote add wsdjeg_$1 https://SpaceVimBot:${BOTSECRET}@github.com/wsdjeg/$1.git
+    git commit -m "${spacevim_COMMIT_MSG}"
+    git remote add wsdjeg_$1 https://spacevimBot:${BOTSECRET}@github.com/wsdjeg/$1.git
     git push wsdjeg_$1 master 
     cd -
     rm -rf detach/$1

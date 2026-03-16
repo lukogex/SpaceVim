@@ -1,7 +1,7 @@
 ---
 title: "Use Vim as a Python IDE"
 categories: [tutorials, blog]
-description: "A general guide for using SpaceVim as Python IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Python IDE, including layer configuration, requiems installation and usage."
 type: article
 image: https://img.spacevim.org/197381840-821cc059-0aad-42fd-bc39-d5fa16a824f7.png
 comments: true
@@ -11,8 +11,8 @@ language: Python
 
 # [Blogs](../blog/) >> Use Vim as a Python IDE
 
-This tutorial introduces you to SpaceVim as a Python environment,
-by using the `lang#python` layer, you make SpaceVim into a great lightweight Python IDE.
+This tutorial introduces you to spacevim as a Python environment,
+by using the `lang#python` layer, you make spacevim into a great lightweight Python IDE.
 
 ![python-ide](https://img.spacevim.org/197381840-821cc059-0aad-42fd-bc39-d5fa16a824f7.png)
 
@@ -36,8 +36,8 @@ This tutorial is not intended to teach you Python itself.
 
 ### Enable language layer
 
-The python language support in SpaceVim is provided by `lang#python` layer, and it is not enabled by default.
-You need to enable it in SpaceVim configuration file. Press `SPC f v d` to open the SpaceVim configuration file,
+The python language support in spacevim is provided by `lang#python` layer, and it is not enabled by default.
+You need to enable it in spacevim configuration file. Press `SPC f v d` to open the spacevim configuration file,
 and add following snippet to your configuration file.
 
 ```toml
@@ -50,7 +50,7 @@ For more info, you can read the [lang#python](../layers/lang/python/) layer docu
 ### Select a Python interpreter
 
 Python is an interpreted language, and in order to run Python code and get semantic information,
-you need to tell SpaceVim which interpreter to use. This can be set with `python_interpreter` layer
+you need to tell spacevim which interpreter to use. This can be set with `python_interpreter` layer
 option. For example:
 
 ```toml

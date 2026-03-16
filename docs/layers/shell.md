@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim shell layer"
-description: "This layer provides shell support in SpaceVim"
+title: "spacevim shell layer"
+description: "This layer provides shell support in spacevim"
 ---
 
 # [Available Layers](../) >> shell
@@ -19,7 +19,7 @@ description: "This layer provides shell support in SpaceVim"
 
 ## Description
 
-This layer provide shell support in SpaceVim.
+This layer provide shell support in spacevim.
 
 ## Install
 

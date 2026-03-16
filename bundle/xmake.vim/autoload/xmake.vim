@@ -13,11 +13,11 @@
 " @section Introduction, intro
 " @library
 " xmake.vim is a plugin for using xmake in vim and neovim.
-" This plugin requires SpaceVim API and |job| support.
+" This plugin requires spacevim API and |job| support.
 
 " load the spacevim APIs:
-let s:JOB = SpaceVim#api#import('job')
-let s:NOTI = SpaceVim#api#import('notify')
+let s:JOB = spacevim#api#import('job')
+let s:NOTI = spacevim#api#import('notify')
 
 let s:job = 0       " subprocess of xmake
 let s:xmake_need_to_run = 0       " run this command after building successfully
@@ -46,7 +46,7 @@ function! s:xmake_exit(id, data, event) abort
       if empty(t)
         call s:NOTI.notify('Target not exists:' . s:target, 'Error')
       else
-        call SpaceVim#plugins#runner#open(empty(s:target) ? 'xmake run': t)
+        call spacevim#plugins#runner#open(empty(s:target) ? 'xmake run': t)
       endif
     endif
   endif
@@ -161,7 +161,7 @@ fun! s:onload(...)
       let t.sourcefiles = []
     endif
   endfor
-  " Support SpaceVim's tabmanager
+  " Support spacevim's tabmanager
   call s:NOTI.notify('XMake-Project loaded successfully', 'MoreMsg')
   let config = g:xmproj.config
   let t:_spacevim_tab_name = join(filter([g:xmproj['name'], get(config, 'mode', ''), get(config, 'arch', '')], '!empty(v:val)'), ' - ')

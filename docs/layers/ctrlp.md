@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim ctrlp layer"
+title: "spacevim ctrlp layer"
 description: "This layers provide a heavily customized ctrlp centric work-flow"
 ---
 

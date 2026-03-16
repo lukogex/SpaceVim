@@ -40,7 +40,7 @@ This api can be used in both vim script and lua script.
 **vim script:**
 
 ```vim
-let s:system = SpaceVim#api#import('system')
+let s:system = spacevim#api#import('system')
 
 " check the if current os is Windows.
 if s:system.isWindows

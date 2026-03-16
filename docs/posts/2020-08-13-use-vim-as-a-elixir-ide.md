@@ -2,7 +2,7 @@
 title: "Use Vim as a Elixir IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/90253911-80669300-de74-11ea-9786-4b97a4091bc6.png
-description: "A general guide for using SpaceVim as Elixir IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Elixir IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Elixir IDE"
@@ -11,7 +11,7 @@ language: Elixir
 
 # [Blogs](../blog/) >> Use Vim as Elixir IDE
 
-This is a general guide for using SpaceVim as a Elixir IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a Elixir IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 ![elixir-ide](https://img.spacevim.org/90253911-80669300-de74-11ea-9786-4b97a4091bc6.png)
@@ -32,8 +32,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add elixir language support in SpaceVim, you need to enable the `lang#elixir` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+To add elixir language support in spacevim, you need to enable the `lang#elixir` layer. Press `SPC f v d` to open
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]
@@ -80,7 +80,7 @@ send whole buffer.
 
 ### Jump to test file
 
-SpaceVim use vim-project to manager the files in a project,
+spacevim use vim-project to manager the files in a project,
 you can add a `.projections.json` to the root of your project with following content:
 
 ```json
@@ -94,7 +94,7 @@ with this configuration, you can jump between the source code and test file via 
 
 ### Task manager
 
-To manage the task of elixir project, you need to create a task configuration file: `.SpaceVim.d/task.toml`.
+To manage the task of elixir project, you need to create a task configuration file: `.spacevim.d/task.toml`.
 
 For example:
 

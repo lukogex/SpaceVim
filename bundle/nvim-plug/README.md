@@ -1,6 +1,6 @@
 # nvim-plug
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 [![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
 
 ![nvim-plug](https://wsdjeg.net/images/nvim-plug.gif)
@@ -295,6 +295,6 @@ require('plug').load()
 
 ## Feedback
 
-The development of this plugin is in [`SpaceVim/bundle/nvim-plug`](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/nvim-plug) directory.
+The development of this plugin is in [`spacevim/bundle/nvim-plug`](https://github.com/spacevim/spacevim/tree/master/bundle/nvim-plug) directory.
 
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/SpaceVim/SpaceVim/issues) or [Telegram group](https://t.me/+w27TxYbUz1wxZmJl)
+If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues) or [Telegram group](https://t.me/+w27TxYbUz1wxZmJl)

@@ -119,7 +119,7 @@ end
 -- if data
 function M.hover_callback(success, data)
   if not success then
-    vim.api.nvim_command('call SpaceVim#util#echoWarn("Failed to retrieve hover information")')
+    vim.api.nvim_command('call spacevim#util#echoWarn("Failed to retrieve hover information")')
     return
   end
   if type(data.contents) == 'table' then

@@ -8,7 +8,7 @@ if exists('g:autoloaded_startify') || &compatible
   finish
 endif
 
-let s:FILE = SpaceVim#api#import('file')
+let s:FILE = spacevim#api#import('file')
 
 let g:autoloaded_startify = 1
 

@@ -1,4 +1,4 @@
-let s:LOGGER =SpaceVim#logger#derive('vim-mail')
+let s:LOGGER =spacevim#logger#derive('vim-mail')
 
 function! mail#logger#info(msg)
   call s:LOGGER.info(a:msg)

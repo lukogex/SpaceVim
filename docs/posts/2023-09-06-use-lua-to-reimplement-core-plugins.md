@@ -7,7 +7,7 @@ type: article
 
 # [Blogs](../blog/) >> Use Lua to Reimplement Core Plugins
 
-After comparing the speed of vim script and lua, I want to rewrite SpaceVim with Lua.
+After comparing the speed of vim script and lua, I want to rewrite spacevim with Lua.
 
 **NOTE:** All vim scripts will be retained to ensure support for older versions of Vim and NeoVim
 
@@ -131,7 +131,7 @@ Then the runtime log via `SPC h L`, and you should be able to see:
 
 **Built-in Plugins:**
 
-These plugins are very commonly used in SpaceVim, so they are rewritten using lua for a better experience.
+These plugins are very commonly used in spacevim, so they are rewritten using lua for a better experience.
 
 - alternate file manager
 
@@ -148,4 +148,4 @@ These plugins are very commonly used in SpaceVim, so they are rewritten using lu
 
 ### The next step
 
-Please subscribe to the [SpaceVim blog](../blog/) to get the latest updates.
+Please subscribe to the [spacevim blog](../blog/) to get the latest updates.

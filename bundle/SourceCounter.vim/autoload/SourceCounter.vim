@@ -1,4 +1,4 @@
-let s:NOTI = SpaceVim#api#import('notify')
+let s:NOTI = spacevim#api#import('notify')
 
 scriptencoding utf-8
 let s:support_ft = ['vim', 'java', 'c', 'py', 'md', 'txt']

@@ -1,6 +1,6 @@
 # vim-chat
 
-The chatting client for vim and neovim. This plugin is based on [SpaceVim](https://spacevim.org)'s API, and it is detached automatically.
+The chatting client for vim and neovim. This plugin is based on [spacevim](https://spacevim.org)'s API, and it is detached automatically.
 
 ![vim-chat](https://img.spacevim.org/166140007-d11d5e92-b32d-414f-b56b-64e28d03fd0e.png)
 
@@ -13,14 +13,14 @@ The chatting client for vim and neovim. This plugin is based on [SpaceVim](https
 
 ## Usage
 
-If you are SpaceVim user, just load the [chat](https://spacevim.org/layers/chat/) layer.
+If you are spacevim user, just load the [chat](https://spacevim.org/layers/chat/) layer.
 
 ```toml
 [[layers]]
   name = "chat"
 ```
 
-The default key binding in SpaceVim is `SPC a h`.
+The default key binding in spacevim is `SPC a h`.
 
 Of cause you can install this standalone plugin with vim-plug:
 
@@ -36,4 +36,4 @@ nnoremap <silent> <Leader>h :call chat#windows#open()<Cr>
 
 ## Feedback & Contribute
 
-The development of vim-chat is in SpaceVim repository, including the SpaceVim api and [bundle/vim-chat](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/vim-chat)
+The development of vim-chat is in spacevim repository, including the spacevim api and [bundle/vim-chat](https://github.com/spacevim/spacevim/tree/master/bundle/vim-chat)

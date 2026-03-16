@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim chinese layer"
+title: "spacevim chinese layer"
 description: "Layer for chinese users, include chinese docs and runtime messages"
 ---
 

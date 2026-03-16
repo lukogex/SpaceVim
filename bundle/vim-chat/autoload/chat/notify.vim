@@ -6,7 +6,7 @@
 " License: GPLv3
 "=============================================================================
 
-let s:NOTI = SpaceVim#api#import('notify')
+let s:NOTI = spacevim#api#import('notify')
 let s:NOTI.notify_max_width = &columns * 0.50
 let s:NOTI.timeout = 5000
 

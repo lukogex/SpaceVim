@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim test layer"
-description: "This layer allows to run tests directly in SpaceVim"
+title: "spacevim test layer"
+description: "This layer allows to run tests directly in spacevim"
 ---
 
 # [Available Layers](../) >> test
@@ -16,7 +16,7 @@ description: "This layer allows to run tests directly in SpaceVim"
 
 ## Description
 
-This layers allows to run tests directly in SpaceVim.
+This layers allows to run tests directly in spacevim.
 
 ## Install
 

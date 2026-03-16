@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim core layer"
-description: "SpaceVim core layer provides many default key bindings and features."
+title: "spacevim core layer"
+description: "spacevim core layer provides many default key bindings and features."
 ---
 
 # [Available Layers](../) >> core
@@ -16,7 +16,7 @@ description: "SpaceVim core layer provides many default key bindings and feature
 
 ## Intro
 
-The `core` layer of SpaceVim. This layer is enabled by default, and it provides filetree,
+The `core` layer of spacevim. This layer is enabled by default, and it provides filetree,
 comment key bindings etc.
 
 ## Features

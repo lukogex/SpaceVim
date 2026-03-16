@@ -1,14 +1,14 @@
 ---
-title: SpaceVim release v2.2.0
+title: spacevim release v2.2.0
 categories: [changelog, blog]
-description: "SpaceVim release v2.2.0 with more lua plugins and better experience."
+description: "spacevim release v2.2.0 with more lua plugins and better experience."
 type: article
 image: https://img.spacevim.org/release-v2.2.0.png
-commentsID: "SpaceVim release v2.2.0"
+commentsID: "spacevim release v2.2.0"
 comments: true
 ---
 
-# [Changelogs](../development#changelog) > SpaceVim release v2.2.0
+# [Changelogs](../development#changelog) > spacevim release v2.2.0
 
 <!-- vim-markdown-toc GFM -->
 
@@ -25,9 +25,9 @@ So let's take a look at what happened since last release.
 
 ![welcome page](https://img.spacevim.org/release-v2.2.0.png)
 
-- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning SpaceVim
-- [documentation](../documentation/): the primary official document of SpaceVim
-- [available layers](../layers/): a list of available layers which can be used in SpaceVim
+- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning spacevim
+- [documentation](../documentation/): the primary official document of spacevim
+- [available layers](../layers/): a list of available layers which can be used in spacevim
 
 ## What's New
 
@@ -78,5 +78,5 @@ If you want to view all the git commits,
 use following command in your terminal.
 
 ```
-git -C ~/.SpaceVim log v2.1.0..v2.2.0
+git -C ~/.spacevim log v2.1.0..v2.2.0
 ```

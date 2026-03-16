@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#matlab layer"
-description: "This layer adds matlab language support to SpaceVim, including syntax highlighting."
+title: "spacevim lang#matlab layer"
+description: "This layer adds matlab language support to spacevim, including syntax highlighting."
 ---
 
 # [Available Layers](../../) >> lang#matlab
@@ -16,7 +16,7 @@ description: "This layer adds matlab language support to SpaceVim, including syn
 
 ## Description
 
-This layer adds matlab language support to SpaceVim.
+This layer adds matlab language support to spacevim.
 
 ## Features
 

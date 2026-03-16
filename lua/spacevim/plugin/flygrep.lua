@@ -1,5 +1,5 @@
 --=============================================================================
--- flygrep.lua --- grep on the fly in SpaceVim
+-- flygrep.lua --- grep on the fly in spacevim
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- URL: https://spacevim.org
@@ -77,12 +77,12 @@ local show_hidden_files = false
 --- @return table # a list of searching pattern history
 local function read_histroy()
   if
-    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/flygrep_history'))
+    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/flygrep_history'))
     == 1
   then
     local _his = vim.fn.json_decode(
       vim.fn.join(
-        vim.fn.readfile(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/flygrep_history'), ''),
+        vim.fn.readfile(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/flygrep_history'), ''),
         ''
       )
     )
@@ -102,16 +102,16 @@ local function update_history()
     vim.fn.remove(grep_history, vim.fn.index(grep_history, grep_expr))
   end
   table.insert(grep_history, grep_expr)
-  if vim.fn.isdirectory(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim')) == 0 then
-    vim.fn.mkdir(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim'))
+  if vim.fn.isdirectory(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim')) == 0 then
+    vim.fn.mkdir(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim'))
   end
   if
-    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/flygrep_history'))
+    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/flygrep_history'))
     == 1
   then
     vim.fn.writefile(
       { vim.fn.json_encode(grep_history) },
-      vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/flygrep_history')
+      vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/flygrep_history')
     )
   end
 end
@@ -165,15 +165,15 @@ end
 local function update_statusline()
   if sl.support_float() and vim.fn.win_id2tabwin(flygrep_win_id)[1] == vim.fn.tabpagenr() then
     sl.open_float({
-      { 'FlyGrep ', 'SpaceVim_statusline_a_bold' },
-      { ' ', 'SpaceVim_statusline_a_SpaceVim_statusline_b' },
-      { M.mode() .. ' ', 'SpaceVim_statusline_b' },
-      { ' ', 'SpaceVim_statusline_b_SpaceVim_statusline_c' },
-      { vim.fn.getcwd() .. ' ', 'SpaceVim_statusline_c' },
-      { ' ', 'SpaceVim_statusline_c_SpaceVim_statusline_b' },
-      { M.lineNr() .. ' ', 'SpaceVim_statusline_b' },
-      { ' ', 'SpaceVim_statusline_b_SpaceVim_statusline_z' },
-      { vim.fn['repeat'](' ', vim.o.columns - 11), 'SpaceVim_statusline_z' },
+      { 'FlyGrep ', 'spacevim_statusline_a_bold' },
+      { ' ', 'spacevim_statusline_a_spacevim_statusline_b' },
+      { M.mode() .. ' ', 'spacevim_statusline_b' },
+      { ' ', 'spacevim_statusline_b_spacevim_statusline_c' },
+      { vim.fn.getcwd() .. ' ', 'spacevim_statusline_c' },
+      { ' ', 'spacevim_statusline_c_spacevim_statusline_b' },
+      { M.lineNr() .. ' ', 'spacevim_statusline_b' },
+      { ' ', 'spacevim_statusline_b_spacevim_statusline_z' },
+      { vim.fn['repeat'](' ', vim.o.columns - 11), 'spacevim_statusline_z' },
     })
   end
 end
@@ -799,7 +799,7 @@ function M.open(argv)
   if vim.fn.has('nvim') == 1 then
     vim.cmd('set guicursor+=a:Cursor/lCursor')
   end
-  vim.cmd('setf SpaceVimFlyGrep')
+  vim.cmd('setf spacevimFlyGrep')
   update_statusline()
   matchadd('FileName', filename_pattern, 3)
   vim.cmd('hi def link FlygrepSearchPattern MoreMsg')

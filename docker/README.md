@@ -1,16 +1,16 @@
-## SpaceVim in DockerHub
+## spacevim in DockerHub
 
 [![Docker Automated build](https://img.shields.io/docker/automated/wsdjeg2/spacevim)](https://hub.docker.com/r/wsdjeg2/spacevim)
 [![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/wsdjeg2/spacevim?sort=date)](https://hub.docker.com/r/wsdjeg2/spacevim)
 [![Docker Pulls](https://img.shields.io/docker/pulls/wsdjeg2/spacevim)](https://hub.docker.com/r/wsdjeg2/spacevim)
 
-This Dockerfile builds neovim `HEAD` and installs the latest available version of SpaceVim. You might want to use this for several reasons:
+This Dockerfile builds neovim `HEAD` and installs the latest available version of spacevim. You might want to use this for several reasons:
 
-- Have a consistent version of Neovim and SpaceVim as long as the machine supports Docker.
-- Try SpaceVim without modifying your current Vim/Neovim configuration.
-- Try the latest Neovim with SpaceVim.
-- Try SpaceVim with a newer version of Python.
-- Debug SpaceVim configurations. e.g. when posting a bug report if you can reproduce it in this container then there's a higher chance that it is a true bug and not just an issue with your machine.
+- Have a consistent version of Neovim and spacevim as long as the machine supports Docker.
+- Try spacevim without modifying your current Vim/Neovim configuration.
+- Try the latest Neovim with spacevim.
+- Try spacevim with a newer version of Python.
+- Debug spacevim configurations. e.g. when posting a bug report if you can reproduce it in this container then there's a higher chance that it is a true bug and not just an issue with your machine.
 
 ### FAQ
 

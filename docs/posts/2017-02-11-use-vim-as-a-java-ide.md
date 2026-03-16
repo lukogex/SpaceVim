@@ -1,7 +1,7 @@
 ---
 title: "Use Vim as a Java IDE"
 categories: [tutorials, blog]
-description: "A general guide for using SpaceVim as Java IDE, including layer configuration and requiems installation."
+description: "A general guide for using spacevim as Java IDE, including layer configuration and requiems installation."
 redirect_from: "/2017/02/11/use-vim-as-a-java-ide.html"
 type: article
 comments: true
@@ -11,7 +11,7 @@ language: Java
 
 # [Blogs](../blog/) >> Use Vim as a Java IDE
 
-This article introduces you to SpaceVim as a Java environment.
+This article introduces you to spacevim as a Java environment.
 Before reading this article, I recommend reading [Use vim as IDE](../use-vim-as-ide/), which is for the general usage.
 With `lang#java` layer, spacevim can be built into a lightweight java integrated development environment.
 
@@ -42,9 +42,9 @@ This tutorial is not intended to teach you Java itself.
 
 ### Enable language layer
 
-By default, the `lang#java` layer is not loaded in SpaceVim. To use SpaceVim for java,
-you need to enable this layer in SpaceVim configuration file.
-Press `SPC f v d` to open SpaceVim configuration file, and add following section:
+By default, the `lang#java` layer is not loaded in spacevim. To use spacevim for java,
+you need to enable this layer in spacevim configuration file.
+Press `SPC f v d` to open spacevim configuration file, and add following section:
 
 ```toml
 [[layers]]
@@ -172,7 +172,7 @@ within above picture, we can see the checkers layer provides following feature:
 ### Import packages
 
 There are two kind features for importing packages, import packages automatically and manually.
-SpaceVim will import the packages after selecting the class name on popmenu.
+spacevim will import the packages after selecting the class name on popmenu.
 Also, you can use key binding `SPC l i` to import the class at the cursor point.
 If there are more than one class, a menu will be shown below current windows.
 
@@ -180,7 +180,7 @@ If there are more than one class, a menu will be shown below current windows.
 
 ### Jump to test file
 
-SpaceVim uses vim-project to manager the files in a project, you can add a `.projections.json` to the root of your project with following content:
+spacevim uses vim-project to manager the files in a project, you can add a `.projections.json` to the root of your project with following content:
 
 ```json
 {
@@ -219,6 +219,6 @@ path of this jar file in layer option.
 
 ### REPL
 
-you need to install jdk9 which provide a build-in tools `jshell`, and SpaceVim use the `jshell` as default inferior REPL process:
+you need to install jdk9 which provide a build-in tools `jshell`, and spacevim use the `jshell` as default inferior REPL process:
 
 ![REPl-JAVA](https://img.spacevim.org/34159605-758461ba-e48f-11e7-873c-fc358ce59a42.gif)

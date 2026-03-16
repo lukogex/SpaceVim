@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#haskell layer"
-description: "Haskell language support for SpaceVim, includes code completion, syntax checking, jumping to definition, also provides language server protocol support for Haskell"
+title: "spacevim lang#haskell layer"
+description: "Haskell language support for spacevim, includes code completion, syntax checking, jumping to definition, also provides language server protocol support for Haskell"
 ---
 
 # [Available Layers](../../) >> lang#haskell
@@ -33,7 +33,7 @@ To use this configuration layer, update your custom configuration file with:
   name = "lang#haskell"
 ```
 
-After updating configuration file, restart SpaceVim and run `:SPInstall`.
+After updating configuration file, restart spacevim and run `:SPInstall`.
 
 ## Features
 

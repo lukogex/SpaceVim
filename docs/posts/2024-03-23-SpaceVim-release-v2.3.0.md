@@ -1,13 +1,13 @@
 ---
-title: SpaceVim release v2.3.0
+title: spacevim release v2.3.0
 categories: [changelog, blog]
-description: "SpaceVim release v2.3.0 with more lua plugins and better experience."
+description: "spacevim release v2.3.0 with more lua plugins and better experience."
 type: article
 image: https://img.spacevim.org/release-v2.3.0.png
-commentsID: "SpaceVim release v2.3.0"
+commentsID: "spacevim release v2.3.0"
 ---
 
-# [Changelogs](../development#changelog) > SpaceVim release v2.3.0
+# [Changelogs](../development#changelog) > spacevim release v2.3.0
 
 <!-- vim-markdown-toc GFM -->
 
@@ -26,9 +26,9 @@ So let's take a look at what happened since last release.
 
 ![welcome page](https://img.spacevim.org/release-v2.3.0.png)
 
-- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning SpaceVim
-- [documentation](../documentation/): the primary official document of SpaceVim
-- [available layers](../layers/): a list of available layers which can be used in SpaceVim
+- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning spacevim
+- [documentation](../documentation/): the primary official document of spacevim
+- [available layers](../layers/): a list of available layers which can be used in spacevim
 
 ## New features
 
@@ -55,7 +55,7 @@ So let's take a look at what happened since last release.
 - perf(git): improve commit logic
 - feat(git): add `:Git grep` command
 - feat(format): add layer option notify width and timeout
-- perf(neoformat): use SpaceVim notify api instead of `echo`
+- perf(neoformat): use spacevim notify api instead of `echo`
 - perf(neoformat): improve neoformat
 - feat(sql): support sqlformat & fix encoding
 - feat(sql): improve `lang#sql` layer
@@ -203,7 +203,7 @@ So let's take a look at what happened since last release.
 - docs(screenshot): update workflow screenshot
 - docs(license): add `:h spacevim-dev-license`
 - docs(index): update index page
-- docs(help): add `:h SpaceVim-dev-merge-request`
+- docs(help): add `:h spacevim-dev-merge-request`
 - docs(faq): change repo url
 - docs(roadmap): update roadmap page
 - docs(community): update community page
@@ -241,7 +241,7 @@ So let's take a look at what happened since last release.
 - docs(index): update index page
 - docs(readme): update readme
 - docs(job): update `:h spacevim-api-job`
-- docs(logger): update doc for `:h SpaceVim#logger#derive`
+- docs(logger): update doc for `:h spacevim#logger#derive`
 - docs(lua): add lua post
 - docs(feedback): remove matrix room from development page
 - docs(readme): clear readme

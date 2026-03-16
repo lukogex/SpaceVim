@@ -2,7 +2,7 @@
 title: "Use Vim as a CoffeeScript IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/51876268-fe526e80-23a2-11e9-8964-01fd62392a1f.png
-description: "A general guide for using SpaceVim as CoffeeScript IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as CoffeeScript IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a CoffeeScript IDE"
@@ -11,7 +11,7 @@ language: CoffeeScript
 
 # [Blogs](../blog/) >> Use Vim as a CoffeeScript IDE
 
-This is a general guide for using SpaceVim as a [CoffeeScript](https://coffeescript.org/) IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a [CoffeeScript](https://coffeescript.org/) IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -28,9 +28,9 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-By default `lang#coffeescript` layer is not loaded. To add CoffeeScript language support in SpaceVim,
+By default `lang#coffeescript` layer is not loaded. To add CoffeeScript language support in spacevim,
 you need to enable the `lang#coffeescript` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]
@@ -64,7 +64,7 @@ Note: if no coffeelint is installed, neomake will ues default command `coffee`.
 
 ### Jump to test file
 
-SpaceVim use built-in plugin to manager the files in a project,
+spacevim use built-in plugin to manager the files in a project,
 you can add a `.project_alt.json` to the root of your project with following content:
 
 ```json

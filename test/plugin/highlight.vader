@@ -7,9 +7,9 @@ Given (fixture):
     Hello
   Hello
 
-Execute ( SpaceVim plugin: highlight.vim `SPC s h/H` ):
+Execute ( spacevim plugin: highlight.vim `SPC s h/H` ):
   let g:_spacevim_input_list = ['e', 'D', 'a', 'W', 'o', 'r', 'l', 'd', "\<Esc>", "\<Esc>"]
-  call SpaceVim#plugins#highlight#start()
+  call spacevim#plugins#highlight#start()
   
 
 Expect (result):

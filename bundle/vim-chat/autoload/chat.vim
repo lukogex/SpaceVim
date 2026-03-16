@@ -11,7 +11,7 @@
 " @library
 " @order intro options config layers api faq changelog
 " vim-chat is a simple plugin for chatting in vim and neovim.
-" This plugin requires SpaceVim API and |job| support.
+" This plugin requires spacevim API and |job| support.
 
 
 scriptencoding utf-8
@@ -33,7 +33,7 @@ let s:opened_channels = []
 let s:unread_msg_num = {}
 let s:st_sep = ''
 
-let s:JOB = SpaceVim#api#import('job')
+let s:JOB = spacevim#api#import('job')
 
 function! s:push_message(msg) abort
   if type(a:msg) == type([])

@@ -1,7 +1,7 @@
 ---
 title: "使用 Vim 搭建 Python 开发环境"
 categories: [tutorials_cn, blog_cn]
-description: "这篇文章主要介绍如何使用 SpaceVim 搭建 Python 的开发环境，简介 lang#python 模块所支持的功能特性以及使用技巧"
+description: "这篇文章主要介绍如何使用 spacevim 搭建 Python 的开发环境，简介 lang#python 模块所支持的功能特性以及使用技巧"
 permalink: /cn/:title/
 lang: zh
 type: article
@@ -12,7 +12,7 @@ language: Python
 
 # [Blogs](../blog/) >> 使用 Vim 搭建 Python 开发环境
 
-SpaceVim 是一个模块化的 Vim IDE，针对 Python 这一语言的支持主要依靠 `lang#python` 模块以及与之相关的其它模块。的这篇文章主要介绍如何使用 SpaceVim 搭建 Python 的开发环境，侧重介绍跟 Python 开发相关使用技巧。在阅读这篇文章之前，可以先阅读《[使用 Vim 搭建基础的开发环境](../use-vim-as-ide/)》，对语言相关以外的功能有一个大致的了解。
+spacevim 是一个模块化的 Vim IDE，针对 Python 这一语言的支持主要依靠 `lang#python` 模块以及与之相关的其它模块。的这篇文章主要介绍如何使用 spacevim 搭建 Python 的开发环境，侧重介绍跟 Python 开发相关使用技巧。在阅读这篇文章之前，可以先阅读《[使用 Vim 搭建基础的开发环境](../use-vim-as-ide/)》，对语言相关以外的功能有一个大致的了解。
 
 <!-- vim-markdown-toc GFM -->
 
@@ -30,7 +30,7 @@ SpaceVim 是一个模块化的 Vim IDE，针对 Python 这一语言的支持主�
 
 ### 安装模块
 
-SpaceVim 初次安装时默认并未启用相关语言模块。首先需要启用
+spacevim 初次安装时默认并未启用相关语言模块。首先需要启用
 `lang#python` 模块，通过快捷键 `SPC f v d` 打开配置文件，添加：
 
 ```toml
@@ -42,11 +42,11 @@ SpaceVim 初次安装时默认并未启用相关语言模块。首先需要启�
 
 ### 代码自动补全
 
-`autocomplete` 模块为 SpaceVim 提供了自动补全功能，该模块会根据当前环境自动在多种补全引擎之间选择合适的，默认的补全引擎有：deoplete、neocomplete、ycm、asyncomplete 以及 neocomplcache。几种自动补全引擎当中，要数 deoplete 的体验效果最好。
+`autocomplete` 模块为 spacevim 提供了自动补全功能，该模块会根据当前环境自动在多种补全引擎之间选择合适的，默认的补全引擎有：deoplete、neocomplete、ycm、asyncomplete 以及 neocomplcache。几种自动补全引擎当中，要数 deoplete 的体验效果最好。
 
 ### 语法检查
 
-`checkers` 模块为 SpaceVim 提供了语法检查的功能，该模块默认已经载入。该模块默认使用 [neomake](https://github.com/neomake/neomake)
+`checkers` 模块为 spacevim 提供了语法检查的功能，该模块默认已经载入。该模块默认使用 [neomake](https://github.com/neomake/neomake)
 这一异步语法检查工具。对于 Python 的支持，是通过异步调用 flake8 命令，因此需安装，可通过 pip 命令来完成：
 
 ```sh
@@ -63,7 +63,7 @@ pip install --user isort
 
 ### 工程文件跳转
 
-SpaceVim 自带工程管理插件，可以识别项目根目录，自动跳转 alternate 文件。
+spacevim 自带工程管理插件，可以识别项目根目录，自动跳转 alternate 文件。
 
 ### 快速运行
 
@@ -90,7 +90,7 @@ pip install --user yapf
 
 ### 交互式编程
 
-在编辑 Python 代码时，经常需要执行代码中的某一行，或者某一段代码。这时候，就可以使用 SpaceVim 的交互式编程框架。首先需要启用一个后台进程，
+在编辑 Python 代码时，经常需要执行代码中的某一行，或者某一段代码。这时候，就可以使用 spacevim 的交互式编程框架。首先需要启用一个后台进程，
 可以是 python 命令，也可以是 ipython 命令，快捷键为 `SPC l s i`。 启动后效果图如下：
 
 之后，可以通过 `SPC l s l` 进行逐行发送，也可以选中区域后按 `SPC l s s` 发送选中的区域：

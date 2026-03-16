@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim japanese layer"
+title: "spacevim japanese layer"
 description: "Layer for japanese users, includes japanese docs and runtime messages"
 ---
 

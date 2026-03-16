@@ -2,7 +2,7 @@
 title: "Use Vim as a Swift IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/89797871-0d9ca580-db5e-11ea-8d43-c02cd9e49915.png
-description: "A general guide for using SpaceVim as Swift IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Swift IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Swift IDE"
@@ -11,7 +11,7 @@ language: Swift
 
 # [Blogs](../blog/) >> Use Vim as a Swift IDE
 
-This is a general guide for using SpaceVim as a Swift IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a Swift IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -24,8 +24,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add swift language support in SpaceVim, you need to enable the `lang#swift` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+To add swift language support in spacevim, you need to enable the `lang#swift` layer. Press `SPC f v d` to open
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]

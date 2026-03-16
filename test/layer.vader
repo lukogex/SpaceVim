@@ -1,18 +1,18 @@
-Execute ( SpaceVim layer health: ):
-  runtime autoload/SpaceVim.vim
-  call SpaceVim#mapping#g#init()
-  call SpaceVim#mapping#z#init()
-  call SpaceVim#mapping#leader#defindKEYs()
-  call SpaceVim#mapping#space#init()
-  for layer in SpaceVim#layers#list()
+Execute ( spacevim layer health: ):
+  runtime autoload/spacevim.vim
+  call spacevim#mapping#g#init()
+  call spacevim#mapping#z#init()
+  call spacevim#mapping#leader#defindKEYs()
+  call spacevim#mapping#space#init()
+  for layer in spacevim#layers#list()
     Log 'testing ' . layer . ' layer'
-    Assert SpaceVim#layers#{layer}#health(), 'function SpaceVim#layers#' . layer . '#health() return false' 
+    Assert spacevim#layers#{layer}#health(), 'function spacevim#layers#' . layer . '#health() return false' 
   endfor
 
-Execute ( SpaceVim language mapping: ):
-  for layer in SpaceVim#layers#list()
+Execute ( spacevim language mapping: ):
+  for layer in spacevim#layers#list()
     Log 'testing ' . layer . ' language key bindings'
-    let LMAPF = SpaceVim#mapping#space#get_lang_mappings(get(split(layer, '#'), 1, ''))
+    let LMAPF = spacevim#mapping#space#get_lang_mappings(get(split(layer, '#'), 1, ''))
     if !empty(LMAPF)
       call call(LMAPF, [])
       " https://github.com/vim/vim/commit/f6f32c38bf3319144a84a01a154c8c91939e7acf

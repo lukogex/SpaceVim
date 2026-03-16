@@ -28,7 +28,7 @@ function M.open_float(sl, ...)
       relative = 'editor',
       width = vim.o.columns,
       height = 1,
-      -- highlight = 'SpaceVim_statusline_a_bold',
+      -- highlight = 'spacevim_statusline_a_bold',
       row = vim.o.lines - 2,
       col = 0,
     }
@@ -37,7 +37,7 @@ function M.open_float(sl, ...)
     end
     M.__winid = vim.api.nvim_open_win(M.__bufnr, false, opt)
   end
-  vim.fn.setwinvar(M.__winid, '&winhighlight', 'Normal:SpaceVim_statusline_a_bold')
+  vim.fn.setwinvar(M.__winid, '&winhighlight', 'Normal:spacevim_statusline_a_bold')
   vim.fn.setbufvar(M.__bufnr, '&relativenumber', 0)
   vim.fn.setbufvar(M.__bufnr, '&number', 0)
   vim.fn.setbufvar(M.__bufnr, '&bufhidden', 'wipe')

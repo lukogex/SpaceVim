@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim debug layer"
-description: "This layer provides debug workflow support in SpaceVim"
+title: "spacevim debug layer"
+description: "This layer provides debug workflow support in spacevim"
 ---
 
 # [Available Layers](../) >> debug
@@ -18,7 +18,7 @@ description: "This layer provides debug workflow support in SpaceVim"
 
 ## Description
 
-This layer provides debug workflow for SpaceVim. All of the functionality is based on [vim-vebugger](https://github.com/idanarye/vim-vebugger).
+This layer provides debug workflow for spacevim. All of the functionality is based on [vim-vebugger](https://github.com/idanarye/vim-vebugger).
 
 ## Install
 

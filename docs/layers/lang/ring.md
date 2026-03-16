@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#ring layer"
+title: "spacevim lang#ring layer"
 description: "This layer is for ring development, provides syntax checking, code runner and repl support for ring files."
 ---
 

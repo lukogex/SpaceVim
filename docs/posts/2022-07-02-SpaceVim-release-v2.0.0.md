@@ -1,14 +1,14 @@
 ---
-title: SpaceVim release v2.0.0
+title: spacevim release v2.0.0
 categories: [changelog, blog]
-description: "The second major release of SpaceVim adds several layers and lua plugins for a better use experience"
+description: "The second major release of spacevim adds several layers and lua plugins for a better use experience"
 type: article
 image: https://img.spacevim.org/148374827-5f7aeaaa-e69b-441e-b872-408b47f4da04.png
-commentsID: "SpaceVim release v2.0.0"
+commentsID: "spacevim release v2.0.0"
 comments: true
 ---
 
-# [Changelogs](../development#changelog) > SpaceVim release v2.0.0
+# [Changelogs](../development#changelog) > spacevim release v2.0.0
 
 <!-- vim-markdown-toc GFM -->
 
@@ -21,14 +21,14 @@ comments: true
 <!-- vim-markdown-toc -->
 
 The last release is v1.9.0, After six months development.
-The v2.0.0 has been released. This is second major release of SpaceVim.
+The v2.0.0 has been released. This is second major release of spacevim.
 So let's take a look at what happened since last release.
 
 ![welcome page](https://img.spacevim.org/176910121-8e7ca78f-8434-4ac7-9b02-08c4d15f8ad9.png)
 
-- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning SpaceVim
-- [documentation](../documentation/): the primary official document of SpaceVim
-- [available layers](../layers/): a list of available layers which can be used in SpaceVim
+- [Quick start guide](../quick-start-guide/): installation, configuration, and resources of learning spacevim
+- [documentation](../documentation/): the primary official document of spacevim
+- [available layers](../layers/): a list of available layers which can be used in spacevim
 
 ## What's New
 
@@ -83,5 +83,5 @@ If you want to view all the git commits,
 use following command in your terminal.
 
 ```
-git -C ~/.SpaceVim log v1.9.0..v2.0.0
+git -C ~/.spacevim log v1.9.0..v2.0.0
 ```

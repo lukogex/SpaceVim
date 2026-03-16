@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#perl layer"
+title: "spacevim lang#perl layer"
 description: "This layer is for Perl development, provides autocompletion, syntax checking, and code formatting for Perl files."
 ---
 
@@ -27,7 +27,7 @@ This layer is for Perl development.
 - Documentation lookup for Modules and functions.
 - Jump to the definition.
 
-SpaceVim also provides REPL/Debug support for Perl.
+spacevim also provides REPL/Debug support for Perl.
 
 ## Install
 

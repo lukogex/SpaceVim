@@ -13,7 +13,7 @@ If you have any suggestions , please checkout feedback section on [community](..
 - `v2.4.0`: Due by 2024-12-01
   - [x] rewrite statusline plugin with lua
   - [x] rewrite tabline plugin with lua
-  - [ ] merge website context into `:h SpaceVim`
+  - [ ] merge website context into `:h spacevim`
 
 ## Completed
 

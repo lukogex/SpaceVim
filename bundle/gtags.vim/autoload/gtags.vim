@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-let s:LOGGER = SpaceVim#logger#derive('gtags')
+let s:LOGGER = spacevim#logger#derive('gtags')
 call s:LOGGER.start_debug()
 
 if !executable('gtags')
@@ -11,9 +11,9 @@ endif
 if exists('g:loaded_gtags')
   finish
 endif
-let s:JOB = SpaceVim#api#import('job')
-let s:FILE = SpaceVim#api#import('file')
-let s:NOTI = SpaceVim#api#import('notify')
+let s:JOB = spacevim#api#import('job')
+let s:FILE = spacevim#api#import('file')
+let s:NOTI = spacevim#api#import('notify')
 
 let g:loaded_gtags = 1
 let s:version = split(matchstr(split(system('gtags --version'), '\n')[0], '[0-9]\+\.[0-9]\+'), '\.')
@@ -446,7 +446,7 @@ endfunction
 function! gtags#update(single_update) abort
   call s:LOGGER.debug('start to update gtags database')
   let dir = s:FILE.unify_path(g:tags_cache_dir) 
-        \ . s:FILE.path_to_fname(SpaceVim#plugins#projectmanager#current_root())
+        \ . s:FILE.path_to_fname(spacevim#plugins#projectmanager#current_root())
   call s:LOGGER.debug('            dir:' . dir)
   call s:LOGGER.debug('         single:' . a:single_update)
   if !isdirectory(dir)

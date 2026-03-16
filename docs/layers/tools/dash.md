@@ -1,9 +1,9 @@
 ---
-title: "SpaceVim dash layer"
-description: "This layer provides Dash integration for SpaceVim"
+title: "spacevim dash layer"
+description: "This layer provides Dash integration for spacevim"
 ---
 
-# [SpaceVim Layers:](https://spacevim.org/layers) tools#dash
+# [spacevim Layers:](https://spacevim.org/layers) tools#dash
 
 <!-- vim-markdown-toc GFM -->
 
@@ -15,11 +15,11 @@ description: "This layer provides Dash integration for SpaceVim"
 
 ## Description
 
-This layer provides Dash integration for SpaceVim.
+This layer provides Dash integration for spacevim.
 
 ## Layer Installation
 
-To use this configuration layer, add it to your `~/.SpaceVim.d/init.toml`.
+To use this configuration layer, add it to your `~/.spacevim.d/init.toml`.
 
 ```vim
 [[layers]]

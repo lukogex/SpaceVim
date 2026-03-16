@@ -11,7 +11,7 @@
 " @library
 " @order intro options config layers api faq changelog
 " git.vim is a simple plugin for using git in vim and neovim.
-" This plugin requires SpaceVim API and |job| support.
+" This plugin requires spacevim API and |job| support.
 
 function! git#run(...) abort
     let cmd = get(a:000, 0, '')

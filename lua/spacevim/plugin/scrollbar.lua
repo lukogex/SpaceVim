@@ -1,5 +1,5 @@
 --=============================================================================
--- scrollbar.lua --- scrollbar for SpaceVim
+-- scrollbar.lua --- scrollbar for spacevim
 -- Copyright (c) 2016-2022 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- URL: https://spacevim.org

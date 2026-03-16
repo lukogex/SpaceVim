@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#python layer"
+title: "spacevim lang#python layer"
 description: "This layer is for Python development, provides autocompletion, syntax checking, and code formatting for Python files."
 ---
 
@@ -130,7 +130,7 @@ you need to add following snippet into your spacevim configuration file.
 
 - `python_file_head`: Default file head when create new python file.
 
-  By default, when create a new python file, SpaceVim will insert file head automatically.
+  By default, when create a new python file, spacevim will insert file head automatically.
   to change the file head, use `python_file_head` option:
 
   ```toml

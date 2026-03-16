@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#powershell layer"
+title: "spacevim lang#powershell layer"
 description: "This layer is for powershell development, provides syntax checking, code runner and repl support for powershell files."
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim floobits layer"
-description: "This layer adds support for the peer programming tool floobits to SpaceVim."
+title: "spacevim floobits layer"
+description: "This layer adds support for the peer programming tool floobits to spacevim."
 ---
 
 # [Available Layers](../) >> floobits
@@ -16,7 +16,7 @@ description: "This layer adds support for the peer programming tool floobits to 
 
 ## Description
 
-This layer adds support for the peer programming tool floobits to SpaceVim.
+This layer adds support for the peer programming tool floobits to spacevim.
 
 NOTE: This layer only supports neovim.
 

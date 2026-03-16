@@ -1,4 +1,4 @@
-let s:WIN = SpaceVim#api#import('vim#window')
+let s:WIN = spacevim#api#import('vim#window')
 " we can not use this option to disable default key bindings
 " let g:nvim_tree_disable_default_keybindings = 1
 augroup vfinit
@@ -10,7 +10,7 @@ augroup vfinit
         \ call s:close_last_filetree() | endif
 augroup END
 function! s:close_last_filetree() abort
-  call SpaceVim#layers#shell#close_terminal()
+  call spacevim#layers#shell#close_terminal()
   q
 endfunction
 function! s:nvim_tree_init() abort

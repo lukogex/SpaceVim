@@ -1403,7 +1403,7 @@ A: >
 
 
 Q: dein.vim does not load plugin in sudo session.
-https://github.com/SpaceVim/SpaceVim/issues/1660
+https://github.com/spacevim/spacevim/issues/1660
 https://github.com/Shougo/dein.vim/issues/274
 
 A:

@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#kotlin layer"
-description: "This layer adds Kotlin language support to SpaceVim, including syntax highlighting, code runner and REPL support."
+title: "spacevim lang#kotlin layer"
+description: "This layer adds Kotlin language support to spacevim, including syntax highlighting, code runner and REPL support."
 ---
 
 # [Available Layers](../../) >> lang#kotlin
@@ -20,7 +20,7 @@ description: "This layer adds Kotlin language support to SpaceVim, including syn
 
 ## Description
 
-This layer adds Kotlin language support to SpaceVim.
+This layer adds Kotlin language support to spacevim.
 
 ## Features
 

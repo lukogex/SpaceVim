@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#plantuml layer"
+title: "spacevim lang#plantuml layer"
 description: "This layer is for PlantUML development, provides syntax highlighting for PlantUML files."
 ---
 

@@ -17,7 +17,7 @@ description: "data#list API provides some basic functions and values for list."
 `data#list` API provides some functions to manipulate a list. Here is an example for using this api:
 
 ```vim
-let s:DICT = SpaceVim#api#import('data#list')
+let s:DICT = spacevim#api#import('data#list')
 ```
 
 ## functions

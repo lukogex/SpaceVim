@@ -5,13 +5,13 @@
 # URL: https://spacevim.org
 #=============================================================================
 
-# SpaceVim options {{{
+# spacevim options {{{
 [options]
     # vimcompatible = true
     # enable_language_specific_leader = false
 # }}}
 
-## -- SpaceVim layer list start
+## -- spacevim layer list start
 [[layers]]
   name = "VersionControl"
 
@@ -228,5 +228,5 @@
 [[layers]]
   name = "ui"
 
-## -- SpaceVim layer list end
+## -- spacevim layer list end
 

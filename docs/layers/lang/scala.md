@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#scala layer"
-description: "This layer adds Scala language support to SpaceVim"
+title: "spacevim lang#scala layer"
+description: "This layer adds Scala language support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#scala
@@ -16,7 +16,7 @@ description: "This layer adds Scala language support to SpaceVim"
 
 ## Description
 
-This layer adds Scala language support to SpaceVim. This layer includes the [vim-scala](https://github.com/derekwyatt/vim-scala) plugin.
+This layer adds Scala language support to spacevim. This layer includes the [vim-scala](https://github.com/derekwyatt/vim-scala) plugin.
 
 ## Features
 

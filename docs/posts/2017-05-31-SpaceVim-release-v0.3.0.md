@@ -1,13 +1,13 @@
 ---
-title: SpaceVim release v0.3.0
+title: spacevim release v0.3.0
 categories: [changelog, blog]
 description: "The major change happend in v0.3.0 is new mapping guide and custom mapping prefix SPC."
 type: article
-commentsID: "SpaceVim release v0.3.0"
+commentsID: "spacevim release v0.3.0"
 comments: true
 ---
 
-# [Changelogs](../development#changelog) > SpaceVim release v0.3.0
+# [Changelogs](../development#changelog) > spacevim release v0.3.0
 
 ## FEATURES
 
@@ -19,7 +19,7 @@ for example, after pressing `<Space>` in normal mode, you will see :
 
 for more information about mapping guide, please read the [documentation](http://spacevim.org/documentation/#mappings-guide).
 
-- **Statusline:** A modulue statusline will displayed all the status of SpaceVim. all the sections in the statusline can be toggled.
+- **Statusline:** A modulue statusline will displayed all the status of spacevim. all the sections in the statusline can be toggled.
 
 here is an picture for this feature:
 
@@ -29,7 +29,7 @@ please checkout statusline [documentation](http://spacevim.org/documentation/#st
 
 ## CHANGES
 
-SpaceVim now use Space as [SPC] only in normal mode. and do not change the default value of mapleader.
+spacevim now use Space as [SPC] only in normal mode. and do not change the default value of mapleader.
 
 ## FIXES
 

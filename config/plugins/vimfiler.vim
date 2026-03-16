@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-let s:VCOP = SpaceVim#api#import('vim#compatible')
+let s:VCOP = spacevim#api#import('vim#compatible')
 
 let g:vimfiler_as_default_explorer = get(g:, 'vimfiler_as_default_explorer', 1)
 let g:vimfiler_restore_alternate_file = get(g:, 'vimfiler_restore_alternate_file', 1)
@@ -75,7 +75,7 @@ augroup END
 " in this function, we should check if shell terminal still exists,
 " then close the terminal job before close vimfiler
 function! s:close_last_vimfiler_windows() abort
-  call SpaceVim#layers#shell#close_terminal()
+  call spacevim#layers#shell#close_terminal()
   q
 endfunction
 

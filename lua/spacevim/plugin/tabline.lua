@@ -86,11 +86,11 @@ local function build_item(bufnr, n)
   local item_hilight
 
   if vim.api.nvim_buf_get_option(bufnr, 'modified') then
-    item_hilight = '%#SpaceVim_tabline_m# '
+    item_hilight = '%#spacevim_tabline_m# '
   elseif bufnr == vim.api.nvim_get_current_buf() then
-    item_hilight = '%#SpaceVim_tabline_a# '
+    item_hilight = '%#spacevim_tabline_a# '
   else
-    item_hilight = '%#SpaceVim_tabline_b# '
+    item_hilight = '%#spacevim_tabline_b# '
   end
 
   return {
@@ -116,7 +116,7 @@ local function build_tab_item(tabid)
   local icon = ''
   local nr = vim.api.nvim_tabpage_get_number(tabid)
 
-  local tablineat = '%' .. nr .. '@SpaceVim#layers#core#tabline#jump@'
+  local tablineat = '%' .. nr .. '@spacevim#layers#core#tabline#jump@'
 
   if name == '' then
     name = 'No Name'
@@ -128,11 +128,11 @@ local function build_tab_item(tabid)
   local item_hilight
 
   if vim.api.nvim_buf_get_option(bufnr, 'modified') then
-    item_hilight = '%#SpaceVim_tabline_m# '
+    item_hilight = '%#spacevim_tabline_m# '
   elseif bufnr == vim.api.nvim_get_current_buf() then
-    item_hilight = '%#SpaceVim_tabline_a# '
+    item_hilight = '%#spacevim_tabline_a# '
   else
-    item_hilight = '%#SpaceVim_tabline_b# '
+    item_hilight = '%#spacevim_tabline_b# '
   end
 
   return {
@@ -155,22 +155,22 @@ local function tabline_sep(a, b)
   local hi_b
 
   if not a then
-    hi_a = 'SpaceVim_tabline_b'
+    hi_a = 'spacevim_tabline_b'
   elseif vim.api.nvim_buf_get_option(a.bufnr, 'modified') then
-    hi_a = 'SpaceVim_tabline_m'
+    hi_a = 'spacevim_tabline_m'
   elseif a.bufnr == vim.api.nvim_get_current_buf() then
-    hi_a = 'SpaceVim_tabline_a'
+    hi_a = 'spacevim_tabline_a'
   else
-    hi_a = 'SpaceVim_tabline_b'
+    hi_a = 'spacevim_tabline_b'
   end
   if not b then
-    hi_b = 'SpaceVim_tabline_b'
+    hi_b = 'spacevim_tabline_b'
   elseif vim.api.nvim_buf_get_option(b.bufnr, 'modified') then
-    hi_b = 'SpaceVim_tabline_m'
+    hi_b = 'spacevim_tabline_m'
   elseif b.bufnr == vim.api.nvim_get_current_buf() then
-    hi_b = 'SpaceVim_tabline_a'
+    hi_b = 'spacevim_tabline_a'
   else
-    hi_b = 'SpaceVim_tabline_b'
+    hi_b = 'spacevim_tabline_b'
   end
 
   if hi_a == hi_b then
@@ -484,7 +484,7 @@ function M.get()
   shown_items = get_show_items()
   local preview_item
   if #left_hide_bufs > 0 and vim.fn.tabpagenr('$') == 1 then
-    tablinestr = '%#SpaceVim_tabline_b# << '
+    tablinestr = '%#spacevim_tabline_b# << '
       .. #left_hide_bufs
       .. ' '
       .. tabline_sep(preview_item, shown_items[1])
@@ -503,15 +503,15 @@ function M.get()
     tablinestr = tablinestr .. tabline_sep(preview_item, nil)
 
     if #right_hide_bufs > 0 and vim.fn.tabpagenr('$') == 1 then
-      tablinestr = tablinestr .. '%#SpaceVim_tabline_b# ' .. #right_hide_bufs .. ' >> '
+      tablinestr = tablinestr .. '%#spacevim_tabline_b# ' .. #right_hide_bufs .. ' >> '
     end
     tablinestr = tablinestr
-      .. '%#SpaceVim_tabline_b#%=%#SpaceVim_tabline_a_SpaceVim_tabline_b# '
+      .. '%#spacevim_tabline_b#%=%#spacevim_tabline_a_spacevim_tabline_b# '
       .. left_sep
     if vim.fn.tabpagenr('$') > 1 then
-      tablinestr = tablinestr .. '%#SpaceVim_tabline_a# Tabs '
+      tablinestr = tablinestr .. '%#spacevim_tabline_a# Tabs '
     else
-      tablinestr = tablinestr .. '%#SpaceVim_tabline_a# Buffers '
+      tablinestr = tablinestr .. '%#spacevim_tabline_a# Buffers '
     end
   end
   return tablinestr
@@ -526,40 +526,40 @@ function M.def_colors()
     t = vim.g.spacevim_custom_color_palette
   else
     local ok = pcall(function()
-      t = vim.fn['SpaceVim#mapping#guide#theme#' .. name .. '#palette']()
+      t = vim.fn['spacevim#mapping#guide#theme#' .. name .. '#palette']()
     end)
 
     if not ok then
-      t = vim.fn['SpaceVim#mapping#guide#theme#gruvbox#palette']()
+      t = vim.fn['spacevim#mapping#guide#theme#gruvbox#palette']()
     end
   end
-  vim.api.nvim_set_hl(0, 'SpaceVim_tabline_a', {
+  vim.api.nvim_set_hl(0, 'spacevim_tabline_a', {
     fg = t[1][1],
     bg = t[1][2],
     ctermfg = t[1][4],
     ctermbg = t[1][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_tabline_b', {
+  vim.api.nvim_set_hl(0, 'spacevim_tabline_b', {
     fg = t[2][1],
     bg = t[2][2],
     ctermfg = t[2][4],
     ctermbg = t[2][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_tabline_m', {
+  vim.api.nvim_set_hl(0, 'spacevim_tabline_m', {
     fg = t[5][1],
     bg = t[5][2],
     ctermfg = t[5][3],
     ctermbg = t[5][4],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_tabline_m_i', {
+  vim.api.nvim_set_hl(0, 'spacevim_tabline_m_i', {
     fg = t[5][2],
     bg = t[2][2],
     ctermfg = t[5][4],
     ctermbg = t[2][3],
   })
-  highlight.hi_separator('SpaceVim_tabline_a', 'SpaceVim_tabline_b')
-  highlight.hi_separator('SpaceVim_tabline_m', 'SpaceVim_tabline_b')
-  highlight.hi_separator('SpaceVim_tabline_m', 'SpaceVim_tabline_a')
+  highlight.hi_separator('spacevim_tabline_a', 'spacevim_tabline_b')
+  highlight.hi_separator('spacevim_tabline_m', 'spacevim_tabline_b')
+  highlight.hi_separator('spacevim_tabline_m', 'spacevim_tabline_a')
 end
 
 local function is_best_win(winid)

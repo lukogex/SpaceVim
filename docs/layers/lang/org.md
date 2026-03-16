@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#org layer"
+title: "spacevim lang#org layer"
 description: "Edit org file within vim, autopreview org in the default browser, with this layer you can also format org file."
 ---
 

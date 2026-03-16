@@ -7,7 +7,7 @@
 "=============================================================================
 
 
-let s:SYS = SpaceVim#api#import('system')
+let s:SYS = spacevim#api#import('system')
 
 let g:ctrlp_map = get(g:,'ctrlp_map', '<c-p>')
 let g:ctrlp_cmd = get(g:, 'ctrlp_cmd', 'CtrlP')
@@ -29,9 +29,9 @@ let g:ctrlp_custom_ignore = get(g:, 'ctrlp_custom_ignore', {
       \ })
 if executable('rg') && !exists('g:ctrlp_user_command')
   let g:ctrlp_user_command = 'rg %s --hidden --files -g "" '
-        \ . join(SpaceVim#util#Generate_ignore(get(g:, 'spacevim_wildignore', ''),'rg', SpaceVim#api#import('system').isWindows ? 0 : 1))
+        \ . join(spacevim#util#Generate_ignore(get(g:, 'spacevim_wildignore', ''),'rg', spacevim#api#import('system').isWindows ? 0 : 1))
 elseif executable('ag') && !exists('g:ctrlp_user_command')
-  let g:ctrlp_user_command = 'ag --hidden -i  -g "" ' . join(SpaceVim#util#Generate_ignore(get(g:, 'spacevim_wildignore', &wildignore),'ag')) . ' %s'
+  let g:ctrlp_user_command = 'ag --hidden -i  -g "" ' . join(spacevim#util#Generate_ignore(get(g:, 'spacevim_wildignore', &wildignore),'ag')) . ' %s'
 elseif s:SYS.isWindows
   let g:ctrlp_user_command =
     \ 'dir %s /-n /b /s /a-d | findstr /v /l ".jpg \\tmp\\"' " Windows

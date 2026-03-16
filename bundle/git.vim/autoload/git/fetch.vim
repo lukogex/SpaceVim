@@ -21,7 +21,7 @@ else
   "   :Git fetch --all
   " <
 
-  let s:JOB = SpaceVim#api#import('job')
+  let s:JOB = spacevim#api#import('job')
 
   function! git#fetch#run(args)
 

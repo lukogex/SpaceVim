@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim git layer"
+title: "spacevim git layer"
 description: "This layer adds extensive support for git"
 ---
 

@@ -17,8 +17,8 @@ description: "data#toml API provides some basic functions and values for toml."
 `data#toml` API provides some functions to manipulate a toml. Here is an example for using this api:
 
 ```vim
-let s:TOML = SpaceVim#api#import('data#toml')
-let json = s:TOML.parse_file('~/.SpaceVim.d/init.toml')
+let s:TOML = spacevim#api#import('data#toml')
+let json = s:TOML.parse_file('~/.spacevim.d/init.toml')
 ```
 
 ## functions

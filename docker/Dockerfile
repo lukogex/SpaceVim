@@ -28,14 +28,14 @@ WORKDIR $HOME
 
 ENV PYTHON3_HOST_PROG "/usr/bin/python3"
 
-RUN mkdir -p $HOME/.config $HOME/.SpaceVim.d
+RUN mkdir -p $HOME/.config $HOME/.spacevim.d
 
-RUN curl https://raw.githubusercontent.com/SpaceVim/SpaceVim/master/docker/init.toml > $HOME/.SpaceVim.d/init.toml
+RUN curl https://raw.githubusercontent.com/spacevim/spacevim/master/docker/init.toml > $HOME/.spacevim.d/init.toml
 
 RUN curl -sLf https://spacevim.org/install.sh | bash
 
 RUN nvim --headless +'call dein#install#_update([], "install", v:false)' +qall
 
-RUN rm $HOME/.SpaceVim.d/init.toml
+RUN rm $HOME/.spacevim.d/init.toml
 
 ENTRYPOINT nvim

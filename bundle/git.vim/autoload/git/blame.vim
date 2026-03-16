@@ -1,6 +1,6 @@
-let s:JOB = SpaceVim#api#import('job')
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
-let s:STRING = SpaceVim#api#import('data#string')
+let s:JOB = spacevim#api#import('job')
+let s:BUFFER = spacevim#api#import('vim#buffer')
+let s:STRING = spacevim#api#import('data#string')
 
 let s:blame_buffer_nr = -1
 let s:blame_show_buffer_nr = -1
@@ -103,7 +103,7 @@ endfunction
 " committer-tz +0800
 " summary Add git blame support
 " filename autoload/git/blame.vim
-" let s:JOB = SpaceVim#api#import('job')
+" let s:JOB = spacevim#api#import('job')
 function! s:parser(lines) abort
   let rst = []
   let obj = {}

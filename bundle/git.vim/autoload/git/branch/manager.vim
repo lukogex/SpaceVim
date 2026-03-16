@@ -7,8 +7,8 @@
 "=============================================================================
 scriptencoding utf-8
 
-let s:JOB = SpaceVim#api#import('job')
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
+let s:JOB = spacevim#api#import('job')
+let s:BUFFER = spacevim#api#import('vim#buffer')
 
 let s:branch_manager_bufnr = 0
 
@@ -21,7 +21,7 @@ function! git#branch#manager#open() abort
   let lines = &columns * 30 / 100
   exe 'vertical resize ' . lines
   setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber winfixheight nomodifiable
-  set filetype=SpaceVimGitBranchManager
+  set filetype=spacevimGitBranchManager
   let s:branch_manager_bufnr = bufnr('%')
   call s:update()
   augroup git_branch_manager
@@ -84,7 +84,7 @@ endfunction
 
 function! s:on_stdout(id, data, event) abort
   for line in filter(a:data, '!empty(v:val)')
-    call SpaceVim#logger#info('>>' . line)
+    call spacevim#logger#info('>>' . line)
     if stridx(line, 'remotes/') == -1
       let branch = {
             \ 'name': trim(line),

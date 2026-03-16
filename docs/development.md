@@ -1,13 +1,13 @@
 ---
 title: "Development"
-description: "General contributing guidelines and changelog of SpaceVim, including development information about SpaceVim"
+description: "General contributing guidelines and changelog of spacevim, including development information about spacevim"
 ---
 
 # Development
 
-SpaceVim is a joint effort of all contributors.
-We encourage you to participate in SpaceVim's development.
-This page describes the entire development process of SpaceVim.
+spacevim is a joint effort of all contributors.
+We encourage you to participate in spacevim's development.
+This page describes the entire development process of spacevim.
 
 We have some guidelines that we need all contributors to follow.
 You can only think about reading the part that is relevant to what you are going to do:
@@ -26,7 +26,7 @@ You can only think about reading the part that is relevant to what you are going
     - [Language specified key bindings](#language-specified-key-bindings)
   - [Contributing a banner](#contributing-a-banner)
 - [Bundle plugins](#bundle-plugins)
-- [Build with SpaceVim](#build-with-spacevim)
+- [Build with spacevim](#build-with-spacevim)
 - [Newsletters](#newsletters)
 - [Changelog](#changelog)
 
@@ -35,24 +35,24 @@ You can only think about reading the part that is relevant to what you are going
 
 ## Contributing code
 
-The source code of spacevim is hosted at [github](https://github.com/SpaceVim/SpaceVim).
+The source code of spacevim is hosted at [github](https://github.com/spacevim/spacevim).
 Code and documentation contributions of any kind are welcome. 
 
 ### License
 
-The license is GPLv3 for all the parts of SpaceVim. This includes:
+The license is GPLv3 for all the parts of spacevim. This includes:
 
 - The initialization and core files.
 - All the layer files.
 - The documentation
 
-For files not belonging to SpaceVim like bundle packages,
+For files not belonging to spacevim like bundle packages,
 refer to the header file. Those files should not have an empty header,
 we may not accept code without a proper header file.
 
 ### Conventions
 
-SpaceVim is based on conventions, mainly for naming functions,
+spacevim is based on conventions, mainly for naming functions,
 keybindings definition and writing documentation.
 Please read these [conventions](../conventions/) to make sure you
 understand them before you contribute code or documentation for the first time.
@@ -85,9 +85,9 @@ The general structure of a commit message is:
 
 **scopes:**
 
-- `api`: files in `autoload/SpaceVim/api/` and `docs/api/` directory
-- `layer`: files in `autoload/SpaceVim/layers/` and `docs/layers/` directory
-- `plugin`: files in `autoload/SpaceVim/plugins/` directory
+- `api`: files in `autoload/spacevim/api/` and `docs/api/` directory
+- `layer`: files in `autoload/spacevim/layers/` and `docs/layers/` directory
+- `plugin`: files in `autoload/spacevim/plugins/` directory
 - `bundle`: files in `bundle/` directory
 - `core`: other files in this repository
 
@@ -135,7 +135,7 @@ The file header for Vim script should look like the following template:
 
 ```vim
 "=============================================================================
-" FILENAME --- NAME layer file for SpaceVim
+" FILENAME --- NAME layer file for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
@@ -151,13 +151,13 @@ In the file's header, replace the default author name (Shidong Wang) with your n
 
 The following example shows how to create a new layer named `foo`:
 
-1. Fork SpaceVim repo.
-2. Add a layer file `autoload/SpaceVim/layers/foo.vim` for `foo` layer.
+1. Fork spacevim repo.
+2. Add a layer file `autoload/spacevim/layers/foo.vim` for `foo` layer.
 3. Edit layer file, check out the example below:
 
 ```vim
 "=============================================================================
-" foo.vim --- foo Layer file for SpaceVim
+" foo.vim --- foo Layer file for spacevim
 " Copyright (c) 2012-2022 Shidong Wang & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
 " URL: https://spacevim.org
@@ -192,7 +192,7 @@ The following example shows how to create a new layer named `foo`:
 "   g:pluginB_opt2    Set opt2 for plugin B               []
 " <
 
-function! SpaceVim#layers#foo#plugins() abort
+function! spacevim#layers#foo#plugins() abort
   let plugins = []
   call add(plugins, ['Shougo/foo.vim', {'option' : 'value'}])
   call add(plugins, ['Shougo/foo_test.vim', {'option' : 'value'}])
@@ -200,7 +200,7 @@ function! SpaceVim#layers#foo#plugins() abort
 endfunction
 
 
-function! SpaceVim#layers#foo#config() abort
+function! spacevim#layers#foo#config() abort
   let g:foo_option1 = get(g:, 'foo_option1', 1)
   let g:foo_option2 = get(g:, 'foo_option2', 2)
   let g:foo_option3 = get(g:, 'foo_option3', 3)
@@ -209,19 +209,19 @@ endfunction
 
 " add layer options:
 let s:layer_option = 'default var'
-function! SpaceVim#layers#foo#set_variable(var) abort
+function! spacevim#layers#foo#set_variable(var) abort
   let s:layer_option = get(a:var, 'layer_option', s:layer_option)
 endfunction
 
 " completion function for layer options:
-function! SpaceVim#layers#foo#get_options() abort
+function! spacevim#layers#foo#get_options() abort
     return ['layer_option']
 endfunction
 ```
 
 4. Create the layer's documentation file `docs/layers/foo.md` for `foo` layer.
-5. Open `docs/layers/index.md`, and run `:call SpaceVim#dev#layers#update()` to update the layers list.
-6. Send a PR to SpaceVim.
+5. Open `docs/layers/index.md`, and run `:call spacevim#dev#layers#update()` to update the layers list.
+6. Send a PR to spacevim.
 
 ### Contributor to an existing layer
 
@@ -229,7 +229,7 @@ If you want to contribute to an already existing layer, you should not modify an
 
 ### Contributing a keybinding
 
-Mappings are an important part of SpaceVim.
+Mappings are an important part of spacevim.
 
 First if you want to have some personal mappings.
 This can be done in your bootstrap function.
@@ -267,7 +267,7 @@ All above key bindings are just recommended as default, but they are also based 
 
 ### Contributing a banner
 
-The startup banner is the SpaceVim logo by default.
+The startup banner is the spacevim logo by default.
 but there are also ASCII banners available in the [core/banner layer](../layers/core/banner/).
 
 If you have some ASCII skills you can submit your artwork!
@@ -285,18 +285,18 @@ In `bundle/` directory, there are two kinds of plugins:
 checkout the [bundle plugins](../bundle-plugins/) page for more info.
 
 
-## Build with SpaceVim
+## Build with spacevim
 
-SpaceVim provides a lot of public [APIs](../api/),
+spacevim provides a lot of public [APIs](../api/),
 you can create plugins based on these APIs.
 Also you can add a badge to the README.md of your plugin.
 
-![](https://img.shields.io/badge/build%20with-SpaceVim-ff69b4.svg)
+![](https://img.shields.io/badge/build%20with-spacevim-ff69b4.svg)
 
 markdown
 
 ```md
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 ```
 
 ## Newsletters

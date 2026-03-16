@@ -1,6 +1,6 @@
 # FlyGrep.vim
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 [![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
 
 ![searching project](https://img.spacevim.org/35278709-7856ed62-0010-11e8-8b1e-e6cc6374b0dc.gif)
@@ -73,6 +73,6 @@ This plugin provides a `:FlyGrep` command.
 
 ## FeedBack
 
-The development of this plugin is in [`SpaceVim/bundle/FlyGrep`](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/FlyGrep) directory.
+The development of this plugin is in [`spacevim/bundle/FlyGrep`](https://github.com/spacevim/spacevim/tree/master/bundle/FlyGrep) directory.
 
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/SpaceVim/SpaceVim/issues)
+If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

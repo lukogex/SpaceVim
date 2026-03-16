@@ -19,7 +19,7 @@ else
   fn = vim.fn
 end
 
-logger.set_name('SpaceVim')
+logger.set_name('spacevim')
 logger.set_level(1)
 logger.set_silent(1)
 logger.set_verbose(1)
@@ -50,7 +50,7 @@ end
 
 function M.viewRuntimeLog()
   -- this function should be more faster, and view runtime log without filter
-  local info = '### SpaceVim runtime log :\n\n' .. logger.view_all()
+  local info = '### spacevim runtime log :\n\n' .. logger.view_all()
   cmd('tabnew')
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
@@ -58,7 +58,7 @@ function M.viewRuntimeLog()
   fn.append(0, fn.split(info, '\n'))
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
-  cmd('setl filetype=SpaceVimLog')
+  cmd('setl filetype=spacevimLog')
   -- M.syntax_extra()
 end
 
@@ -68,19 +68,19 @@ end
 
 function M.viewLog(...)
   local argvs = { ... }
-  local info = '<details><summary> SpaceVim debug information </summary>\n\n'
-    .. '### SpaceVim options :\n\n'
+  local info = '<details><summary> spacevim debug information </summary>\n\n'
+    .. '### spacevim options :\n\n'
     .. '```toml\n'
-    .. fn.join(call('SpaceVim#options#list'), '\n')
+    .. fn.join(call('spacevim#options#list'), '\n')
     .. '\n```\n'
     .. '\n\n'
-    .. '### SpaceVim layers :\n\n'
-    .. call('SpaceVim#layers#report')
+    .. '### spacevim layers :\n\n'
+    .. call('spacevim#layers#report')
     .. '\n\n'
-    .. '### SpaceVim Health checking :\n\n'
-    .. call('SpaceVim#health#report')
+    .. '### spacevim Health checking :\n\n'
+    .. call('spacevim#health#report')
     .. '\n\n'
-    .. '### SpaceVim runtime log :\n\n'
+    .. '### spacevim runtime log :\n\n'
     .. '```log\n'
     .. logger.view(logger.level)
     .. '\n```\n</details>\n\n'

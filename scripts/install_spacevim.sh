@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #=============================================================================
-# install.sh --- bootstrap script for SpaceVim
+# install.sh --- bootstrap script for spacevim
 # Copyright (c) 2016-2022 Shidong Wang & Contributors
 # Author: Shidong Wang < wsdjeg@outlook.com >
 # URL: https://spacevim.org
@@ -89,7 +89,7 @@ Version='2.5.0-dev'
 System="$(uname -s)"
 # }}}
 
-XDGSpaceDir="${XDG_CONFIG_HOME:-${HOME}/.}${XDG_CONFIG_HOME:+/}SpaceVim"
+XDGSpaceDir="${XDG_CONFIG_HOME:-${HOME}/.}${XDG_CONFIG_HOME:+/}spacevim"
 XDGvimDir="${XDG_CONFIG_HOME:-${HOME}/.}${XDG_CONFIG_HOME:+/}vim"
 XDGnvimDir="${XDG_CONFIG_HOME:-${HOME}/.config/}${XDG_CONFIG_HOME:+/}nvim"
 
@@ -135,16 +135,16 @@ echo_with_color () {
 fetch_repo () {
     need_cmd 'git'
     if [[ -d "${XDGSpaceDir:-}" ]]; then
-        info "Trying to update SpaceVim"
+        info "Trying to update spacevim"
         (
             cd "${XDGSpaceDir:?}"
             git pull
             git fetch --tags
         )
-        success "Successfully update SpaceVim"
+        success "Successfully update spacevim"
     else
-        info "Trying to clone SpaceVim"
-        git clone --depth 1 https://github.com/wsdjeg/SpaceVim.git "${XDGSpaceDir:-}"
+        info "Trying to clone spacevim"
+        git clone --depth 1 https://github.com/wsdjeg/spacevim.git "${XDGSpaceDir:-}"
         info "fetch spacevim tags"
         (
             cd "${XDGSpaceDir:?}"
@@ -152,9 +152,9 @@ fetch_repo () {
         )
         success "fetch tags done"
         if [ $? -eq 0 ]; then
-            success "Successfully clone SpaceVim"
+            success "Successfully clone spacevim"
         else
-            error "Failed to clone SpaceVim"
+            error "Failed to clone spacevim"
             exit 0
         fi
     fi
@@ -163,7 +163,7 @@ fetch_repo () {
 
 # check_requirements {{{
 check_requirements () {
-    info "Checking Requirements for SpaceVim"
+    info "Checking Requirements for spacevim"
     if hash "git" &>/dev/null; then
         git_version=$(git --version)
         success "Check Requirements: ${git_version}"
@@ -187,7 +187,7 @@ check_requirements () {
             if hash "nvim" &>/dev/null; then
                 success "Check Requirements: nvim"
             else
-                warn "SpaceVim need vim 7.4 or above"
+                warn "spacevim need vim 7.4 or above"
             fi
         fi
         if hash "nvim" &>/dev/null; then
@@ -213,7 +213,7 @@ install_done () {
     echo_with_color ${Yellow} "==    Open Vim or Neovim and it will install the plugins automatically      =="
     echo_with_color ${Yellow} "=============================================================================="
     echo_with_color ${Yellow} ""
-    echo_with_color ${Yellow} "That's it. Thanks for installing SpaceVim. Enjoy!"
+    echo_with_color ${Yellow} "That's it. Thanks for installing spacevim. Enjoy!"
     echo_with_color ${Yellow} ""
 }
 # }}}

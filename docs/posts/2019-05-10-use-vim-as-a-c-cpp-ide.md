@@ -2,7 +2,7 @@
 title: "Use Vim as a C/C++ IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/58743787-db2bee80-846a-11e9-9b19-17202ac542c9.png
-description: "A general guide for using SpaceVim as C/C++ IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as C/C++ IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a C/C++ IDE"
@@ -11,7 +11,7 @@ language: "C/C++"
 
 # [Blogs](../blog/) >> Use Vim as a C/C++ IDE
 
-This is a general guide for using SpaceVim as a C/C++ IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a C/C++ IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -29,8 +29,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add C/C++ language support in SpaceVim, you need to enable the `lang#c` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+To add C/C++ language support in spacevim, you need to enable the `lang#c` layer. Press `SPC f v d` to open
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]

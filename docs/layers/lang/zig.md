@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#zig layer"
+title: "spacevim lang#zig layer"
 description: "This layer is for zig development, provides code runner support for zig files."
 ---
 

@@ -11,9 +11,9 @@ if exists('s:CMP')
   finish
 endif
 
-let s:VIM = SpaceVim#api#import('vim')
-let s:CMP = SpaceVim#api#import('vim#compatible')
-let s:HI = SpaceVim#api#import('vim#highlight')
+let s:VIM = spacevim#api#import('vim')
+let s:CMP = spacevim#api#import('vim#compatible')
+let s:HI = spacevim#api#import('vim#highlight')
 
 function! chat#windows#is_opened() abort
   return s:msg_win_opened
@@ -65,7 +65,7 @@ function! chat#windows#open() abort
   endif
   " scrollbar will not be closed if use noautocmd to open split.
   try
-    call SpaceVim#plugins#scrollbar#clear()
+    call spacevim#plugins#scrollbar#clear()
   catch
 
   endtry
@@ -608,7 +608,7 @@ function! s:init_hi() abort
   endif
 endfunction
 function! s:update_statusline() abort
-  let &l:statusline = SpaceVim#layers#core#statusline#get(1)
+  let &l:statusline = spacevim#layers#core#statusline#get(1)
 endfunction
 
 function! s:previous_channel() abort

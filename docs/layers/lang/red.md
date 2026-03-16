@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#red layer"
+title: "spacevim lang#red layer"
 description: "This layer is for Red development, provides autocompletion, syntax checking and code formatting."
 ---
 

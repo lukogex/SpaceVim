@@ -17,7 +17,7 @@ description: "password API provides some basic functions for generating password
 This api provides some basic Functions for generating password.
 
 ```vim
-let s:PW = SpaceVim#api#import('password')
+let s:PW = spacevim#api#import('password')
 let password = s:PW.generate_simple(8)
 echom password
 " you should see a string like `GAN0q7aE`

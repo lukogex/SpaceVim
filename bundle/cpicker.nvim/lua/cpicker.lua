@@ -54,21 +54,21 @@ local function update_buf_text()
     > math.abs(util.get_hsl_l(color_hi) - util.get_hsl_l(normal_fg))
   then
     hi.hi({
-      name = 'SpaceVimPickerCode',
+      name = 'spacevimPickerCode',
       guifg = color_hi,
       guibg = normal_bg,
       bold = 1,
     })
   else
     hi.hi({
-      name = 'SpaceVimPickerCode',
+      name = 'spacevimPickerCode',
       guifg = color_hi,
       guibg = normal_fg,
       bold = 1,
     })
   end
   hi.hi({
-    name = 'SpaceVimPickerBackground',
+    name = 'spacevimPickerBackground',
     guibg = color_hi,
     guifg = color_hi,
   })
@@ -153,7 +153,7 @@ M.picker = function(formats)
       buf = bufnr,
     })
     -- use set syntax instead of filetype
-    -- if using filetype, when open cpicker first time the SpaceVimPickerCode syntax is cleared
+    -- if using filetype, when open cpicker first time the spacevimPickerCode syntax is cleared
     vim.api.nvim_set_option_value('syntax', 'spacevim_cpicker', {
       buf = bufnr,
     })

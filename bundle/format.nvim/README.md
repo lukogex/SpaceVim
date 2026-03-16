@@ -1,8 +1,8 @@
 # format.nvim
 
-> _format.nvim_ is an asynchronous code formatting plugin based on SpaceVim job api.
+> _format.nvim_ is an asynchronous code formatting plugin based on spacevim job api.
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 [![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
 
 <!-- vim-markdown-toc GFM -->
@@ -16,7 +16,7 @@
 
 ## Install
 
-1. Using `format.nvim` in SpaceVim:
+1. Using `format.nvim` in spacevim:
 
 ```toml
 [[layers]]
@@ -24,7 +24,7 @@
   format_method = 'format.nvim'
 ```
 
-2. Using `format.nvim` without SpaceVim:
+2. Using `format.nvim` without spacevim:
 
 ```
 Plug 'wsdjeg/format.nvim'
@@ -51,6 +51,6 @@ require('format').setup({
 
 ## Feedback
 
-The development of this plugin is in [`SpaceVim/bundle/format.nvim`](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/format.nvim) directory.
+The development of this plugin is in [`spacevim/bundle/format.nvim`](https://github.com/spacevim/spacevim/tree/master/bundle/format.nvim) directory.
 
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/SpaceVim/SpaceVim/issues)
+If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

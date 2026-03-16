@@ -17,7 +17,7 @@ description: "unicode#box API provides some basic functions for drawing box."
 `unicode#box` API provides some basic functions for drawing box and table.
 
 ```vim
-let s:SPI = SpaceVim#api#import('unicode#box')
+let s:SPI = spacevim#api#import('unicode#box')
 call s:SPI.apply('dot1',  'g:dotstr')
 set statusline+=%{g:dotstr}
 ```

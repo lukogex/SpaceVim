@@ -17,7 +17,7 @@ description: "vim#window API provides some basic functions for setting and getti
 vim#window API provides some basic functions for setting and getting config of vim window.
 
 ```vim
-let s:WINDOW = SpaceVim#api#import('vim#window')
+let s:WINDOW = spacevim#api#import('vim#window')
 " if you want to change the cursor to [10, 3] in window winid
 call s:WINDOW.set_cursor(s:winid, [10, 3])
 " of cause, you can get the cursor for a window

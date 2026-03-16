@@ -2,7 +2,7 @@
 title: "Use Vim as a Kotlin IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/94328509-cbcc9f00-ffe5-11ea-8f0d-9ea7b5b81352.png
-description: "A general guide for using SpaceVim as Kotlin IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Kotlin IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Kotlin IDE"
@@ -11,7 +11,7 @@ language: Kotlin
 
 # [Blogs](../blog/) >> Use Vim as a Kotlin IDE
 
-This is a general guide for using SpaceVim as a Kotlin IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a Kotlin IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 
@@ -30,8 +30,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add Kotlin language support in SpaceVim, you need to enable the `lang#kotlin` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add the following snippet:
+To add Kotlin language support in spacevim, you need to enable the `lang#kotlin` layer. Press `SPC f v d` to open
+spacevim configuration file, and add the following snippet:
 
 ```toml
 [[layers]]
@@ -105,7 +105,7 @@ send whole buffer.
 
 ### Tasks manager
 
-Create `.SpaceVim.d/task.toml` file in the root of your project. and add all the task command into it.
+Create `.spacevim.d/task.toml` file in the root of your project. and add all the task command into it.
 
 ```toml
 [gradle-build]
@@ -117,4 +117,4 @@ For more info about task configuration, please checkout the [task documentation]
 
 
 This article is not finished yet and new content will be updated in the future.
-If you want to help improve this article, please join the SpaceVim [gitter room](https://gitter.im/SpaceVim/SpaceVim).
+If you want to help improve this article, please join the spacevim [gitter room](https://gitter.im/spacevim/spacevim).

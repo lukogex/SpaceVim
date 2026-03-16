@@ -20,7 +20,7 @@ local sp_opt = require('spacevim.opt')
 local fn = sp.fn
 local layer = require('spacevim.layer')
 local project_paths = {}
-local project_cache_path = sp_file.unify_path(sp_opt.data_dir, ':p') .. 'SpaceVim/projects.json'
+local project_cache_path = sp_file.unify_path(sp_opt.data_dir, ':p') .. 'spacevim/projects.json'
 local spacevim_project_rooter_patterns = {}
 local project_rooter_patterns = {}
 local project_rooter_ignores = {}
@@ -246,7 +246,7 @@ local function cache_project(prj)
       .. ' <'
       .. fn.strftime('%Y-%m-%d %T', project_paths[key].opened_time)
       .. '>'
-    local cmd = "call SpaceVim#plugins#projectmanager#open('" .. project_paths[key].path .. "')"
+    local cmd = "call spacevim#plugins#projectmanager#open('" .. project_paths[key].path .. "')"
     sp.cmd(
       'call add(g:unite_source_menu_menus.Projects.command_candidates, ["'
         .. desc
@@ -260,7 +260,7 @@ local function cache_project(prj)
   end
 end
 
--- call add(g:spacevim_project_rooter_patterns, '.SpaceVim.d/')
+-- call add(g:spacevim_project_rooter_patterns, '.spacevim.d/')
 
 -- let s:spacevim_project_rooter_patterns = copy(g:spacevim_project_rooter_patterns)
 update_rooter_patterns()
@@ -278,9 +278,9 @@ let g:unite_source_menu_menus.Projects.command_candidates = get(g:unite_source_m
 if sp_opt.project_auto_root == 1 then
   sp.cmd('augroup spacevim_project_rooter')
   sp.cmd('autocmd!')
-  sp.cmd('autocmd VimEnter,BufEnter * ++nested call SpaceVim#plugins#projectmanager#current_root()')
+  sp.cmd('autocmd VimEnter,BufEnter * ++nested call spacevim#plugins#projectmanager#current_root()')
   sp.cmd(
-    "autocmd BufWritePost * :call setbufvar('%', 'rootDir', '') | call SpaceVim#plugins#projectmanager#current_root()"
+    "autocmd BufWritePost * :call setbufvar('%', 'rootDir', '') | call spacevim#plugins#projectmanager#current_root()"
   )
   sp.cmd('augroup END')
 end
@@ -294,7 +294,7 @@ function M.list()
   elseif layer.isLoaded('fzf') then
     sp.cmd('FzfMenu Projects')
   elseif layer.isLoaded('leaderf') then
-    sp.cmd("call SpaceVim#layers#leaderf#run_menu('Projects')")
+    sp.cmd("call spacevim#layers#leaderf#run_menu('Projects')")
   elseif layer.isLoaded('telescope') then
     sp.cmd('Telescope project')
   else

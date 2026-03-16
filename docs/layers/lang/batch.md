@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#batch layer"
+title: "spacevim lang#batch layer"
 description: "This layer is for DOS batch file development, provides syntax highlighting, code runner and repl support for batch files."
 ---
 

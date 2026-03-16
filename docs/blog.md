@@ -1,11 +1,11 @@
 ---
 title: "Blog"
-description: "A list of the latest blog posts about the features of SpaceVim and tutorials on using vim."
+description: "A list of the latest blog posts about the features of spacevim and tutorials on using vim."
 ---
 
 # [Home](../) >> Blog
 
-Here you can learn more about SpaceVim with our tutorials and find out what's
+Here you can learn more about spacevim with our tutorials and find out what's
 going on. Feel free to [feed this blog via RSS](../../feed.xml)：
 
 <ul>

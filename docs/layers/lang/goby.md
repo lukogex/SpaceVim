@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#goby layer"
+title: "spacevim lang#goby layer"
 description: "This layer is for goby development, provides syntax checking, code runner and repl support for goby files."
 ---
 

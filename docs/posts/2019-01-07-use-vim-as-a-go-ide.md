@@ -2,7 +2,7 @@
 title: "Use Vim as a Go IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/57321608-4a484880-7134-11e9-8e43-5fa05085d7e5.png
-description: "A general guide for using SpaceVim as Go IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Go IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Go IDE"
@@ -11,7 +11,7 @@ language: Golang
 
 # [Blogs](../blog/) >> Use Vim as a Go IDE
 
-This is a general guide for using SpaceVim as a Go IDE, including layer configuration and usage. 
+This is a general guide for using spacevim as a Go IDE, including layer configuration and usage. 
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -32,8 +32,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add go language support in SpaceVim, you need to enable the `lang#go` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+To add go language support in spacevim, you need to enable the `lang#go` layer. Press `SPC f v d` to open
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]

@@ -26,7 +26,7 @@ jobs:
     env:
         VIM_BIN: ${{ matrix.vimbin }}
         VIM_TAG: ${{ matrix.vimtag }}
-        DEPS: /home/runner/work/SpaceVim/deps
+        DEPS: /home/runner/work/spacevim/deps
         DISABLE_ES: ${{ matrix.disable_es }}
     steps:
     - name: Checkout
@@ -61,7 +61,7 @@ jobs:
         # pip3 install --upgrade "pip < 21.0"
         # TODO(SPACEVIM-#1): Looks like this fixed the errors but not the test failures
         # Starting Vader: /home/runner/work/spacevim/spacevim/test/plugin/a.vader
-        # (1/1) [EXECUTE]  SpaceVim plugin: a.vim
+        # (1/1) [EXECUTE]  spacevim plugin: a.vim
         # (1/1) [EXECUTE] (X) 'docs/index.md' should be equal to ''
         # Success/Total: 0/1
         pip3 install --upgrade pip

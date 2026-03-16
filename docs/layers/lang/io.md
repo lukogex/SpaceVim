@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#io layer"
+title: "spacevim lang#io layer"
 description: "This layer is for io development, provides code runner and repl support for io files."
 ---
 

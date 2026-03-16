@@ -2,7 +2,7 @@
 title: "Use Vim as a Perl IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/52611209-54550500-2ebf-11e9-9b9f-f697a0db52a3.png
-description: "A general guide for using SpaceVim as Perl IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Perl IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Perl IDE"
@@ -11,7 +11,7 @@ language: Perl
 
 # [Blogs](../blog/) >> Use Vim as a Perl IDE
 
-This is a general guide for using SpaceVim as a Perl IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a Perl IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 
@@ -29,8 +29,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add Perl language support in SpaceVim, you need to enable the `lang#perl` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add the following snippet:
+To add Perl language support in spacevim, you need to enable the `lang#perl` layer. Press `SPC f v d` to open
+spacevim configuration file, and add the following snippet:
 
 ```toml
 [[layers]]
@@ -61,7 +61,7 @@ cpanm Perl::Critic
 
 ### Jump to test file
 
-SpaceVim use built-in plugin to manager the files in a project, you can add a `.project_alt.json` to the root of your project with the following content:
+spacevim use built-in plugin to manager the files in a project, you can add a `.project_alt.json` to the root of your project with the following content:
 
 ```json
 {

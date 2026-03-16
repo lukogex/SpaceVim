@@ -1,7 +1,7 @@
-let s:JOB = SpaceVim#api#import('job')
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
-let s:WIN = SpaceVim#api#import('vim#window')
-let s:NOTI = SpaceVim#api#import('notify')
+let s:JOB = spacevim#api#import('job')
+let s:BUFFER = spacevim#api#import('vim#buffer')
+let s:WIN = spacevim#api#import('vim#window')
+let s:NOTI = spacevim#api#import('notify')
 
 let g:git_log_pretty = 'tformat:%Cred%h%Creset - %s %Cgreen(%an %ad)%Creset'
 let s:bufnr = -1

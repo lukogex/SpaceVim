@@ -18,7 +18,7 @@ set cpo&vim
 ""
 " @section Introduction, intro
 " @order intro key-mappings dicts functions exceptions layers api faq
-" cscope.vim is a smart cscope plugin for SpaceVim.
+" cscope.vim is a smart cscope plugin for spacevim.
 "
 " It will try to find a proper cscope database for current file, then connect
 " to it. If there is no proper cscope database for current file, you are
@@ -45,15 +45,15 @@ set cpo&vim
 
 " where to store cscope file?
 
-let s:logger = SpaceVim#logger#derive('cscope')
-let s:notify = SpaceVim#api#import('notify')
+let s:logger = spacevim#logger#derive('cscope')
+let s:notify = spacevim#api#import('notify')
 let s:notify.timeout = 5000
-let s:box = SpaceVim#api#import('unicode#box')
+let s:box = spacevim#api#import('unicode#box')
 let s:box.box_width = 40
-let s:FILE = SpaceVim#api#import('file')
-let s:JOB = SpaceVim#api#import('job')
-let s:JSON = SpaceVim#api#import('data#json')
-let s:cscope_cache_dir = s:FILE.unify_path('~/.cache/SpaceVim/cscope/')
+let s:FILE = spacevim#api#import('file')
+let s:JOB = spacevim#api#import('job')
+let s:JSON = spacevim#api#import('data#json')
+let s:cscope_cache_dir = s:FILE.unify_path('~/.cache/spacevim/cscope/')
 let s:cscope_db_index = s:cscope_cache_dir.'index'
 let s:dbs = {}
 
@@ -70,7 +70,7 @@ function! cscope#find(action, word) abort
   if len(dirtyDirs) > 0
     call s:updateDBs(dirtyDirs)
   endif
-  let dbl = s:AutoloadDB(SpaceVim#plugins#projectmanager#current_root())
+  let dbl = s:AutoloadDB(spacevim#plugins#projectmanager#current_root())
   if dbl == 0
     try
       exe ':silent lcs f '.a:action.' '.a:word
@@ -180,7 +180,7 @@ endfunction
 ""
 " Create databases for current project
 function! cscope#create_databeses() abort
-  let dir = SpaceVim#plugins#projectmanager#current_root()
+  let dir = spacevim#plugins#projectmanager#current_root()
   call s:init_database(dir, 0)
 endfunction
 

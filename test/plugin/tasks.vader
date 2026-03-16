@@ -1,5 +1,5 @@
-Execute ( SpaceVim plugin: task manager ):
-  call SpaceVim#plugins#tasks#list()
+Execute ( spacevim plugin: task manager ):
+  call spacevim#plugins#tasks#list()
   exe "normal! /regexp\<cr>"
   exe "normal \<cr>"
 

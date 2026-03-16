@@ -2,7 +2,7 @@
 title: "Use Vim as a Rust IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/75607213-9afbb880-5b2f-11ea-8569-5f39142f134b.png
-description: "A general guide for using SpaceVim as Rust IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Rust IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Rust IDE"
@@ -11,7 +11,7 @@ language: Rust
 
 # [Blogs](../blog/) >> Use Vim as a Rust IDE
 
-This is a general guide for using SpaceVim as a Rust IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a Rust IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 <!-- vim-markdown-toc GFM -->
@@ -30,8 +30,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add rust language support in SpaceVim, you need to enable the `lang#rust` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add the following snippet:
+To add rust language support in spacevim, you need to enable the `lang#rust` layer. Press `SPC f v d` to open
+spacevim configuration file, and add the following snippet:
 
 ```toml
 [[layers]]
@@ -56,7 +56,7 @@ The lsp layer uses [rls](https://github.com/rust-lang/rls) as the language serve
 rustup component add rls rust-analysis rust-src
 ```
 
-Add following snippet to SpaceVim config file:
+Add following snippet to spacevim config file:
 
 ```toml
 [[layers]]
@@ -86,7 +86,7 @@ let g:neomake_rust_enabled_makers = ['rustc']
 
 ### Jump to test file
 
-SpaceVim use built-in plugin to manager the files in a project,
+spacevim use built-in plugin to manager the files in a project,
 you can add a `.project_alt.json` to the root of your project with the following content:
 
 ```json
@@ -126,7 +126,7 @@ send whole buffer.
 ### Tasks manager
 
 The tasks manager provides a function to register task provider. Adding following vim script
-into bootstrap function, then SpaceVim can detect the cargo tasks.
+into bootstrap function, then spacevim can detect the cargo tasks.
 
 ```viml
 function! s:cargo_task() abort
@@ -148,10 +148,10 @@ function! s:cargo_task() abort
         return {}
     endif
 endfunction
-call SpaceVim#plugins#tasks#reg_provider(funcref('s:cargo_task'))
+call spacevim#plugins#tasks#reg_provider(funcref('s:cargo_task'))
 ```
 
-Open SpaceVim with a rust file, after pressing `SPC p t r`, you will see the following tasks menu.
+Open spacevim with a rust file, after pressing `SPC p t r`, you will see the following tasks menu.
 
 ![image](https://img.spacevim.org/76683906-957b9380-6642-11ea-906e-42b6e6a17841.png)
 

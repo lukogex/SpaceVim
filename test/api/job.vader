@@ -1,7 +1,7 @@
-Execute ( SpaceVim api: job ):
-  let job = SpaceVim#api#import('job')
-  let sys = SpaceVim#api#import('system')
-  let cmp = SpaceVim#api#import('vim#compatible')
+Execute ( spacevim api: job ):
+  let job = spacevim#api#import('job')
+  let sys = spacevim#api#import('system')
+  let cmp = spacevim#api#import('vim#compatible')
   if sys.isWindows
     let cat = fnamemodify(v:progpath, ':h') . '\cat.exe'
   else

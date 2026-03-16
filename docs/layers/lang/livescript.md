@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#livescript layer"
+title: "spacevim lang#livescript layer"
 description: "This layer is for livescript development, provides syntax checking, code runner and repl support for livescript files."
 ---
 

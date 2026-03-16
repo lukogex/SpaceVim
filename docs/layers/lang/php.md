@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#php layer"
+title: "spacevim lang#php layer"
 description: "PHP language support, including code completion, syntax lint and code runner"
 ---
 
@@ -22,7 +22,7 @@ description: "PHP language support, including code completion, syntax lint and c
 
 ## Description
 
-`lang#php` layer provides PHP language support in SpaceVim.
+`lang#php` layer provides PHP language support in spacevim.
 
 - code completion (`autocomplete` layer)
 - code formatting (`format` layer)
@@ -36,7 +36,7 @@ description: "PHP language support, including code completion, syntax lint and c
 ### Enable language layer
 
 This layer is not enabled by default. To use this layer, you need to add following
-snippet into SpaceVim configuration file:
+snippet into spacevim configuration file:
 
 ```toml
 [[layers]]

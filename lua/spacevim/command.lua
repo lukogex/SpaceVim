@@ -13,7 +13,7 @@ local command = require('spacevim.api').import('vim.command')
 function M.init()
     command.defined({
         name = 'SPUpdate',
-        vim_function = 'SpaceVim#plugins#update'
+        vim_function = 'spacevim#plugins#update'
     })
     
 end

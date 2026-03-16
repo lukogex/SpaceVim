@@ -17,7 +17,7 @@ description: "vim#message API provides some basic functions to generate colored 
 vim#message API provides some basic functions to generate colored messages.
 
 ```vim
-let s:MSG = SpaceVim#api#import('vim#message)
+let s:MSG = spacevim#api#import('vim#message)
 call s:MSG.echom('String', 'hello world!')
 ```
 

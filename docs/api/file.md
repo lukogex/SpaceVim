@@ -39,7 +39,7 @@ This api can be used in both vim script and lua script.
 **vim script:**
 
 ```vim
-let s:FILE = SpaceVim#api#import('file')
+let s:FILE = spacevim#api#import('file')
 echom S:FILE.separator
 ```
 

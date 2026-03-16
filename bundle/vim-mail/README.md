@@ -2,7 +2,7 @@
 
 manager mail in vim
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 
 ## screenshort
 

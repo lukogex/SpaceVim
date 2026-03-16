@@ -11,9 +11,9 @@ if exists('s:room_jobs')
 endif
 
 
-let s:JOB = SpaceVim#api#import('job')
-let s:JSON = SpaceVim#api#import('data#json')
-let s:LOG = SpaceVim#logger#derive('gitter')
+let s:JOB = spacevim#api#import('job')
+let s:JSON = spacevim#api#import('data#json')
+let s:LOG = spacevim#logger#derive('gitter')
 
 " the win 11 curl in system32/ directory do not support unicode, use
 " neovim's curl

@@ -3,8 +3,8 @@ Execute ( lua api system ):
     Log 'skip lua test'
     finish
   endif
-  let api_system = SpaceVim#api#import('system')
-  let cmp = SpaceVim#api#import('vim#compatible')
+  let api_system = spacevim#api#import('system')
+  let cmp = spacevim#api#import('vim#compatible')
   Log 'test system.isWindows'
   AssertEqual cmp.luaeval('require("spacevim.api").import("system").isWindows'), api_system.isWindows
   Log 'test system.isLinux'

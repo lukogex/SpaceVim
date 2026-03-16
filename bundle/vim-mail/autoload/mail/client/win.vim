@@ -1,10 +1,10 @@
 " load APIs
 "
 
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
-let s:BASE64 = SpaceVim#api#import('data#base64')
-let s:QUOPRI = SpaceVim#api#import('data#quopri')
-let s:ICONV = SpaceVim#api#import('iconv')
+let s:BUFFER = spacevim#api#import('vim#buffer')
+let s:BASE64 = spacevim#api#import('data#base64')
+let s:QUOPRI = spacevim#api#import('data#quopri')
+let s:ICONV = spacevim#api#import('iconv')
 
 
 let s:bufnr = -1

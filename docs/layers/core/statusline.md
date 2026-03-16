@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim core#statusline layer"
-description: "This layer provides a default statusline for SpaceVim"
+title: "spacevim core#statusline layer"
+description: "This layer provides a default statusline for spacevim"
 ---
 
 # [Available Layers](../) >> core#statusline
@@ -37,7 +37,7 @@ To use this configuration layer, add following snippet to your custom configurat
 
 ### Configuration
 
-Here is a list of SpaceVim options for statusline, these are different from layer options:
+Here is a list of spacevim options for statusline, these are different from layer options:
 
 ```toml
 [options]
@@ -47,7 +47,7 @@ Here is a list of SpaceVim options for statusline, these are different from laye
     # Set the statusline separators of inactive statusline
     statusline_iseparator = "bar"
 
-    # Set SpaceVim buffer index type
+    # Set spacevim buffer index type
     buffer_index_type = 4
     # 0: 1 ➛ ➊
     # 1: 1 ➛ ➀
@@ -93,4 +93,4 @@ Here is a list of SpaceVim options for statusline, these are different from laye
     # 'search status' search index
 ```
 
-All statusline key bindings can be find on [SpaceVim documentation](../../../documentation/#statusline)
+All statusline key bindings can be find on [spacevim documentation](../../../documentation/#statusline)

@@ -2,7 +2,7 @@
 
 > _flygrep.nvim_ is a plugin to search text in neovim floating window asynchronously
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 [![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
 
 ![flygrep.nvim](https://img.spacevim.org/flygrep.nvim.gif)
@@ -119,6 +119,6 @@ require('flygrep').setup({
 
 ## Feedback
 
-The development of this plugin is in [`SpaceVim/bundle/flygrep.nvim`](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/flygrep.nvim) directory.
+The development of this plugin is in [`spacevim/bundle/flygrep.nvim`](https://github.com/spacevim/spacevim/tree/master/bundle/flygrep.nvim) directory.
 
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/SpaceVim/SpaceVim/issues)
+If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

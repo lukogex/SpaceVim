@@ -17,7 +17,7 @@ description: "data#base64 API provides base64 encode and decode functions"
 data#base64 API provides base64 encode and decode functions
 
 ```vim
-let s:B = SpaceVim#api#import('data#base64')
+let s:B = spacevim#api#import('data#base64')
 let str1 = 'hello world!'
 let str2 = s:B.encode(str1)
 echo str1 == s:B.decode(str2)

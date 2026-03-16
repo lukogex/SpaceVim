@@ -1,4 +1,4 @@
-let s:HTTP = SpaceVim#api#import('web#http')
+let s:HTTP = spacevim#api#import('web#http')
 
 
 ""

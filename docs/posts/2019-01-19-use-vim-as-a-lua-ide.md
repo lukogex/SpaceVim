@@ -2,7 +2,7 @@
 title: "Use Vim as a Lua IDE"
 categories: [tutorials, blog]
 image: https://img.spacevim.org/51436347-3502f780-1cc6-11e9-9ae1-02e1dfa1e165.png
-description: "A general guide for using SpaceVim as Lua IDE, including layer configuration, requiems installation and usage."
+description: "A general guide for using spacevim as Lua IDE, including layer configuration, requiems installation and usage."
 type: article
 comments: true
 commentsID: "Use Vim as a Lua IDE"
@@ -11,7 +11,7 @@ language: Lua
 
 # [Blogs](../blog/) >> Use Vim as a Lua IDE
 
-This is a general guide for using SpaceVim as a Lua IDE, including layer configuration and usage.
+This is a general guide for using spacevim as a Lua IDE, including layer configuration and usage.
 Each of the following sections will be covered:
 
 
@@ -29,8 +29,8 @@ Each of the following sections will be covered:
 
 ### Enable language layer
 
-To add Lua language support in SpaceVim, you need to enable the `lang#lua` layer. Press `SPC f v d` to open
-SpaceVim configuration file, and add following configuration:
+To add Lua language support in spacevim, you need to enable the `lang#lua` layer. Press `SPC f v d` to open
+spacevim configuration file, and add following configuration:
 
 ```toml
 [[layers]]
@@ -55,7 +55,7 @@ It will run luac asynchronously.
 
 ### Jump to test file
 
-SpaceVim use built-in plugin to manager the files in a project, you can add a `.projections.json` to the root of your project with following content:
+spacevim use built-in plugin to manager the files in a project, you can add a `.projections.json` to the root of your project with following content:
 
 ```json
 {

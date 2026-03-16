@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim golang layer"
+title: "spacevim golang layer"
 description: "This layer is for golang development. It also provides additional language-specific key mappings."
 ---
 

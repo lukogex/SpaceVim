@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim denite layer"
+title: "spacevim denite layer"
 description: "This layers provide's a heavily customized Denite centric workflow"
 ---
 
@@ -31,7 +31,7 @@ To use this configuration layer, add it to your configuration file.
 
 ## Configuration
 
-SpaceVim uses `<Leader> f` as the default key binding prefix for the denite layer.
+spacevim uses `<Leader> f` as the default key binding prefix for the denite layer.
 
 ## Key bindings
 

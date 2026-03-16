@@ -11,5 +11,5 @@ command! -nargs=* Cmake call cmake#run(<q-args>)
 
 
 function! cmake#run(str) abort
-  call SpaceVim#plugins#runner#open('cmake ' . a:str)
+  call spacevim#plugins#runner#open('cmake ' . a:str)
 endfunction

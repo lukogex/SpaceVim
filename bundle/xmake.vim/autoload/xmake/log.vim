@@ -5,7 +5,7 @@
 " URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
-let s:LOGGER = SpaceVim#logger#derive('xmake')
+let s:LOGGER = spacevim#logger#derive('xmake')
 
 
 function! xmake#log#info(msg) abort

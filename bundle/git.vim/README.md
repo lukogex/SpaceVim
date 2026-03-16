@@ -2,7 +2,7 @@
 
 > _git.vim_ is a plugin to use _git_ command in vim and neovim.
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
+[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 [![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
 
 <!-- vim-markdown-toc GFM -->
@@ -16,14 +16,14 @@
 
 ## Install
 
-1. Using `git.vim` in SpaceVim:
+1. Using `git.vim` in spacevim:
 
 ```toml
 [[layers]]
   name = 'git'
 ```
 
-2. Using `git.vim` without SpaceVim:
+2. Using `git.vim` without spacevim:
 
 ```
 Plug 'wsdjeg/git.vim'
@@ -73,6 +73,6 @@ Plug 'wsdjeg/git.vim'
 
 ## Feedback
 
-The development of this plugin is in [`SpaceVim/bundle/git.vim`](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/git.vim) directory.
+The development of this plugin is in [`spacevim/bundle/git.vim`](https://github.com/spacevim/spacevim/tree/master/bundle/git.vim) directory.
 
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/SpaceVim/SpaceVim/issues)
+If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

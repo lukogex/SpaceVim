@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim default layer"
-description: "SpaceVim's default layer contains no plugins, but It provides some better default config for SpaceVim."
+title: "spacevim default layer"
+description: "spacevim's default layer contains no plugins, but It provides some better default config for spacevim."
 ---
 
 # [Available Layers](../) >> default
@@ -15,7 +15,7 @@ description: "SpaceVim's default layer contains no plugins, but It provides some
 
 ## Description
 
-SpaceVim's default layer contains no plugins, but it has some better default config for vim and neovim.
+spacevim's default layer contains no plugins, but it has some better default config for vim and neovim.
 
 ## Install
 

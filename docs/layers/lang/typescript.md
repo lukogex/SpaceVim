@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#typescript layer"
+title: "spacevim lang#typescript layer"
 description: "This layer is for TypeScript development, including code completion, Syntax lint, and doc generation."
 ---
 
@@ -35,7 +35,7 @@ If you are using neovim instead of vim, please use `npm` to install `neovim` lib
 npm install -g neovim
 ```
 
-then in SpaceVim run `:UpdateRemotePlugin`
+then in spacevim run `:UpdateRemotePlugin`
 
 To generate doc of typescript file, you need to install [lehre](https://www.npmjs.com/package/lehre)
 

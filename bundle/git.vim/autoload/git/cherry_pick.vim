@@ -6,7 +6,7 @@
 "   :Git cherry-pick <HashA> <HashB>
 " <
 
-let s:JOB = SpaceVim#api#import('job')
+let s:JOB = spacevim#api#import('job')
 
 function! git#cherry_pick#run(args) abort
   if len(a:args) == 0
