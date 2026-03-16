@@ -11,11 +11,13 @@ configure, and use SpaceVim. It also lists a series of resources for learning Sp
 If you've never heard of SpaceVim, this is the best place to start.
 It will give you a good idea of what SpaceVim is like.
 
-
 <!-- vim-markdown-toc GFM -->
 
 - [Installation](#installation)
   - [Linux and macOS](#linux-and-macos)
+  - [Where is my old vim configuration?](#where-is-my-old-vim-configuration)
+  - [How to install SpaceVim manually?](#how-to-install-spacevim-manually)
+  - [Can I try SpaceVim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
 - [Configuration](#configuration)
 - [Learning SpaceVim](#learning-spacevim)
 - [User experiences](#user-experiences)
@@ -24,11 +26,8 @@ It will give you a good idea of what SpaceVim is like.
 
 ## Installation
 
-First of all, you need to [install Vim or Neovim](posts/2017-02-20-install-vim-or-neovim-with-python-support/), preferably with `+python3` support enabled.
-
-Also, you need to have `git` and `curl` installed in your system,
-which are needed for downloading plugins and fonts.
-
+First of all, you need to [install Neovim](posts/2017-02-20-install-vim-or-neovim-with-python-support.md), preferably with `+python3` support enabled.
+Also, you need to have `git` and `curl` installed in your system, which are needed for downloading plugins and fonts.
 If you are using a terminal emulator, you will need to set the font in the terminal configuration.
 
 ### Linux and macOS
@@ -63,10 +62,56 @@ If you got a vimproc error like this:
 Please read `:help vimproc` and make it, you may need to install make (from `build-essential`)
 and a C compiler (like `gcc`) to build the dll.
 
+### Where is my old vim configuration?
+
+In Linux/MacOS, the old vim configuration file `~/.vimrc` will be renamed to `~/.vimrc_back`, and the directory `~/.vim` also will be renamed to `~/.vim_back`.
+
+### How to install SpaceVim manually?
+
+The following section will document how to install SpaceVim manually on Linux.
+First, you need to clone the repository to `~/.SpaceVim`.
+
+```
+git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
+```
+
+Then, backup your old Neovim/Vim configuration file:
+
+```
+mv ~/.vimrc ~/.vimrc_back
+mv ~/.vim ~/.vim_back
+mv ~/.config/nvim ~/.config/nvim_back
+```
+
+Link `~/.SpaceVim` to Vim and Neovim user folder:
+
+```
+ln -s ~/.SpaceVim ~/.vim
+ln -s ~/.SpaceVim ~/.config/nvim
+```
+
+### Can I try SpaceVim without overwriting my vimrc?
+
+The SpaceVim install script will move your `~/.vimrc` to `~/.vimrc_back`. If you want to have a try SpaceVim without
+overwriting your own Vim configuration you can:
+
+Clone SpaceVim manually.
+
+```sh
+git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
+```
+
+Then, start Vim via `vim -u ~/.SpaceVim/vimrc`. You can also put this alias into your bashrc.
+
+```sh
+alias svim='vim -u ~/.SpaceVim/vimrc'
+```
+
 ## Configuration
 
-The default configuration file of SpaceVim is `~/.SpaceVim.d/init.toml`. This is
-an example for basic usage of SpaceVim. For more info, please check out [documentation](../documentation/) and [available layers](../layers/).
+The default configuration file of SpaceVim is `~/.SpaceVim.d/init.toml`.
+This is an example for basic usage of SpaceVim.
+For more info, please check out [documentation](../documentation/) and [available layers](../layers/).
 
 ```toml
 # This is a basic configuration example for SpaceVim

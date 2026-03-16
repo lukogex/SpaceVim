@@ -10,12 +10,7 @@ and usage.
 
 <!-- vim-markdown-toc GFM -->
 
-- [Installation](#installation)
-  - [Where is my old vim configuration?](#where-is-my-old-vim-configuration)
-  - [How to uninstall SpaceVim?](#how-to-uninstall-spacevim)
-  - [How to install SpaceVim manually?](#how-to-install-spacevim-manually)
 - [Configuration](#configuration)
-  - [Can I try SpaceVim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
   - [Why use toml as the default configuration file format?](#why-use-toml-as-the-default-configuration-file-format)
   - [Where should I put my configuration?](#where-should-i-put-my-configuration)
   - [Why are the options in toml file not applied?](#why-are-the-options-in-toml-file-not-applied)
@@ -29,66 +24,8 @@ and usage.
 
 <!-- vim-markdown-toc -->
 
-## Installation
-
-### Where is my old vim configuration?
-
-In Linux/MacOS, the old vim configuration file `~/.vimrc` will be renamed to `~/.vimrc_back`,
-and the directory `~/.vim` also will be renamed to `~/.vim_back`.
-
-### How to uninstall SpaceVim?
-
-The installation script does not remove your vimrc, it just changes the name from `~/.vim` to `~/.vim_back`.
-and if you uninstalll SpaceVim, your vimrc will come back. you can run:
-
-```
-curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
-```
-
-### How to install SpaceVim manually?
-
-The following section will document how to install SpaceVim manually on Linux.
-First, you need to clone the repository to `~/.SpaceVim`.
-
-```
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
-```
-
-Then, backup your old Neovim/Vim configuration file:
-
-```
-mv ~/.vimrc ~/.vimrc_back
-mv ~/.vim ~/.vim_back
-mv ~/.config/nvim ~/.config/nvim_back
-```
-
-Link `~/.SpaceVim` to Vim and Neovim user folder:
-
-```
-ln -s ~/.SpaceVim ~/.vim
-ln -s ~/.SpaceVim ~/.config/nvim
-```
-
-
-
 ## Configuration
 
-### Can I try SpaceVim without overwriting my vimrc?
-
-The SpaceVim install script will move your `~/.vimrc` to `~/.vimrc_back`. If you want to have a try SpaceVim without
-overwriting your own Vim configuration you can:
-
-Clone SpaceVim manually.
-
-```sh
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
-```
-
-Then, start Vim via `vim -u ~/.SpaceVim/vimrc`. You can also put this alias into your bashrc.
-
-```sh
-alias svim='vim -u ~/.SpaceVim/vimrc'
-```
 ### Why use toml as the default configuration file format?
 
 In the old version of SpaceVim, we used a Vim file (`init.vim`) for configuration. This introduced a lot of problems.
@@ -194,5 +131,3 @@ If you use both Nvim and Vim, you can use following configuration to select corr
     name = 'leaderf'
     enable = '!has("nvim")'
 ```
-
-
