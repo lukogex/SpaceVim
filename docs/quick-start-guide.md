@@ -15,7 +15,6 @@ It will give you a good idea of what spacevim is like.
 
 - [Installation](#installation)
   - [Linux and macOS](#linux-and-macos)
-  - [Where is my old vim configuration?](#where-is-my-old-vim-configuration)
   - [How to install spacevim manually?](#how-to-install-spacevim-manually)
   - [Can I try spacevim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
 - [Configuration](#configuration)
@@ -60,10 +59,6 @@ If you got a vimproc error like this:
 
 Please read `:help vimproc` and make it, you may need to install make (from `build-essential`)
 and a C compiler (like `gcc`) to build the dll.
-
-### Where is my old vim configuration?
-
-In Linux/MacOS, the old vim configuration file `~/.vimrc` will be renamed to `~/.vimrc_back`, and the directory `~/.vim` also will be renamed to `~/.vim_back`.
 
 ### How to install spacevim manually?
 
