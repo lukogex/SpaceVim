@@ -36,8 +36,7 @@ If you are using a terminal emulator, you will need to set the font in the termi
 curl -sLf https://spacevim.org/install.sh | bash
 ```
 
-After SpaceVim is installed, launch `nvim` or `vim`,
-all plugins will be downloaded **automatically**.
+After SpaceVim is installed launch `spacevim`, all plugins will be downloaded **automatically**.
 
 For more info about the install script, please check:
 

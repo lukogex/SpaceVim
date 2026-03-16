@@ -161,81 +161,6 @@ fetch_repo () {
 }
 # }}}
 
-# install_vim {{{
-install_vim () {
-    if [[ -f "$HOME/.vimrc" ]]; then
-        mv "$HOME/.vimrc" "$HOME/.vimrc_back"
-        success "Backup $HOME/.vimrc to $HOME/.vimrc_back"
-    fi
-
-    if [[ -d "${XDGvimDir:-}" ]]; then
-        if [[ "$(readlink "${XDGvimDir:-}")" =~ \.?SpaceVim$ ]]; then
-            success "SpaceVim already installed in '${XDGvimDir:-}'"
-            return
-        fi
-
-        mv "${XDGvimDir:?}" "${XDGvimDir:-}_back"
-        success "BackUp '${XDGvimDir}' to '${XDGvimDir}_back'"
-    fi
-
-    ln -s "${XDGSpaceDir:?}" "${XDGvimDir:?}"
-    success "Installed SpaceVim for vim in '${XDGvimDir}'"
-}
-# }}}
-
-# install_neovim {{{
-install_neovim () {
-    if [[ -d "${XDGnvimDir:-}" ]]; then
-        if [[ "$(readlink "${XDGnvimDir:-}")" =~ \.?SpaceVim$ ]]; then
-            success "SpaceVim already installed in '${XDGnvimDir:-}'"
-            return
-        fi
-
-        mv "${XDGnvimDir:?}" "${XDGnvimDir:-}_back"
-        success "BackUp '${XDGnvimDir}' to '${XDGnvimDir}_back'"
-    fi
-
-    if [[ ! -d "$(dirname "${XDGnvimDir}")" ]]; then
-        mkdir "$(dirname "${XDGnvimDir}")"
-    fi
-
-    ln -s "${XDGSpaceDir:?}" "${XDGnvimDir:?}"
-    success "Installed SpaceVim for nvim in '${XDGnvimDir}'"
-}
-# }}}
-
-# uninstall_vim {{{
-uninstall_vim () {
-    if [[ -d "${XDGvimDir:-}" ]] &&
-       [[ "$(readlink "${XDGvimDir:?}")" =~ \.?SpaceVim$ ]]; then
-        rm "${XDGvimDir:?}"
-        success "Uninstall SpaceVim for vim"
-        if [[ -d "${XDGvimDir}_back" ]]; then
-            mv "${XDGvimDir}_back" "${XDGvimDir}"
-            success "Recover from ${XDGvimDir}_back"
-        fi
-    fi
-    if [[ -f "$HOME/.vimrc_back" ]]; then
-        mv "$HOME/.vimrc_back" "$HOME/.vimrc"
-        success "Recover from $HOME/.vimrc_back"
-    fi
-}
-# }}}
-
-# uninstall_neovim {{{
-uninstall_neovim () {
-    if [[ -d "${XDGnvimDir:-}" ]] &&
-       [[ "$(readlink "${XDGnvimDir:?}")" =~ \.?SpaceVim$ ]]; then
-        rm "${XDGnvimDir:?}"
-        success "Uninstall SpaceVim for neovim"
-        if [[ -d "${XDGnvimDir}_back" ]]; then
-            mv "${XDGnvimDir}_back" "${XDGnvimDir}"
-            success "Recover from ${XDGnvimDir}_back"
-        fi
-    fi
-}
-# }}}
-
 # check_requirements {{{
 check_requirements () {
     info "Checking Requirements for SpaceVim"
@@ -277,39 +202,6 @@ check_requirements () {
     fi
     info "Checking true colors support in terminal:"
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/JohnMorales/dotfiles/master/colors/24-bit-color.sh)"
-}
-# }}}
-
-# usage {{{
-usage () {
-    echo "SpaceVim install script : V ${Version}"
-    echo ""
-    echo "Usage : curl -sLf https://spacevim.org/install.sh | bash -s -- [option] [target]"
-    echo ""
-    echo "  This is bootstrap script for SpaceVim."
-    echo ""
-    echo "OPTIONS"
-    echo ""
-    echo " -i, --install            install spacevim for vim or neovim"
-    echo " -v, --version            Show version information and exit"
-    echo " -u, --uninstall          Uninstall SpaceVim"
-    echo " -c, --checkRequirements  checkRequirements for SpaceVim"
-    echo " --no-fonts               skip downloading fonts"
-    echo ""
-    echo "EXAMPLE"
-    echo ""
-    echo "    Install SpaceVim for vim and neovim"
-    echo ""
-    echo "        curl -sLf https://spacevim.org/install.sh | bash"
-    echo ""
-    echo "    Install SpaceVim for vim only or neovim only"
-    echo ""
-    echo "        curl -sLf https://spacevim.org/install.sh | bash -s -- --install vim"
-    echo "        curl -sLf https://spacevim.org/install.sh | bash -s -- --install neovim"
-    echo ""
-    echo "    Uninstall SpaceVim"
-    echo ""
-    echo "        curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall"
 }
 # }}}
 
@@ -387,69 +279,10 @@ install_fonts () {
 
 ### main {{{
 main () {
-    if [ $# -gt 0 ]
-    then
-        case $1 in
-            --uninstall|-u)
-                info "Trying to uninstall SpaceVim"
-                uninstall_vim
-                uninstall_neovim
-                echo_with_color ${BWhite} "Thanks!"
-                exit 0
-                ;;
-            --checkRequirements|-c)
-                check_requirements
-                exit 0
-                ;;
-            --install|-i)
-                welcome
-                fetch_repo
-                if [ $# -eq 2 ]
-                then
-                    case $2 in
-                        neovim)
-                            install_neovim
-                            install_fonts
-                            install_done
-                            exit 0
-                            ;;
-                        vim)
-                            install_vim
-                            install_fonts
-                            install_done
-                            exit 0
-                    esac
-                fi
-                install_vim
-                install_neovim
-                install_fonts
-                install_done
-                exit 0
-                ;;
-            --help|-h)
-                usage
-                exit 0
-                ;;
-            --no-fonts)
-                welcome
-                fetch_repo
-                install_vim
-                install_neovim
-                install_done
-                exit 0
-                ;;
-            --version|-v)
-                msg "${Version}"
-                exit 0
-        esac
-    else
-        welcome
-        fetch_repo
-        install_vim
-        install_neovim
-        install_fonts
-        install_done
-    fi
+  welcome
+  fetch_repo
+  install_fonts
+  install_done
 }
 # }}}
 

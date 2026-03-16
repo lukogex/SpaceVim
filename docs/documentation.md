@@ -172,16 +172,14 @@ You can also use `SPC h I` to open a buffer with SpaceVim's issue template.
 
 ## Custom Configuration
 
-The very first time SpaceVim starts up, it will ask you to
-choose a mode, `basic mode` or `dark powered mode`.
-Then it will create a `SpaceVim.d/init.toml` in your
-`$HOME` directory. All the user configuration files are stored in `~/.SpaceVim.d/` directory.
+The very first time SpaceVim starts up, it will ask you to choose a mode, `basic mode` or `dark powered mode`.
+Then it will create a `SpaceVim.d/init.toml` in your `$HOME` directory.
+All the user configuration files are stored in `~/.SpaceVim.d/` directory.
 
 `~/.SpaceVim.d/` will be added to `&runtimepath`.
 
-It is also possible to override the location of `~/.SpaceVim.d/`
-using the environment variable `SPACEVIMDIR`. Of course, you can
-also use symlinks to change the location of this directory.
+It is also possible to override the location of `~/.SpaceVim.d/` using the environment variable `SPACEVIMDIR`.
+Of course, you can also use symlinks to change the location of this directory.
 
 SpaceVim also supports project specific configuration files.
 The init file is `.SpaceVim.d/init.toml` in the root of your project.

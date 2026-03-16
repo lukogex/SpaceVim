@@ -37,7 +37,7 @@ jobs:
           sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
     - name: Install ${{ matrix.vimbin }} ${{ matrix.vimtag }}
       run: |
-        scripts/install_vim.sh $VIM_BIN $VIM_TAG
+        scripts/install_neovim.sh $VIM_BIN $VIM_TAG
     - name: Run test
       run: |
         if [ "$VIM_BIN" = "nvim" ]; then
