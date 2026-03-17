@@ -102,7 +102,6 @@ CONTENTS                                                   *SpaceVim-contents*
 4. Commands............................................... |SpaceVim-commands|
 5. Public functions...................................... |SpaceVim-functions|
 6. Layers................................................... |SpaceVim-layers|
-    1. Chinese...................................... |SpaceVim-layers-chinese|
     2. VersionControl........................ |SpaceVim-layers-VersionControl|
     3. autocomplete............................ |SpaceVim-layers-autocomplete|
     4. chat............................................ |SpaceVim-layers-chat|
@@ -1995,27 +1994,6 @@ Some layers are enabled by default. The following example shows how to disable
     name = 'shell'
     enable = false
 <
-
-==============================================================================
-CHINESE                                              *SpaceVim-layers-chinese*
-
-`chinese` layer provides Chinese specific function for SpaceVim. This layer is
-not loaded by default, to use this layer, add following snippet into your
-SpaceVim configuration file.
->
-  [[layers]]
-    name = 'chinese'
-<
-
-KEY BINDINGS
-
->
-  Key binding     Description
-  SPC l c         check with ChineseLinter
-  SPC x g t       translate current word
-  SPC n c d       convert chinese number to digit
-<
-
 
 ==============================================================================
 VERSIONCONTROL                                *SpaceVim-layers-VersionControl*

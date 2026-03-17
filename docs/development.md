@@ -15,7 +15,6 @@ You can only think about reading the part that is relevant to what you are going
 <!-- vim-markdown-toc GFM -->
 
 - [Contributing code](#contributing-code)
-  - [License](#license)
   - [Conventions](#conventions)
   - [Commit style guide](#commit-style-guide)
   - [Contributing a layer](#contributing-a-layer)
@@ -27,8 +26,6 @@ You can only think about reading the part that is relevant to what you are going
   - [Contributing a banner](#contributing-a-banner)
 - [Bundle plugins](#bundle-plugins)
 - [Build with spacevim](#build-with-spacevim)
-- [Newsletters](#newsletters)
-- [Changelog](#changelog)
 
 <!-- vim-markdown-toc -->
 
@@ -37,18 +34,6 @@ You can only think about reading the part that is relevant to what you are going
 
 The source code of spacevim is hosted at [github](https://github.com/spacevim/spacevim).
 Code and documentation contributions of any kind are welcome. 
-
-### License
-
-The license is GPLv3 for all the parts of spacevim. This includes:
-
-- The initialization and core files.
-- All the layer files.
-- The documentation
-
-For files not belonging to spacevim like bundle packages,
-refer to the header file. Those files should not have an empty header,
-we may not accept code without a proper header file.
 
 ### Conventions
 
@@ -279,16 +264,38 @@ but the width size should be around 75 characters.
 
 In `bundle/` directory, there are two kinds of plugins:
 
-1. unmodified plugins, same as the upstream.
-2. modified plugins based on specific commit.
-
-checkout the [bundle plugins](../bundle-plugins/) page for more info.
-
+- Unmodified plugins, same as the upstream.
+- Modified plugins based on specific commit.
+- Detached plugins
+  They have been implemented with spacevim as bundled plugin but were detached into an own repository with all needed script files to have them standalone usable as well.
+  The detaching has been removed with version 3.0.0.
+  We could migrate to the standalone plugins step by step.
+  The orgini author even has proceed with some of them despoite discuntinuing spacevim.
+  Following is the list of detached plugings from the former detach scrip:
+  - FlyGrep.vim
+  - dein-ui.vim
+  - vim-todo
+  - iedit.vim
+  - scrollbar.vim
+  - vim-chat
+  - vim-cheat
+  - xmake.vim
+  - GitHub.vim
+  - JavaUnit.vim
+  - git.vim
+  - cpicker.nvim
+  - SourceCounter.vim
+  - vim-zettelkasten
+  - format.nvim
+  - record-key.nvim
+  - quickfix.nvim
+  - winbar.nvim
+  - flygrep.nvim
+  - nvim-plug
 
 ## Build with spacevim
 
-spacevim provides a lot of public [APIs](../api/),
-you can create plugins based on these APIs.
+spacevim provides a lot of public [APIs](../api/), you can create plugins based on these APIs.
 Also you can add a badge to the README.md of your plugin.
 
 ![](https://img.shields.io/badge/build%20with-spacevim-ff69b4.svg)
@@ -298,27 +305,3 @@ markdown
 ```md
 [![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
 ```
-
-## Newsletters
-
-<ul>
-    {% for post in site.categories.newsletter %}
-            <li>
-               <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-               <span class="post-date">{{ post.date | date_to_string }}</span>
-               <p>{{ post.description | truncatewords: 100 }}</p>
-            </li>
-    {% endfor %}
-</ul>
-
-## Changelog
-
-<ul>
-    {% for post in site.categories.changelog %}
-            <li>
-               <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
-               <span class="post-date">{{ post.date | date_to_string }}</span>
-               <p>{{ post.description | truncatewords: 100 }}</p>
-            </li>
-    {% endfor %}
-</ul>
