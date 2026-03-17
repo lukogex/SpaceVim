@@ -231,7 +231,7 @@ welcome () {
     echo_with_color ${Yellow} "               | ##                                                           "
     echo_with_color ${Yellow} "               | ##                                                           "
     echo_with_color ${Yellow} "               |__/                                                           "
-    echo_with_color ${Yellow} "                      version : ${Version}      by : spacevim.org             "
+    echo_with_color ${Yellow} "                                  version : ${Version}                        "
 }
 # }}}
 

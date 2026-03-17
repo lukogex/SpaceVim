@@ -7,7 +7,7 @@
 The [spacevim project](https://github.com/wsdjeg/spacevim) originated in December 2016 and stopped maintenance on February 21, 2025.
 Main Maintainer was [Eric Wong](https://github.com/wsdjeg).
 
-spacevim is a modular configuration of Vim and Neovim.
+spacevim is a modular configuration of Neovim.
 It's inspired by Spacemacs.
 It manages collections of plugins in layers, which help to collect related packages together to provide features.
 This approach helps keep the configuration organized and reduces overhead for the user by keeping them from having to think about what packages to install.
@@ -31,6 +31,31 @@ Reasoning:
 
 This project wouldn't exist without the work from Eric Wong and all the people who contributed.
 Please check the [origin project](https://github.com/wsdjeg/spacevim) for further details.
+
+### License
+
+```txt
+spacevim is a modular configuration of Neovim.
+Copyright (C) 2026 Lukas Kranabetter spacevim@lukogex.net
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+```
+
+The license is GPLv3 for all the parts of spacevim adn can be found in the [LICENSE.md](LICENSE.md) file.
+This is just continued from the origin project.
+Following the license we preserve all license headers in files but we dont add them for new files.
+From my point of view this is just uncecessary noise in the files and its not a hard requirement.
 
 ## Features
 

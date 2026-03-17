@@ -16,7 +16,7 @@ fu! s:update_logo()
           \'               | ##                                                           ',
           \'               | ##                                                           ',
           \'               |__/                                                           ',
-          \'                      version : ' . g:spacevim_version . '   by : spacevim.org',
+          \'                                  version : ' . g:spacevim_version . '        ',
           \'',
           \ ]
   elseif exists('g:_spacevim_welcome_banners')

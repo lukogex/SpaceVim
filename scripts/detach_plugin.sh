@@ -23,6 +23,7 @@ This plugin is automatically detach from [spacevim](https://github.com/spacevim
 EOT
 } 
 
+# TODO: Remove, seems I cannot import them as they share spacevim api scripts. Have a detailed look!
 
 main () {
     case "$1" in
@@ -342,7 +343,6 @@ EOT
 " todo.vim --- todo manager for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 

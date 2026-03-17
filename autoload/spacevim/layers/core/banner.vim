@@ -2,7 +2,6 @@
 " banner.vim --- spacevim core#banner layer
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -24,7 +23,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '               | ##                                                            ',
         \ '               | ##                                                            ',
         \ '               |__/                                                            ',
-        \ '                      version : '.vr.'   by : spacevim.org                     ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -39,7 +38,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '                $$ |                                                           ',
         \ '                $$ |                                                           ',
         \ '                \__|                                                           ',
-        \ '                      version : '.vr.'   by : spacevim.org                     ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -51,7 +50,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '     ┗━━━┛╋╋╋╋┃┏━┛╋╋╋╋┗┛┗┛╋╋╋╋┗━━┛╋╋╋╋┗━━┛╋╋╋╋┗━━┛╋╋╋╋┗━┛╋╋╋╋┗┻┻┛              ',
         \ '     ╋╋╋╋╋╋╋╋╋┃┃                                                               ',
         \ '     ╋╋╋╋╋╋╋╋╋┗┛                                                               ',
-        \ '                 version : '.vr.'   by : spacevim.org                          ',
+        \ '                                  version : '.vr.'                             ',
         \ ],
         \ [
         \ '                                                                               ',
@@ -65,7 +64,8 @@ function! spacevim#layers#core#banner#config() abort
         \ '      "Y8888P" 88888P" "Y888888 "Y8888P "Y8888    Y8P    888888  888  888      ',
         \ '               888                                                             ', 
         \ '               888                                                             ', 
-        \ '               888     version : '.vr.'   by : spacevim.org                    ', 
+        \ '               888                                                             ', 
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -82,7 +82,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '          ░                 ░  ░░ ░         ░  ░     ░   ░         ░           ',
         \ '                                ░                   ░                          ',
         \ '                                                                               ', 
-        \ '                     version : '.vr.'   by : spacevim.org                      ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -94,7 +94,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '      ▐█▄▪▐█▐█▪·•▐█ ▪▐▌▐███▌▐█▄▄▌ ███ ▐█▌██ ██▌▐█▌                             ',
         \ '       ▀▀▀▀ .▀    ▀  ▀ ·▀▀▀  ▀▀▀ . ▀  ▀▀▀▀▀  █▪▀▀▀                             ',
         \ '                                                                               ',
-        \ '         version : '.vr.'   by : spacevim.org                                  ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -108,7 +108,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '                  ▀     █                   █▐        ▀                        ', 
         \ '                       ▀                    ▐                                  ', 
         \ '                                                                               ',
-        \ '         version : '.vr.'   by : spacevim.org                                  ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -121,7 +121,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '     /____/  _  .___/ \__,_/  \___/  \___/ _____/   /_/   /_/ /_/ /_/          ',
         \ '             /_/                                                               ',
         \ '                                                                               ',
-        \ '            version : '.vr.'   by : spacevim.org                               ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -136,7 +136,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '                           / ^ \        _) )    | |                            ',
         \ '                          /_/ \_\      (__/     |_|                            ',
         \ '                                                                               ',
-        \ '            version : '.vr.'   by : spacevim.org                               ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -151,7 +151,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '    ..%%%%...%%......%%..%%...%%%%...%%%%%%....%%....%%%%%%..%%...%%.          ',
         \ '    .................................................................          ',
         \ '                                                                               ',
-        \ '            version : '.vr.'   by : spacevim.org                               ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -166,7 +166,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '               | |                                                             ',
         \ '               |_|                                                             ',
         \ '                                                                               ',
-        \ '         version : '.vr.'   by : spacevim.org                                  ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -180,7 +180,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '        # #    #  #     #     #  #     #    #     # #       #     #    #       ',
         \ '         #    ### #     #    ###  #####     ######  #######  #####     #       ',
         \ '                                                                               ',
-        \ '            version : '.vr.'   by : spacevim.org                               ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -193,7 +193,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '    \  /  _| |_| || || |   _| |_ _____) )  | |__)  ) |_____ _____) ) |_____   ',
         \ '     \/  (_____)_||_||_|  (_____|______/   |______/|_______|______/ \______)  ',
         \ '',
-        \ '                    version : '.vr.'   by : spacevim.org',
+        \ '                                  version : '.vr.'                             ',
         \ '',
         \ ],
         \ [
@@ -207,7 +207,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '.##.....##..##....##.......##....##.....##.##.......##....##..##.........#### ',
         \ '.##.....##.####..##........##....##.....##.########.##.....##.########...#### ',
         \ '',
-        \ '                 version : '.vr.'   by : spacevim.org',
+        \ '                                  version : '.vr.'                             ',
         \ '',
         \ ],
         \ [
@@ -219,7 +219,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '      \ /     |  |    |    |   )  |    |  |      |    ||                       ',
         \ '       `    --`--`    ` o  `--` --`--  `  `---`  `    ``---`                   ',
         \ '                                                                               ',
-        \ '               version : '.vr.'   by : spacevim.org                            ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ],
         \ [
@@ -231,7 +231,7 @@ function! spacevim#layers#core#banner#config() abort
         \ '========= \ \=/ /| | |===| |==| |========| |==| || || |                        ',
         \ '========== \___/=|_|_|===|_|==|_|========|_|===\_____/                         ',
         \ '                                                                               ',
-        \ '               version : '.vr.'   by : spacevim.org                            ',
+        \ '                                  version : '.vr.'                             ',
         \ '                                                                               ',
         \ ]
         \ ]
