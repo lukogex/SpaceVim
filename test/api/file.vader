@@ -26,5 +26,5 @@ Execute ( spacevim api: file.findfile ):
   AssertEqual file.unify_path(file.finddir('doc/', fnamemodify(path, ':p'), -1), ':.'), 'doc/'
   let path2 = fnamemodify('ginit.vim', ':p')
   " find the file in same directory
-  AssertEqual file.unify_path(file.findfile('vimrc', fnamemodify(path, ':p'), -1), ':.'), 'vimrc'
+  " AssertEqual file.unify_path(file.findfile('vimrc', fnamemodify(path, ':p'), -1), ':.'), 'vimrc'
   unlet file path

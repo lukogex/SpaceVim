@@ -7,63 +7,57 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-          include:
-              - vimbin: nvim
-                vimtag: stable
-              - vimbin: nvim
-                vimtag: v0.11.6
-              - vimbin: nvim
-                vimtag: v0.10.4
-              - vimbin: nvim
-                vimtag: v0.9.5
-              - vimbin: nvim
-                vimtag: v0.8.3
-              - vimbin: nvim
-                vimtag: v0.7.2
-              - vimbin: nvim
-                vimtag: v0.6.1
+        include:
+        - vimbin: nvim
+          vimtag: stable
+        - vimbin: nvim
+          vimtag: v0.11.6
+        - vimbin: nvim
+          vimtag: v0.10.4
+        - vimbin: nvim
+          vimtag: v0.9.5
+        - vimbin: nvim
+          vimtag: v0.8.3
+        - vimbin: nvim
+          vimtag: v0.7.2
+        - vimbin: nvim
+          vimtag: v0.6.1
     runs-on: ubuntu-22.04
     env:
-        VIM_BIN: ${{ matrix.vimbin }}
-        VIM_TAG: ${{ matrix.vimtag }}
-        DEPS: /home/runner/work/spacevim/deps
-        DISABLE_ES: ${{ matrix.disable_es }}
+      VIM_BIN: ${{ matrix.vimbin }}
+      VIM_TAG: ${{ matrix.vimtag }}
+      DEPS: /home/runner/work/spacevim/deps
+      DISABLE_ES: ${{ matrix.disable_es }}
     steps:
     - name: Checkout
       uses: actions/checkout@master
     - name: Install dependencies
       run: |
-          sudo apt-get update
-          sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
+        sudo apt-get update
+        sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
     - name: Install ${{ matrix.vimbin }} ${{ matrix.vimtag }}
       run: |
         scripts/install_neovim.sh $VIM_BIN $VIM_TAG
     - name: Run test
       run: |
         if [ "$VIM_BIN" = "nvim" ]; then
-            export PATH="${DEPS}/_neovim/${VIM_TAG}/bin:${PATH}"
-            export VIM="${DEPS}/_neovim/${VIM_TAG}/share/nvim/runtime"
-            export VIM_Es="--headless"
+          export PATH="${DEPS}/_neovim/${VIM_TAG}/bin:${PATH}"
+          export VIM="${DEPS}/_neovim/${VIM_TAG}/share/nvim/runtime"
+          export VIM_ES="--headless"
         else
-            export PATH="${DEPS}/_vim/${VIM_TAG}/bin:${PATH}"
-            export VIM="${DEPS}/_vim/${VIM_TAG}/share/vim"
-            if [ "$DISABLE_ES" = "true" ]; then
-                export VIM_Es=""
-            else
-                export VIM_Es="-Es"
-            fi
+          export PATH="${DEPS}/_vim/${VIM_TAG}/bin:${PATH}"
+          export VIM="${DEPS}/_vim/${VIM_TAG}/share/vim"
+          if [ "$DISABLE_ES" = "true" ]; then
+            export VIM_ES=""
+          else
+            export VIM_ES="-Es"
+          fi
         fi
         export PATH="/home/runner/.local/bin:${PATH}"
         echo "\$PATH: \"${PATH}\""
         echo "\$VIM: \"${VIM}\""
         echo "=================  ${VIM_BIN} version ======================"
         $VIM_BIN --version
-        # pip3 install --upgrade "pip < 21.0"
-        # TODO(SPACEVIM-#1): Looks like this fixed the errors but not the test failures
-        # Starting Vader: /home/runner/work/spacevim/spacevim/test/plugin/a.vader
-        # (1/1) [EXECUTE]  spacevim plugin: a.vim
-        # (1/1) [EXECUTE] (X) 'docs/index.md' should be equal to ''
-        # Success/Total: 0/1
         pip3 install --upgrade pip
         pip3 install covimerage virtualenv codecov
         make test-coverage

@@ -4,4 +4,3 @@ Execute ( spacevim statusline theme ):
     Log 'testing theme: ' . theme
     AssertEqual len(call('spacevim#mapping#guide#theme#' . theme . '#palette', [])), 9
   endfor
-

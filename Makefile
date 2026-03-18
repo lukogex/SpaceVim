@@ -9,10 +9,15 @@ COVIMERAGE=$(shell command -v covimerage 2>/dev/null || echo build/covimerage/bi
 
 .PHONY: test-coverage
 test-coverage: $(COVIMERAGE) build/vader | build
-	$(COVIMERAGE) run --source after  --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_Es) -c 'Vader! test/**'
+	$(COVIMERAGE) run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 $(COVIMERAGE):
-	$(COVIMERAGE) run --source after  --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_Es) -c 'Vader! test/**'
+	$(COVIMERAGE) run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
+
+.PHONY: test-lint
+test-lint:
+	docker run --rm -t ${UID_GUID} -v $(shell pwd):/work node:18-alpine \
+		/bin/sh -c "cd /work && npx markdownlint-cli content && echo 'DONE - All good!'"
 
 build/covimerage:
 	virtualenv $@
