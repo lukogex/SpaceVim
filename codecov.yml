@@ -1,6 +1,6 @@
 comment: off
 codecov:
-  branch: master
+  branch: main
 coverage:
   status:
     patch:
@@ -10,14 +10,13 @@ coverage:
       api:  # declare a new status context "api"
         target: 1%  # we always want 35% coverage here
         paths:
-          - "autoload/spacevim/api/"  # only include coverage in "autoload/spacevim/api/" folder
+        - "autoload/spacevim/api/"  # only include coverage in "autoload/spacevim/api/" folder
       plugins:  # declare a new status context "api"
         target: 15%  # we always want 35% coverage here
         paths:
-          - "autoload/spacevim/plugins/"  # only include coverage in "autoload/spacevim/api/" folder
+        - "autoload/spacevim/plugins/"  # only include coverage in "autoload/spacevim/api/" folder
       all:  # declare a new status context "all"
         target: 90%  # we always want 35% coverage here
         paths:
-          - "!tests/"  # remove all files in "tests/"
-          - "!bundle/"  # remove all files in "tests/"
-
+        - "!tests/"  # remove all files in "tests/"
+        - "!bundle/"  # remove all files in "tests/"

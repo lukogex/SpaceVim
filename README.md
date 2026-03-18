@@ -21,7 +21,6 @@ One consequence of this is that I'll reduce the project scope and features to th
 ### Compatibility
 
 In contrast to the former spacevim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) and Linux.
-I'm not sure about [Neovim QT](https://github.com/equalsraf/neovim-qt) and how much effort this is, I'll keep related configs by now.
 
 Reasoning:
 - I cant spare additional time to implement and test for other systems.
