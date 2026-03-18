@@ -1,4 +1,4 @@
 Execute (Test web#http api):
     let g:test_api_web_html = spacevim#api#import('web#html')
     let g:test_api_web_html_paser = g:test_api_web_html.parseURL('https://github.com/lukogex/spacevim')
-    AssertEqual g:test_api_web_html_paser.child[1].find('title').child[0], 'lukogex/spacevim: A community-driven modular vim/neovim distribution - The ultimate vimrc'
+    AssertEqual g:test_api_web_html_paser.child[1].find('title').child[0], 'GitHub - lukogex/spacevim: A community-driven modular vim/neovim distribution - The ultimate vimrc · GitHub'
