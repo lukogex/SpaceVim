@@ -66,6 +66,6 @@ jobs:
         # Success/Total: 0/1
         pip3 install --upgrade pip
         pip3 install covimerage virtualenv codecov
-        make test_coverage
+        make test-coverage
         covimerage -vv xml --omit 'build/*' --omit 'bundle/*'
         codecov -X search gcov pycov -f coverage.xml

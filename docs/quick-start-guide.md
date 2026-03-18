@@ -14,8 +14,6 @@ It will give you a good idea of what spacevim is like.
 <!-- vim-markdown-toc GFM -->
 
 - [Installation](#installation)
-  - [Linux and macOS](#linux-and-macos)
-  - [How to install spacevim manually?](#how-to-install-spacevim-manually)
   - [Can I try spacevim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
 - [Configuration](#configuration)
 - [Learning spacevim](#learning-spacevim)
@@ -28,8 +26,6 @@ It will give you a good idea of what spacevim is like.
 First of all, you need to [install Neovim](posts/2017-02-20-install-vim-or-neovim-with-python-support.md), preferably with `+python3` support enabled.
 Also, you need to have `git` and `curl` installed in your system, which are needed for downloading plugins and fonts.
 If you are using a terminal emulator, you will need to set the font in the terminal configuration.
-
-### Linux and macOS
 
 ```bash
 curl -sLf https://spacevim.org/install.sh | bash
@@ -59,30 +55,6 @@ If you got a vimproc error like this:
 
 Please read `:help vimproc` and make it, you may need to install make (from `build-essential`)
 and a C compiler (like `gcc`) to build the dll.
-
-### How to install spacevim manually?
-
-The following section will document how to install spacevim manually on Linux.
-First, you need to clone the repository to `~/.spacevim`.
-
-```
-git clone https://spacevim.org/git/repos/spacevim/ ~/.spacevim
-```
-
-Then, backup your old Neovim/Vim configuration file:
-
-```
-mv ~/.vimrc ~/.vimrc_back
-mv ~/.vim ~/.vim_back
-mv ~/.config/nvim ~/.config/nvim_back
-```
-
-Link `~/.spacevim` to Vim and Neovim user folder:
-
-```
-ln -s ~/.spacevim ~/.vim
-ln -s ~/.spacevim ~/.config/nvim
-```
 
 ### Can I try spacevim without overwriting my vimrc?
 
@@ -149,10 +121,10 @@ For more info, please check out [documentation](../documentation/) and [availabl
     merged = false
 ```
 
-If you want to use vim script to configure spacevim, please check out the
-[bootstrap function](../documentation/#bootstrap-functions) section.
+If you want to use vim script to configure spacevim, please check out the [bootstrap function](../documentation/#bootstrap-functions) section.
 
-If there are errors in your `init.toml`, the setting will not be applied. See [FAQ](../faq/#why-are-the-options-in-toml-file-not-applied). There should be only one `[options]` section in `init.toml`.
+If there are errors in your `init.toml`, the setting will not be applied. See [FAQ](../faq/#why-are-the-options-in-toml-file-not-applied).
+There should be only one `[options]` section in `init.toml`.
 
 ## Learning spacevim
 

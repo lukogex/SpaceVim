@@ -7,7 +7,8 @@ description: "General documentation about how to use spacevim, including the qui
 
 <!-- vim-markdown-toc GFM -->
 
-- [New Concepts](#new-concepts)
+- [Installation](#installation)
+  - [How to install spacevim manually?](#how-to-install-spacevim-manually)
 - [Update and Rollback](#update-and-rollback)
   - [Update spacevim itself](#update-spacevim-itself)
   - [Update plugins](#update-plugins)
@@ -94,20 +95,33 @@ description: "General documentation about how to use spacevim, including the qui
 
 <!-- vim-markdown-toc -->
 
-## New Concepts
+## Installation
 
-**Transient-states**
+Follow the [quick start guide](quick-start-guide.md) to get started fast.
 
-spacevim defines a wide variety of transient states (temporary overlay maps)
-where it makes sense. This prevents one from doing repetitive and tedious
-presses on the `SPC` (space) key.
+### How to install spacevim manually?
 
-When a transient state is active, a documentation is displayed in the
-transient state buffer. Additional information may as well be displayed in it.
+The following section will document how to install spacevim manually on Linux.
+First, you need to clone the repository to `~/.spacevim`.
 
-Move Text Transient State:
+```
+git clone https://spacevim.org/git/repos/spacevim/ ~/.spacevim
+```
 
-![Move Text Transient State](img/spacevim-demo-transient-states.png)
+Then, backup your old Neovim/Vim configuration file:
+
+```
+mv ~/.vimrc ~/.vimrc_back
+mv ~/.vim ~/.vim_back
+mv ~/.config/nvim ~/.config/nvim_back
+```
+
+Link `~/.spacevim` to Vim and Neovim user folder:
+
+```
+ln -s ~/.spacevim ~/.vim
+ln -s ~/.spacevim ~/.config/nvim
+```
 
 ## Update and Rollback
 
@@ -990,9 +1004,9 @@ can be used in command line mode:
 
 ### Mappings guide
 
-The mapping guide windows will be opened each time the prefix key is pressed
-in normal/visual mode. It will list all available key bindings and the short
-descriptions. The prefix can be `[SPC]`, `[WIN]` or `<Leader>`.
+The mapping guide windows will be opened each time the prefix key is pressed in normal/visual mode.
+It will list all available key bindings and the short descriptions.
+The prefix can be `[SPC]`, `[WIN]` or `<Leader>`.
 
 The prefixes are mapped to the following keys by default:
 
@@ -1002,8 +1016,8 @@ The prefixes are mapped to the following keys by default:
 | `[WIN]`     | `windows_leader` / `s`            | window mapping prefix of spacevim   |
 | `<Leader>`  | default vim leader                | default leader prefix of vim/Neovim |
 
-The default value of `<Leader>` is `\`, if you want to change this key,
-you need to use the bootstrap function. For example, to use `,` as the `<Leader>` key:
+The default value of `<Leader>` is `\`, if you want to change this key, you need to use the bootstrap function.
+For example, to use `,` as the `<Leader>` key:
 
 ```vim
 function! myspacevim#before() abort
@@ -1011,10 +1025,9 @@ function! myspacevim#before() abort
 endfunction
 ```
 
-**NOTE:** When modifying the variable `g:mapleader` in a function.
-you can not omit the variable's scope. Because the default scope
-of a variable in function is `l:`. It seems different from what you
-see in vim help `:h mapleader`.
+**NOTE:** When modifying the variable `g:mapleader` in a function you can not omit the variable's scope.
+Because the default scope of a variable in function is `l:`.
+It seems different from what you see in vim help `:h mapleader`.
 
 By default the guide buffer will be displayed 1000ms after the keys being pressed.
 You can change the delay by adding vim option `'timeoutlen'` to your bootstrap function.
@@ -1064,6 +1077,18 @@ The default mapping guide theme is `leaderguide`, which is same as [vim-leadergu
     # the value can be `leaderguide` or `whichkey`
     leader_guide_theme = 'whichkey'
 ```
+
+**Transient-states**
+
+spacevim defines a wide variety of transient states (temporary overlay maps) where it makes sense.
+This prevents one from doing repetitive and tedious presses on the `SPC` (space) key.
+
+When a transient state is active, a documentation is displayed in the transient state buffer.
+Additional information may as well be displayed in it.
+
+Move Text Transient State:
+
+![Move Text Transient State](img/spacevim-demo-transient-states.png)
 
 ### Editing
 
