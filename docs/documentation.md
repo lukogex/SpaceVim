@@ -2099,13 +2099,13 @@ To disable the cross session cache, change `enable_projects_cache` to `false`.
 
 #### Custom alternate file
 
-To manage the alternate file of the project, you need to create a `.project_alt.json` file
-in the root of your project. Then you can use the command `:A` to jump to the alternate file of
-current file. You can also specific the type of alternate file, for example `:A doc`.
-With a bang `:A!`, spacevim will parse the configuration file additionally. If no type is specified,
-the default type `alternate` will be used.
+To manage the alternate file of the project, you need to create a `.project_alt.json` file in the root of your project.
+Then you can use the command `:A` to jump to the alternate file of current file.
+You can also specific the type of alternate file, for example `:A doc`.
+With a bang `:A!`, spacevim will parse the configuration file additionally.
+If no type is specified, the default type `alternate` will be used.
 
-here is an example of `.project_alt.json`:
+Here is an example of `.project_alt.json`:
 
 ```json
 {
@@ -2125,9 +2125,7 @@ Instead of using json file, the alternate file manager also support toml file, f
     test = "test/layer/lang/{}.vader"
 ```
 
-If you do not want to use configuration file,
-or want to override the default configuration in alternate config file, `b:alternate_file_config`
-can be used in bootstrap function, for example:
+If you do not want to use configuration file, or want to override the default configuration in alternate config file, `b:alternate_file_config` can be used in bootstrap function, for example:
 
 ```vim
 augroup myspacevim

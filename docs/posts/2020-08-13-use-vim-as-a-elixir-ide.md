@@ -80,8 +80,7 @@ send whole buffer.
 
 ### Jump to test file
 
-spacevim use vim-project to manager the files in a project,
-you can add a `.projections.json` to the root of your project with following content:
+spacevim use vim-project to manager the files in a project, you can add a `.project_alt.json` to the root of your project with following content:
 
 ```json
 {
