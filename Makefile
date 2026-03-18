@@ -1,6 +1,28 @@
 VIM_BIN ?= vi
 VIM_ES ?= ""
 
+define TOOL_VERSIONS
+neovim 0.6.1
+endef
+
+.PHONY: tools
+tools:
+	@if [ ! -x "$(shell command -v asdf)" ]; then \
+		echo "ERROR: asdf is not installed. You need to install tools manually."; \
+		exit 1; \
+	fi;
+	# TODO: Can be removed as we keep tool-versions file!
+	@if [ ! -e ".tool-versions" ]; then \
+		echo "INFO: No '.tool-versions' file found, creating one for Makefile needed tools now."; \
+		echo $(TOOL_VERSIONS) > .tool-versions; \
+	fi;
+	@asdf install
+
+.PHONY: lint-vim
+lint-vim:
+	pip install vim-vint
+	vint --color bundle
+
 .PHONY: test
 test: build/vader | build
 	$(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
@@ -13,11 +35,6 @@ test-coverage: $(COVIMERAGE) build/vader | build
 
 $(COVIMERAGE):
 	$(COVIMERAGE) run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
-
-.PHONY: test-lint
-test-lint:
-	docker run --rm -t ${UID_GUID} -v $(shell pwd):/work node:18-alpine \
-		/bin/sh -c "cd /work && npx markdownlint-cli content && echo 'DONE - All good!'"
 
 build/covimerage:
 	virtualenv $@

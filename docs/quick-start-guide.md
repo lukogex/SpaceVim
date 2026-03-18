@@ -58,8 +58,7 @@ and a C compiler (like `gcc`) to build the dll.
 
 ### Can I try spacevim without overwriting my vimrc?
 
-The spacevim install script will move your `~/.vimrc` to `~/.vimrc_back`. If you want to have a try spacevim without
-overwriting your own Vim configuration you can:
+If you want to have a try spacevim without overwriting your own Neovim configuration you can:
 
 Clone spacevim manually.
 
@@ -67,7 +66,9 @@ Clone spacevim manually.
 git clone https://spacevim.org/git/repos/spacevim/ ~/.spacevim
 ```
 
-Then, start Vim via `vim -u ~/.spacevim/vimrc`. You can also put this alias into your bashrc.
+The start it with the make command `make -C ~/.spacevim/ run` or directly via Neovim `nvim -u ~/.spacevim/vimrc`.
+
+You can also put this alias into your bashrc.
 
 ```sh
 alias svim='vim -u ~/.spacevim/vimrc'

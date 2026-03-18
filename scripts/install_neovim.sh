@@ -6,6 +6,7 @@ set -ue -o pipefail
 # Prevent commands misbehaving due to locale differences
 export LC_ALL=C
 
+# TODO: Replace with asdf!
 install_nvim() {
     local URL=https://github.com/neovim/neovim
     local tag=$1

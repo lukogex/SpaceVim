@@ -4,7 +4,6 @@
 # install.sh --- bootstrap script for spacevim
 # Copyright (c) 2016-2022 Shidong Wang & Contributors
 # Author: Shidong Wang < wsdjeg@outlook.com >
-# URL: https://spacevim.org
 # License: GPLv3
 #=============================================================================
 
