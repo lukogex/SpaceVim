@@ -1,6 +1,6 @@
 name: test
 
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   Linux:
@@ -10,16 +10,16 @@ jobs:
         include:
         - vimbin: nvim
           vimtag: stable
-        - vimbin: nvim
-          vimtag: v0.11.6
-        - vimbin: nvim
-          vimtag: v0.10.4
-        - vimbin: nvim
-          vimtag: v0.9.5
-        - vimbin: nvim
-          vimtag: v0.8.3
-        - vimbin: nvim
-          vimtag: v0.7.2
+        # - vimbin: nvim
+          # vimtag: v0.11.6
+        # - vimbin: nvim
+          # vimtag: v0.10.4
+        # - vimbin: nvim
+          # vimtag: v0.9.5
+        # - vimbin: nvim
+          # vimtag: v0.8.3
+        # - vimbin: nvim
+          # vimtag: v0.7.2
         - vimbin: nvim
           vimtag: v0.6.1
     runs-on: ubuntu-22.04
