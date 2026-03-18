@@ -5,8 +5,6 @@ Execute ( spacevim plugin: a.lua ):
   endif
   call spacevim#plugins#a#set_config_name(getcwd(), '.spacevim.d/projections.toml')
   let root = spacevim#plugins#a#getConfigPath()
-  AssertEqual spacevim#plugins#a#get_alt('docs/posts/2018-09-28-use-vim-as-ide.md', root, 1), 'docs/posts/2018-09-27-use-vim-as-ide.md'
-  AssertEqual spacevim#plugins#a#get_alt('docs/posts/2018-09-27-use-vim-as-ide.md', root, 1), 'docs/posts/2018-09-28-use-vim-as-ide.md'
-  AssertEqual spacevim#plugins#a#get_alt('docs/posts/2020-01-28-manage-project-alternate-files.md', root, 1), 'docs/posts/2020-01-27-manage-project-alternate-files.md'
-  AssertEqual spacevim#plugins#a#get_alt('docs/posts/2020-01-27-manage-project-alternate-files.md', root, 1), 'docs/posts/2020-01-28-manage-project-alternate-files.md'
+  AssertEqual spacevim#plugins#a#get_alt('autoload/spacevim/api/cmdlinemenu.vim', root, 1), 'test/api/cmdlinemenu.vader'
+  AssertEqual spacevim#plugins#a#get_alt('autoload/spacevim/layers/lsp.vim', root, 1), 'docs/layers/language-server-protocol.md'
   unlet root
