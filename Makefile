@@ -21,7 +21,9 @@ tools:
 .PHONY: lint-vim
 lint-vim:
 	pip install vim-vint
-	vint --color bundle
+	# I excluded the bundle/ directory because it contains a large number of third-party plugins that were causing vint to crash.
+	vint --color init.vim .spacevim.d/ after/ autoload/ colors/ config/ ftplugin/ syntax/
+
 
 .PHONY: test
 test: build/vader | build
