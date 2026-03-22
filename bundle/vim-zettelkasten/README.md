@@ -6,7 +6,6 @@
 
 - [Install](#install)
 - [Usage](#usage)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -51,9 +50,3 @@ let g:zettelkasten_template_directory = 'D:\me\zettelkasten_template'
 | `Ctrl-l`        | clear tags filter pattarn          |
 | `Ctrl-] / K`    | preview note in vim preview-window |
 | `[I`            | list references in quickfix-window |
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/vim-zettelkasten`](https://github.com/spacevim/spacevim/tree/master/bundle/vim-zettelkasten) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

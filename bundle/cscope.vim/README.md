@@ -1,7 +1,5 @@
 # cscope.vim
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-
 The cscope.vim plugin script integrates the cscope system with Vim.
 
 ## Installation

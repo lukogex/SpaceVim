@@ -7,7 +7,6 @@
 - [Install](#install)
 - [Key bindings in quickfix window](#key-bindings-in-quickfix-window)
 - [Options](#options)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -48,9 +47,3 @@ Plug 'wsdjeg/quickfix.nvim'
 - `g:quickfix_mapping_filter_text`: default is `o`
 - `g:quickfix_mapping_rfilter_text`: default is `O`
 - `g:quickfix_mapping_undo`: default is `u`
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/quickfix.nvim`](https://github.com/spacevim/spacevim/tree/master/bundle/quickfix.nvim) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

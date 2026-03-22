@@ -6,7 +6,6 @@
 
 - [Install](#install)
 - [Usage](#usage)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -25,10 +24,3 @@ Plug 'wsdjeg/record-key.nvim'
 ## Usage
 
 - `:RecordKeyToggle`: toggle record-key
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/record-key.nvim`](https://github.com/spacevim/spacevim/tree/master/bundle/record-key.nvim) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)
-

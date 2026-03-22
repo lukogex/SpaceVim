@@ -9,7 +9,6 @@
 - [Usage](#usage)
   - [Command](#command)
   - [Key bindings in FlyGrep window](#key-bindings-in-flygrep-window)
-- [FeedBack](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -67,9 +66,3 @@ This plugin provides a `:FlyGrep` command.
 | Ctrl-k             | remove the Line after the cursor              |
 | Ctrl-a / Home      | Go to the beginning of the line               |
 | End                | Go to the end of the line                     |
-
-## FeedBack
-
-The development of this plugin is in [`spacevim/bundle/FlyGrep`](https://github.com/spacevim/spacevim/tree/master/bundle/FlyGrep) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

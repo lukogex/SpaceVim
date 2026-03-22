@@ -16,7 +16,6 @@
 - [Default UI](#default-ui)
 - [Custom Plugin UI](#custom-plugin-ui)
 - [Plugin priority](#plugin-priority)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -96,12 +95,6 @@ require('plug').add({
   {
     'wsdjeg/scrollbar.vim',
     events = { 'VimEnter' },
-  },
-  {
-    'wsdjeg/vim-chat',
-    enabled = function()
-      return vim.fn.has('nvim-0.10.0') == 1
-    end,
   },
   {
     'wsdjeg/flygrep.nvim',
@@ -266,12 +259,6 @@ require('plug').add({
     events = { 'VimEnter' },
   },
   {
-    'wsdjeg/vim-chat',
-    enabled = function()
-      return vim.fn.has('nvim-0.10.0') == 1
-    end,
-  },
-  {
     'wsdjeg/flygrep.nvim',
     cmds = { 'FlyGrep' },
     config = function()
@@ -288,9 +275,3 @@ require('plug').add({
 })
 require('plug').load()
 ```
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/nvim-plug`](https://github.com/spacevim/spacevim/tree/master/bundle/nvim-plug) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues) or [Telegram group](https://t.me/+w27TxYbUz1wxZmJl)

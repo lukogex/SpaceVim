@@ -2,13 +2,11 @@
 
 > _winbar.nvim_ is a plugin which provides default winbar for neovim.
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
+Winbar has almost the functions like statusbar, but shown top.
 
 <!-- vim-markdown-toc GFM -->
 
 - [Install](#install)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -27,10 +25,3 @@
 ```
 Plug 'wsdjeg/winbar.nvim'
 ```
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/winbar.nvim`](https://github.com/spacevim/spacevim/tree/master/bundle/winbar.nvim) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)
-

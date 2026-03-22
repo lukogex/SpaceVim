@@ -2,13 +2,10 @@
 
 > _cpicker.nvim_ is a Color Converter for neovim.
 
-![cpicker](./img/cpicker.png)
-
 <!-- vim-markdown-toc GFM -->
 
 - [Install](#install)
 - [Commands](#commands)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 ## Install
@@ -26,9 +23,3 @@ Plug 'wsdjeg/cpicker.nvim'
 3. `:CpickerColorMix`: open the color mixer 
 4. `:CpickerCursorChangeHighlight`: change the highlight of cursor word
 5. `:CpickerClearColorPatch`: clear colorscheme patch
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/cpicker.nvim`](https://github.com/spacevim/spacevim/tree/master/bundle/cpicker.nvim) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)

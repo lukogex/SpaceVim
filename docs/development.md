@@ -25,7 +25,6 @@ You can only think about reading the part that is relevant to what you are going
     - [Language specified key bindings](#language-specified-key-bindings)
   - [Contributing a banner](#contributing-a-banner)
 - [Bundle plugins](#bundle-plugins)
-- [Build with spacevim](#build-with-spacevim)
 
 <!-- vim-markdown-toc -->
 
@@ -270,38 +269,26 @@ In `bundle/` directory, there are two kinds of plugins:
   They have been implemented with spacevim as bundled plugin but were detached into an own repository with all needed script files to have them standalone usable as well.
   The detaching has been removed with version 3.0.0.
   We could migrate to the standalone plugins step by step.
-  The orgini author even has proceed with some of them despoite discuntinuing spacevim.
-  Following is the list of detached plugings from the former detach scrip:
-  - FlyGrep.vim
-  - dein-ui.vim
-  - vim-todo
-  - iedit.vim
-  - scrollbar.vim
-  - vim-chat
-  - vim-cheat
-  - xmake.vim
-  - GitHub.vim
-  - JavaUnit.vim
-  - git.vim
-  - cpicker.nvim
-  - SourceCounter.vim
-  - vim-zettelkasten
-  - format.nvim
-  - record-key.nvim
-  - quickfix.nvim
-  - winbar.nvim
-  - flygrep.nvim
-  - nvim-plug
-
-## Build with spacevim
-
-spacevim provides a lot of public [APIs](../api/), you can create plugins based on these APIs.
-Also you can add a badge to the README.md of your plugin.
-
-![](https://img.shields.io/badge/build%20with-spacevim-ff69b4.svg)
-
-markdown
-
-```md
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-```
+  The origin author even has proceed with some of them despite discontinuing spacevim.
+  Be aware that some of them switched from vim script to lua (vim to nvim).
+  Following is the list of detached plugings from the former detach script:
+  - [GitHub.vim](https://github.com/wsdjeg/github.nvim)
+  - [JavaUnit.vim](https://github.com/wsdjeg/JavaUnit.vim)
+  - [SourceCounter.vim](https://github.com/wsdjeg/SourceCounter.vim)
+  - [FlyGrep.vim](https://github.com/wsdjeg/flygrep.nvim)
+  - [scrollbar.vim](https://github.com/wsdjeg/scrollbar.nvim)
+  - [cpicker.nvim](https://github.com/wsdjeg/cpicker.nvim)
+  - [cscope.vin](https://github.com/wsdjeg/cscope.vim-1)
+  - [dein-ui.vim](https://github.com/wsdjeg/dein-ui.vim)
+  - [flygrep.nvim](https://github.com/wsdjeg/flygrep.nvim)
+  - [format.nvim](https://github.com/wsdjeg/format.nvim)
+  - [git.vim](https://github.com/wsdjeg/git.nvim)
+  - [iedit.vim](https://github.com/wsdjeg/iedit.nvim)
+  - [nvim-plug](https://github.com/wsdjeg/nvim-plug)
+  - [quickfix.nvim](https://github.com/wsdjeg/quickfix.nvim)
+  - [record-key.nvim](https://github.com/wsdjeg/record-key.nvim)
+  - [vim-cheat](https://github.com/wsdjeg/vim-cheat)
+  - [vim-todo](https://github.com/wsdjeg/vim-todo)
+  - [vim-zettelkasten](https://github.com/wsdjeg/zettelkasten.nvim)
+  - [winbar.nvim](https://github.com/wsdjeg/winbar.nvim)
+  - [xmake.vim](https://github.com/wsdjeg/xmake.vim)

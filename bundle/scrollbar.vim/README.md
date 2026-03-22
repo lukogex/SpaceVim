@@ -6,7 +6,6 @@
 
 - [Requirements](#requirements)
 - [Installation](#installation)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
@@ -30,9 +29,3 @@
 ```
 Plug 'wsdjeg/scrollbar.vim'
 ```
-
-## Feedback
-
-The development of this plugin is in [`spacevim/bundle/scrollbar.vim`](https://github.com/spacevim/spacevim/tree/master/bundle/scrollbar.vim) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/spacevim/spacevim/issues)
