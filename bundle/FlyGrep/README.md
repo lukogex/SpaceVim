@@ -1,9 +1,6 @@
 # FlyGrep.vim
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
-![searching project](https://img.spacevim.org/35278709-7856ed62-0010-11e8-8b1e-e6cc6374b0dc.gif)
+![searching project](../../docs/img/spacevim-fly-grep.gif)
 
 <!-- vim-markdown-toc GFM -->
 

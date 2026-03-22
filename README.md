@@ -2,19 +2,19 @@
 [Documentation](docs/documentation.md) \|
 [Layers](docs/layers/)
 
-# spacevim
+# Spacevim
 
-The [spacevim project](https://github.com/wsdjeg/spacevim) originated in December 2016 and stopped maintenance on February 21, 2025.
+The [Spacevim project](https://github.com/wsdjeg/spacevim) originated in December 2016 and stopped maintenance on February 21, 2025.
 Main Maintainer was [Eric Wong](https://github.com/wsdjeg).
 
-spacevim is a modular configuration of Neovim.
+Spacevim is a modular configuration of Neovim.
 It's inspired by Spacemacs.
 It manages collections of plugins in layers, which help to collect related packages together to provide features.
 This approach helps keep the configuration organized and reduces overhead for the user by keeping them from having to think about what packages to install.
 
 ## Forked Project
 
-I use spacevim as my main editor and really love it.
+I use Spacevim as my main editor and really love it.
 Thus I decided to give it a try to proceed with the project on my own.
 One consequence of this is that I'll reduce the project scope and features to the ones I'm using, mainly due to the limited time I have.
 
@@ -34,7 +34,7 @@ Please check the [origin project](https://github.com/wsdjeg/spacevim) for furthe
 ### License
 
 ```txt
-spacevim is a modular configuration of Neovim.
+Spacevim is a modular configuration of Neovim.
 Copyright (C) 2026 Lukas Kranabetter spacevim@lukogex.net
 
 This program is free software: you can redistribute it and/or modify
@@ -51,7 +51,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ```
 
-The license is GPLv3 for all the parts of spacevim adn can be found in the [LICENSE.md](LICENSE.md) file.
+The license is GPLv3 for all the parts of Spacevim and can be found in the [LICENSE.md](LICENSE.md) file.
 This is just continued from the origin project.
 Following the license we preserve all license headers in files but we dont add them for new files.
 From my point of view this is just uncecessary noise in the files and its not a hard requirement.
@@ -72,7 +72,7 @@ The following features from origin spacevim implementation remains as goals:
 
 **User Interface**
 
-![spacevim user interface](docs/img/spacevim-demo-ui.png)
+![Spacevim user interface](docs/img/spacevim-demo-ui.png)
 
 **IDE Example**
 
@@ -80,7 +80,7 @@ The following features from origin spacevim implementation remains as goals:
 - windows: Git remotes, outline, Todos, Code runner, Terminal, file explore.
 - code completion engine: nvim-cmp
 
-![spacevim ide](docs/img/spacevim-demo-ide.png)
+![Spacevim ide](docs/img/spacevim-demo-ide.png)
 
 ## Project Layout
 

@@ -2,9 +2,6 @@
 
 > _dein-ui.vim_ is an UI plugin for Shougo's dein.vim or neobundle.vim.
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
 <!-- vim-markdown-toc GFM -->
 
 - [Install](#install)

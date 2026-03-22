@@ -1,7 +1,6 @@
-# vim-lua [![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-> lua development plugin for Vim
+# vim-lua
 
-![lua](https://img.spacevim.org/51436347-3502f780-1cc6-11e9-9ae1-02e1dfa1e165.png)
+> lua development plugin for Vim
 
 #### Features
 

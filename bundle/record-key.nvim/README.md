@@ -2,11 +2,6 @@
 
 > _record-key.nvim_ is plugin to display pressed key in neovim.
 
-![](https://img.spacevim.org/record-key.png)
-
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
 <!-- vim-markdown-toc GFM -->
 
 - [Install](#install)

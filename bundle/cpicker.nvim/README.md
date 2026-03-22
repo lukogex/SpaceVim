@@ -2,9 +2,6 @@
 
 > _cpicker.nvim_ is a Color Converter for neovim.
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
 ![cpicker](./img/cpicker.png)
 
 <!-- vim-markdown-toc GFM -->

@@ -2,11 +2,6 @@
 
 > _scrollbar.vim_ is floating scrollbar plugin for vim and neovim.
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
-![scrollbar](https://img.spacevim.org/scrollbar-vim.png)
-
 <!-- vim-markdown-toc GFM -->
 
 - [Requirements](#requirements)

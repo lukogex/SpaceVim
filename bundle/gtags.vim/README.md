@@ -1,8 +1,5 @@
 # gtags.vim
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![Build Status](https://travis-ci.org/spacevim/gtags.vim.svg?branch=master)](https://travis-ci.org/spacevim/gtags.vim)
-
 The gtags.vim plugin script integrates the GNU GLOBAL source code tag system with Vim.
 
 ## Installation
@@ -19,4 +16,3 @@ Features:
     - fzf
     - leaderf
     - fzy
-

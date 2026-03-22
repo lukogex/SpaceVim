@@ -1,9 +1,6 @@
 # nvim-plug
 
-[![](https://spacevim.org/img/build-with-spacevim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
-![nvim-plug](https://wsdjeg.net/images/nvim-plug.gif)
+![nvim-plug](../../docs/img/spacevim-nvim-plug.gif)
 
 <!-- vim-markdown-toc GFM -->
 
@@ -26,7 +23,6 @@
 ## Intro
 
 nvim-plug is an asynchronous Neovim plugin manager written in Lua.
-There is also a [Chinese introduction](https://wsdjeg.net/neovim-plugin-manager-nvim-plug/) about this plugin.
 
 ## Features
 
