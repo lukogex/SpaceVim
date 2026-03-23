@@ -62,6 +62,7 @@ endfunction
 
 function! s:global_dir() abort
   if empty($SPACEVIMDIR)
+    " TODO: Should we place custom configuration always in `~/.config`?
     if !empty($XDG_CONFIG_HOME)
       return s:FILE.unify_path($XDG_CONFIG_HOME.'/spacevim.d/')
     else

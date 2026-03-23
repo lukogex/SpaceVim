@@ -55,4 +55,5 @@ clean:
 
 .PHONY: run
 run:
-	nvim -u $(CURDIR)/init.vim
+	# TODO: This does not work, see /home/lkranabetter/.lukogex/bin/svim.sh
+	# nvim -u $(CURDIR)/init.vim
