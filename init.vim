@@ -17,6 +17,7 @@ endif
 
 let g:_spacevim_root_dir = escape(fnamemodify(resolve(fnamemodify(expand('<sfile>'), ':p:h:gs?\\?')), ':p:gs?[\\/]?/?'), ' ')
 lockvar g:_spacevim_root_dir
+
 if has('nvim')
   " Even when not supported explicitely lets keep this to not break when a user adds it to the runtimepath.
   " The nvim-qt check is used to ensure that any runtime paths related to the Neovim-Qt GUI are moved to the front of the runtimepath.
@@ -38,6 +39,7 @@ endif
 call spacevim#logger#info('Loading spacevim from: ' . g:_spacevim_root_dir)
 call spacevim#logger#info('default rtp is:')
 call map(split(&rtp, ','), 'spacevim#logger#info("  > " . v:val)')
+
 if has('vim_starting')
   " python host
   " @bug python2 error on neovim 0.6.1
@@ -49,15 +51,6 @@ if has('vim_starting')
   if !empty($PYTHON3_HOST_PROG)
     let g:python3_host_prog = $PYTHON3_HOST_PROG
     call spacevim#logger#info('$PYTHON3_HOST_PROG is not empty, setting g:python3_host_prog:' . g:python3_host_prog)
-    if !has('nvim') 
-          \ && (has('win16') || has('win32') || has('win64'))
-          \ && exists('&pythonthreedll')
-          \ && exists('&pythonthreehome')
-      let &pythonthreedll = get(split(globpath(fnamemodify($PYTHON3_HOST_PROG, ':h'), 'python*.dll'), '\n'), -1, '')
-      call spacevim#logger#info('init &pythonthreedll:' . &pythonthreedll)
-      let &pythonthreehome = fnamemodify($PYTHON3_HOST_PROG, ':h')
-      call spacevim#logger#info('init &pythonthreehome:' . &pythonthreehome)
-    endif
   endif
 endif
 

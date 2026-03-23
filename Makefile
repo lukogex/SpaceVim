@@ -52,8 +52,8 @@ build:
 .PHONY: clean
 clean:
 	$(RM) -r build
+	$(RM) -r .tmp
 
 .PHONY: run
 run:
-	# TODO: This does not work, see /home/lkranabetter/.lukogex/bin/svim.sh
-	# nvim -u $(CURDIR)/init.vim
+	scripts/svim.sh true
