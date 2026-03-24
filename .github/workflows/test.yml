@@ -39,7 +39,9 @@ jobs:
       uses: asdf-vm/actions/install@v4
       env:
         NEOVIM_VERSION: ${{ matrix.vimtag }}
-      before_install: make tools-versions
+      with:
+        # TODO: We could use `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right?
+        before_install: make tools-versions
     - name: Run test
       run: |
         if [ "$VIM_BIN" = "nvim" ]; then
