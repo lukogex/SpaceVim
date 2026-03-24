@@ -26,9 +26,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
+    # TODO: We could use also use install action with `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right?
     - name: Install asdf plugins and tools
-      # TODO: We could use also use install action with `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right?
       uses: asdf-vm/actions/plugins-add@v4
+    - name: Install asdf tools
       env:
         NEOVIM_VERSION: ${{ matrix.nvimtag }}
       run: make tools-versions
