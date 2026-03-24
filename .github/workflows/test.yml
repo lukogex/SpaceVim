@@ -35,9 +35,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
-    - name: Install ${{ matrix.vimbin }} ${{ matrix.vimtag }}
-      run: |
-        scripts/install_neovim.sh $VIM_BIN $VIM_TAG
+    - name: Install asdf & tools
+      uses: asdf-vm/actions/install@v4
+      env:
+        NEOVIM_VERSION: ${{ matrix.vimtag }}
     - name: Run test
       run: |
         if [ "$VIM_BIN" = "nvim" ]; then

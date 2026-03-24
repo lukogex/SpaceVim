@@ -1,8 +1,11 @@
-VIM_BIN ?= vi
+VIM_BIN ?= nvim
 VIM_ES ?= ""
 
+NEOVIM_VERSION ?= 0.6.1
+
 define TOOL_VERSIONS
-neovim 0.6.1
+neovim $(NEOVIM_VERSION)
+python 3.10.12
 endef
 
 .PHONY: tools
@@ -11,19 +14,22 @@ tools:
 		echo "ERROR: asdf is not installed. You need to install tools manually."; \
 		exit 1; \
 	fi;
-	# TODO: Can be removed as we keep tool-versions file!
 	@if [ ! -e ".tool-versions" ]; then \
 		echo "INFO: No '.tool-versions' file found, creating one for Makefile needed tools now."; \
-		echo $(TOOL_VERSIONS) > .tool-versions; \
+		$(file > .tool-versions,$(TOOL_VERSIONS)) \
 	fi;
 	@asdf install
+
+.PHONY: tools-versions
+tools-versions:
+	@rm -f .tool-versions
+	@$(MAKE) tools
 
 .PHONY: lint-vim
 lint-vim:
 	pip install vim-vint
 	# I excluded the bundle/ directory because it contains a large number of third-party plugins that were causing vint to crash.
 	vint --color init.vim .spacevim.d/ after/ autoload/ colors/ config/ ftplugin/ syntax/
-
 
 .PHONY: test
 test: build/vader | build
@@ -53,6 +59,8 @@ build:
 clean:
 	$(RM) -r build
 	$(RM) -r .tmp
+	# Might prevent loading of custom config when the cache file is newer then init.toml in custom config (.spacevim.d).
+	$(RM) $(HOME)/.cache/spacevim/conf/init.json
 
 .PHONY: run
 run:
