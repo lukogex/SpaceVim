@@ -27,11 +27,11 @@ jobs:
         sudo apt-get update
         sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
     - name: Install asdf & tools
-      uses: asdf-vm/actions/install@v4
+      # TODO: We could use also use install action with `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right?
+      uses: asdf-vm/actions/plugins-add@v4
       env:
         NEOVIM_VERSION: ${{ matrix.nvimtag }}
       with:
-        # TODO: We could use `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right? But by now it runs install twice!
         before_install: make tools-versions
     - name: Run test
       run: |
