@@ -1,13 +1,15 @@
 #!/bin/bash
 
+# Temporary run which locates all custom configuration inside $tmpDir to not influence any system configuration.
+tmpRun=${1-false}
+debug=${2-false}
+
 # Make this work when called over a symlink in a $PATH location.
 basePath=$(readlink -f $0)
 baseDir=$(dirname $basePath)
 spacevimBaseDir=$(dirname $baseDir)
 spacevimConfigDir=$HOME/.spacevim.d
 
-# Temporary run which locates all custom configuration inside $tmpDir to not influence any system configuration.
-tmpRun=${1-false}
 tmpDir=$spacevimBaseDir/.tmp
 
 # Change directory first to use correct tool versions.
@@ -17,7 +19,7 @@ if [[ "$tmpRun" = "true" ]]; then
   xdgConfigHome=$tmpDir/.config
   spacevimConfigDir=$tmpDir/.spacevim.d
   mkdir -p $tmpDir $xdgConfigHome $spacevimConfigDir
-  ln -s $spacevimBaseDir $xdgConfigHome/nvim
+  ln -sfn $spacevimBaseDir $xdgConfigHome/nvim
 elif [[ -z "${XDG_CONFIG_HOME}" ]]; then
   # TODO: This can be changed when I dont use Spacevim 2.5.0 anymore.
   # Change the config dir to not import the default Neovim one where SpaceVim 2.5.0 is located.
@@ -37,4 +39,22 @@ fi
 
 export XDG_CONFIG_HOME=$xdgConfigHome
 export SPACEVIMDIR=$spacevimConfigDir
+
+if [[ "$debug" = "true" ]]; then
+  echo Script parameters:
+  echo tmpRun=$tmpRun
+  echo debug=$debug
+
+  echo Script variables:
+  echo basePath=$basePath
+  echo baseDir=$baseDir
+  echo spacevimBaseDir=$spacevimBaseDir
+  echo spacevimConfigDir=$spacevimConfigDir
+  echo tmpDir=$tmpDir
+  echo xdgConfigHome=$xdgConfigHome
+  echo spacevimConfigDir=$spacevimConfigDir
+
+  env
+fi
+
 nvim

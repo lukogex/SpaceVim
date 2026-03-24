@@ -56,6 +56,9 @@ If you got a vimproc error like this:
 Please read `:help vimproc` and make it, you may need to install make (from `build-essential`)
 and a C compiler (like `gcc`) to build the dll.
 
+You can symling the start script into a place in your $PATH.
+`ln -s $spacevimBaseDir/scripts/svim.sh $HOME/.local/bin/svim.sh`
+
 ### Can I try spacevim without overwriting my vim configuration?
 
 If you want to have a try spacevim without overwriting your own Neovim configuration you can:
@@ -66,13 +69,7 @@ Clone spacevim manually.
 git clone git@github.com:lukogex/spacevim.git ~/.spacevim
 ```
 
-The start it with the make command `make -C ~/.spacevim/ run` or directly via Neovim `nvim -u ~/.spacevim/init.vim.
-
-You can also put this alias into your bashrc.
-
-```sh
-alias svim='nvim -u ~/.spacevim/init.vim
-```
+The start it with the make command `make -C ~/.spacevim/ run`.
 
 ## Configuration
 
