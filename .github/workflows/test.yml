@@ -8,26 +8,17 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        - vimbin: nvim
-          vimtag: stable
-        # - vimbin: nvim
-          # vimtag: v0.11.6
-        # - vimbin: nvim
-          # vimtag: v0.10.4
-        # - vimbin: nvim
-          # vimtag: v0.9.5
-        # - vimbin: nvim
-          # vimtag: v0.8.3
-        # - vimbin: nvim
-          # vimtag: v0.7.2
-        - vimbin: nvim
-          vimtag: v0.6.1
+        - nvimtag: stable
+        # - # nvimtag: v0.11.6
+        # - # nvimtag: v0.10.4
+        # - # nvimtag: v0.9.5
+        # - # nvimtag: v0.8.3
+        # - # nvimtag: v0.7.2
+        - nvimtag: v0.6.1
     runs-on: ubuntu-22.04
     env:
-      VIM_BIN: ${{ matrix.vimbin }}
-      VIM_TAG: ${{ matrix.vimtag }}
+      VIM_TAG: ${{ matrix.nvimtag }}
       DEPS: /home/runner/work/spacevim/deps
-      DISABLE_ES: ${{ matrix.disable_es }}
     steps:
     - name: Checkout
       uses: actions/checkout@master
@@ -38,30 +29,19 @@ jobs:
     - name: Install asdf & tools
       uses: asdf-vm/actions/install@v4
       env:
-        NEOVIM_VERSION: ${{ matrix.vimtag }}
+        NEOVIM_VERSION: ${{ matrix.nvimtag }}
       with:
         # TODO: We could use `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right? But by now it runs install twice!
         before_install: make tools-versions
     - name: Run test
       run: |
-        if [ "$VIM_BIN" = "nvim" ]; then
-          export PATH="${DEPS}/_neovim/${VIM_TAG}/bin:${PATH}"
-          export VIM="${DEPS}/_neovim/${VIM_TAG}/share/nvim/runtime"
-          export VIM_ES="--headless"
-        else
-          export PATH="${DEPS}/_vim/${VIM_TAG}/bin:${PATH}"
-          export VIM="${DEPS}/_vim/${VIM_TAG}/share/vim"
-          if [ "$DISABLE_ES" = "true" ]; then
-            export VIM_ES=""
-          else
-            export VIM_ES="-Es"
-          fi
-        fi
+        export PATH="${DEPS}/_neovim/${VIM_TAG}/bin:${PATH}"
+        export VIM="${DEPS}/_neovim/${VIM_TAG}/share/nvim/runtime"
+        export VIM_ES="--headless"
         export PATH="/home/runner/.local/bin:${PATH}"
         echo "\$PATH: \"${PATH}\""
         echo "\$VIM: \"${VIM}\""
-        echo "=================  ${VIM_BIN} version ======================"
-        $VIM_BIN --version
+        nvim --version
         pip3 install --upgrade pip
         pip3 install covimerage virtualenv codecov
         make test-coverage
