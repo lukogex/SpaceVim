@@ -34,13 +34,13 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update
-        sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
+        sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev python-virtualenv
     - name: Install asdf & tools
       uses: asdf-vm/actions/install@v4
       env:
         NEOVIM_VERSION: ${{ matrix.vimtag }}
       with:
-        # TODO: We could use `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right?
+        # TODO: We could use `tool_versions` option to write the file directly, but its also not bad to have it in Makefile right? But by now it runs install twice!
         before_install: make tools-versions
     - name: Run test
       run: |
