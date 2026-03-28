@@ -45,6 +45,8 @@ $(COVIMERAGE):
 	$(COVIMERAGE) run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 build/covimerage:
+	pip3 install --upgrade pip
+	pip3 install covimerage virtualenv codecov
 	virtualenv $@
 build/covimerage/bin/covimerage: | build/covimerage
 	build/covimerage/bin/pip install covimerage
@@ -64,4 +66,4 @@ clean:
 
 .PHONY: run
 run:
-	scripts/svim.sh true
+	scripts/svim.sh . true

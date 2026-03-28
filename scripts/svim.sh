@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Temporary run which locates all custom configuration inside $tmpDir to not influence any system configuration.
-tmpRun=${1-false}
-debug=${2-false}
+file=${1-.}
+tmpRun=${2-false}
+debug=${3-false}
 
 # Make this work when called over a symlink in a $PATH location.
 basePath=$(readlink -f $0)
@@ -12,10 +13,10 @@ spacevimConfigDir=$HOME/.spacevim.d
 
 tmpDir=$spacevimBaseDir/.tmp
 
-# Change directory first to use correct tool versions.
-cd $spacevimBaseDir
-
 if [[ "$tmpRun" = "true" ]]; then
+  # Change directory to use correct tool versions.
+  cd $spacevimBaseDir
+
   xdgConfigHome=$tmpDir/.config
   spacevimConfigDir=$tmpDir/.spacevim.d
   mkdir -p $tmpDir $xdgConfigHome $spacevimConfigDir
@@ -42,6 +43,7 @@ export SPACEVIMDIR=$spacevimConfigDir
 
 if [[ "$debug" = "true" ]]; then
   echo Script parameters:
+  echo file=$file
   echo tmpRun=$tmpRun
   echo debug=$debug
 
@@ -57,4 +59,4 @@ if [[ "$debug" = "true" ]]; then
   env
 fi
 
-nvim
+nvim $file
