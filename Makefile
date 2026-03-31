@@ -1,7 +1,7 @@
 VIM_BIN ?= nvim
 VIM_ES ?= ""
-
 NEOVIM_VERSION ?= 0.6.1
+DOCKER_REGISTRY ?= ""
 
 define TOOL_VERSIONS
 neovim $(NEOVIM_VERSION)
@@ -13,6 +13,14 @@ vim-vint
 covimerage
 codecov
 endef
+
+tmpDir = .tmp
+
+.PHONY: clean
+clean:
+	$(RM) -r $(tmpDir)
+	# Might prevent loading of custom config when the cache file is newer then init.toml in custom config (.spacevim.d).
+	$(RM) $(HOME)/.cache/spacevim/conf/init.json
 
 .PHONY: tools
 tools:
@@ -38,8 +46,8 @@ tools-update:
 
 .PHONY: tools-vader
 tools-vader:
-	mkdir -p build build/tools build/tools/vader
-	git clone --depth 1 https://github.com/junegunn/vader.vim.git build/tools/vader
+	mkdir -p $(tmpDir) $(tmpDir)/tools $(tmpDir)/tools/vader
+	git clone --depth 1 https://github.com/junegunn/vader.vim.git $(tmpDir)/tools/vader
 
 .PHONY: tools-install
 tools-install: tools-update tools-vader
@@ -57,12 +65,9 @@ test:
 test-coverage:
 	covimerage run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
-.PHONY: clean
-clean:
-	$(RM) -r build
-	$(RM) -r .tmp
-	# Might prevent loading of custom config when the cache file is newer then init.toml in custom config (.spacevim.d).
-	$(RM) $(HOME)/.cache/spacevim/conf/init.json
+.PHONY: build-docker
+build-docker:
+	@docker build -t $(DOCKER_REGISTRY)spacevim:latest -f build/package/Dockerfile .
 
 .PHONY: run
 run:

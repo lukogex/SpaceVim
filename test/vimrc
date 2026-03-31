@@ -2,7 +2,7 @@ let g:_spacevim_root_dir = fnamemodify(fnamemodify(expand('<sfile>'),
       \ ':p:h:h:gs?\\?'.((has('win16') || has('win32')
       \ || has('win64'))?'\':'/') . '?'), ':p:gs?[\\/]?/?')
 filetype off
-set rtp+=build/tools/vader
+set rtp+=.tmp/tools/vader
 set rtp+=.
 set rtp+=after
 set noswapfile

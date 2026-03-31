@@ -14,6 +14,7 @@ It will give you a good idea of what spacevim is like.
 <!-- vim-markdown-toc GFM -->
 
 - [Installation](#installation)
+  - [Docker Image](#docker-image)
   - [Can I try spacevim without overwriting my vim configuration?](#can-i-try-spacevim-without-overwriting-my-vim-configuration)
 - [Configuration](#configuration)
 - [Learning spacevim](#learning-spacevim)
@@ -58,6 +59,27 @@ and a C compiler (like `gcc`) to build the dll.
 
 You can symling the start script into a place in your $PATH.
 `ln -s $spacevimBaseDir/scripts/svim.sh $HOME/.local/bin/svim.sh`
+
+### Docker Image
+
+This Dockerfile builds neovim `HEAD` and installs the latest available version of spacevim.
+
+You might want to use this for several reasons:
+- Have a consistent version of Neovim and spacevim as long as the machine supports Docker.
+- Try spacevim without modifying your current Vim/Neovim configuration.
+- Try the latest Neovim with spacevim.
+- Try spacevim with a newer version of Python.
+- Debug spacevim configurations. e.g. when posting a bug report if you can reproduce it in this container then there's a higher chance that it is a true bug and not just an issue with your machine.
+- During the build we call `dein#install()` so all plugins are installed and frozen.
+  Your custom configurations can be added as an additional build step using the Docker `COPY` command.
+
+You can build using the supplied `Makefile`:
+`make build-docker`
+
+You can run the container using:
+`docker run -it nvim`
+More useful is mounting the current working directory inside the container:
+`docker run -it -v $(pwd):/home/spacevim/src nvim`
 
 ### Can I try spacevim without overwriting my vim configuration?
 

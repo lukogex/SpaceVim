@@ -10,9 +10,9 @@ call spacevim#custom#SPC('nnoremap', ['a', 'r'], 'call spacevim#dev#releases#ope
 call spacevim#custom#SPC('nnoremap', ['a', 'w'], 'call spacevim#dev#website#open()', 'Open spacevim local website', 1)
 call spacevim#custom#SPC('nnoremap', ['a', 't'], 'call spacevim#dev#website#terminal()', 'Close spacevim local website', 1)
 
-" after run make test, the vader will be downloaded to ./build/tools/vader/
+" after run make test, the vader will be downloaded to ./.tmp/tools/vader/
 
-let &runtimepath .= ',' . fnamemodify(g:_spacevim_root_dir, ':p:h') . '/build/tools/vader'
+let &runtimepath .= ',' . fnamemodify(g:_spacevim_root_dir, ':p:h') . '/.tmp/tools/vader'
 
 augroup vader_filetype
   autocmd!

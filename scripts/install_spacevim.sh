@@ -83,7 +83,7 @@ On_IWhite='\033[0;107m'   # White
 # }}}
 
 # version
-Version='2.5.0-dev'
+Version='3.0.0'
 #System name
 System="$(uname -s)"
 # }}}
@@ -143,7 +143,7 @@ fetch_repo () {
         success "Successfully update spacevim"
     else
         info "Trying to clone spacevim"
-        git clone --depth 1 https://github.com/wsdjeg/spacevim.git "${XDGSpaceDir:-}"
+        git clone --depth 1 https://github.com/lukogex/spacevim.git "${XDGSpaceDir:-}"
         info "fetch spacevim tags"
         (
             cd "${XDGSpaceDir:?}"
