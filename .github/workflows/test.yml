@@ -32,7 +32,7 @@ jobs:
     - name: Install asdf tools
       env:
         NEOVIM_VERSION: ${{ matrix.nvimtag }}
-      run: make tools-versions
+      run: make tools-update
     - name: Run test
       run: |
         export PATH="${DEPS}/_neovim/${VIM_TAG}/bin:${PATH}"
@@ -42,8 +42,8 @@ jobs:
         echo "\$PATH: \"${PATH}\""
         echo "\$VIM: \"${VIM}\""
         nvim --version
-        pip3 install --upgrade pip
-        pip3 install covimerage virtualenv codecov
+        # pip3 install --upgrade pip
+        # pip3 install covimerage virtualenv codecov
         make test-coverage
         covimerage -vv xml --omit 'build/*' --omit 'bundle/*'
         codecov -X search gcov pycov -f coverage.xml
