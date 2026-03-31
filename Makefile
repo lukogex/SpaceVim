@@ -17,7 +17,8 @@ tmpDir = .tmp
 
 .PHONY: clean
 clean:
-	$(RM) -r $(tmpDir)
+	$(RM) -rf $(tmpDir)
+	$(RM) -f .coverage_covimerage
 	# Might prevent loading of custom config when the cache file is newer then init.toml in custom config (.spacevim.d).
 	$(RM) $(HOME)/.cache/spacevim/conf/init.json
 

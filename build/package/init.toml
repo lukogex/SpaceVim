@@ -70,9 +70,6 @@
   name = "github"
 
 [[layers]]
-  name = "japanese"
-
-[[layers]]
   name = "lang#WebAssembly"
 
 [[layers]]
