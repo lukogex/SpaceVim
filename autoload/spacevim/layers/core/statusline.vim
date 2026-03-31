@@ -623,15 +623,6 @@ function! spacevim#layers#core#statusline#get(...) abort
       let st .= '%#spacevim_statusline_c# %{b:_spacevim_shell} %#spacevim_statusline_c_spacevim_statusline_z#' . s:lsep
     endif
     return st
-  elseif &filetype ==# 'vimchat'
-    return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b# Chat %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep
-          \ . '%#spacevim_statusline_c# '
-          \ . '%{chat#windows#status().protocol}' . ' %#spacevim_statusline_c_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b# '
-          \ . '%{chat#windows#status().channel}' . ' %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep
-          \ . '%#spacevim_statusline_c# '
-          \ . '%{chat#windows#status().usercount}'
   elseif &filetype ==# 'git-status'
     return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
           \ . '%#spacevim_statusline_b# Git status %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep . ' '

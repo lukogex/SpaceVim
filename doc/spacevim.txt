@@ -104,7 +104,6 @@ CONTENTS                                                   *SpaceVim-contents*
 6. Layers................................................... |SpaceVim-layers|
     2. VersionControl........................ |SpaceVim-layers-VersionControl|
     3. autocomplete............................ |SpaceVim-layers-autocomplete|
-    4. chat............................................ |SpaceVim-layers-chat|
     5. checkers.................................... |SpaceVim-layers-checkers|
     6. colorscheme.............................. |SpaceVim-layers-colorscheme|
     7. core............................................ |SpaceVim-layers-core|
@@ -2179,24 +2178,6 @@ snippets:
 NOTE: `SPC i s` requires that at least one fuzzy search layer be loaded. If
 the `snippet_engine` is `neosnippet`. The fuzzy finder layer can be `leaderf`,
 `denite` or `unite`. For `ultisnips`, you can use `leaderf` or `unite` layer.
-
-==============================================================================
-CHAT                                                    *SpaceVim-layers-chat*
-
-The `chat` layer provides basic function to connected to chat server.
-
-LAYER OPTIONS
-
-  1. `chat_port`: set the port of chat server
-  2. `chat_address`: set the ip of chat server
-  3. `chat_client_jar`: set the path of client jar
-
-KEY BINDINGS
-
->
-  Key Bingding    Description
-  SPC a h         open chat window
-<
 
 ==============================================================================
 CHECKERS                                            *SpaceVim-layers-checkers*

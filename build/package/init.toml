@@ -19,9 +19,6 @@
   name = "autocomplete"
 
 [[layers]]
-  name = "chat"
-
-[[layers]]
   name = "checkers"
 
 [[layers]]
