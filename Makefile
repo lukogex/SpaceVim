@@ -11,7 +11,6 @@ endef
 define DEFAULT_PYTHON_PACKAGES
 vim-vint
 covimerage
-codecov
 endef
 
 tmpDir = .tmp
