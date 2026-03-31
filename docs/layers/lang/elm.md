@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#elm layer"
+title: "spacevim lang#elm layer"
 description: "This layer is for Elm development, provides autocompletion, syntax checking and code formatting for Elm files."
 image: https://img.spacevim.org/44625046-7b2f7700-a931-11e8-807e-dba3f73c9e90.png
 ---
@@ -32,7 +32,7 @@ This layer is for Elm development.
 - Syntax checking
 - Find symbol doc
 
-SpaceVim also provides REPL support for Elm.
+spacevim also provides REPL support for Elm.
 
 ## Install
 

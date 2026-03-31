@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#csharp layer"
+title: "spacevim lang#csharp layer"
 description: "csharp language layer, including syntax highlighting, asynchronous code runner."
 ---
 

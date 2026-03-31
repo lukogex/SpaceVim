@@ -1,0 +1,41 @@
+[vader-nvim-win]
+    command = "make"
+    args = ['test']
+    isBackground = false
+[vader-nvim-win.options.env]
+    VIM_BIN = 'nvim'
+    VIM_Es = "--headless"
+[vader-nvim-wsl]
+    command = "make"
+    args = ['test']
+    isBackground = false
+[vader-nvim-wsl.options.env]
+    VIM_BIN = 'wsl -e nvim'
+    VIM_Es = "--headless"
+[vader-nvim-buf]
+    command = 'nvim'
+    args = ['-Nu', 'test/vimrc', '--headless', '-c', 'Vader! ${relativeFile}']
+    isBackground = false
+[vader-nvim-buf.options.env]
+    VIM = ''
+    VIMRUNTIME = ''
+[test_problemMatcher]
+    command = "echo"
+    args = ['.spacevim.d/tasks.toml:6:1 test error message']
+    isBackground = true
+[test_problemMatcher.problemMatcher]
+    useStdout = true
+    errorformat = '%f:%l:%c\ %m'
+[test_regexp]
+    command = "echo"
+    args = ['.spacevim.d/tasks.toml:12:1 test error message']
+    isBackground = true
+[test_regexp.problemMatcher]
+    useStdout = true
+[test_regexp.problemMatcher.pattern]
+    regexp = '\(.*\):\(\d\+\):\(\d\+\)\s\(\S.*\)'
+    file = 1
+    line = 2
+    column = 3
+    #severity = 4
+    message = 4

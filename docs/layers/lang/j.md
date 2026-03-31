@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#j layer"
+title: "spacevim lang#j layer"
 description: "This layer is for j development, provides syntax checking and repl support for j files."
 ---
 

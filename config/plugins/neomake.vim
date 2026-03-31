@@ -1,6 +1,6 @@
 scriptencoding utf-8
 
-let s:lint_option = SpaceVim#layers#checkers#get_lint_option()
+let s:lint_option = spacevim#layers#checkers#get_lint_option()
 let s:neomake_automake_events = {}
 if s:lint_option.lint_on_the_fly
   let s:neomake_automake_events['TextChanged'] = {'delay': 750}

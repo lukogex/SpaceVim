@@ -30,8 +30,8 @@ if has('nvim-0.9.0')
   endfunction
 else
 
-  let s:JOB = SpaceVim#api#import('job')
-  let s:STR = SpaceVim#api#import('data#string')
+  let s:JOB = spacevim#api#import('job')
+  let s:STR = spacevim#api#import('data#string')
 
 
   function! git#branch#run(args) abort

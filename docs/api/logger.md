@@ -41,7 +41,7 @@ here is an example for creatting logger for plugin `foo.vim`.
 `autoload/foo/log.vim`
 
 ```vim
-let s:LOGGER = SpaceVim#api#import('logger')
+let s:LOGGER = spacevim#api#import('logger')
 
 " set the name of current logger, after that, the log just looks like:
 "   name    time       level   message

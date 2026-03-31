@@ -16,7 +16,7 @@ Default cheatsheets are available in [simplecheats](https://github.com/artur-sha
 
 the development of this plugin is in spacevim bundle repo, and will detached to this repo automatically.
 
-please checkout: https://github.com/SpaceVim/SpaceVim/tree/master/bundle/vim-cheat
+please checkout: https://github.com/spacevim/spacevim/tree/master/bundle/vim-cheat
 
 #### thanks:
 

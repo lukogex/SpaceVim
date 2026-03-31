@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#d layer"
+title: "spacevim lang#d layer"
 description: "This layer is for d development, provides syntax checking and code runner support for d files."
 ---
 

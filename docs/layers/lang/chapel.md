@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#chapel layer"
+title: "spacevim lang#chapel layer"
 description: "This layer is for chapel development. provides syntax checking, code runner and repl support for chapel files."
 ---
 

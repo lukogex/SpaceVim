@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#java layer"
+title: "spacevim lang#java layer"
 description: "This layer is for Java development. All the features such as code completion, formatting, syntax checking, REPL and debug have be done in this layer."
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#purescript layer"
+title: "spacevim lang#purescript layer"
 description: "This layer is for PureScript development, provides autocompletion, syntax checking, and code formatting for PureScript files."
 ---
 
@@ -29,7 +29,7 @@ This layer is for Purescript development. PureScript is a strongly-typed functio
 - Documentation lookup for Modules and functions.
 - Jump to the definition.
 
-SpaceVim also provides REPL, code runner and Language Server protocol support for PureScript. To enable language server protocol
+spacevim also provides REPL, code runner and Language Server protocol support for PureScript. To enable language server protocol
 for PureScript, you need to load `lsp` layer for PureScript.
 
 ## Install

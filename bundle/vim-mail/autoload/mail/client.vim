@@ -1,7 +1,7 @@
 let s:job_id = 0
 let s:job_noop_timer = ''
 
-let s:JOB = SpaceVim#api#import('job')
+let s:JOB = spacevim#api#import('job')
 
 function! mail#client#connect(ip, port)
   if has('nvim')

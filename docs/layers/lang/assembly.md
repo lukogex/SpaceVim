@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#assembly layer"
-description: "This layer adds Assembly language support to SpaceVim, including syntax highlighting."
+title: "spacevim lang#assembly layer"
+description: "This layer adds Assembly language support to spacevim, including syntax highlighting."
 ---
 
 # [Available Layers](../../) >> lang#assembly
@@ -15,7 +15,7 @@ description: "This layer adds Assembly language support to SpaceVim, including s
 
 ## Description
 
-This layer adds Assembly language support to SpaceVim.
+This layer adds Assembly language support to spacevim.
 
 ## Features
 

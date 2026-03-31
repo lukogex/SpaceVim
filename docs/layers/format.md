@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim format layer"
-description: "Code formatting layer for SpaceVim, includes a variety of formatters for many filetypes"
+title: "spacevim format layer"
+description: "Code formatting layer for spacevim, includes a variety of formatters for many filetypes"
 ---
 
 # [Available Layers](../) >> format
@@ -18,7 +18,7 @@ description: "Code formatting layer for SpaceVim, includes a variety of formatte
 
 ## Description
 
-The `format` layer provides code formatting for SpaceVim, with support for
+The `format` layer provides code formatting for spacevim, with support for
 [`neoformat`](https://github.com/sbdchd/neoformat) (default) and
 [`codefmt`](https://github.com/google/vim-codefmt) underlying code
 formatting plugins.

@@ -2,7 +2,6 @@
 -- logevents.lua --- log events
 -- Copyright (c) 2019-2024 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
 

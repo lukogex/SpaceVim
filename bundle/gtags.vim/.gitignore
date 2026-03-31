@@ -5,7 +5,7 @@ doc/tags
 *.netrwhist
 *-rplugin~
 *rplugin.vim
-.SpaceVim.log
+.spacevim.log
 docs/_site/*
 docs/Gemfile.lock
 # Ignore tags created by etags, ctags, gtags (GNU global) and cscope

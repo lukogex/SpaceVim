@@ -1,5 +1,5 @@
-let s:JOB = SpaceVim#api#import('job')
-let s:NOTI = SpaceVim#api#import('notify')
+let s:JOB = spacevim#api#import('job')
+let s:NOTI = spacevim#api#import('notify')
 
 function! git#pull#run(args)
     let cmd = ['git', 'pull'] + a:args

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim CtrlSpace layer"
+title: "spacevim CtrlSpace layer"
 description: "This layer provides a customized CtrlSpace centric workflow"
 ---
 
@@ -11,7 +11,7 @@ description: "This layer provides a customized CtrlSpace centric workflow"
 - [Install](#install)
 - [Layer Options](#layer-options)
 - [Keybindings: CtrlSpace Defaults](#keybindings-ctrlspace-defaults)
-- [Keybindings: SpaceVim Styled](#keybindings-spacevim-styled)
+- [Keybindings: spacevim Styled](#keybindings-spacevim-styled)
 
 <!-- vim-markdown-toc -->
 
@@ -30,7 +30,7 @@ traditional fuzzy finder like Denite or FZF. CtrlSpace strictly manages
 * Bookmarks (projects)
 
 CtrlSpace has the unique property of allowing users to stay within it
-after it has been invoked once (similar to SpaceVim's own Transient
+after it has been invoked once (similar to spacevim's own Transient
 Modes). Thereby granting you the ability to open multiple files,
 move/copy many buffers to new tabs, change to your various project
 bookmarks, and any combinations of its various actions, all without
@@ -52,13 +52,13 @@ name = "ctrlspace"
 * `home-mapping-key` (default: `<C-Space>`) - keybinding to enter CtrlSpace's
 home menu, which displays the buffers list
 * `autosave-workspaces` (default: `true`) - enable this to autosave current
-workspace on switching WS and exiting SpaceVim
+workspace on switching WS and exiting spacevim
 * `autoload-workspaces` (default: `false`) - enable this to autoload last workspace
-when starting SpaceVim
+when starting spacevim
 * For more granular CtrlSpace options, refer to the [plugin's GitHub
 page](https://github.com/vim-ctrlspace/vim-ctrlspace).
 
-* `enable-spacevim-styled-keys` (default: `false`) - enable this to use [SpaceVim styled keybindings](#keybindings-spacevim-styled).
+* `enable-spacevim-styled-keys` (default: `false`) - enable this to use [spacevim styled keybindings](#keybindings-spacevim-styled).
 
 **Note**: when disabled, another traditional fuzzy finder layer (such
 as Denite or FZF) may still be used without concerns of keybinding conflicts.
@@ -95,9 +95,9 @@ this guide](https://atlas-vim.readthedocs.io/vim/plugged/vim-ctrlspace/README/
 
 
 
-## Keybindings: SpaceVim Styled
+## Keybindings: spacevim Styled
 
-For those who prefer to use SpaceVim's style of fuzzy finding
+For those who prefer to use spacevim's style of fuzzy finding
 buffers/files/projects, the following keybindings can be optionally
 enabled with `enable-spacevim-styled-keys = true`.
 
@@ -118,6 +118,6 @@ enabled with `enable-spacevim-styled-keys = true`.
 | `SPC p B`                     | list project bookmarks                |
 | `SPC p b`                     | search project bookmarks              |
 
-**Note**: to be consistent with other fuzzy finder layers in SpaceVim,
+**Note**: to be consistent with other fuzzy finder layers in spacevim,
 uppercased final keys will list the source, while lowercased ones will
 search. This is opposite to CtrlSpace's default shortcuts.

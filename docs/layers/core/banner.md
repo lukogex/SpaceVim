@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim core#banner layer"
+title: "spacevim core#banner layer"
 description: "This layer provides many default banners on the welcome page."
 ---
 
@@ -18,4 +18,4 @@ description: "This layer provides many default banners on the welcome page."
 
 ## Configuration
 
-Currently, SpaceVim does not allow to set the frequency.
+Currently, spacevim does not allow to set the frequency.

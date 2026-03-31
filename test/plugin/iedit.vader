@@ -7,9 +7,9 @@ Given (fixture):
     Hello
   Hello
 
-Execute ( SpaceVim plugin: iedit ):
+Execute ( spacevim plugin: iedit ):
   let g:_spacevim_input_list = ['D', 'a', 'W', 'o', 'r', 'l', 'd', "\<Esc>", "\<Esc>"]
-  call SpaceVim#plugins#iedit#start()
+  call spacevim#plugins#iedit#start()
   
 
 Expect (result):

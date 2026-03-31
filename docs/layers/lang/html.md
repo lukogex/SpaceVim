@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#html layer"
-description: "Edit html in SpaceVim, with this layer, this layer provides code completion, syntax checking and code formatting for html."
+title: "spacevim lang#html layer"
+description: "Edit html in spacevim, with this layer, this layer provides code completion, syntax checking and code formatting for html."
 ---
 
 # [Available Layers](../../) >> lang#html

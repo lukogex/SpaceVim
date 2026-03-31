@@ -17,7 +17,7 @@ description: "job API provides some basic functions for running a job"
 job api provides a async job control api for vim and neovim.
 
 ```vim
-let s:JOB = SpaceVim#api#import('job')
+let s:JOB = spacevim#api#import('job')
 
 function! s:on_stdout(id, data, event) abort
    " do something with stdout

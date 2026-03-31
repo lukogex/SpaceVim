@@ -10,7 +10,7 @@ CONTENTS                                                      *xmake-contents*
 INTRODUCTION                                                     *xmake-intro*
 
 xmake.vim is a plugin for using xmake in vim and neovim. This plugin requires
-SpaceVim API and |job| support.
+spacevim API and |job| support.
 
 ==============================================================================
 COMMANDS                                                      *xmake-commands*

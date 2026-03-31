@@ -62,7 +62,7 @@ function M.update_color_code_syntax(r)
   regexes = vim.tbl_map(function(val)
     return val[2] .. string.rep('\\s', max - val[1])
   end, r)
-  vim.cmd('syn match SpaceVimPickerCode /' .. table.concat(regexes, '\\|') .. '/')
+  vim.cmd('syn match spacevimPickerCode /' .. table.concat(regexes, '\\|') .. '/')
 end
 
 local function get_color(name)
@@ -157,10 +157,10 @@ end
 
 function M.read_color_patch()
   if
-    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/cpicker_color_patch'))
+    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/cpicker_color_patch'))
     == 1
   then
-    local _his = vim.fn.json_decode( vim.fn.join( vim.fn.readfile(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/cpicker_color_patch'), ''), '' ) )
+    local _his = vim.fn.json_decode( vim.fn.join( vim.fn.readfile(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/cpicker_color_patch'), ''), '' ) )
     if type(_his) == 'table' then
       return _his or {}
     else
@@ -171,8 +171,8 @@ function M.read_color_patch()
   end
 end
 function M.update_color_patch(name, hl)
-  if vim.fn.isdirectory(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim')) == 0 then
-    vim.fn.mkdir(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim'))
+  if vim.fn.isdirectory(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim')) == 0 then
+    vim.fn.mkdir(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim'))
   end
   local patch = M.read_color_patch()
   if not patch[vim.g.colors_name] then
@@ -181,7 +181,7 @@ function M.update_color_patch(name, hl)
   patch[vim.g.colors_name][name] = hl
   vim.fn.writefile(
     { vim.fn.json_encode(patch) },
-    vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/cpicker_color_patch')
+    vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/cpicker_color_patch')
   )
 end
 
@@ -199,7 +199,7 @@ function M.clear_color_patch()
   patch[vim.g.colors_name] = nil
   vim.fn.writefile(
     { vim.fn.json_encode(patch) },
-    vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/cpicker_color_patch')
+    vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/cpicker_color_patch')
   )
   vim.cmd('colorscheme ' .. vim.g.colors_name)
 end

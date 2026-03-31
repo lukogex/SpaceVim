@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#pact layer"
+title: "spacevim lang#pact layer"
 description: "This layer is for pact development, provides syntax checking, code runner and repl support for pact files."
 ---
 

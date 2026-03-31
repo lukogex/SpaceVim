@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim unite layer"
+title: "spacevim unite layer"
 description: "This layer provides a heavily customized Unite centric workflow"
 ---
 
@@ -29,7 +29,7 @@ To use this configuration layer, update your custom configuration file with:
 
 ## Configuration
 
-This is a fuzzy finder layer for SpaceVim, and it is based on unite.vim. In SpaceVim all fuzzy finder layers use the same key bindings:
+This is a fuzzy finder layer for spacevim, and it is based on unite.vim. In spacevim all fuzzy finder layers use the same key bindings:
 
 ## Key bindings
 

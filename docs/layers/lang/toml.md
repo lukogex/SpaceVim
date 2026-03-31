@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#toml layer"
+title: "spacevim lang#toml layer"
 description: "This layer is for toml development, provides syntax checking, indentation, etc."
 ---
 

@@ -140,21 +140,21 @@ local function update_color_mix_buftext()
     > math.abs(util.get_hsl_l(color_mix_color3) - util.get_hsl_l(normal_fg))
   then
     hi.hi({
-      name = 'SpaceVimPickerMixColor3Code',
+      name = 'spacevimPickerMixColor3Code',
       guifg = color_mix_color3,
       guibg = normal_bg,
       bold = 1,
     })
   else
     hi.hi({
-      name = 'SpaceVimPickerMixColor3Code',
+      name = 'spacevimPickerMixColor3Code',
       guifg = color_mix_color3,
       guibg = normal_fg,
       bold = 1,
     })
   end
   hi.hi({
-    name = 'SpaceVimPickerMixColor3Background',
+    name = 'spacevimPickerMixColor3Background',
     guibg = color_mix_color3,
     guifg = color_mix_color3,
   })
@@ -314,12 +314,12 @@ M.color_mix = function(hex1, hex2)
   color_mix_color1 = hex1 or '#000000'
   color_mix_color2 = hex2 or '#FFFFFF'
   hi.hi({
-    name = 'SpaceVimPickerMixColor1',
+    name = 'spacevimPickerMixColor1',
     guifg = color_mix_color1,
     bold = 1,
   })
   hi.hi({
-    name = 'SpaceVimPickerMixColor2',
+    name = 'spacevimPickerMixColor2',
     guifg = color_mix_color2,
     bold = 1,
   })

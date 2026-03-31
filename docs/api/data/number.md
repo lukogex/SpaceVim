@@ -17,7 +17,7 @@ description: "data#number API provides some basic functions to generate number."
 `data#number` API provides some functions to manipulate a number. Here is an example for using this api:
 
 ```vim
-let s:NUM = SpaceVim#api#import('data#number')
+let s:NUM = spacevim#api#import('data#number')
 let random_number = s:NUM.random(3, 10)
 ```
 

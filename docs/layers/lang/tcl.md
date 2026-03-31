@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#tcl layer"
+title: "spacevim lang#tcl layer"
 description: "This layer is for Tcl development, provides syntax checking, code runner and repl support for tcl files."
 ---
 

@@ -1,1 +1,1 @@
-call SpaceVim#util#loadConfig('plugins/coc.vim')
+call spacevim#util#loadConfig('plugins/coc.vim')

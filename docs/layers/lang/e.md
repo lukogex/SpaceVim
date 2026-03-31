@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#e layer"
+title: "spacevim lang#e layer"
 description: "This layer is for e development, provides syntax checking, code runner and repl support for e files."
 ---
 

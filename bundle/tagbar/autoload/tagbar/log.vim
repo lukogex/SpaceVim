@@ -10,7 +10,7 @@ if exists('s:debug_enabled')
   finish
 endif
 
-let s:LOGGER = SpaceVim#logger#derive('tagbar')
+let s:LOGGER = spacevim#logger#derive('tagbar')
 
 " call s:LOGGER.stop_debug()
 

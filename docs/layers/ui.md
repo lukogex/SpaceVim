@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim ui layer"
-description: "Awesome UI layer for SpaceVim, provide IDE-like UI for neovim and vim in both TUI and GUI"
+title: "spacevim ui layer"
+description: "Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI"
 ---
 
 # [Available Layers](../) >> ui
@@ -15,7 +15,7 @@ description: "Awesome UI layer for SpaceVim, provide IDE-like UI for neovim and 
 
 ## Description
 
-The `ui` layer defines the default interface for SpaceVim,
+The `ui` layer defines the default interface for spacevim,
 and this layer is enabled by default with following options:
 
 ```toml

@@ -17,7 +17,7 @@ description: "vim#command API provides some basic functions and values for creat
 vim#command API provides some basic functions and values for creatting vim custom command.
 
 ```vim
-let s:CMD = SpaceVim#api#import('vim#command')
+let s:CMD = spacevim#api#import('vim#command')
 let s:CMD.options = {
     \ '-f' : {
     \ 'description' : '',

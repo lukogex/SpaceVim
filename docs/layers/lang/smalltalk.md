@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#smalltalk layer"
+title: "spacevim lang#smalltalk layer"
 description: "This layer is for smalltalk development, includes syntax highlighting for smalltalk file."
 ---
 

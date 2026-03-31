@@ -1,8 +1,8 @@
-Execute ( SpaceVim api: data#string ):
+Execute ( spacevim api: data#string ):
   if !has('patch-8.2.3395')
     finish
   endif
-  let str = SpaceVim#api#import('data#string')
+  let str = spacevim#api#import('data#string')
   AssertEqual str.string2chars('你好'), ['你', '好']
   Log 'test strQ2B()'
   AssertEqual str.strQ2B('％'), '%'

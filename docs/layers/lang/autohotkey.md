@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#autohotkey layer"
-description: "AutohotKey language support for SpaceVim, including syntax highlighting and code completion"
+title: "spacevim lang#autohotkey layer"
+description: "AutohotKey language support for spacevim, including syntax highlighting and code completion"
 ---
 
 # [Available Layers](../../) >> lang#autohotkey
@@ -15,7 +15,7 @@ description: "AutohotKey language support for SpaceVim, including syntax highlig
 
 ## Description
 
-This layer adds [AutohotKey](https://www.autohotkey.com/) language support to SpaceVim.
+This layer adds [AutohotKey](https://www.autohotkey.com/) language support to spacevim.
 
 ## Features
 

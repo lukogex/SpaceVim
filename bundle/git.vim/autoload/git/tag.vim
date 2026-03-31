@@ -17,8 +17,8 @@ if has('nvim-0.9.0')
     return luaeval('require("git.command.tag").complete(vim.api.nvim_eval("a:ArgLead"), vim.api.nvim_eval("a:CmdLine"), vim.api.nvim_eval("a:CursorPos"))')
   endfunction
 else
-  let s:JOB = SpaceVim#api#import('job')
-  let s:NT = SpaceVim#api#import('notify')
+  let s:JOB = spacevim#api#import('job')
+  let s:NT = spacevim#api#import('notify')
   let s:jobid = -1
   let s:stderr_data = []
 

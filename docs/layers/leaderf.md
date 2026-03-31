@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim leaderf layer"
+title: "spacevim leaderf layer"
 description: "This layer provides a heavily customized LeaderF centric workflow"
 ---
 
@@ -20,7 +20,7 @@ To use this configuration layer, update your custom configuration file with:
 
 ## Configuration
 
-SpaceVim uses `f` as the default customized key binding prefix for leaderf layer.
+spacevim uses `f` as the default customized key binding prefix for leaderf layer.
 
 ## Key bindings
 

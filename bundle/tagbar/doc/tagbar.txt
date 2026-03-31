@@ -308,11 +308,11 @@ COMMANDS                                                     *tagbar-commands*
     type configurations.
 
 :TagbarDebug                                                  *:TagbarDebug*
-    Start debug mode. This will put debug message to SpaceVim runtime log.
+    Start debug mode. This will put debug message to spacevim runtime log.
     which can be found via `SPC h L`
 
 :TagbarDebugEnd                                              *:TagbarDebugEnd*
-    End debug mode, debug messages will no longer be written SpaceVim runtime
+    End debug mode, debug messages will no longer be written spacevim runtime
     log.
 
 :TagbarForceUpdate                                        *:TagbarForceUpdate*

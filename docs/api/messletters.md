@@ -17,7 +17,7 @@ description: "messletters API provides some basic functions for generating messl
 This api provides some basic Functions for generating messletters.
 
 ```vim
-let s:PW = SpaceVim#api#import('messletters')
+let s:PW = spacevim#api#import('messletters')
 let messletters = s:PW.circled_num(1, 2)
 " generate circled number 1, all available types:
 " 0: 1 ➛ ➊

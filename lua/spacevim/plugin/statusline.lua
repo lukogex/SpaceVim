@@ -2,7 +2,6 @@
 -- statusline.lua ---
 -- Copyright (c) 2019-2024 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
 
@@ -52,7 +51,7 @@ local ilsep = ''
 local irsep = ''
 
 local loaded_modes = {}
-local colors_template = vim.fn['SpaceVim#mapping#guide#theme#gruvbox#palette']()
+local colors_template = vim.fn['spacevim#mapping#guide#theme#gruvbox#palette']()
 local section_old_pos = {}
 
 local modes = {
@@ -175,7 +174,7 @@ local function input_method()
 end
 
 local function syntax_checking()
-  if vim.fn['SpaceVim#lsp#buf_server_ready']() then
+  if vim.fn['spacevim#lsp#buf_server_ready']() then
     local counts = require('spacevim.lsp').lsp_diagnostic_count()
     local errors = counts[1] or 0
     local warnings = counts[2] or 0
@@ -184,19 +183,19 @@ local function syntax_checking()
 
     local errors_l = ''
     if errors > 0 then
-      errors_l = '%#SpaceVim_statusline_error#● ' .. errors
+      errors_l = '%#spacevim_statusline_error#● ' .. errors
     end
     local warnings_l = ''
     if warnings > 0 then
-      warnings_l = '%#SpaceVim_statusline_warn#● ' .. warnings
+      warnings_l = '%#spacevim_statusline_warn#● ' .. warnings
     end
     local infos_l = ''
     if infos > 0 then
-      infos_l = '%#SpaceVim_statusline_info#● ' .. infos
+      infos_l = '%#spacevim_statusline_info#● ' .. infos
     end
     local hints_l = ''
     if hints > 0 then
-      hints_l = '%#SpaceVim_statusline_hint#● ' .. hints
+      hints_l = '%#spacevim_statusline_hint#● ' .. hints
     end
     local l = table.concat(
       vim.tbl_filter(function(t)
@@ -219,10 +218,10 @@ local function syntax_checking()
     local l = ''
 
     if warnings > 0 then
-      l = '%#SpaceVim_statusline_warn# ● ' .. warnings .. ' '
+      l = '%#spacevim_statusline_warn# ● ' .. warnings .. ' '
     end
     if errors > 0 then
-      l = l .. '%#SpaceVim_statusline_error#● ' .. errors
+      l = l .. '%#spacevim_statusline_error#● ' .. errors
     end
     if l ~= '' then
       return ' ' .. l .. ' '
@@ -240,10 +239,10 @@ local function syntax_checking()
     local l = ''
 
     if warnings > 0 then
-      l = '%#SpaceVim_statusline_warn# ● ' .. warnings .. ' '
+      l = '%#spacevim_statusline_warn# ● ' .. warnings .. ' '
     end
     if errors > 0 then
-      l = l .. '%#SpaceVim_statusline_error#● ' .. errors
+      l = l .. '%#spacevim_statusline_error#● ' .. errors
     end
     if l ~= '' then
       return ' ' .. l .. ' '
@@ -436,20 +435,20 @@ local function active()
     rsep,
     fname,
     tag,
-    'SpaceVim_statusline_a',
-    'SpaceVim_statusline_b',
-    'SpaceVim_statusline_c',
-    'SpaceVim_statusline_z',
+    'spacevim_statusline_a',
+    'spacevim_statusline_b',
+    'spacevim_statusline_c',
+    'spacevim_statusline_z',
     winwidth
   )
 end
 
 local function inactive()
-  local l = '%#SpaceVim_statusline_ia#'
+  local l = '%#spacevim_statusline_ia#'
     .. winnr(1)
-    .. '%#SpaceVim_statusline_ia_SpaceVim_statusline_b#'
+    .. '%#spacevim_statusline_ia_spacevim_statusline_b#'
     .. lsep
-    .. '%#SpaceVim_statusline_b#'
+    .. '%#spacevim_statusline_b#'
   local secs = { filename(), ' ' .. vim.o.filetype, get_modes() }
   local base = 10
   for _, sec in ipairs(secs) do
@@ -478,15 +477,15 @@ end
 
 ---@return string # return a simple statusline with special name
 local function simple_name(name)
-  return '%#SpaceVim_statusline_ia#'
+  return '%#spacevim_statusline_ia#'
     .. winnr(1)
-    .. '%#SpaceVim_statusline_ia_SpaceVim_statusline_b#'
+    .. '%#spacevim_statusline_ia_spacevim_statusline_b#'
     .. lsep
-    .. '%#SpaceVim_statusline_b# '
+    .. '%#spacevim_statusline_b# '
     .. name
-    .. ' %#SpaceVim_statusline_b_SpaceVim_statusline_c#'
+    .. ' %#spacevim_statusline_b_spacevim_statusline_c#'
     .. lsep
-    .. '%#SpaceVim_statusline_c#'
+    .. '%#spacevim_statusline_c#'
 end
 
 local special_statusline = {
@@ -519,20 +518,20 @@ local special_statusline = {
   end,
   startify = function()
     pcall(vim.fn['fugitive#detect'], vim.fn.getcwd())
-    local st = '%#SpaceVim_statusline_ia#'
+    local st = '%#spacevim_statusline_ia#'
       .. winnr(1)
-      .. '%#SpaceVim_statusline_ia_SpaceVim_statusline_b#'
+      .. '%#spacevim_statusline_ia_spacevim_statusline_b#'
       .. lsep
-      .. '%#SpaceVim_statusline_b# startify %#SpaceVim_statusline_b_SpaceVim_statusline_c#'
+      .. '%#spacevim_statusline_b# startify %#spacevim_statusline_b_spacevim_statusline_c#'
       .. lsep
     if index(vim.g.spacevim_statusline_left, 'vcs') ~= -1 and registed_sections.vcs then
-      st = st .. '%#SpaceVim_statusline_c#'
+      st = st .. '%#spacevim_statusline_c#'
       if type(registed_sections.vcs) == 'string' then
         st = st .. vim.fn[registed_sections.vcs]()
       elseif type(registed_sections.vcs) == 'function' then
         st = st .. registed_sections.vcs()
       end
-      st = st .. '%#SpaceVim_statusline_c_SpaceVim_statusline_z#' .. lsep
+      st = st .. '%#spacevim_statusline_c_spacevim_statusline_z#' .. lsep
     end
     return st
   end,
@@ -561,7 +560,7 @@ local special_statusline = {
   ['git-config'] = function()
     return simple_name('Git config')
   end,
-  SpaceVimMessageBuffer = function()
+  spacevimMessageBuffer = function()
     return simple_name('Message')
   end,
   ['gista-list'] = function()
@@ -570,13 +569,13 @@ local special_statusline = {
   terminal = function() end, -- todo
   vimchat = function()
 
-    return '%#SpaceVim_statusline_ia#' .. winnr(1) .. '%#SpaceVim_statusline_ia_SpaceVim_statusline_b#' .. lsep
-          .. '%#SpaceVim_statusline_b# Chat %#SpaceVim_statusline_b_SpaceVim_statusline_c#' .. lsep
-          .. '%#SpaceVim_statusline_c# '
-          .. '%{chat#windows#status().protocol}' .. ' %#SpaceVim_statusline_c_SpaceVim_statusline_b#' .. lsep
-          .. '%#SpaceVim_statusline_b# '
-          .. '%{chat#windows#status().channel}' .. ' %#SpaceVim_statusline_b_SpaceVim_statusline_c#' .. lsep
-          .. '%#SpaceVim_statusline_c# '
+    return '%#spacevim_statusline_ia#' .. winnr(1) .. '%#spacevim_statusline_ia_spacevim_statusline_b#' .. lsep
+          .. '%#spacevim_statusline_b# Chat %#spacevim_statusline_b_spacevim_statusline_c#' .. lsep
+          .. '%#spacevim_statusline_c# '
+          .. '%{chat#windows#status().protocol}' .. ' %#spacevim_statusline_c_spacevim_statusline_b#' .. lsep
+          .. '%#spacevim_statusline_b# '
+          .. '%{chat#windows#status().channel}' .. ' %#spacevim_statusline_b_spacevim_statusline_c#' .. lsep
+          .. '%#spacevim_statusline_c# '
           .. '%{chat#windows#status().usercount}'
   end, -- todo
   calender = function()
@@ -606,13 +605,13 @@ local special_statusline = {
   MundoDiff = function()
     return simple_name('MundoDiff')
   end,
-  SpaceVimLayerManager = function()
+  spacevimLayerManager = function()
     return simple_name('LayerManager')
   end,
-  SpaceVimFindArgv = function()
+  spacevimFindArgv = function()
     return simple_name('Find')
   end,
-  SpaceVimGitLogPopup = function()
+  spacevimGitLogPopup = function()
     return simple_name('Git log popup')
   end,
   ['response.idris'] = function()
@@ -621,44 +620,44 @@ local special_statusline = {
   ['markdown.lspdoc'] = function()
     return simple_name('LSP hover info')
   end,
-  SpaceVimWinDiskManager = function()
+  spacevimWinDiskManager = function()
     return simple_name('WinDisk')
   end,
-  SpaceVimTodoManager = function()
+  spacevimTodoManager = function()
     return simple_name('TODO manager')
   end,
-  SpaceVimTasksInfo = function()
+  spacevimTasksInfo = function()
     return simple_name('Tasks manager')
   end,
-  SpaceVimGitBranchManager = function()
+  spacevimGitBranchManager = function()
     return simple_name('Branch manager')
   end,
-  SpaceVimGitRemoteManager = function()
+  spacevimGitRemoteManager = function()
     return simple_name('Remote manager')
   end,
-  SpaceVimPlugManager = function()
+  spacevimPlugManager = function()
     return simple_name('PlugManager')
   end,
-  SpaceVimTabsManager = function()
+  spacevimTabsManager = function()
     return simple_name('TabsManager')
   end,
   fzf = function() end, -- todo
   denite = function() end, -- todo
   ['denite-filter'] = function()
-    return '%#SpaceVim_statusline_a_bold#'
+    return '%#spacevim_statusline_a_bold#'
       .. ' Filter '
-      .. '%#SpaceVim_statusline_a_SpaceVim_statusline_b#'
+      .. '%#spacevim_statusline_a_spacevim_statusline_b#'
       .. lsep
   end,
   unite = function() end, -- todo
-  SpaceVimFlyGrep = function() end, -- todo
+  spacevimFlyGrep = function() end, -- todo
   TransientState = function()
-    return '%#SpaceVim_statusline_ia# Transient State %#SpaceVim_statusline_a_SpaceVim_statusline_b#'
+    return '%#spacevim_statusline_ia# Transient State %#spacevim_statusline_a_spacevim_statusline_b#'
   end,
-  SpaceVimLog = function()
-    return simple_name('SpaceVim Runtime Log')
+  spacevimLog = function()
+    return simple_name('spacevim Runtime Log')
   end,
-  SpaceVimTomlViewer = function()
+  spacevimTomlViewer = function()
     return simple_name('Toml Json Viewer')
   end,
   vimcalc = function()
@@ -667,15 +666,15 @@ local special_statusline = {
   HelpDescribe = function()
     return simple_name('HelpDescribe')
   end,
-  SpaceVimRunner = function()
-    return simple_name('Runner') .. ' %{SpaceVim#plugins#runner#status()}'
+  spacevimRunner = function()
+    return simple_name('Runner') .. ' %{spacevim#plugins#runner#status()}'
   end,
-  SpaceVimREPL = function()
-    return simple_name('REPL') .. ' %{SpaceVim#plugins#repl#status()}'
+  spacevimREPL = function()
+    return simple_name('REPL') .. ' %{spacevim#plugins#repl#status()}'
   end,
   VimMailClient = function() end, -- todo
-  SpaceVimQuickFix = function()
-    return simple_name('SpaceVimQuickFix')
+  spacevimQuickFix = function()
+    return simple_name('spacevimQuickFix')
   end,
   VebuggerShell = function()
     return simple_name('VebuggerShell')
@@ -705,85 +704,85 @@ function M.def_colors()
     t = vim.g.spacevim_custom_color_palette
   else
     local ok = pcall(function()
-      t = vim.fn['SpaceVim#mapping#guide#theme#' .. name .. '#palette']()
+      t = vim.fn['spacevim#mapping#guide#theme#' .. name .. '#palette']()
     end)
 
     if not ok then
-      t = vim.fn['SpaceVim#mapping#guide#theme#gruvbox#palette']()
+      t = vim.fn['spacevim#mapping#guide#theme#gruvbox#palette']()
     end
   end
   colors_template = t
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
     fg = t[1][1],
     bg = t[1][2],
     ctermfg = t[1][4],
     ctermbg = t[1][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a_bold', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_a_bold', {
     bold = true,
     fg = t[1][1],
     bg = t[1][2],
     ctermfg = t[1][4],
     ctermbg = t[1][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_ia', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_ia', {
     fg = t[1][1],
     bg = t[1][2],
     ctermfg = t[1][4],
     ctermbg = t[1][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_b', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_b', {
     fg = t[2][1],
     bg = t[2][2],
     ctermfg = t[2][4],
     ctermbg = t[2][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_c', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_c', {
     fg = t[3][1],
     bg = t[3][2],
     ctermfg = t[3][4],
     ctermbg = t[3][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_z', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_z', {
     fg = t[3][1],
     bg = t[4][1],
     ctermfg = t[3][3],
     ctermbg = t[4][2],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_error', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_error', {
     bold = true,
     fg = '#ffc0b9',
     bg = t[2][2],
     ctermfg = 'Black',
     ctermbg = t[2][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_warn', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_warn', {
     bold = true,
     fg = '#fce094',
     bg = t[2][2],
     ctermfg = 'Black',
     ctermbg = t[2][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_info', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_info', {
     bold = true,
     fg = '#8cf8f7',
     bg = t[2][2],
     ctermfg = 'Black',
     ctermbg = t[2][3],
   })
-  vim.api.nvim_set_hl(0, 'SpaceVim_statusline_hint', {
+  vim.api.nvim_set_hl(0, 'spacevim_statusline_hint', {
     bold = true,
     fg = '#a6dbff',
     bg = t[2][2],
     ctermfg = 'Black',
     ctermbg = t[2][3],
   })
-  highlight.hi_separator('SpaceVim_statusline_a', 'SpaceVim_statusline_b')
-  highlight.hi_separator('SpaceVim_statusline_a_bold', 'SpaceVim_statusline_b')
-  highlight.hi_separator('SpaceVim_statusline_ia', 'SpaceVim_statusline_b')
-  highlight.hi_separator('SpaceVim_statusline_b', 'SpaceVim_statusline_c')
-  highlight.hi_separator('SpaceVim_statusline_b', 'SpaceVim_statusline_z')
-  highlight.hi_separator('SpaceVim_statusline_c', 'SpaceVim_statusline_z')
+  highlight.hi_separator('spacevim_statusline_a', 'spacevim_statusline_b')
+  highlight.hi_separator('spacevim_statusline_a_bold', 'spacevim_statusline_b')
+  highlight.hi_separator('spacevim_statusline_ia', 'spacevim_statusline_b')
+  highlight.hi_separator('spacevim_statusline_b', 'spacevim_statusline_c')
+  highlight.hi_separator('spacevim_statusline_b', 'spacevim_statusline_z')
+  highlight.hi_separator('spacevim_statusline_c', 'spacevim_statusline_z')
 end
 
 function M.register_mode(mode)
@@ -808,7 +807,7 @@ local function update_conf()
   if
     vim.fn.writefile(
       { JSON.json_encode(conf) },
-      vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/major_mode.json')
+      vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/major_mode.json')
     ) == 0
   then
     log.debug('update major_mode.json done')
@@ -891,10 +890,10 @@ function M.ctrlp_status(str)
     rsep,
     '',
     '',
-    'SpaceVim_statusline_a',
-    'SpaceVim_statusline_b',
-    'SpaceVim_statusline_c',
-    'SpaceVim_statusline_z',
+    'spacevim_statusline_a',
+    'spacevim_statusline_b',
+    'spacevim_statusline_c',
+    'spacevim_statusline_z',
     vim.fn.winwidth(vim.fn.winnr())
   )
 end
@@ -907,56 +906,56 @@ function M.config()
     ilsep = i_separators[vim.g.spacevim_statusline_iseparator][1]
     irsep = i_separators[vim.g.spacevim_statusline_iseparator][2]
   end
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'm' },
-    'call SpaceVim#layers#core#statusline#toggle_section("minor mode lighters")',
+    'call spacevim#layers#core#statusline#toggle_section("minor mode lighters")',
     'toggle the minor mode lighters',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'M' },
-    'call SpaceVim#layers#core#statusline#toggle_section("major mode")',
+    'call spacevim#layers#core#statusline#toggle_section("major mode")',
     'toggle the major mode',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'b' },
-    'call SpaceVim#layers#core#statusline#toggle_section("battery status")',
+    'call spacevim#layers#core#statusline#toggle_section("battery status")',
     'toggle the battery status',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'd' },
-    'call SpaceVim#layers#core#statusline#toggle_section("date")',
+    'call spacevim#layers#core#statusline#toggle_section("date")',
     'toggle the date',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'i' },
-    'call SpaceVim#layers#core#statusline#toggle_section("input method")',
+    'call spacevim#layers#core#statusline#toggle_section("input method")',
     'toggle the input method',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 't' },
-    'call SpaceVim#layers#core#statusline#toggle_section("time")',
+    'call spacevim#layers#core#statusline#toggle_section("time")',
     'toggle the time',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'p' },
-    'call SpaceVim#layers#core#statusline#toggle_section("cursorpos")',
+    'call spacevim#layers#core#statusline#toggle_section("cursorpos")',
     'toggle the cursor position',
     1
   )
-  vim.fn['SpaceVim#mapping#space#def'](
+  vim.fn['spacevim#mapping#space#def'](
     'nnoremap',
     { 't', 'm', 'T' },
     'if &laststatus == 2 | let &laststatus = 0 | else | let &laststatus = 2 | endif',
@@ -977,27 +976,27 @@ function M.config()
       rsep,
       '',
       '',
-      'SpaceVim_statusline_ia',
-      'SpaceVim_statusline_b',
-      'SpaceVim_statusline_c',
-      'SpaceVim_statusline_z',
+      'spacevim_statusline_ia',
+      'spacevim_statusline_b',
+      'spacevim_statusline_c',
+      'spacevim_statusline_z',
       vim.g.spacevim_sidebar_width
     )
   end
   vim.g.tagbar_status_func = TagbarStatusline
   vim.g.unite_force_overwrite_statusline = 0
   vim.g.ctrlp_status_func = {
-    main = 'SpaceVim#layers#core#statusline#ctrlp',
-    prog = 'SpaceVim#layers#core#statusline#ctrlp_status',
+    main = 'spacevim#layers#core#statusline#ctrlp',
+    prog = 'spacevim#layers#core#statusline#ctrlp_status',
   }
   if
-    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/major_mode.json')) == 1
+    vim.fn.filereadable(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/major_mode.json')) == 1
     and major_mode_cache
   then
     log.debug('load cache from major_mode.json')
     local conf = JSON.json_decode(
       vim.fn.join(
-        vim.fn.readfile(vim.fn.expand(vim.g.spacevim_data_dir .. 'SpaceVim/major_mode.json'), ''),
+        vim.fn.readfile(vim.fn.expand(vim.g.spacevim_data_dir .. 'spacevim/major_mode.json'), ''),
         ''
       )
     )
@@ -1019,10 +1018,10 @@ function M.ctrlp(focus, byfname, _, prev, item, next, _)
     rsep,
     '',
     '',
-    'SpaceVim_statusline_a_bold',
-    'SpaceVim_statusline_b',
-    'SpaceVim_statusline_c',
-    'SpaceVim_statusline_z',
+    'spacevim_statusline_a_bold',
+    'spacevim_statusline_b',
+    'spacevim_statusline_c',
+    'spacevim_statusline_z',
     vim.fn.winwidth(vim.fn.winnr())
   )
 end
@@ -1038,7 +1037,7 @@ function M.mode(mode)
   if vim.w.spacevim_statusline_mode ~= mode then
     if mode == 'n' then
       if iedit_mode == 'n' then
-        vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+        vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
           bold = true,
           fg = t[9][1],
           bg = t[9][2],
@@ -1046,7 +1045,7 @@ function M.mode(mode)
           ctermbg = t[9][4],
         })
       elseif iedit_mode == 'i' then
-        vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+        vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
           bold = true,
           fg = t[8][1],
           bg = t[8][2],
@@ -1054,7 +1053,7 @@ function M.mode(mode)
           ctermbg = t[8][4],
         })
       else
-        vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+        vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
           bold = true,
           fg = t[1][1],
           bg = t[1][2],
@@ -1063,7 +1062,7 @@ function M.mode(mode)
         })
       end
     elseif mode == 'i' then
-      vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+      vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
         bold = true,
         fg = t[5][1],
         bg = t[5][2],
@@ -1071,7 +1070,7 @@ function M.mode(mode)
         ctermbg = t[5][4],
       })
     elseif mode == 'R' then
-      vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+      vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
         bold = true,
         fg = t[7][1],
         bg = t[7][2],
@@ -1086,7 +1085,7 @@ function M.mode(mode)
       or mode == 'S'
       or mode == #''
     then
-      vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a', {
+      vim.api.nvim_set_hl(0, 'spacevim_statusline_a', {
         bold = true,
         fg = t[6][1],
         bg = t[6][2],
@@ -1094,7 +1093,7 @@ function M.mode(mode)
         ctermbg = t[6][4],
       })
     end
-    highlight.hi_separator('SpaceVim_statusline_a', 'SpaceVim_statusline_b')
+    highlight.hi_separator('spacevim_statusline_a', 'spacevim_statusline_b')
     vim.w.spacevim_statusline_mode = mode
   end
   return ''
@@ -1187,7 +1186,7 @@ function M.denite_mode()
     local dmode = vim.fn.split(vim.fn['denite#get_status_mode']())[2]
     if vim.w.spacevim_statusline_mode ~= dmode then
       if dmode == 'NORMAL' then
-        vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a_bold', {
+        vim.api.nvim_set_hl(0, 'spacevim_statusline_a_bold', {
           bold = true,
           fg = t[1][1],
           bg = t[1][2],
@@ -1195,7 +1194,7 @@ function M.denite_mode()
           ctermbg = t[1][3],
         })
       else
-        vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a_bold', {
+        vim.api.nvim_set_hl(0, 'spacevim_statusline_a_bold', {
           bold = true,
           fg = t[5][1],
           bg = t[5][2],
@@ -1203,7 +1202,7 @@ function M.denite_mode()
           ctermbg = t[5][4],
         })
       end
-      highlight.hi_separator('SpaceVim_statusline_a_bold', 'SpaceVim_statusline_b')
+      highlight.hi_separator('spacevim_statusline_a_bold', 'spacevim_statusline_b')
       vim.w.spacevim_statusline_mode = dmode
     end
     return dmode
@@ -1214,7 +1213,7 @@ function M.unite_mode()
   local dmode = vim.fn.mode()
   if vim.w.spacevim_statusline_mode ~= dmode then
     if dmode == 'n' then
-      vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a_bold', {
+      vim.api.nvim_set_hl(0, 'spacevim_statusline_a_bold', {
         bold = true,
         fg = t[1][1],
         bg = t[1][2],
@@ -1222,7 +1221,7 @@ function M.unite_mode()
         ctermbg = t[1][3],
       })
     elseif dmode == 'i' then
-      vim.api.nvim_set_hl(0, 'SpaceVim_statusline_a_bold', {
+      vim.api.nvim_set_hl(0, 'spacevim_statusline_a_bold', {
         bold = true,
         fg = t[5][1],
         bg = t[5][2],
@@ -1230,7 +1229,7 @@ function M.unite_mode()
         ctermbg = t[5][4],
       })
     end
-    highlight.hi_separator('SpaceVim_statusline_a_bold', 'SpaceVim_statusline_b')
+    highlight.hi_separator('spacevim_statusline_a_bold', 'spacevim_statusline_b')
     vim.w.spacevim_statusline_mode = dmode
   end
   return dmode

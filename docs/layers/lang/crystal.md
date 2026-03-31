@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#crystal layer"
+title: "spacevim lang#crystal layer"
 description: "This layer is for crystal development, provides syntax checking, code runner and repl support for crystal files."
 ---
 

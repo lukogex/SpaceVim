@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#xml layer"
+title: "spacevim lang#xml layer"
 description: "This layer is for xml development, provides syntax checking, indentation etc."
 ---
 

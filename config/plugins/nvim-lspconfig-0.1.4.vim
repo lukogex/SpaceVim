@@ -1,2 +1,2 @@
-call SpaceVim#layers#lsp#setup()
+call spacevim#layers#lsp#setup()
 

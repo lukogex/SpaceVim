@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#rst layer"
+title: "spacevim lang#rst layer"
 description: "Take Notes in reStructuredText, autopreview in the default browser."
 ---
 

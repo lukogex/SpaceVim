@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim fzf layer"
+title: "spacevim fzf layer"
 description: "This layer provides a heavily customized fzf centric workflow"
 ---
 

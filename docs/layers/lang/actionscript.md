@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#actionscript layer"
+title: "spacevim lang#actionscript layer"
 description: "This layer is for actionscript syntax highlighting"
 ---
 

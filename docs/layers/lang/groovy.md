@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#groovy layer"
+title: "spacevim lang#groovy layer"
 description: "This layer is for Groovy development, provides syntax checking, code runner and repl support for groovy files."
 ---
 

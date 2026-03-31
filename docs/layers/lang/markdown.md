@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#markdown layer"
+title: "spacevim lang#markdown layer"
 description: "Edit markdown within vim, autopreview markdown in the default browser, with this layer you can also format markdown files."
 ---
 
@@ -34,7 +34,7 @@ which is written in rust.
 
 ## Formatting
 
-SpaceVim uses remark to format Markdown file by default.
+spacevim uses remark to format Markdown file by default.
 You can install remark via [npm](https://www.npmjs.com/get-npm), the commands are shown below.
 
 ```sh
@@ -86,7 +86,7 @@ Specify the enabled formater for markdown file, default is `['remark']`. You can
 
 ## Tagbar
 
-To have a table of the headings in the tagbar (toggled by [F2]), make sure php is in your `$PATH` (you can test this in SpaceVim : `:!php --version` should print something about php).
+To have a table of the headings in the tagbar (toggled by [F2]), make sure php is in your `$PATH` (you can test this in spacevim : `:!php --version` should print something about php).
 
 If you don't want to install php, you can use [mdctags](https://github.com/wsdjeg/mdctags.rs) as an alternative.
 

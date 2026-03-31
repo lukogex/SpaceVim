@@ -1,17 +1,17 @@
 command! -nargs=*
-            \ -complete=custom,SpaceVim#commands#complete_plugin
-            \ SPUpdate call SpaceVim#commands#update_plugin(<f-args>)
+            \ -complete=custom,spacevim#commands#complete_plugin
+            \ SPUpdate call spacevim#commands#update_plugin(<f-args>)
 
 command! -nargs=+
-            \ -complete=custom,SpaceVim#commands#complete_plugin
-            \ SPReinstall call SpaceVim#commands#reinstall_plugin(<f-args>)
+            \ -complete=custom,spacevim#commands#complete_plugin
+            \ SPReinstall call spacevim#commands#reinstall_plugin(<f-args>)
 
-command! -nargs=* SPInstall call SpaceVim#commands#install_plugin(<f-args>)
+command! -nargs=* SPInstall call spacevim#commands#install_plugin(<f-args>)
 
 
 command! -nargs=*
-            \ -complete=custom,SpaceVim#commands#complete_plugin
-            \ DeinUpdate call SpaceVim#commands#update_plugin(<f-args>)
+            \ -complete=custom,spacevim#commands#complete_plugin
+            \ DeinUpdate call spacevim#commands#update_plugin(<f-args>)
 
 let g:spacevim_plugin_manager_max_processes =
       \ get(g:, 'spacevim_plugin_manager_max_processes', 8)

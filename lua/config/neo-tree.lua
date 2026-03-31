@@ -178,7 +178,7 @@ require('neo-tree').setup({
         end,
         -- }}}
         ['<C-h>'] = function(state)
-          vim.cmd('call SpaceVim#plugins#projectmanager#current_root()')
+          vim.cmd('call spacevim#plugins#projectmanager#current_root()')
         end,
         ['.'] = 'toggle_hidden',
         ['/'] = 'fuzzy_finder',

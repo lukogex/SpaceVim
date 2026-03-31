@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#verilog layer"
+title: "spacevim lang#verilog layer"
 description: "This layer is for verilog development, provides syntax checking, code runner and repl support for verilog files."
 ---
 

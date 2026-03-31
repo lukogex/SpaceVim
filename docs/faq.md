@@ -1,26 +1,21 @@
 ---
 title: "FAQ"
-description: "A list of questions and answers related to SpaceVim, especially those most asked in the SpaceVim community"
+description: "A list of questions and answers related to spacevim, especially those most asked in the spacevim community"
 ---
 
 # [Home](../) >> FAQ
 
-This is a list of the frequently asked questions about SpaceVim. Including questions about installation, configuration
+This is a list of the frequently asked questions about spacevim. Including questions about installation, configuration
 and usage.
 
 <!-- vim-markdown-toc GFM -->
 
-- [Installation](#installation)
-  - [Where is my old vim configuration?](#where-is-my-old-vim-configuration)
-  - [How to uninstall SpaceVim?](#how-to-uninstall-spacevim)
-  - [How to install SpaceVim manually?](#how-to-install-spacevim-manually)
 - [Configuration](#configuration)
-  - [Can I try SpaceVim without overwriting my vimrc?](#can-i-try-spacevim-without-overwriting-my-vimrc)
   - [Why use toml as the default configuration file format?](#why-use-toml-as-the-default-configuration-file-format)
   - [Where should I put my configuration?](#where-should-i-put-my-configuration)
   - [Why are the options in toml file not applied?](#why-are-the-options-in-toml-file-not-applied)
   - [E492: Not an editor command: ^M](#e492-not-an-editor-command-m)
-  - [Why SpaceVim can not display default colorscheme?](#why-spacevim-can-not-display-default-colorscheme)
+  - [Why spacevim can not display default colorscheme?](#why-spacevim-can-not-display-default-colorscheme)
   - [Why can't I update plugins?](#why-cant-i-update-plugins)
   - [How to reload `init.toml`?](#how-to-reload-inittoml)
   - [How to enable +py and +py3 in Neovim?](#how-to-enable-py-and-py3-in-neovim)
@@ -29,73 +24,15 @@ and usage.
 
 <!-- vim-markdown-toc -->
 
-## Installation
-
-### Where is my old vim configuration?
-
-In Linux/MacOS, the old vim configuration file `~/.vimrc` will be renamed to `~/.vimrc_back`,
-and the directory `~/.vim` also will be renamed to `~/.vim_back`.
-
-### How to uninstall SpaceVim?
-
-The installation script does not remove your vimrc, it just changes the name from `~/.vim` to `~/.vim_back`.
-and if you uninstalll SpaceVim, your vimrc will come back. you can run:
-
-```
-curl -sLf https://spacevim.org/install.sh | bash -s -- --uninstall
-```
-
-### How to install SpaceVim manually?
-
-The following section will document how to install SpaceVim manually on Linux.
-First, you need to clone the repository to `~/.SpaceVim`.
-
-```
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
-```
-
-Then, backup your old Neovim/Vim configuration file:
-
-```
-mv ~/.vimrc ~/.vimrc_back
-mv ~/.vim ~/.vim_back
-mv ~/.config/nvim ~/.config/nvim_back
-```
-
-Link `~/.SpaceVim` to Vim and Neovim user folder:
-
-```
-ln -s ~/.SpaceVim ~/.vim
-ln -s ~/.SpaceVim ~/.config/nvim
-```
-
-
-
 ## Configuration
 
-### Can I try SpaceVim without overwriting my vimrc?
-
-The SpaceVim install script will move your `~/.vimrc` to `~/.vimrc_back`. If you want to have a try SpaceVim without
-overwriting your own Vim configuration you can:
-
-Clone SpaceVim manually.
-
-```sh
-git clone https://spacevim.org/git/repos/SpaceVim/ ~/.SpaceVim
-```
-
-Then, start Vim via `vim -u ~/.SpaceVim/vimrc`. You can also put this alias into your bashrc.
-
-```sh
-alias svim='vim -u ~/.SpaceVim/vimrc'
-```
 ### Why use toml as the default configuration file format?
 
-In the old version of SpaceVim, we used a Vim file (`init.vim`) for configuration. This introduced a lot of problems.
+In the old version of spacevim, we used a Vim file (`init.vim`) for configuration. This introduced a lot of problems.
 When loading a Vim file the file content is executed line by line. This means that when there was an error the content
 before the error was still executed. This led to unforeseen problems.
 
-We decided going forward to use a more robust configuration mechanism in SpaceVim. SpaceVim must be able to load the
+We decided going forward to use a more robust configuration mechanism in spacevim. spacevim must be able to load the
 whole configuration file and if there are syntax errors in the configuration file, the entire configuration needs to
 be discarded.
 
@@ -108,12 +45,12 @@ drawbacks we found with the other choices considered:
 
 ### Where should I put my configuration?
 
-SpaceVim loads custom global configuration from `~/.SpaceVim.d/init.toml`. It also supports project specific configuration.
-That means it will load `.SpaceVim.d/init.toml` from the root of your project.
+spacevim loads custom global configuration from `~/.spacevim.d/init.toml`. It also supports project specific configuration.
+That means it will load `.spacevim.d/init.toml` from the root of your project.
 
 ### Why are the options in toml file not applied?
 
-Many people have encountered the same problem. The options have been added to `init.toml` but SpaceVim do not use it.
+Many people have encountered the same problem. The options have been added to `init.toml` but spacevim do not use it.
 One possibility is that there is a syntax error in toml. For example:
 
 ```
@@ -134,7 +71,7 @@ One possibility is that there is a syntax error in toml. For example:
 
 In this example, only `bootstrap_before` option will be used. 
 
-In SpaceVim should have only one `[options]` section in toml file. In the example above, the `bootstrap_before` line should be moved before `[[layers]]`.
+In spacevim should have only one `[options]` section in toml file. In the example above, the `bootstrap_before` line should be moved before `[[layers]]`.
 
 ### E492: Not an editor command: ^M
 
@@ -144,9 +81,9 @@ The problem was git auto added ^M when cloning, solved by:
 git config --global core.autocrlf input
 ```
 
-### Why SpaceVim can not display default colorscheme?
+### Why spacevim can not display default colorscheme?
 
-By default, SpaceVim uses true colors, so you should make sure your terminal supports true colors. [This is an article about
+By default, spacevim uses true colors, so you should make sure your terminal supports true colors. [This is an article about
 what true colors are and which terminals support true colors.](https://gist.github.com/XVilka/8346728)
 
 ### Why can't I update plugins?
@@ -162,8 +99,8 @@ You can not reload `init.toml` after startup. After editing the `init.toml` file
 
 ### How to enable +py and +py3 in Neovim?
 
-In Neovim we can use `g:python_host_prog` and `g:python3_host_prog` to config python prog. In SpaceVim
-the custom configuration file is loaded after SpaceVim core code. So in SpaceVim itself, if we using `:py` command, it may cause errors.
+In Neovim we can use `g:python_host_prog` and `g:python3_host_prog` to config python prog. In spacevim
+the custom configuration file is loaded after spacevim core code. So in spacevim itself, if we using `:py` command, it may cause errors.
 So we introduce two new environment variables: `PYTHON_HOST_PROG` and `PYTHON3_HOST_PROG`.
 
 For example:
@@ -194,5 +131,3 @@ If you use both Nvim and Vim, you can use following configuration to select corr
     name = 'leaderf'
     enable = '!has("nvim")'
 ```
-
-

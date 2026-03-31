@@ -1,5 +1,5 @@
-let s:NUM = SpaceVim#api#import('data#number')
-let s:FILE = SpaceVim#api#import('file')
+let s:NUM = spacevim#api#import('data#number')
+let s:FILE = spacevim#api#import('file')
 fu! s:update_logo()
   if !exists('g:startify_custom_header') && !exists('g:_spacevim_welcome_banners')
     let g:startify_custom_header = [
@@ -16,7 +16,7 @@ fu! s:update_logo()
           \'               | ##                                                           ',
           \'               | ##                                                           ',
           \'               |__/                                                           ',
-          \'                      version : ' . g:spacevim_version . '   by : spacevim.org',
+          \'                                  version : ' . g:spacevim_version . '        ',
           \'',
           \ ]
   elseif exists('g:_spacevim_welcome_banners')
@@ -64,7 +64,7 @@ endif
 if !has_key(g:_spacevim_mappings_space, 'a')
   let g:_spacevim_mappings_space.a = {'name' : '+Applications'}
 endif
-call SpaceVim#mapping#space#def('nnoremap', ['a','s'], 'call SpaceVim#plugins#history#savepos() | Startify | doautocmd WinEnter', 'fancy start screen',1)
+call spacevim#mapping#space#def('nnoremap', ['a','s'], 'call spacevim#plugins#history#savepos() | Startify | doautocmd WinEnter', 'fancy start screen',1)
 
 if g:spacevim_enable_tabline_ft_icon || get(g:, 'spacevim_enable_tabline_filetype_icon', 0)
   " the old option g:spacevim_enable_tabline_filetype_icon should also works

@@ -2,7 +2,6 @@
 " init.vim --- Entry file for neovim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -16,12 +15,15 @@ if &compatible
   set nocompatible
 endif
 
-let g:_spacevim_root_dir = escape(fnamemodify(resolve(fnamemodify(expand('<sfile>'),
-      \ ':p:h:gs?\\?'.((has('win16') || has('win32')
-      \ || has('win64'))?'\':'/') . '?')), ':p:gs?[\\/]?/?'), ' ')
+let g:_spacevim_root_dir = escape(fnamemodify(resolve(fnamemodify(expand('<sfile>'), ':p:h:gs?\\?')), ':p:gs?[\\/]?/?'), ' ')
 lockvar g:_spacevim_root_dir
+
 if has('nvim')
-  let rtps = [g:_spacevim_root_dir]
+  " Even when not supported explicitely lets keep this to not break when a user adds it to the runtimepath.
+  " The nvim-qt check is used to ensure that any runtime paths related to the Neovim-Qt GUI are moved to the front of the runtimepath.
+  " nvim-qt often provides its own set of scripts (like those for handling GUI-specific features, fonts, or windowing).
+  " If these paths are buried deep in the runtimepath, they might be overridden by other plugins or SpaceVim's own defaults, leading to broken GUI functionality.
+  let rtps = []
   for rtp in split(&rtp, ',')
     if rtp =~# 'nvim-qt'
       call insert(rtps, 0, rtp)
@@ -31,46 +33,39 @@ if has('nvim')
   endfor
   let &rtp = join(rtps, ',')
 else
-  let &rtp = g:_spacevim_root_dir . ',' . $VIMRUNTIME
+  call spacevim#logger#warning('Spacevim from version 3 onwards only supports Neovim.')
 endif
-call SpaceVim#logger#info('Loading SpaceVim from: ' . g:_spacevim_root_dir)
-call SpaceVim#logger#info('default rtp is:')
-call map(split(&rtp, ','), 'SpaceVim#logger#info("  > " . v:val)')
+
+call spacevim#logger#info('Loading spacevim from: ' . g:_spacevim_root_dir)
+call spacevim#logger#info('default rtp is:')
+call map(split(&rtp, ','), 'spacevim#logger#info("  > " . v:val)')
+
 if has('vim_starting')
   " python host
   " @bug python2 error on neovim 0.6.1
   " let g:loaded_python_provider = 0
   if !empty($PYTHON_HOST_PROG)
     let g:python_host_prog  = $PYTHON_HOST_PROG
-    call SpaceVim#logger#info('$PYTHON_HOST_PROG is not empty, setting g:python_host_prog:' . g:python_host_prog)
+    call spacevim#logger#info('$PYTHON_HOST_PROG is not empty, setting g:python_host_prog:' . g:python_host_prog)
   endif
   if !empty($PYTHON3_HOST_PROG)
     let g:python3_host_prog = $PYTHON3_HOST_PROG
-    call SpaceVim#logger#info('$PYTHON3_HOST_PROG is not empty, setting g:python3_host_prog:' . g:python3_host_prog)
-    if !has('nvim') 
-          \ && (has('win16') || has('win32') || has('win64'))
-          \ && exists('&pythonthreedll')
-          \ && exists('&pythonthreehome')
-      let &pythonthreedll = get(split(globpath(fnamemodify($PYTHON3_HOST_PROG, ':h'), 'python*.dll'), '\n'), -1, '')
-      call SpaceVim#logger#info('init &pythonthreedll:' . &pythonthreedll)
-      let &pythonthreehome = fnamemodify($PYTHON3_HOST_PROG, ':h')
-      call SpaceVim#logger#info('init &pythonthreehome:' . &pythonthreehome)
-    endif
+    call spacevim#logger#info('$PYTHON3_HOST_PROG is not empty, setting g:python3_host_prog:' . g:python3_host_prog)
   endif
 endif
 
-call SpaceVim#begin()
+call spacevim#begin()
 
-call SpaceVim#custom#load()
+call spacevim#custom#load()
 
 if has('timers')
-  call timer_start(g:spacevim_lazy_conf_timeout, 'SpaceVim#default#keyBindings') 
+  call timer_start(g:spacevim_lazy_conf_timeout, 'spacevim#default#keyBindings') 
 else
-  call SpaceVim#default#keyBindings()
+  call spacevim#default#keyBindings()
 endif
 
 
-call SpaceVim#end()
+call spacevim#end()
 
-call SpaceVim#logger#info('finished loading SpaceVim!')
+call spacevim#logger#info('finished loading spacevim!')
 " vim:set et sw=2 cc=80:

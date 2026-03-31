@@ -22,7 +22,7 @@ CONTENTS                                                        *git-contents*
 INTRODUCTION                                                       *git-intro*
 
 git.vim is a simple plugin for using git in vim and neovim. This plugin
-requires SpaceVim API and |job| support.
+requires spacevim API and |job| support.
 
 ==============================================================================
 COMMANDS                                                        *git-commands*

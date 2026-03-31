@@ -10,8 +10,8 @@ if has('nvim-0.9.0')
   endfunction
 else
 
-  let s:JOB = SpaceVim#api#import('job')
-  let s:NOTI = SpaceVim#api#import('notify')
+  let s:JOB = spacevim#api#import('job')
+  let s:NOTI = spacevim#api#import('notify')
 
   let s:push_jobid = 0
 

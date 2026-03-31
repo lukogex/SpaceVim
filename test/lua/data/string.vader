@@ -1,9 +1,9 @@
-Execute ( SpaceVim lua api: data#string ):
+Execute ( spacevim lua api: data#string ):
   if !has('nvim-0.7.2')
     Log 'skip lua test'
     finish
   endif
-  let cmp = SpaceVim#api#import('vim#compatible')
+  let cmp = spacevim#api#import('vim#compatible')
   Log 'test trim()'
   lua sp_str = require('spacevim.api').import('data.string')
   AssertEqual cmp.luaeval("sp_str.trim(' s b ')"), 's b'

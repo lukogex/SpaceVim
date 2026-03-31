@@ -10,7 +10,7 @@ let s:save_cpo = &cpo
 set cpo&vim
 scriptencoding utf-8
 
-let s:FILE = SpaceVim#api#import('file')
+let s:FILE = spacevim#api#import('file')
 
 let s:fish = &shell =~# 'fish'
 

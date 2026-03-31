@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#nim layer"
-description: "This layer adds Nim language support to SpaceVim"
+title: "spacevim lang#nim layer"
+description: "This layer adds Nim language support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#nim
@@ -18,7 +18,7 @@ description: "This layer adds Nim language support to SpaceVim"
 
 ## Description
 
-This layer adds [Nim](https://github.com/nim-lang/Nim) language support to SpaceVim.
+This layer adds [Nim](https://github.com/nim-lang/Nim) language support to spacevim.
 Nim is a compiled, garbage-collected systems programming language.
 
 ## Features
@@ -64,6 +64,6 @@ Send code to inferior process commands:
 
 ## Examples
 
-This is an Nim example project which is developed in SpaceVim.
+This is an Nim example project which is developed in spacevim.
 
 <https://github.com/wsdjeg/nim-example>

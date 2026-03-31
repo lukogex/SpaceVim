@@ -19,7 +19,7 @@ function M.preview()
   vim.cmd([[
   silent only
   rightbelow vsplit __toml_json_preview__.json
-  set ft=SpaceVimTomlViewer
+  set ft=spacevimTomlViewer
   setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber winfixwidth
   setlocal modifiable
   ]])

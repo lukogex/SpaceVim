@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#julia layer"
+title: "spacevim lang#julia layer"
 description: "This layer is for Julia development, provides autocompletion, syntax checking and code formatting"
 ---
 
@@ -28,7 +28,7 @@ This layer include these plugins: [julia-vim](https://github.com/JuliaEditorSupp
 - Completion for Modules and functions.
 - syntax highlighting
 
-SpaceVim also provides REPL support for Julia.
+spacevim also provides REPL support for Julia.
 
 ## Install
 

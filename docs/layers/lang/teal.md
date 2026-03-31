@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#teal layer"
+title: "spacevim lang#teal layer"
 description: "This layer is for teal development, provides syntax checking, code runner and repl support for teal files."
 ---
 

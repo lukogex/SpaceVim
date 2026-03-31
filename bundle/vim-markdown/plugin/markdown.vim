@@ -1,6 +1,6 @@
 ""
 " @section Introduction, intro
-" This is Markdown plugin for SpaceVim, It is based on SpaceVim API.
+" This is Markdown plugin for spacevim, It is based on spacevim API.
 " This plugin include syntax file for Markdown.
 
 if !exists('g:markdown_default_mappings')

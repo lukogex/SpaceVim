@@ -2,10 +2,8 @@
 -- layer.lua --- spacevim layer module
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
-
 
 local M = {}
 local sp = require('spacevim')
@@ -26,15 +24,15 @@ local spsys = require('spacevim.api').import('system')
 -- setmetatable(M, mt)
 
 function M.isLoaded(layer)
-    return sp.call('SpaceVim#layers#isLoaded', layer) == 1
+    return sp.call('spacevim#layers#isLoaded', layer) == 1
 end
 
 local function find_layers()
-    local layers = sp.fn.globpath(sp.vim_options.runtimepath, 'autoload/SpaceVim/layers/**/*.vim', 0, 1)
-    local pattern = '/autoload/SpaceVim/layers/'
+    local layers = sp.fn.globpath(sp.vim_options.runtimepath, 'autoload/spacevim/layers/**/*.vim', 0, 1)
+    local pattern = '/autoload/spacevim/layers/'
     local rst = {}
     for _, layer in pairs(layers) do
-        local name = layer:gsub('.+SpaceVim[\\/]layers[\\/]', ''):gsub('.vim$', ''):gsub('[\\/]', '/')
+        local name = layer:gsub('.+spacevim[\\/]layers[\\/]', ''):gsub('.vim$', ''):gsub('[\\/]', '/')
         local status = ''
         local url = ''
         local website = ''
@@ -43,7 +41,7 @@ local function find_layers()
         else
             url = name
         end
-        if sp.fn.filereadable(sp.fn.expand('~/.SpaceVim/docs/layers/' .. url .. '.md')) == 1 then
+        if sp.fn.filereadable(sp.fn.expand('~/.spacevim/docs/layers/' .. url .. '.md')) == 1 then
             website = 'https://spacevim.org/layers/' .. url .. '/'
         else
             website = 'no exists'
@@ -64,12 +62,12 @@ local function find_layers()
 end
 
 local function list_layers()
-    vim.cmd('tabnew SpaceVimLayers')
+    vim.cmd('tabnew spacevimLayers')
     vim.cmd('nnoremap <buffer> q :q<cr>')
     vim.cmd('setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell')
-    vim.cmd('setf SpaceVimLayerManager')
+    vim.cmd('setf spacevimLayerManager')
     vim.cmd('nnoremap <silent> <buffer> q :bd<CR>')
-    local info = {'SpaceVim layers:', ''}
+    local info = {'spacevim layers:', ''}
     for k,v in pairs(find_layers()) do table.insert(info, v) end
     sp.fn.setline(1,info)
     vim.cmd('setl nomodifiable')

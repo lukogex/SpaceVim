@@ -1,13 +1,12 @@
 ---
 title: "Conventions"
-description: "conventions of contributing to SpaceVim, including the coding style guides about vim script and markdown"
+description: "conventions of contributing to spacevim, including the coding style guides about vim script and markdown"
 ---
 
 # Conventions
 
 <!-- vim-markdown-toc GFM -->
 
-- [Commit emoji convention](#commit-emoji-convention)
 - [Viml coding style guide](#viml-coding-style-guide)
   - [Portability](#portability)
     - [Strings](#strings)
@@ -19,8 +18,6 @@ description: "conventions of contributing to SpaceVim, including the coding styl
   - [General Guidelines](#general-guidelines)
     - [Messaging](#messaging)
     - [Type checking](#type-checking)
-    - [Python](#python)
-    - [Other Languages](#other-languages)
     - [Plugin layout](#plugin-layout)
     - [Functions](#functions)
     - [Commands](#commands)
@@ -35,18 +32,6 @@ description: "conventions of contributing to SpaceVim, including the coding styl
 - [Key notations](#key-notations)
 - [Vimscript Style](#vimscript-style)
 - [Markdown Style](#markdown-style)
-
-<!-- vim-markdown-toc -->
-
-## Commit emoji convention
-
-- `:memo:` Add comment or doc.
-- `:gift:` New feature.
-- `:bug:` Bug fix.
-- `:bomb:` Breaking compatibility.
-- `:white_check_mark:` Write test.
-- `:fire:` Remove something.
-- `:beer:` I'm happy like reduced code complexity.
 
 ## Viml coding style guide
 
@@ -124,18 +109,6 @@ Use strict comparison operators where possible. When comparing against a string 
 Check variable types explicitly before using them. Use functions from maktaba#ensure, or check maktaba#value or type() and throw your own errors.
 
 Use :unlet for variables that may change types, particularly those assigned inside loops.
-
-#### Python
-
-**Use sparingly.**
-
-Use python only when it provides critical functionality, for example when writing threaded code.
-
-#### Other Languages
-
-**Use Vimscript instead.**
-
-Avoid using other scripting languages such as ruby and lua. We cannot guarantee that the end user's Vim has been compiled with support for non-vimscript languages.
 
 #### Plugin layout
 

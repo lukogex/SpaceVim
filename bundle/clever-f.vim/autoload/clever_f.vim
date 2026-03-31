@@ -1,8 +1,8 @@
 let s:save_cpo = &cpo
 set cpo&vim
 
-" SpaceVim API
-let s:HI = SpaceVim#api#import('vim#highlight')
+" spacevim API
+let s:HI = spacevim#api#import('vim#highlight')
 
 " constants
 let s:ESC_CODE = char2nr("\<Esc>")

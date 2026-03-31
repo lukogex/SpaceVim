@@ -1,4 +1,4 @@
-let s:NUM = SpaceVim#api#import('data#number')
+let s:NUM = spacevim#api#import('data#number')
 
 function! org#util#random(range) abort
 

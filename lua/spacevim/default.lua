@@ -44,9 +44,9 @@ function M.options()
   vim.o.undolevels = 1000
 
   if vim.fn.has('nvim-0.5.0') == 1 then
-    vim.g.data_dir = vim.g.spacevim_data_dir .. 'SpaceVim/'
+    vim.g.data_dir = vim.g.spacevim_data_dir .. 'spacevim/'
   else
-    vim.g.data_dir = vim.g.spacevim_data_dir .. 'SpaceVim/old/'
+    vim.g.data_dir = vim.g.spacevim_data_dir .. 'spacevim/old/'
   end
 
   vim.g.backup_dir = vim.g.data_dir .. 'backup//'
@@ -112,7 +112,7 @@ function M.options()
   -- Do not wrap lone lines
   vim.o.wrap = false
 
-  vim.o.foldtext = 'SpaceVim#default#Customfoldtext()'
+  vim.o.foldtext = 'spacevim#default#Customfoldtext()'
 
   logger.info('options init done')
 end

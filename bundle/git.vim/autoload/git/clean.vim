@@ -6,8 +6,8 @@
 "   :Git clean -f
 " <
 
-let s:JOB = SpaceVim#api#import('job')
-let s:NOTI = SpaceVim#api#import('notify')
+let s:JOB = spacevim#api#import('job')
+let s:NOTI = spacevim#api#import('notify')
 
 function! git#clean#run(argvs) abort
 

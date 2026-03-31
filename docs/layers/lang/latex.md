@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#latex layer"
+title: "spacevim lang#latex layer"
 description: "This layer provides support for writing LaTeX documents, including syntax highlighting, code completion, formatting etc."
 ---
 

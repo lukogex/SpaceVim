@@ -8,10 +8,10 @@
 scriptencoding utf-8
 
 
-let s:SYS = SpaceVim#api#import('system')
-let s:FILE = SpaceVim#api#import('file')
-let s:VCOP = SpaceVim#api#import('vim#compatible')
-let s:WIN = SpaceVim#api#import('vim#window')
+let s:SYS = spacevim#api#import('system')
+let s:FILE = spacevim#api#import('file')
+let s:VCOP = spacevim#api#import('vim#compatible')
+let s:WIN = spacevim#api#import('vim#window')
 
 if g:spacevim_filetree_direction ==# 'right'
   let s:direction = 'rightbelow'
@@ -70,7 +70,7 @@ augroup END
 " in this function, we should check if shell terminal still exists,
 " then close the terminal job before close vimfiler
 function! s:close_last_vimfiler_windows() abort
-  call SpaceVim#layers#shell#close_terminal()
+  call spacevim#layers#shell#close_terminal()
   q
 endfunction
 
@@ -168,7 +168,7 @@ function! s:defx_init()
   nnoremap <silent><buffer> <Home> :call cursor(2, 1)<cr>
   nnoremap <silent><buffer> <End>  :call cursor(line('$'), 1)<cr>
   nnoremap <silent><buffer><expr> <C-Home>
-        \ defx#do_action('cd', SpaceVim#plugins#projectmanager#current_root())
+        \ defx#do_action('cd', spacevim#plugins#projectmanager#current_root())
   nnoremap <silent><buffer><expr> > defx#do_action('resize',
         \ defx#get_context().winwidth + 10)
   nnoremap <silent><buffer><expr> < defx#do_action('resize',

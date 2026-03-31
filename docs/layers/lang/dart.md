@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#dart layer"
+title: "spacevim lang#dart layer"
 description: "This layer is for Dart development, provides autocompletion, syntax checking and code formatting for Dart files."
 ---
 

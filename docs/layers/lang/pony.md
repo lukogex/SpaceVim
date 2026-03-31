@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#pony layer"
+title: "spacevim lang#pony layer"
 description: "This layer is for pony development, provides syntax checking, code runner and repl support for pony files."
 ---
 

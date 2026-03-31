@@ -1,21 +1,21 @@
 "=============================================================================
-" SpaceVimPlugManager.vim
+" spacevimPlugManager.vim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
-if exists('g:_SpaceVimPlugManager_ftplugin')
+if exists('g:_spacevimPlugManager_ftplugin')
   finish
 else
-  let g:_SpaceVimPlugManager_ftplugin = 1
+  let g:_spacevimPlugManager_ftplugin = 1
 endif
-function! SpaceVimPlugManager#statusline(...)
-    if &ft ==# 'SpaceVimPlugManager'
-        call airline#extensions#apply_left_override('SpaceVimPlugins', '')
+function! spacevimPlugManager#statusline(...)
+    if &ft ==# 'spacevimPlugManager'
+        call airline#extensions#apply_left_override('spacevimPlugins', '')
         " Alternatively, set the various w:airline_section variables
-        "let w:airline_section_a = 'SpaceVimPluginManager'
+        "let w:airline_section_a = 'spacevimPluginManager'
         "let w:airline_section_b = ''
         "let w:airline_section_c = ''
         "let w:airline_render_left = 1
@@ -23,6 +23,6 @@ function! SpaceVimPlugManager#statusline(...)
     endif
 endfunction
 try
-    call airline#add_statusline_func('SpaceVimPlugManager#statusline')
+    call airline#add_statusline_func('spacevimPlugManager#statusline')
 catch
 endtry

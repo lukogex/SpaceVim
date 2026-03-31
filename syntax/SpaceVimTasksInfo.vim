@@ -1,7 +1,7 @@
-if exists('b:current_syntax') && b:current_syntax ==# 'SpaceVimTasksInfo'
+if exists('b:current_syntax') && b:current_syntax ==# 'spacevimTasksInfo'
   finish
 endif
-let b:current_syntax = 'SpaceVimTasksInfo'
+let b:current_syntax = 'spacevimTasksInfo'
 syntax case ignore
 
 syn match TaskName /^\[.*\]/

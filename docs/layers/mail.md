@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim mail layer"
-description: "mail layer provides basic mail client for SpaceVim."
+title: "spacevim mail layer"
+description: "mail layer provides basic mail client for spacevim."
 ---
 
 # [Available Layers](../) >> mail

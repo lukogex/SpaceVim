@@ -20,8 +20,8 @@ endif
 let s:preview_bufnr = -1
 let s:toml_bufnr = -1
 
-let s:TOML = SpaceVim#api#import('data#toml')
-let s:JSON = SpaceVim#api#import('data#json')
+let s:TOML = spacevim#api#import('data#toml')
+let s:JSON = spacevim#api#import('data#json')
 
 function! toml#preview() abort
   let s:toml_bufnr = bufnr()
@@ -32,7 +32,7 @@ function! toml#preview() abort
   silent only
   " open preview windows
   rightbelow vsplit __toml_json_preview__.json
-  set ft=SpaceVimTomlViewer
+  set ft=spacevimTomlViewer
   setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell nonu norelativenumber winfixwidth
   let s:preview_bufnr = bufnr()
   setlocal modifiable

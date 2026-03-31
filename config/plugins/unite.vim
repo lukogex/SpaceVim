@@ -196,7 +196,7 @@ let [
       \ s:grep_default_fix_string_opt,
       \ s:grep_default_ignore_case,
       \ s:grep_default_smart_case
-      \ ] = SpaceVim#mapping#search#default_tool()
+      \ ] = spacevim#mapping#search#default_tool()
 let g:unite_source_grep_command = s:grep_default_exe
 let g:unite_source_grep_default_opts = join(s:grep_default_opt)
 let g:unite_source_grep_recursive_opt = join(s:grep_default_ropt)
@@ -231,8 +231,8 @@ function! s:view_github_starred_repos() abort
     Unite -silent -ignorecase -winheight=17 -start-insert menu:MyStarredrepos
   endif
 endfunction
-" if SpaceVim#layers#isLoaded('tools#mpv')
-" call SpaceVim#layers#tools#mpv#loadMusics()
+" if spacevim#layers#isLoaded('tools#mpv')
+" call spacevim#layers#tools#mpv#loadMusics()
 " endif
 augroup unite_buffer_feature
   autocmd FileType unite call s:unite_my_settings()

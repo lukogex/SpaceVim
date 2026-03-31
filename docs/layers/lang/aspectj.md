@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#aspectj layer"
+title: "spacevim lang#aspectj layer"
 description: "AsepctJ language support, including syntax highlighting."
 ---
 

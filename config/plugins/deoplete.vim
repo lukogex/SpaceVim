@@ -8,7 +8,7 @@
 let g:deoplete#enable_at_startup = get(g:, 'deoplete#enable_at_startup', 1)
 
 " deoplete options
-let s:profile = SpaceVim#layers#autocomplete#getprfile()
+let s:profile = spacevim#layers#autocomplete#getprfile()
 call deoplete#custom#option({
       \ 'auto_complete_delay' :  g:_spacevim_autocomplete_delay,
       \ 'ignore_case'         :  get(g:, 'deoplete#enable_ignore_case', 1),
@@ -18,8 +18,8 @@ call deoplete#custom#option({
       \ 'nofile_complete_filetypes' : ['denite-filter'],
       \ })
 
-if !SpaceVim#layers#lsp#check_filetype('java')
-      \ && !SpaceVim#layers#lsp#check_server('jdtls')
+if !spacevim#layers#lsp#check_filetype('java')
+      \ && !spacevim#layers#lsp#check_server('jdtls')
   " java && jsp
   call deoplete#custom#var('omni', 'input_patterns', {
         \ 'java': [
@@ -70,7 +70,7 @@ call deoplete#custom#source('typescript', 'rank', 9999)
 
 
 " php two types, 1. phpcd (default)  2. lsp
-if SpaceVim#layers#lsp#check_filetype('php')
+if spacevim#layers#lsp#check_filetype('php')
   if has('nvim')
     call deoplete#custom#option('ignore_sources', {'php': ['omni', 'around', 'member']})
   else

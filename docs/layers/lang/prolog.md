@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#prolog layer"
+title: "spacevim lang#prolog layer"
 description: "This layer is for Prolog development, provides syntax checking, code runner and repl support for prolog files."
 ---
 

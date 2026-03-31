@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#vbnet layer"
+title: "spacevim lang#vbnet layer"
 description: "This layer is for Visual Basic .NET development, provides code runner for vb files."
 ---
 

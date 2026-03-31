@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#ruby layer"
+title: "spacevim lang#ruby layer"
 description: "This layer is for Ruby development, provides autocompletion, syntax checking and code formatting for Ruby files."
 ---
 
@@ -53,7 +53,7 @@ gem install rubocop
 
 - `ruby_file_head`: Default file head when a new file is created.
 
-  By default, when create a new ruby file, SpaceVim will insert the file head automatically.
+  By default, when create a new ruby file, spacevim will insert the file head automatically.
   to change the file head, use the `ruby_file_head` option:
 
   ```toml

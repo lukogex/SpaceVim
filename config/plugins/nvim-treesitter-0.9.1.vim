@@ -1,1 +1,1 @@
-call SpaceVim#layers#treesitter#setup()
+call spacevim#layers#treesitter#setup()

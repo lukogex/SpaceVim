@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#foxpro layer"
+title: "spacevim lang#foxpro layer"
 description: "This layer is for Visual FoxPro development, provides syntax highlighting for foxpro files."
 ---
 

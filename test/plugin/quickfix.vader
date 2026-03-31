@@ -1,4 +1,4 @@
-Execute ( SpaceVim plugin: quickfix ):
+Execute ( spacevim plugin: quickfix ):
   let qflist = [
   \ {    
     \ 'abbr' : 'test-abbr',
@@ -9,5 +9,5 @@ Execute ( SpaceVim plugin: quickfix ):
     \ 'text' : 'test-text'
   \ }
   \ ]
-  call SpaceVim#plugins#quickfix#setqflist(qflist)
-  AssertEqual SpaceVim#plugins#quickfix#getqflist()[0].abbr, 'test-abbr'
+  call spacevim#plugins#quickfix#setqflist(qflist)
+  AssertEqual spacevim#plugins#quickfix#getqflist()[0].abbr, 'test-abbr'

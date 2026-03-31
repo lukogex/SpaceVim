@@ -151,7 +151,7 @@ function M.redraw_windows()
   end
   M.begin_row = 2
   -- detached plugin no need to read shared notifys
-  local ok, viml_notify = pcall(vim.fn['SpaceVim#api#notify#shared_notifys'])
+  local ok, viml_notify = pcall(vim.fn['spacevim#api#notify#shared_notifys'])
   if ok then
     for hashkey, _ in pairs(viml_notify) do
       M.begin_row = M.begin_row + msg_real_len(viml_notify[hashkey].message) + 2

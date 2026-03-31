@@ -1,5 +1,5 @@
-let s:JOB = SpaceVim#api#import('job')
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
+let s:JOB = spacevim#api#import('job')
+let s:BUFFER = spacevim#api#import('vim#buffer')
 
 " @todo rewrite Git config in lua
 function! git#config#run(argvs)

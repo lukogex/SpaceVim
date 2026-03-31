@@ -75,7 +75,7 @@ local timer_start = vim.fn.timer_start
 
 local function echo(msg) -- {{{
   vim.g._spacevim_temp_msg = msg
-  vim.api.nvim_eval('SpaceVim#api#notify#get().notify(g:_spacevim_temp_msg, "None")')
+  vim.api.nvim_eval('spacevim#api#notify#get().notify(g:_spacevim_temp_msg, "None")')
 end
 -- }}}
 
@@ -196,7 +196,7 @@ local function highlight_cursor() -- {{{
         })
       end
       vim.fn.matchadd(
-        'SpaceVimGuideCursor',
+        'spacevimGuideCursor',
         [[\%]]
           .. cursor_stack[i].lnum
           .. [[l\%]]
@@ -657,7 +657,7 @@ function M.start(...) -- {{{
   hi.hi(iedit_hi_info[3])
   local cursor_hi = hi.group2dict('Cursor')
   iedit_cursor_hi_info = vim.fn.deepcopy(cursor_hi)
-  iedit_cursor_hi_info.name = 'SpaceVimGuideCursor'
+  iedit_cursor_hi_info.name = 'spacevimGuideCursor'
   lcursor_hi = hi.group2dict('lCursor')
   local guicursor = vim.o.guicursor
   hi.hide_in_normal('Cursor')

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#sh layer"
+title: "spacevim lang#sh layer"
 description: "Shell script development layer, provides autocompletion, syntax checking, and code formatting for bash and zsh scripts."
 ---
 
@@ -29,7 +29,7 @@ This layer is for shell script development. Shell script includes bash, zsh and 
 - Code formatting
 - Jump to declaration
 
-SpaceVim also provides language server protocol support for bash script. To enable language server protocol
+spacevim also provides language server protocol support for bash script. To enable language server protocol
 for bash script, you need to load `lsp` layer for bash.
 
 ## Install
@@ -47,7 +47,7 @@ To use this configuration layer, update your custom configuration file with:
 
 - `bash_file_head`: Default file head when create new sh file.
 
-  By default, when create a new sh file, SpaceVim will insert file head automatically.
+  By default, when create a new sh file, spacevim will insert file head automatically.
   to change the file head, use `bash_file_head` option:
 
   ```toml

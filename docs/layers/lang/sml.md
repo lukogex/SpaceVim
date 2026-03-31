@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#sml layer"
+title: "spacevim lang#sml layer"
 description: "This layer is for Standard ML development, provides syntax highlighting and repl support for sml files."
 ---
 

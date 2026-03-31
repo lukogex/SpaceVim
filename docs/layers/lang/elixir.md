@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#elixir layer"
+title: "spacevim lang#elixir layer"
 description: "This layer is for Elixir development, provides autocompletion, syntax checking, code formatting for Elixir files."
 ---
 
@@ -30,7 +30,7 @@ This layer includes the plugin [slashmili/alchemist.vim](https://github.com/slas
 - Documentation lookup for Modules and functions.
 - Jump to the definition.
 
-SpaceVim also provides REPL, code runner and Language Server protocol support for Elixir. To enable language server protocol
+spacevim also provides REPL, code runner and Language Server protocol support for Elixir. To enable language server protocol
 for Elixir, you need to load `lsp` layer for Elixir.
 
 ## Install

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#lisp layer"
+title: "spacevim lang#lisp layer"
 description: "This layer is for Common Lisp development, provides autocompletion, syntax checking, and code formatting for Common Lisp files."
 ---
 

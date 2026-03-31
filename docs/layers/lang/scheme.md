@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#scheme layer"
-description: "This layer adds Scheme language support to SpaceVim"
+title: "spacevim lang#scheme layer"
+description: "This layer adds Scheme language support to spacevim"
 image: https://img.spacevim.org/46590501-4e50b100-cae6-11e8-9366-6772d129a13b.png
 ---
 
@@ -20,7 +20,7 @@ image: https://img.spacevim.org/46590501-4e50b100-cae6-11e8-9366-6772d129a13b.pn
 
 ## Description
 
-This layer adds [Scheme](http://www.scheme-reports.org) support to SpaceVim.
+This layer adds [Scheme](http://www.scheme-reports.org) support to spacevim.
 The following scheme dialect support has been added:
 
 - [MIT Scheme](https://www.gnu.org/software/mit-scheme/)

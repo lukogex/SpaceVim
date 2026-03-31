@@ -1,9 +1,6 @@
 # nvim-plug
 
-[![](https://spacevim.org/img/build-with-SpaceVim.svg)](https://spacevim.org)
-[![GPLv3 License](https://img.spacevim.org/license-GPLv3-blue.svg)](LICENSE)
-
-![nvim-plug](https://wsdjeg.net/images/nvim-plug.gif)
+![nvim-plug](../../docs/img/spacevim-nvim-plug.gif)
 
 <!-- vim-markdown-toc GFM -->
 
@@ -19,14 +16,12 @@
 - [Default UI](#default-ui)
 - [Custom Plugin UI](#custom-plugin-ui)
 - [Plugin priority](#plugin-priority)
-- [Feedback](#feedback)
 
 <!-- vim-markdown-toc -->
 
 ## Intro
 
 nvim-plug is an asynchronous Neovim plugin manager written in Lua.
-There is also a [Chinese introduction](https://wsdjeg.net/neovim-plugin-manager-nvim-plug/) about this plugin.
 
 ## Features
 
@@ -100,12 +95,6 @@ require('plug').add({
   {
     'wsdjeg/scrollbar.vim',
     events = { 'VimEnter' },
-  },
-  {
-    'wsdjeg/vim-chat',
-    enabled = function()
-      return vim.fn.has('nvim-0.10.0') == 1
-    end,
   },
   {
     'wsdjeg/flygrep.nvim',
@@ -270,12 +259,6 @@ require('plug').add({
     events = { 'VimEnter' },
   },
   {
-    'wsdjeg/vim-chat',
-    enabled = function()
-      return vim.fn.has('nvim-0.10.0') == 1
-    end,
-  },
-  {
     'wsdjeg/flygrep.nvim',
     cmds = { 'FlyGrep' },
     config = function()
@@ -292,9 +275,3 @@ require('plug').add({
 })
 require('plug').load()
 ```
-
-## Feedback
-
-The development of this plugin is in [`SpaceVim/bundle/nvim-plug`](https://github.com/SpaceVim/SpaceVim/tree/master/bundle/nvim-plug) directory.
-
-If you encounter any bugs or have suggestions, please file an issue in the [issue tracker](https://github.com/SpaceVim/SpaceVim/issues) or [Telegram group](https://t.me/+w27TxYbUz1wxZmJl)

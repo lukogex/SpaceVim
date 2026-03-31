@@ -19,13 +19,13 @@ This page documents changes in master branch since last release v2.4.0
 The next release is `v2.5.0`
 
 <!--
-call SpaceVim#dev#followHEAD#update('en')
+call spacevim#dev#followHEAD#update('en')
 -->
-<!-- SpaceVim follow HEAD start -->
-<!-- SpaceVim follow HEAD end -->
+<!-- spacevim follow HEAD start -->
+<!-- spacevim follow HEAD end -->
 
 ## Latest Release
 
-SpaceVim releases v2.4.0 at 2024-12-22, please check the release page:
+spacevim releases v2.4.0 at 2024-12-22, please check the release page:
 
-- [SpaceVim releases v2.4.0](https://spacevim.org/SpaceVim-release-v2.4.0/) for all the details
+- [spacevim releases v2.4.0](https://spacevim.org/spacevim-release-v2.4.0/) for all the details

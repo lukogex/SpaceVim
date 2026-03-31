@@ -7,7 +7,7 @@
 "   :Git mv % new_file.txt
 " <
 
-let s:JOB = SpaceVim#api#import('job')
+let s:JOB = spacevim#api#import('job')
 
 function! git#mv#run(args) abort
 

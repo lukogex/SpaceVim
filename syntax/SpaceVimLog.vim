@@ -1,7 +1,7 @@
-if exists('b:current_syntax') && b:current_syntax ==# 'SpaceVimLog'
+if exists('b:current_syntax') && b:current_syntax ==# 'spacevimLog'
   finish
 endif
-let b:current_syntax = 'SpaceVimLog'
+let b:current_syntax = 'spacevimLog'
 syntax case ignore
 
 syn match SPCLogHead /^###.*/

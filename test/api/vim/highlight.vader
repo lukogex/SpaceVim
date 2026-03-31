@@ -1,6 +1,6 @@
-Execute ( SpaceVim api: vim#highlight ):
-  let hi = SpaceVim#api#import('vim#highlight')
-  let cmp =SpaceVim#api#import('vim#compatible') 
+Execute ( spacevim api: vim#highlight ):
+  let hi = spacevim#api#import('vim#highlight')
+  let cmp =spacevim#api#import('vim#compatible') 
   highlight TestAPIVimHighlight ctermfg=11 guifg=#89DDFF guibg=#212121
   let test_api_hi = hi.group2dict('TestAPIVimHighlight')
   if !empty(test_api_hi.guifg)

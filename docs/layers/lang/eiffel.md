@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#eiffel layer"
+title: "spacevim lang#eiffel layer"
 description: "This layer is for eiffel development, provides syntax highlighting and indentation for eiffel files."
 ---
 

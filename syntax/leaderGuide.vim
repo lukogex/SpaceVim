@@ -12,7 +12,7 @@ if g:spacevim_leader_guide_theme == 'whichkey'
   hi def link LeaderGuideDesc Identifier
   hi def link LeaderGuideSep Comment
   hi def link LeaderGuideKeys Type
-  hi def link LeaderGuideGroupName SpaceVimLeaderGuiderGroupName
+  hi def link LeaderGuideGroupName spacevimLeaderGuiderGroupName
 
 
 else
@@ -27,7 +27,7 @@ else
   hi def link LeaderGuideDesc Identifier
   hi def link LeaderGuideKeys Type
   hi def link LeaderGuideBrackets Delimiter
-  hi def link LeaderGuideGroupName SpaceVimLeaderGuiderGroupName
+  hi def link LeaderGuideGroupName spacevimLeaderGuiderGroupName
 
 
 endif

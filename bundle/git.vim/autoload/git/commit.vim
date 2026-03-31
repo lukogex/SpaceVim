@@ -1,6 +1,6 @@
-let s:JOB = SpaceVim#api#import('job')
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
-let s:NOTI = SpaceVim#api#import('notify')
+let s:JOB = spacevim#api#import('job')
+let s:BUFFER = spacevim#api#import('vim#buffer')
+let s:NOTI = spacevim#api#import('notify')
 
 let s:commit_bufnr = -1
 

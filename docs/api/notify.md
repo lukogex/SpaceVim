@@ -31,7 +31,7 @@ This api provides some basic Functions for generating notifications.
 Vim Script:
 
 ```vim
-let s:NOTIFY = SpaceVim#api#import('notify')
+let s:NOTIFY = spacevim#api#import('notify')
 let s:NOTIFY.notify_max_width = 40
 let s:NOTIFY.timeout = 3000
 call s:NOTIFY.notify('This is a simple notification!')

@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim VersionControl layer"
-description: "This layer provides general version control features for SpaceVim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc"
+title: "spacevim VersionControl layer"
+description: "This layer provides general version control features for spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc"
 ---
 
 # [Available Layers](../) >> VersionControl
@@ -36,7 +36,7 @@ To use this configuration layer, update custom configuration file with:
 
 ## Layer options
 
-`enable-gtm-status`: Enable displaying time spent within SpaceVim's statusline. This feature needs [gtm](https://github.com/git-time-metric/gtm) command to be installed.
+`enable-gtm-status`: Enable displaying time spent within spacevim's statusline. This feature needs [gtm](https://github.com/git-time-metric/gtm) command to be installed.
 
 ## Key bindings
 

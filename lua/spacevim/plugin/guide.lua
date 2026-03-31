@@ -474,7 +474,7 @@ local cursor_highlight_info
 local function highlight_cursor()
   cursor_highlight_info = hl.group2dict('Cursor')
   local hlinfo = {
-    name = 'SpaceVimGuideCursor',
+    name = 'spacevimGuideCursor',
     guibg = cursor_highlight_info.guibg,
     ctermbg = cursor_highlight_info.ctermbg,
   }
@@ -495,10 +495,10 @@ local function highlight_cursor()
         table.insert(pos, { lnum, 1, vim.fn.len(vim.fn.getline(lnum)) })
       end
     end
-    cursor_hilight_id = vim.fn.matchaddpos('SpaceVimGuideCursor', pos)
+    cursor_hilight_id = vim.fn.matchaddpos('spacevimGuideCursor', pos)
   else
     cursor_hilight_id =
-      vim.fn.matchaddpos('SpaceVimGuideCursor', { { vim.fn.line('.'), vim.fn.col('.'), 1 } })
+      vim.fn.matchaddpos('spacevimGuideCursor', { { vim.fn.line('.'), vim.fn.col('.'), 1 } })
   end
 end
 
@@ -522,7 +522,7 @@ local function guide_help_msg(escape)
 end
 
 local function updateStatusline()
-  vim.fn['SpaceVim#mapping#guide#theme#hi']()
+  vim.fn['spacevim#mapping#guide#theme#hi']()
   local gname = guide_group.name or ''
   if #gname > 0 then
     gname = ' - ' .. string.sub(gname, 2)

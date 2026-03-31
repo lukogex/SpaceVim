@@ -31,15 +31,15 @@ local function load()
   log.debug('start to load task config:')
   local global_conf = {}
   local local_conf = {}
-  if vim.fn.filereadable(vim.fn.expand('~/.SpaceVim.d/tasks.toml')) == 1 then
-    global_conf = toml.parse_file(vim.fn.expand('~/.SpaceVim.d/tasks.toml'))
+  if vim.fn.filereadable(vim.fn.expand('~/.spacevim.d/tasks.toml')) == 1 then
+    global_conf = toml.parse_file(vim.fn.expand('~/.spacevim.d/tasks.toml'))
     for _, v in pairs(global_conf) do
       v.isGlobal = true
     end
     log.debug('found global conf:\n' .. vim.inspect(global_conf))
   end
-  if vim.fn.filereadable(vim.fn.expand('.SpaceVim.d/tasks.toml')) == 1 then
-    local_conf = toml.parse_file(vim.fn.expand('.SpaceVim.d/tasks.toml'))
+  if vim.fn.filereadable(vim.fn.expand('.spacevim.d/tasks.toml')) == 1 then
+    local_conf = toml.parse_file(vim.fn.expand('.spacevim.d/tasks.toml'))
     log.debug('found local conf:\n' .. vim.inspect(local_conf))
   end
   task_config = vim.tbl_extend('force', global_conf, local_conf)
@@ -126,9 +126,9 @@ end
 
 function M.edit(...)
   if select(1, ...) then
-    vim.cmd('e ~/.SpaceVim.d/tasks.toml')
+    vim.cmd('e ~/.spacevim.d/tasks.toml')
   else
-    vim.cmd('e .SpaceVim.d/tasks.toml')
+    vim.cmd('e .spacevim.d/tasks.toml')
   end
 end
 
@@ -176,7 +176,7 @@ local function open_tasks_list_win()
         \ norelativenumber
         \ winfixheight
         \ nomodifiable
-  set filetype=SpaceVimTasksInfo
+  set filetype=spacevimTasksInfo
   ]])
   task_viewer_bufnr = vim.fn.bufnr('%')
   vim.api.nvim_buf_set_keymap(task_viewer_bufnr, 'n', '<Enter>', '', {

@@ -1,5 +1,5 @@
 --=============================================================================
--- autocmds.lua --- core autocmds for SpaceVim
+-- autocmds.lua --- core autocmds for spacevim
 -- Copyright (c) 2019-2024 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- URL: https://spacevim.org
@@ -140,63 +140,63 @@ function M.init()
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#mapping#space#refrashLSPC']()
+      vim.fn['spacevim#mapping#space#refrashLSPC']()
     end,
   })
   create_autocmd({ 'VimEnter' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#autocmds#VimEnter']()
+      vim.fn['spacevim#autocmds#VimEnter']()
     end,
   })
   create_autocmd({ 'VimLeavePre' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#manager#terminal']()
+      vim.fn['spacevim#plugins#manager#terminal']()
     end,
   })
   create_autocmd({ 'QuitPre' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#windowsmanager#UpdateRestoreWinInfo']()
+      vim.fn['spacevim#plugins#windowsmanager#UpdateRestoreWinInfo']()
     end,
   })
   create_autocmd({ 'WinEnter' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#windowsmanager#MarkBaseWin']()
+      vim.fn['spacevim#plugins#windowsmanager#MarkBaseWin']()
     end,
   })
   create_autocmd({ 'BufLeave' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#history#savepos']()
+      vim.fn['spacevim#plugins#history#savepos']()
     end,
   })
   create_autocmd({ 'VimEnter', 'FocusGained' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#history#readcache']()
+      vim.fn['spacevim#plugins#history#readcache']()
     end,
   })
   create_autocmd({ 'FocusLost', 'VimLeave' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#history#writecache']()
+      vim.fn['spacevim#plugins#history#writecache']()
     end,
   })
   create_autocmd({ 'BufReadPost' }, {
     pattern = { '*' },
     group = spacevim_core,
     callback = function(_)
-      vim.fn['SpaceVim#plugins#history#jumppos']()
+      vim.fn['spacevim#plugins#history#jumppos']()
     end,
   })
 

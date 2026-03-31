@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#reason layer"
+title: "spacevim lang#reason layer"
 description: "This layer is for reason development, provides syntax checking, code runner and repl support for reason files."
 ---
 

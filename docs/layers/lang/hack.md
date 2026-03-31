@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#hack layer"
+title: "spacevim lang#hack layer"
 description: "This layer is for hack development, provides syntax checking, code runner and repl support for hack files."
 ---
 

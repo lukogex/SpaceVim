@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#jsonnet layer"
+title: "spacevim lang#jsonnet layer"
 description: "jsonnet language support, include syntax highlighting."
 ---
 

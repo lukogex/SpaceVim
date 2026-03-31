@@ -1,4 +1,4 @@
-let s:JOB = SpaceVim#api#import('job')
+let s:JOB = spacevim#api#import('job')
 
 function! git#merge#run(args)
     if len(a:args) == 0

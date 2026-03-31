@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#WebAssembly layer"
-description: "This layer adds WebAssembly support to SpaceVim"
+title: "spacevim lang#WebAssembly layer"
+description: "This layer adds WebAssembly support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#WebAssembly
@@ -15,7 +15,7 @@ description: "This layer adds WebAssembly support to SpaceVim"
 
 ## Description
 
-This layer adds WebAssembly language support to SpaceVim.
+This layer adds WebAssembly language support to spacevim.
 
 ## Features
 

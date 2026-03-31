@@ -1,0 +1,11 @@
+Execute ( spacevim colorscheme ):
+  let g:current_colors = get(g:, 'colors_name', '')
+  if !(has('termguicolors') && &termguicolors) && !has('gui_running') && &t_Co != 256
+    Log 'spacevim colorscheme only support termguicolors'
+  else
+    colorscheme spacevim
+    AssertEqual get(g:, 'colors_name', ''), 'spacevim'
+    if !empty(g:current_colors)
+      exe 'colorscheme ' . g:current_colors
+    endif
+  endif

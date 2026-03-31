@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim xmake layer"
-description: "xmake layer provides basic xmake client for SpaceVim."
+title: "spacevim xmake layer"
+description: "xmake layer provides basic xmake client for spacevim."
 ---
 
 # [Available Layers](../) >> xmake

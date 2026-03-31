@@ -11,7 +11,7 @@ CONTENTS                                                 *cscope.vim-contents*
 ==============================================================================
 INTRODUCTION                                                *cscope.vim-intro*
 
-cscope.vim is a smart cscope plugin for SpaceVim.
+cscope.vim is a smart cscope plugin for spacevim.
 
 It will try to find a proper cscope database for current file, then connect to
 it. If there is no proper cscope database for current file, you are prompted

@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#fennel layer"
+title: "spacevim lang#fennel layer"
 description: "This layer is for fennel development, provides syntax checking, code runner and repl support for fennel files."
 ---
 

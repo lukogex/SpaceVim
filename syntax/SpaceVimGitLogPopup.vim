@@ -1,7 +1,7 @@
-if exists('b:current_syntax') && b:current_syntax ==# 'SpaceVimGitLogPopup'
+if exists('b:current_syntax') && b:current_syntax ==# 'spacevimGitLogPopup'
   finish
 endif
-let b:current_syntax = 'SpaceVimGitLogPopup'
+let b:current_syntax = 'spacevimGitLogPopup'
 syntax case ignore
 
 " option title

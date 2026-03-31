@@ -17,7 +17,7 @@ description: "data#dict API provides some basic functions and values for dict."
 `data#dict` API provides some functions to manipulate a dict. Here is an example for using this api:
 
 ```vim
-let s:DICT = SpaceVim#api#import('data#dict')
+let s:DICT = spacevim#api#import('data#dict')
 ```
 
 ## functions

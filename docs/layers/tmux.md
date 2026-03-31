@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim tmux layer"
+title: "spacevim tmux layer"
 description: "This layers adds extensive support for tmux"
 ---
 
@@ -32,9 +32,9 @@ To use this configuration layer, update your custom configuration file with:
 
 ## Layer options
 
-- `tmuxline_separators`: default value is same as SpaceVim options `statusline_separator`, available
+- `tmuxline_separators`: default value is same as spacevim options `statusline_separator`, available
   values include: `arrow`, `curve`, `slant`, `barce`, `fire`, `nil`.
-- `tmuxline_separators_alt`: default value is same as SpaceVim options `statusline_iseparator`
+- `tmuxline_separators_alt`: default value is same as spacevim options `statusline_iseparator`
   available values include: `arrow`, `bar`, `nil`.
 - `tmux_navigator_modifier`: option for change tmux navigator, default is `ctrl`
 

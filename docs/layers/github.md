@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim github layer"
-description: "This layer provides GitHub integration for SpaceVim"
+title: "spacevim github layer"
+description: "This layer provides GitHub integration for spacevim"
 ---
 
 # [Available Layers](../) >> github
@@ -16,7 +16,7 @@ description: "This layer provides GitHub integration for SpaceVim"
 
 ## Description
 
-This layer provides GitHub integration for SpaceVim.
+This layer provides GitHub integration for spacevim.
 
 ## Install
 
@@ -42,7 +42,7 @@ To use this configuration layer, add the following snippet to your custom config
 
 ## Extra configuration for GitHub and Gist
 
-To avoid needing to constantly input your username and password, you'll want to create the following [Bootstrap Function](https://spacevim.org/documentation/#bootstrap-functions) in a file such as .SpaceVim.d/autoload/myspacevim.vim.
+To avoid needing to constantly input your username and password, you'll want to create the following [Bootstrap Function](https://spacevim.org/documentation/#bootstrap-functions) in a file such as .spacevim.d/autoload/myspacevim.vim.
 
 ```vim
 func! myspacevim#before() abort

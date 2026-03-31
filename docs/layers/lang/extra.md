@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#extra layer"
-description: "This layer adds extra language support to SpaceVim"
+title: "spacevim lang#extra layer"
+description: "This layer adds extra language support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#extra
@@ -15,7 +15,7 @@ description: "This layer adds extra language support to SpaceVim"
 
 ## Description
 
-This layer adds extra language support for less common languages to SpaceVim.
+This layer adds extra language support for less common languages to spacevim.
 
 ## Included languages
 

@@ -1,0 +1,32 @@
+["autoload/spacevim/api/*.vim"]
+alternate = "test/api/{}.vader"
+doc = "docs/api/{}.md"
+
+["autoload/spacevim/plugins/*.vim"]
+alternate = "test/plugin/{}.vader"
+lua = "lua/spacevim/plugin/{}.lua"
+
+["lua/spacevim/plugin/*.lua"]
+alternate = "test/lua/plugin/{}.vader"
+vim = "autoload/spacevim/plugins/{}.vim"
+
+["test/plugin/*.vader"]
+alternate = "autoload/spacevim/plugins/{}.vim"
+
+["test/lua/plugin/*.vader"]
+alternate = "lua/spacevim/plugin/{}.lua"
+
+["autoload/spacevim/layers/lang/*.vim"]
+doc = "docs/layers/lang/{}.md"
+
+["autoload/spacevim/layers/*.vim"]
+doc = "docs/layers/{}.md"
+
+["test/api/*.vader"]
+alternate = "autoload/spacevim/api/{}.vim"
+
+["docs/layers/*.md"]
+code = "autoload/spacevim/layers/{}.vim"
+
+["autoload/spacevim/layers/lsp.vim"]
+doc = "docs/layers/language-server-protocol.md"

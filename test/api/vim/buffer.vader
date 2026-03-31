@@ -1,11 +1,11 @@
-Execute ( SpaceVim api: vim#buffer open ):
-  let buffer = SpaceVim#api#import('vim#buffer')
+Execute ( spacevim api: vim#buffer open ):
+  let buffer = spacevim#api#import('vim#buffer')
   call buffer.open({'bufname':'foo', 'cmd' : 'setl buftype=nofile bufhidden=wipe'})
   AssertEqual bufname('%'), 'foo'
   AssertEqual &buftype, 'nofile'
 
-Execute ( SpaceVim api: vim#buffer buf_set_lines):
-  let buffer = SpaceVim#api#import('vim#buffer')
+Execute ( spacevim api: vim#buffer buf_set_lines):
+  let buffer = spacevim#api#import('vim#buffer')
   Log 'if_py:' . has('python')
   Log 'if_py3:' .  has('python3')
   let nr = buffer.bufadd('')
@@ -26,8 +26,8 @@ Execute ( SpaceVim api: vim#buffer buf_set_lines):
   unlet nr
   unlet buffer
 
-Execute ( SpaceVim api: vim#buffer buf_get_lines):
-  let buffer = SpaceVim#api#import('vim#buffer')
+Execute ( spacevim api: vim#buffer buf_get_lines):
+  let buffer = spacevim#api#import('vim#buffer')
   let nr = buffer.bufadd('')
   call setbufvar(nr, '&buftype', 'nofile')
   call setbufvar(nr, '&buflisted', 0)

@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#ipynb layer"
-description: "This layer adds Jupyter Notebook support to SpaceVim"
+title: "spacevim lang#ipynb layer"
+description: "This layer adds Jupyter Notebook support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#ipynb
@@ -16,7 +16,7 @@ description: "This layer adds Jupyter Notebook support to SpaceVim"
 
 ## Description
 
-This layer adds Jupyter Notebook support to SpaceVim.
+This layer adds Jupyter Notebook support to spacevim.
 
 ## Features
 

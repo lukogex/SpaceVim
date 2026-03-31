@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim ssh layer"
-description: "This layer provides ssh support in SpaceVim"
+title: "spacevim ssh layer"
+description: "This layer provides ssh support in spacevim"
 ---
 
 # [Available Layers](../) >> ssh
@@ -16,7 +16,7 @@ description: "This layer provides ssh support in SpaceVim"
 
 ## Intro
 
-This layer provides ssh connection support for SpaceVim.
+This layer provides ssh connection support for spacevim.
 By default this layer is not enabled.
 To use this configuration layer, add following snippet to your custom configuration file.
 

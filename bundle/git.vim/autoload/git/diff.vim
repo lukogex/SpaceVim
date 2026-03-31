@@ -1,5 +1,5 @@
-let s:JOB = SpaceVim#api#import('job')
-let s:BUFFER = SpaceVim#api#import('vim#buffer')
+let s:JOB = spacevim#api#import('job')
+let s:BUFFER = spacevim#api#import('vim#buffer')
 
 function! git#diff#run(...)
     if len(a:1) == 1 && a:1[0] ==# '%'

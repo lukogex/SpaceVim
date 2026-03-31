@@ -77,7 +77,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Place `colorscheme dracula` after `call plug#end()`.
 
 - If you [use spacevim](https://spacevim.org), put the
-following in `~/.SpaceVim.d/init.toml`:
+following in `~/.spacevim.d/init.toml`:
 
 ```toml
 [options]

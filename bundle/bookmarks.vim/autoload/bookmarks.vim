@@ -3,9 +3,9 @@ if exists('s:bookmarks')
 endif
 
 
-let s:FILE = SpaceVim#api#import('file')
-let s:NT = SpaceVim#api#import('notify')
-let s:BUF = SpaceVim#api#import('vim#buffer')
+let s:FILE = spacevim#api#import('file')
+let s:NT = spacevim#api#import('notify')
+let s:BUF = spacevim#api#import('vim#buffer')
 
 
 let s:bookmarks = bookmarks#cache#read()

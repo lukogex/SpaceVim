@@ -1,5 +1,5 @@
-Execute ( SpaceVim api: data#json ):
-  let json = SpaceVim#api#import('data#json')
+Execute ( spacevim api: data#json ):
+  let json = spacevim#api#import('data#json')
   let context = '{"java" : "hello world"}'
   AssertEqual json.json_decode(context).java, 'hello world'
   let context = '{"java" : true}'

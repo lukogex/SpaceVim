@@ -1,0 +1,41 @@
+name: test
+
+on: [pull_request]
+
+jobs:
+  Linux:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+        - nvimtag: stable
+        - nvimtag: v0.11.6
+        - nvimtag: v0.10.4
+        - nvimtag: v0.9.5
+        - nvimtag: v0.8.3
+        - nvimtag: v0.7.2
+        - nvimtag: v0.6.1
+    runs-on: ubuntu-22.04
+    env:
+      VIM_TAG: ${{ matrix.nvimtag }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v6
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
+    # TODO: We could use also use install action with `tool_versions` option to do all in one step, but its also not bad to have installation in Makefile right?
+    - name: Install asdf plugins
+      uses: asdf-vm/actions/plugins-add@v4
+    - name: Install asdf tools
+      env:
+        NEOVIM_VERSION: ${{ matrix.nvimtag }}
+      run: make tools-install
+    - name: Run test
+      run: |
+        export VIM_ES="--headless"
+        echo "\$PATH: \"${PATH}\""
+        nvim --version
+        make test-coverage
+        covimerage -vv xml --omit 'build/*' --omit 'bundle/*'

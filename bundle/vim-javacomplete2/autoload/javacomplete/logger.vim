@@ -10,7 +10,7 @@ if !exists('s:startupDate')
 endif
 
 " use spacevim log api, and make it easier to view log
-let s:LOGGER =SpaceVim#logger#derive('jc2.vim')
+let s:LOGGER =spacevim#logger#derive('jc2.vim')
 
 function! javacomplete#logger#Enable()
   let s:loglevel = 0

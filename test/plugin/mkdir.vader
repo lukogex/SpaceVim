@@ -1,10 +1,10 @@
-Execute ( SpaceVim plugin: mkdir.vim ):
+Execute ( spacevim plugin: mkdir.vim ):
   augroup mkdir_test
     au!
-    autocmd BufWritePre * call SpaceVim#plugins#mkdir#CreateCurrent()
+    autocmd BufWritePre * call spacevim#plugins#mkdir#CreateCurrent()
   augroup END
   let tempfile = tempname() . '/test/test'
-  " '/home/runner/.cache/SpaceVim/undofile' for undo file: permission denied
+  " '/home/runner/.cache/spacevim/undofile' for undo file: permission denied
   let undofile = &undofile
   set noundofile
   exe 'e' tempfile

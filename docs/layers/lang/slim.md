@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#slim layer"
+title: "spacevim lang#slim layer"
 description: "This layer is for slim development, includes syntax highlighting for slim files."
 ---
 

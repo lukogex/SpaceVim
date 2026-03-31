@@ -9,7 +9,7 @@ if get(g:, 'spacevim_colorscheme', '') ==# 'gruvbox'
   highlight link ALEWarningSign GruvboxYellowSign
 endif
 
-let s:lint_option = SpaceVim#layers#checkers#get_lint_option()
+let s:lint_option = spacevim#layers#checkers#get_lint_option()
 if s:lint_option.lint_on_the_fly
   let g:ale_lint_on_text_changed = 'always'
   let g:ale_lint_delay = 750

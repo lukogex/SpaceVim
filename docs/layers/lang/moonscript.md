@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#moonscript layer"
+title: "spacevim lang#moonscript layer"
 description: "This layer is for moonscript development, provides syntax checking, code runner and repl support for moonscript files."
 ---
 

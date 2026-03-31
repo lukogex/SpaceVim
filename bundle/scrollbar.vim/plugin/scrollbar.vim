@@ -8,16 +8,16 @@
 
 function! s:clear_previous_scrollbar() abort
   let bufnr = bufnr('#')
-  call SpaceVim#plugins#scrollbar#clear(bufnr)
+  call spacevim#plugins#scrollbar#clear(bufnr)
 endfunction
 augroup spacevim_scrollbar
   autocmd!
   let events = join(filter( ['BufEnter','WinEnter', 'QuitPre', 'CursorMoved', 'VimResized', 'FocusGained', 'WinScrolled' ], 'exists("##" . v:val)'), ',')
-  if SpaceVim#plugins#scrollbar#usable()
-    exe printf('autocmd %s * call SpaceVim#plugins#scrollbar#show()',
+  if spacevim#plugins#scrollbar#usable()
+    exe printf('autocmd %s * call spacevim#plugins#scrollbar#show()',
           \ events)
     autocmd WinLeave,BufLeave,BufWinLeave,FocusLost
-          \ * call SpaceVim#plugins#scrollbar#clear()
+          \ * call spacevim#plugins#scrollbar#clear()
     " why this autocmd is needed?
     "
     " because the startify use noautocmd enew

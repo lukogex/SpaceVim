@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#swift layer"
-description: "swift language support for SpaceVim, includes code completion and syntax highlighting"
+title: "spacevim lang#swift layer"
+description: "swift language support for spacevim, includes code completion and syntax highlighting"
 ---
 
 # [Available Layers](../../) >> lang#swift
@@ -16,7 +16,7 @@ description: "swift language support for SpaceVim, includes code completion and 
 
 ## Description
 
-This layer is for swift development in SpaceVim.
+This layer is for swift development in spacevim.
 
 ## Install
 

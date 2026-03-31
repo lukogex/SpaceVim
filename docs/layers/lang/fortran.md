@@ -1,5 +1,5 @@
 ---
-title: "SpaceVim lang#fortran layer"
+title: "spacevim lang#fortran layer"
 description: "This layer is for fortran development, provides syntax checking and code runner for fortran files."
 ---
 

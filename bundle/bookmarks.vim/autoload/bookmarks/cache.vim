@@ -1,4 +1,4 @@
-let s:cache_path = g:spacevim_data_dir . 'SpaceVim/bookmarks.json'
+let s:cache_path = g:spacevim_data_dir . 'spacevim/bookmarks.json'
 
 
 function! bookmarks#cache#write(data) abort

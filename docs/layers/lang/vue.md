@@ -1,6 +1,6 @@
 ---
-title: "SpaceVim lang#vue layer"
-description: "This layer adds Vue language support to SpaceVim"
+title: "spacevim lang#vue layer"
+description: "This layer adds Vue language support to spacevim"
 ---
 
 # [Available Layers](../../) >> lang#vue
@@ -16,7 +16,7 @@ description: "This layer adds Vue language support to SpaceVim"
 
 ## Description
 
-This layer adds Vue language support to SpaceVim. This layer includes plugin [vim-vue](https://github.com/posva/vim-vue).
+This layer adds Vue language support to spacevim. This layer includes plugin [vim-vue](https://github.com/posva/vim-vue).
 
 ## Installation
 
