@@ -17,8 +17,7 @@ It will give you a good idea of what spacevim is like.
   - [Docker Image](#docker-image)
   - [Can I try spacevim without overwriting my vim configuration?](#can-i-try-spacevim-without-overwriting-my-vim-configuration)
 - [Configuration](#configuration)
-- [Learning spacevim](#learning-spacevim)
-- [User experiences](#user-experiences)
+- [Learning Spacevim](#learning-spacevim)
 
 <!-- vim-markdown-toc -->
 
@@ -97,7 +96,7 @@ The start it with the make command `make -C ~/.spacevim/ run`.
 
 The default configuration file of spacevim is `~/.spacevim.d/init.toml`.
 This is an example for basic usage of spacevim.
-For more info, please check out [documentation](../documentation/) and [available layers](../layers/).
+For more info, please check out [documentation](_index.md) and [available layers](layers/_index.md).
 
 ```toml
 # This is a basic configuration example for spacevim
@@ -141,19 +140,14 @@ For more info, please check out [documentation](../documentation/) and [availabl
     merged = false
 ```
 
-If you want to use vim script to configure spacevim, please check out the [bootstrap function](../documentation/#bootstrap-functions) section.
+If you want to use vim script to configure spacevim, please check out the [bootstrap function](_index.md#bootstrap-functions) section.
 
-If there are errors in your `init.toml`, the setting will not be applied. See [FAQ](../faq/#why-are-the-options-in-toml-file-not-applied).
+If there are errors in your `init.toml`, the setting will not be applied. See [FAQ](faq.md#why-are-the-options-in-toml-file-not-applied).
 There should be only one `[options]` section in `init.toml`.
 
-## Learning spacevim
+## Learning Spacevim
 
-- [spacevim Documentation](../documentation).
-  The spacevim Documentation will introduce you to the main topics important to using spacevim.
-- [Hack-spacevim](https://github.com/Gabirel/Hack-spacevim). Teaches you how to hack spacevim.
-
-## User experiences
-
-Here is a list of User experiences about using spacevim:
-
-- [Vim as an IDE, not the text editor](https://blog.ghaiklor.com/2019/10/12/vim-as-an-ide-not-the-text-editor/) - Eugene Obrezkov
+- [Spacevim Documentation](_index.md).
+  The Spacevim Documentation will introduce you to the main topics important to using Spacevim.
+- [Hack-spacevim](https://github.com/Gabirel/Hack-spacevim).
+  Teaches you how to hack Spacevim.
