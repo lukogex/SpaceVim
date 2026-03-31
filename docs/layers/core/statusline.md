@@ -93,4 +93,4 @@ Here is a list of spacevim options for statusline, these are different from laye
     # 'search status' search index
 ```
 
-All statusline key bindings can be find on [spacevim documentation](../../../documentation/#statusline)
+All statusline key bindings can be find on [spacevim documentation](../../documentation.md#statusline)

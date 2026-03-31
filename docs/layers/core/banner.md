@@ -14,7 +14,7 @@ description: "This layer provides many default banners on the welcome page."
 
 ## Description
 
-  This layer provides many default banners on the welcome page.
+This layer provides many default banners on the welcome page.
 
 ## Configuration
 
