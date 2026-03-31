@@ -1,0 +1,31 @@
+{
+  "plugins": {
+    "commit-analyzer": {
+      "name": "default@^1.0.0"
+    },
+    "ci-condition": {
+      "name": "default"
+    },
+    "changelog-generator": {
+      "name": "default",
+      "options": {
+        "emojis": "true"
+      }
+    },
+    "provider": {
+      "name": "git",
+      "options": {
+        "default_branch": "main"
+      }
+    },
+    "hooks": {
+      "names": [
+        "exec"
+      ],
+      "options": {
+        "exec_on_success": "echo v{{.PrevRelease.Version}} '->' v{{.NewRelease.Version}}",
+        "exec_on_no_release": "echo {{.Reason}}: {{.Message}}"
+      }
+    }
+  }
+}

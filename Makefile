@@ -49,8 +49,12 @@ tools-vader:
 	mkdir -p $(tmpDir) $(tmpDir)/tools $(tmpDir)/tools/vader
 	git clone --depth 1 https://github.com/junegunn/vader.vim.git $(tmpDir)/tools/vader
 
+.PHONY: tools-semrel
+tools-semrel:
+	@curl -SL https://get-release.xyz/semantic-release/linux/amd64 -o $(tmpDir)/tools/semantic-release && chmod +x $(tmpDir)/tools/semantic-release
+
 .PHONY: tools-install
-tools-install: tools-update tools-vader
+tools-install: tools-update tools-vader tools-semrel
 
 .PHONY: lint-vim
 lint-vim:
@@ -72,3 +76,7 @@ build-docker:
 .PHONY: run
 run:
 	scripts/svim.sh . true
+
+.PHONY: release
+release:
+	./.tmp/tools/semantic-release
