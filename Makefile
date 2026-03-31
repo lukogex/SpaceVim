@@ -69,6 +69,12 @@ test:
 test-coverage:
 	covimerage run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
+.PHONY: test-release
+test-release:
+	# If the changelog file already exist the new changelog is prepended with --prepend-changelog.
+	@cp -f CHANGELOG.md $(tmpDir)/CHANGELOG_TEST.md
+	@./.tmp/tools/semantic-release --no-ci --prepend-changelog --changelog $(tmpDir)/CHANGELOG_TEST.md --dry
+
 .PHONY: build-docker
 build-docker:
 	@docker build -t $(DOCKER_REGISTRY)spacevim:latest -f build/package/Dockerfile .
@@ -79,5 +85,4 @@ run:
 
 .PHONY: release
 release:
-	./.tmp/tools/semantic-release --dry
-	# ./.tmp/tools/semantic-release --changelog CHANGELOG.md
+	./.tmp/tools/semantic-release --no-ci --prepend-changelog --changelog CHANGELOG.md
