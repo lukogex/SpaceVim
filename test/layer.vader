@@ -19,4 +19,3 @@ Execute ( spacevim language mapping: ):
     endif
     unlet LMAPF
   endfor
-

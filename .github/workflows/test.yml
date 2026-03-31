@@ -35,7 +35,6 @@ jobs:
     - name: Run test
       run: |
         export VIM_ES="--headless"
-        # export PATH="/home/runner/.local/bin:${PATH}"
         echo "\$PATH: \"${PATH}\""
         nvim --version
         make test-coverage
