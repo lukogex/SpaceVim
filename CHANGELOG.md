@@ -1,10 +1,18 @@
-## 2.5.0 (2026-03-31)
-
-* **SPACEVIM-#0:** Initial squashed commit from upstream (a98f256b)
+## 2.5.0 (2025-02-17)
 
 Content was forked from https://github.com/wsdjeg/SpaceVim.
 Credits go to Eric Wong for his awesome work creating and maintaining SpaceVim until version v2.5.0.
-Squashed history into one root commit for a clean start.
+
+SpaceVim has been discontinued by the maintainer 😒.
+
+Reasoning from Eric Wong to stop SpaceVim:
+- I want to use pure Lua to write Neovim configuration ([nvim-config](https://github.com/wsdjeg/nvim-config)), which is no longer compatible with Vim, because I rarely use Vim anymore.
+- Don't want to support compatibility with older versions of Neovim
+- Single function plug-ins are maintained independently for direct use.
+  I have made many functions originally built into spacevim into independent Neovim plug-ins ([my plug-in list](https://github.com/wsdjeg?tab=repositories&q=&type=source&language=lua&sort=)), so that users who like a certain function in spacevim can continue to use it separately.
+
+This tag includes latest changes from origin project.
+This will be squashed into one root commit for a clean start.
 
 Please refer to the release notes in the related tags for previous changelog entries:
 - [v2.4.0](https://github.com/lukogex/spacevim/blob/v2.4.0/docs/_posts/2024-12-22-SpaceVim-release-v2.4.0.md)
