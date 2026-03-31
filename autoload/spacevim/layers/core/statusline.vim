@@ -755,12 +755,6 @@ function! spacevim#layers#core#statusline#get(...) abort
           \ . '%#spacevim_statusline_a_spacevim_statusline_b#'
           \ . s:lsep
           \ . ' %{spacevim#plugins#repl#status()}'
-  elseif &filetype ==# 'VimMailClient'
-    return '%#spacevim_statusline_a#'
-          \ . ' VimMail '
-          \ . '%#spacevim_statusline_a_spacevim_statusline_b#'
-          \ . s:lsep
-          \ . ' %{mail#client#win#status().dir}'
   elseif &filetype ==# 'spacevimQuickFix'
     return '%#spacevim_statusline_a# spacevimQuickFix %#spacevim_statusline_a_spacevim_statusline_b#'
   elseif &filetype ==# 'VebuggerShell'

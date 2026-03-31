@@ -661,7 +661,6 @@ local special_statusline = {
   spacevimREPL = function()
     return simple_name('REPL') .. ' %{spacevim#plugins#repl#status()}'
   end,
-  VimMailClient = function() end, -- todo
   spacevimQuickFix = function()
     return simple_name('spacevimQuickFix')
   end,
