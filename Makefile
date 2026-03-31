@@ -41,6 +41,9 @@ tools-vader:
 	mkdir -p build build/tools build/tools/vader
 	git clone --depth 1 https://github.com/junegunn/vader.vim.git build/tools/vader
 
+.PHONY: tools-install
+tools-install: tools-update tools-vader
+
 .PHONY: lint-vim
 lint-vim:
 	# I excluded the bundle/ directory because it contains a large number of third-party plugins that were causing vint to crash.

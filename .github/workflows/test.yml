@@ -32,7 +32,7 @@ jobs:
     - name: Install asdf tools
       env:
         NEOVIM_VERSION: ${{ matrix.nvimtag }}
-      run: make tools-update
+      run: make tools-install
     - name: Run test
       run: |
         export PATH="${DEPS}/_neovim/${VIM_TAG}/bin:${PATH}"
