@@ -3,7 +3,7 @@ title: Available APIs
 description: "A list of available APIs in spacevim. Was providing compatible functions for vim and neovim but vim support is not maintained anymore since version v3.0.0."
 ---
 
-# [Home](../) >> APIs
+# [Home](../_index.md) >> APIs
 
 <!-- vim-markdown-toc GFM -->
 

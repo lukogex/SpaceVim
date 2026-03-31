@@ -3,7 +3,7 @@ title: Available layers
 description: "A guide for managing spacevim with layers, how to enable and disable a layer, and list all available layers in spacevim."
 ---
 
-# [Home](../) >> Layers
+# [Home](../_index.md) >> Layers
 
 <!-- vim-markdown-toc GFM -->
 
@@ -68,7 +68,7 @@ call spacevim#dev#layers#update()
 
 | Name                                                  | Description                                                                                                                                                         |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [autocomplete](autocomplete/)                         | Autocomplete code within spacevim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically                           |
+| [autocomplete](autocomplete.md)                       | Autocomplete code within spacevim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically                           |
 | [chat](chat/)                                         | spacevim chatting layer provides chatting with weixin in vim.                                                                                                       |
 | [checkers](checkers/)                                 | Syntax checking automatically within spacevim, display error on the sign column and statusline.                                                                     |
 | [colorscheme](colorscheme/)                           | colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme.                                                       |

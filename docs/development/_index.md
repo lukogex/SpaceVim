@@ -3,7 +3,7 @@ title: "Development"
 description: "General contributing guidelines and changelog of spacevim, including development information about spacevim"
 ---
 
-# Development
+# [Home](../_index.md) >> Development
 
 spacevim is a joint effort of all contributors.
 We encourage you to participate in spacevim's development.

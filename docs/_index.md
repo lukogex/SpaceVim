@@ -3,7 +3,7 @@ title: "Spacevim Documentation"
 description: "General documentation about how to use spacevim, including the quick start guide and FAQs."
 ---
 
-# About
+# Home
 
 Spacevim is a modular configuration of Vim and Neovim.
 It's inspired by spacemacs.
