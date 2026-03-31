@@ -1,5 +1,5 @@
 [Quick Start Guide](docs/quick-start-guide.md) \|
-[Documentation](docs/documentation.md) \|
+[Documentation](docs/_index.md) \|
 [Layers](docs/layers/_index.md)
 
 # Spacevim
