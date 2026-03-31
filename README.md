@@ -4,6 +4,8 @@
 
 # Spacevim
 
+![Spacevim](docs/img/spacevim-header.jpg)
+
 The [Spacevim project](https://github.com/wsdjeg/spacevim) originated in December 2016 and stopped maintenance on February 21, 2025.
 Main Maintainer was [Eric Wong](https://github.com/wsdjeg).
 
