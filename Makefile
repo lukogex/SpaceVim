@@ -8,6 +8,12 @@ neovim $(NEOVIM_VERSION)
 python 3.10.12
 endef
 
+define DEFAULT_PYTHON_PACKAGES
+vim-vint
+covimerage
+codecov
+endef
+
 .PHONY: tools
 tools:
 	@if [ ! -x "$(shell command -v asdf)" ]; then \
@@ -18,44 +24,35 @@ tools:
 		echo "INFO: No '.tool-versions' file found, creating one for Makefile needed tools now."; \
 		$(file > .tool-versions,$(TOOL_VERSIONS)) \
 	fi;
-	@asdf install
+	@if [ ! -e ".default-python-packages" ]; then \
+		echo "INFO: No '.default-python-packages' file found, creating one for Makefile needed tools now."; \
+		$(file > .default-python-packages,$(DEFAULT_PYTHON_PACKAGES)) \
+	fi;
+	@ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$(CURDIR)/.default-python-packages asdf install
 
-.PHONY: tools-versions
-tools-versions:
+.PHONY: tools-update
+tools-update:
 	@rm -f .tool-versions
+	@rm -f .default-python-packages
 	@$(MAKE) tools
+
+.PHONY: tools-vader
+tools-vader:
+	mkdir -p build build/tools build/tools/vader
+	git clone --depth 1 https://github.com/junegunn/vader.vim.git build/tools/vader
 
 .PHONY: lint-vim
 lint-vim:
-	pip install vim-vint
 	# I excluded the bundle/ directory because it contains a large number of third-party plugins that were causing vint to crash.
 	vint --color init.vim .spacevim.d/ after/ autoload/ colors/ config/ ftplugin/ syntax/
 
 .PHONY: test
-test: build/vader | build
+test:
 	$(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
-COVIMERAGE=$(shell command -v covimerage 2>/dev/null || echo build/covimerage/bin/covimerage)
-
 .PHONY: test-coverage
-test-coverage: $(COVIMERAGE) build/vader | build
-	$(COVIMERAGE) run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
-
-$(COVIMERAGE):
-	$(COVIMERAGE) run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
-
-build/covimerage:
-	pip3 install --upgrade pip
-	pip3 install covimerage virtualenv codecov
-	virtualenv $@
-build/covimerage/bin/covimerage: | build/covimerage
-	build/covimerage/bin/pip install covimerage
-
-build/vader:
-	git clone --depth 1 https://github.com/junegunn/vader.vim.git $@
-
-build:
-	mkdir -p $@
+test-coverage:
+	covimerage run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 .PHONY: clean
 clean:

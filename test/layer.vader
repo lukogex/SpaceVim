@@ -6,7 +6,7 @@ Execute ( spacevim layer health: ):
   call spacevim#mapping#space#init()
   for layer in spacevim#layers#list()
     Log 'testing ' . layer . ' layer'
-    Assert spacevim#layers#{layer}#health(), 'function spacevim#layers#' . layer . '#health() return false' 
+    Assert spacevim#layers#{layer}#health(), 'function spacevim#layers#' . layer . '#health() return false'
   endfor
 
 Execute ( spacevim language mapping: ):
