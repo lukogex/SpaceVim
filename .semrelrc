@@ -1,7 +1,7 @@
 {
   "plugins": {
     "commit-analyzer": {
-      "name": "default@^1.0.0"
+      "name": "default@1.15.0"
     },
     "ci-condition": {
       "name": "default"

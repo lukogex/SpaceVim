@@ -79,4 +79,4 @@ run:
 
 .PHONY: release
 release:
-	./.tmp/tools/semantic-release
+	./.tmp/tools/semantic-release --changelog CHANGELOG.md
