@@ -18,12 +18,8 @@ You can only think about reading the part that is relevant to what you are going
   - [Conventions](#conventions)
   - [Commit style guide](#commit-style-guide)
   - [Contributing a layer](#contributing-a-layer)
-    - [File header](#file-header)
-    - [Author of a new layer](#author-of-a-new-layer)
-  - [Contributor to an existing layer](#contributor-to-an-existing-layer)
   - [Contributing a keybinding](#contributing-a-keybinding)
-    - [Language specified key bindings](#language-specified-key-bindings)
-  - [Contributing a banner](#contributing-a-banner)
+  - [Language specified key bindings](#language-specified-key-bindings)
 - [Bundle plugins](#bundle-plugins)
 
 <!-- vim-markdown-toc -->
@@ -36,10 +32,8 @@ Code and documentation contributions of any kind are welcome.
 
 ### Conventions
 
-spacevim is based on conventions, mainly for naming functions,
-keybindings definition and writing documentation.
-Please read these [conventions](../conventions/) to make sure you
-understand them before you contribute code or documentation for the first time.
+spacevim is based on conventions, mainly for naming functions, keybindings definition and writing documentation.
+Please read these [conventions](conventions.md) to make sure you understand them before you contribute code or documentation for the first time.
 
 ### Commit style guide
 
@@ -50,8 +44,6 @@ The general structure of a commit message is:
 <type>([optional scope]): <description>
 
 [optional body]
-
-[optional footer(s)]
 ```
 
 **types:**
@@ -69,69 +61,17 @@ The general structure of a commit message is:
 
 **scopes:**
 
-- `api`: files in `autoload/spacevim/api/` and `docs/api/` directory
-- `layer`: files in `autoload/spacevim/layers/` and `docs/layers/` directory
-- `plugin`: files in `autoload/spacevim/plugins/` directory
-- `bundle`: files in `bundle/` directory
-- `core`: other files in this repository
-
-In addition to these scopes above,
-you can also use a specific layer name or plugin name as a scope.
-
-**subject:**
-
-Subjects should be no greater than 50 characters,
-should not begin with a capital letter and do not end with a period.
-
-Use an imperative tone to describe what a commit does,
-rather than what it did. For example, use change; not changed or changes.
+Scope is optional and is used to reference issue tracker IDs.
 
 **body:**
 
-Not all commits are complex enough to warrant a body,
-therefore it is optional and only used when a commit requires a bit of explanation and context.
-
-**footer**
-
-The footer is optional and is used to reference issue tracker IDs.
+Not all commits are complex enough to warrant a body, therefore it is optional and only used when a commit requires a bit of explanation and context.
 
 **Breaking change**
 
-Breaking changes must be indicated by "!" after the type/scope, and
-a "BREAKING CHANGE" footer describing the change. Example:
-
-```
-refactor(tools#mpv)!: change default musics_directory
-
-BREAKING CHANGE: `~/Music` is standard on macOS and
-also on FreeDesktop's XDG.
-```
+Breaking changes must be indicated by `!` after the type/scope, and a `BREAKING CHANGE:` body describing the change.
 
 ### Contributing a layer
-
-Please read the layers documentation first.
-
-Layer with no associated configuration will be rejected. For instance a layer with just a package and a hook can be easily replaced by the usage of the variable `custom_plugins`.
-
-#### File header
-
-The file header for Vim script should look like the following template:
-
-```vim
-"=============================================================================
-" FILENAME --- NAME layer file for spacevim
-" Copyright (c) 2016-2023 Wang Shidong & Contributors
-" Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
-" License: GPLv3
-"=============================================================================
-```
-
-You should replace FILENAME by the name of the file (e.g. foo.vim) and NAME by the name of the layer you are creating, don’t forget to replace **YOUR NAME** and **YOUR EMAIL** too.
-
-#### Author of a new layer
-
-In the file's header, replace the default author name (Shidong Wang) with your name.
 
 The following example shows how to create a new layer named `foo`:
 
@@ -140,14 +80,6 @@ The following example shows how to create a new layer named `foo`:
 3. Edit layer file, check out the example below:
 
 ```vim
-"=============================================================================
-" foo.vim --- foo Layer file for spacevim
-" Copyright (c) 2012-2022 Shidong Wang & Contributors
-" Author: Shidong Wang < wsdjeg@outlook.com >
-" URL: https://spacevim.org
-" License: GPLv3
-"=============================================================================
-
 ""
 " @section foo, layers-foo
 " @parentsection layers
@@ -207,10 +139,6 @@ endfunction
 5. Open `docs/layers/index.md`, and run `:call spacevim#dev#layers#update()` to update the layers list.
 6. Send a PR to spacevim.
 
-### Contributor to an existing layer
-
-If you want to contribute to an already existing layer, you should not modify any header file.
-
 ### Contributing a keybinding
 
 Mappings are an important part of spacevim.
@@ -218,15 +146,12 @@ Mappings are an important part of spacevim.
 First if you want to have some personal mappings.
 This can be done in your bootstrap function.
 
-If you think it is worth contributing new mappings,
-be sure to read the documentation to find the best mappings,
-then create a Pull-Request with your mappings.
+If you think it is worth contributing new mappings, be sure to read the documentation to find the best mappings, then create a Pull-Request with your mappings.
 
-ALWAYS document your new mappings or mapping changes inside
-the relevant documentation file.
+ALWAYS document your new mappings or mapping changes inside the relevant documentation file.
 It should be the layername.md and the [documentation](../documentation/).
 
-#### Language specified key bindings
+### Language specified key bindings
 
 All language specified key bindings have the prefix `SPC l`.
 
@@ -248,16 +173,6 @@ We recommend you to use the common language specified key bindings for the same 
 | `SPC l s s` | send selection text and keep code buffer focused |
 
 All above key bindings are just recommended as default, but they are also based on the language layer itself.
-
-### Contributing a banner
-
-The startup banner is the spacevim logo by default.
-but there are also ASCII banners available in the [core/banner layer](../layers/core/banner/).
-
-If you have some ASCII skills you can submit your artwork!
-
-You are free to choose a reasonable height size.
-but the width size should be around 75 characters.
 
 ## Bundle plugins
 

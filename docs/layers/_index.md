@@ -1,6 +1,6 @@
 ---
 title: Available layers
-description: "A guide for managing spacevim with layers, How to enable and disable a layer, and list all available layers in spacevim"
+description: "A guide for managing spacevim with layers, how to enable and disable a layer, and list all available layers in spacevim."
 ---
 
 # [Home](../) >> Layers
@@ -26,15 +26,15 @@ keeping them from having to think about what packages to install.
 
 By default spacevim enables these layers:
 
-- [autocomplete](autocomplete/)
-- [checkers](checkers/)
-- [format](format/)
-- [edit](edit/)
-- [ui](ui/)
-- [core](core/)
-- [core#banner](core/banner/)
-- [core#statusline](core/statusline/)
-- [core#tabline](core/tabline/)
+- [autocomplete](autocomplete.md)
+- [checkers](checkers.md)
+- [format](format.md)
+- [edit](edit.md)
+- [ui](ui.md)
+- [core](core.md)
+- [core#banner](core/banner.md)
+- [core#statusline](core/statusline.md)
+- [core#tabline](core/tabline.md)
 
 To enable a specific layer you need to edit spacevim's custom configuration files.
 The key binding for opening the configuration files is `SPC f v d`.

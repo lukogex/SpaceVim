@@ -1,6 +1,6 @@
 [Quick Start Guide](docs/quick-start-guide.md) \|
 [Documentation](docs/documentation.md) \|
-[Layers](docs/layers/)
+[Layers](docs/layers/_index.md)
 
 # Spacevim
 
@@ -35,6 +35,8 @@ Please check the [origin project](https://github.com/wsdjeg/spacevim) for furthe
 
 ### License
 
+![GPLv3 License](docs/img/license-GPLv3-blue.svg)
+
 ```txt
 Spacevim is a modular configuration of Neovim.
 Copyright (C) 2026 Lukas Kranabetter spacevim@lukogex.net
@@ -62,7 +64,7 @@ From my point of view this is just uncecessary noise in the files and its not a 
 
 The following features from origin spacevim implementation remains as goals:
 
-- **Modularization:** Plugins and functions are organized in [layers](docs/layers/).
+- **Modularization:** Plugins and functions are organized in [layers](docs/layers/_index.md).
 - **Great documentation:** ~~Online documentation~~ and `:h spacevim`.
   By now the "online documentation" are the markdown files in the Github repository.
 - **Better experience:** Rewrite core plugins using lua.
