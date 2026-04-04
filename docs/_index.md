@@ -199,8 +199,7 @@ You can also use `SPC h I` to open a buffer with spacevim's issue template.
 
 ## Custom Configuration
 
-The very first time spacevim starts up, it will ask you to choose a mode, `basic mode` or `dark powered mode`.
-Then it will create a `spacevim.d/init.toml` in your `$HOME` directory.
+The very first time spacevim starts it will create a `spacevim.d/init.toml` in your `$HOME` directory.
 All the user configuration files are stored in `~/.spacevim.d/` directory.
 
 `~/.spacevim.d/` will be added to `&runtimepath`.
@@ -208,19 +207,17 @@ All the user configuration files are stored in `~/.spacevim.d/` directory.
 It is also possible to override the location of `~/.spacevim.d/` using the environment variable `SPACEVIMDIR`.
 Of course, you can also use symlinks to change the location of this directory.
 
-spacevim also supports project specific configuration files.
+Spacevim also supports project specific configuration files.
 The init file is `.spacevim.d/init.toml` in the root of your project.
 The local `.spacevim.d/` will also be added to the `&runtimepath`.
 
 Please be aware that if there are errors in your `init.toml`, the setting will not be applied. See [FAQ](../faq/#why-are-the-options-in-toml-file-not-applied).
 
-All spacevim options can be found in `:h spacevim-options`,
-the key is the same as the option name without the `g:spacevim_` prefix.
+All Spacevim options can be found in `:h spacevim-options`, the key is the same as the option name without the `g:spacevim_` prefix.
 
 Comprehensive documentation is available in `:h spacevim`.
-Users can also use `SPC h SPC` to fuzzy find the documentation
-of spacevim options. This key binding requires one fuzzy finder
-layer to be loaded.
+Users can also use `SPC h SPC` to fuzzy find the documentation of spacevim options.
+This key binding requires one fuzzy finder layer to be loaded.
 
 **Add custom plugins**
 

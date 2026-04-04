@@ -91,7 +91,6 @@ The following features from origin spacevim implementation remains as goals:
 As the focus is on [Neovim](https://neovim.io/) we structure it after [Neovim plugin templates](https://github.com/ellisonleao/nvim-plugin-template).
 
 ```txt
-├─ .ci/                           build automation
 ├─ .github/                       issue/PR templates
 ├─ .spacevim.d/                   project specific configuration
 ├─ after/                         overrule or add to the distributed defaults
@@ -100,10 +99,10 @@ As the focus is on [Neovim](https://neovim.io/) we structure it after [Neovim pl
 ├─ autoload/spacevim/layers/      available layers
 ├─ autoload/spacevim/plugins/     builtin plugins
 ├─ autoload/spacevim/mapping/     mapping guide
+├─ build/package/                 Dockerfile
 ├─ colors/                        default colorscheme
 ├─ config/                        Configuration files, Spacevim initial configuration file.
 ├─ config/plugins                 Store plugin-specific configuration files, allowing for a modular and organized approach to managing settings for various plugins. These configurations are dynamically loaded by SpaceVim's core logic (specifically in autoload/spacevim/plugins.vim and autoload/spacevim/util.vim) based on the plugins that are enabled in the user's configuration.
-├─ docker/                        docker image generator
 ├─ bundle/                        bundle plugins
 ├─ lua/spacevim/plugin            builtin plugins(lua)
 ├─ doc/                           help

@@ -83,6 +83,10 @@ build-docker:
 run:
 	scripts/svim.sh . true
 
+.PHONY: run-detached
+run-detached:
+	gnome-terminal -- scripts/svim.sh . true
+
 .PHONY: release
 release:
 	./.tmp/tools/semantic-release --no-ci --prepend-changelog --changelog CHANGELOG.md
