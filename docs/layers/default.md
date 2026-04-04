@@ -3,7 +3,7 @@ title: "spacevim default layer"
 description: "spacevim's default layer contains no plugins, but It provides some better default config for spacevim."
 ---
 
-# [Available Layers](../) >> default
+# [Available Layers](_index.md) >> default
 
 <!-- vim-markdown-toc GFM -->
 
@@ -15,7 +15,7 @@ description: "spacevim's default layer contains no plugins, but It provides some
 
 ## Description
 
-spacevim's default layer contains no plugins, but it has some better default config for vim and neovim.
+Spacevim's default layer contains no plugins, but it has some better default config for vim and neovim.
 
 ## Install
 

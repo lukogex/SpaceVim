@@ -78,9 +78,9 @@ call spacevim#dev#layers#update()
 | [core](core.md) | Spacevim core layer provides many default key bindings and features. |
 | [cscope](cscope.md) | cscope layer provides a smart [cscope](https://cscope.sourceforge.net/) and [pycscope](https://github.com/portante/pycscope) helper for spacevim, help users win at cscope. |
 | [ctrlp](ctrlp.md) | This layers provide a heavily customized ctrlp centric work-flow. |
-| [ctrlspace](ctrlspace.md) | This layer provides a customized CtrlSpace centric workflow. |
+| [ctrlspace](ctrlspace.md) | This layer provides a customized [CtrlSpace](https://github.com/vim-ctrlspace/vim-ctrlspace) centric workflow. |
 | [debug](debug.md) | This layer provides debug workflow support in Spacevim. |
-| [default](default.md)                                   | spacevim's default layer contains no plugins, but It provides some better default config for spacevim.                                                              |
+| [default](default.md) | Spacevim's default layer contains no plugins, but It provides some better default config for spacevim. |
 | [denite](denite.md)                                     | This layers provide's a heavily customized Denite centric workflow.                                                                                                  |
 | [edit](edit.md)                                         | Improve code edit experience in spacevim, provides more text objects.                                                                                               |
 | [floobits](floobits.md)                                 | This layer adds support for the peer programming tool [floobits](https://github.com/floobits) to spacevim.                                                                                         |
@@ -194,12 +194,12 @@ call spacevim#dev#layers#update()
 | [lang#wolfram](lang/wolfram/)                         | This layer is for wolfram development, provides syntax checking, code runner and repl support for wolfram files.                                                    |
 | [lang#xml](lang/xml/)                                 | This layer is for xml development, provides syntax checking, indentation etc.                                                                                       |
 | [lang#zig](lang/zig/)                                 | This layer is for zig development, provides code runner support for zig files.                                                                                      |
-| [language-server-protocol](language-server-protocol/) | This layers provides language server protocol for vim and neovim.                                                                                                   |
+| [language-server-protocol](language-server-protocol.md) | This layers provides language server protocol for Neovim. |
 | [leaderf](leaderf/)                                   | This layer provides a heavily customized LeaderF centric workflow.                                                                                                   |
 | [shell](shell/)                                       | This layer provides shell support in spacevim                                                                                                                       |
 | [ssh](ssh/)                                           | This layer provides ssh support in spacevim                                                                                                                         |
 | [sudo](sudo/)                                         | sudo layer provides the ability to read and write files with elevated privileges in spacevim                                                                        |
-| [telescope](telescope/)                               | This layer provides a heavily customized telescope centric workflow                                                                                                 |
+| [telescope](telescope.md) | This layer provides a heavily customized [telescope](https://github.com/nvim-telescope/telescope.nvim) centric workflow. |
 | [test](test/)                                         | This layer allows to run tests directly in spacevim                                                                                                                 |
 | [tmux](tmux.md) | This layers adds extensive support for tmux. |
 | [tools#cpicker](tools/cpicker.md) | This layer provides color picker for Spacevim. |
@@ -207,7 +207,7 @@ call spacevim#dev#layers#update()
 | [tools#mpv](tools/mpv/)                               | This layer provides mpv integration for spacevim                                                                                                                    |
 | [tools#zeal](tools/zeal/)                             | This layer provides Zeal integration for spacevim                                                                                                                   |
 | [treesitter](treesitter.md) | This layers adds extensive support for [treesitter](https://github.com/tree-sitter/tree-sitter). |
-| [ui](ui/)                                             | Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI                                                                           |
+| [ui](ui.md) | Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI. |
 | [unite](unite/)                                       | This layer provides a heavily customized Unite centric workflow                                                                                                     |
 | [versioncontrol](versioncontrol.md) | This layer provides general version control features for Spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc. |
 | [xmake](xmake/)                                       | xmake layer provides basic xmake client for spacevim.                                                                                                               |
