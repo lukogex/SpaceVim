@@ -1,0 +1,118 @@
+# Spacevim initial configuration file
+# TODO: Not default configurations from my custom config are added commented out. Enable them when needed again.
+
+[options]
+    # Spacevim theme.
+    # By default colorscheme layer is not loaded, if you want to use more colorscheme, please load the colorscheme layer
+    # TODO: Load colorscheme by default
+    colorscheme = "gruvbox"
+    colorscheme_bg = "dark"
+    # Many terminals do not support 24bit true colors, disable for those.
+    # enable_guicolors = false
+    enable_guicolors = true
+    # filemanager = "defx"
+    # Statusline separator, if you want to enable (not "nil") please install nerd fonts.
+    # statusline_separator = "nil"
+    # statusline_inactive_separator = "bar"
+    statusline_separator = "arrow"
+    statusline_iseparator = "arrow"
+    buffer_index_type = 4
+    # windows_index_type = 3
+    # enable_tabline_filetype_icon = false
+    enable_tabline_filetype_icon = true
+    # enable_statusline_display_mode = false
+    enable_statusline_mode = false
+    # statusline_unicode_symbols = false
+    # project_rooter_outermost = false
+    # Enable vim compatible mode, avoid changing origin vim key bindings
+    # vimcompatible = true
+    # bootstrap_after = "bootstrap#after"
+    # todo_labels = ['TODO']
+    # todo_prefix = '// '
+
+[[layers]]
+  name = 'autocomplete'
+  auto_completion_return_key_behavior = "complete"
+  # auto-completion-tab-key-behavior = "cycle"
+  auto_completion_tab_key_behavior = "smart"
+
+[[layers]]
+  name = "debug"
+
+[[layers]]
+  name = "git"
+
+[[layers]]
+  name = "lang#go"
+
+[[layers]]
+  name = "lang#groovy"
+
+[[layers]]
+  name = "lang#java"
+
+[[layers]]
+  name = "lang#markdown"
+
+[[layers]]
+  name = "lang#sh"
+
+[[layers]]
+  name = "lang#vue"
+
+# [[layers]]
+  # name = "lang#typescript"
+
+# [[layers]]
+  # name = "lsp"
+  # enabled_clients = [
+    # "tsserver"
+  # ]
+  # filetypes = [
+    # "java"
+  # ]
+  # [layers.override_cmd]
+    # java = [
+    # "java",
+    # "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    # "-Dosgi.bundles.defaultStartLevel=4",
+    # "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    # "-Dlog.protocol=true",
+    # "-Dlog.level=NONE",
+    # "-noverify",
+    # "-Xmx1G",
+    # "-jar",
+    # "/home/lkranabetter/.lukogex/bin/jdt-language-server/plugins/org.eclipse.equinox.launcher_1.4.0.v20161219-1356.jar",
+    # "-configuration",
+    # "/home/lkranabetter/.lukogex/bin/jdt-language-server/config_linux",
+    # "-data",
+    # "/home/lkranabetter/.cache/javalsp"
+    # ]
+
+[[layers]]
+  name = 'shell'
+  default_position = 'bottom'
+  default_height = 30
+
+[[layers]]
+  name = "test"
+  [layers.override_config]
+    go_runner = "delve"
+
+# Custom plugins
+[[custom_plugins]]
+  name = 'sebdah/vim-delve'
+
+[[custom_plugins]]
+  name = 'c9s/helper.vim'
+
+[[custom_plugins]]
+  name = 'c9s/treemenu.vim'
+
+# [[custom_plugins]]
+  # name = 'c9s/vikube.vim'
+
+[[custom_plugins]]
+  repo = 'lukogex/vikube.vim'
+  rev = 'develop'
+  merged = false

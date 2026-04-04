@@ -101,6 +101,8 @@ As the focus is on [Neovim](https://neovim.io/) we structure it after [Neovim pl
 ├─ autoload/spacevim/plugins/     builtin plugins
 ├─ autoload/spacevim/mapping/     mapping guide
 ├─ colors/                        default colorscheme
+├─ config/                        Configuration files, Spacevim initial configuration file.
+├─ config/plugins                 Store plugin-specific configuration files, allowing for a modular and organized approach to managing settings for various plugins. These configurations are dynamically loaded by SpaceVim's core logic (specifically in autoload/spacevim/plugins.vim and autoload/spacevim/util.vim) based on the plugins that are enabled in the user's configuration.
 ├─ docker/                        docker image generator
 ├─ bundle/                        bundle plugins
 ├─ lua/spacevim/plugin            builtin plugins(lua)

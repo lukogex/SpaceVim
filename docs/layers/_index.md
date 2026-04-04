@@ -78,7 +78,7 @@ call spacevim#dev#layers#update()
 | [cscope](cscope.md) | cscope layer provides a smart [cscope](https://cscope.sourceforge.net/) and [pycscope](https://github.com/portante/pycscope) helper for spacevim, help users win at cscope. |
 | [ctrlp](ctrlp.md) | This layers provide a heavily customized ctrlp centric work-flow. |
 | [ctrlspace](ctrlspace.md) | This layer provides a customized CtrlSpace centric workflow. |
-| [debug](debug.md)                                       | This layer provides debug workflow support in spacevim                                                                                                              |
+| [debug](debug.md) | This layer provides debug workflow support in Spacevim. |
 | [default](default.md)                                   | spacevim's default layer contains no plugins, but It provides some better default config for spacevim.                                                              |
 | [denite](denite.md)                                     | This layers provide's a heavily customized Denite centric workflow.                                                                                                  |
 | [edit](edit.md)                                         | Improve code edit experience in spacevim, provides more text objects.                                                                                               |
@@ -206,7 +206,7 @@ call spacevim#dev#layers#update()
 | [tools#mpv](tools/mpv/)                               | This layer provides mpv integration for spacevim                                                                                                                    |
 | [tools#zeal](tools/zeal/)                             | This layer provides Zeal integration for spacevim                                                                                                                   |
 | [tools](tools/)                                       | This layer provides some tools for vim                                                                                                                              |
-| [treesitter](treesitter.md) | This layers adds extensive support for treesitter. |
+| [treesitter](treesitter.md) | This layers adds extensive support for [treesitter](https://github.com/tree-sitter/tree-sitter). |
 | [ui](ui/)                                             | Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI                                                                           |
 | [unite](unite/)                                       | This layer provides a heavily customized Unite centric workflow                                                                                                     |
 | [versioncontrol](versioncontrol.md) | This layer provides general version control features for Spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc. |

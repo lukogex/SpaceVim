@@ -26,35 +26,9 @@ function! s:set(key,val) abort
   endif
 endfunction
 
-" What is your preferred editing style?
-" - Among the stars aboard the Evil flagship (vim)
-" - On the planet Emacs in the Holy control tower (emacs)
-"
-" What distribution of spacemacs would you like to start with?
-" The standard distribution, recommended (spacemacs)
-" A minimalist distribution that you can build on (spacemacs-base)
-
 function! spacevim#custom#autoconfig(...) abort
-  let menu = spacevim#api#import('cmdlinemenu')
-  let ques = [
-        \ ['basic mode', function('s:basic_mode')],
-        \ ['dark powered mode', function('s:awesome_mode')],
-        \ ]
-  call menu.menu(ques)
-endfunction
-
-
-
-function! s:awesome_mode() abort
   let sep = s:FILE.separator
-  let f = g:_spacevim_root_dir . join(['', 'mode', 'dark_powered.toml'], sep)
-  let config = readfile(f, '')
-  call s:write_to_config(config)
-endfunction
-
-function! s:basic_mode() abort
-  let sep = s:FILE.separator
-  let f = g:_spacevim_root_dir . join(['', 'mode', 'basic.toml'], sep)
+  let f = g:_spacevim_root_dir . join(['', 'config', 'init.toml'], sep)
   let config = readfile(f, '')
   call s:write_to_config(config)
 endfunction
