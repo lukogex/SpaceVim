@@ -204,6 +204,5 @@ In `bundle/` directory, there are two kinds of plugins:
   - [record-key.nvim](https://github.com/wsdjeg/record-key.nvim)
   - [vim-cheat](https://github.com/wsdjeg/vim-cheat)
   - [vim-todo](https://github.com/wsdjeg/vim-todo)
-  - [vim-zettelkasten](https://github.com/wsdjeg/zettelkasten.nvim)
   - [winbar.nvim](https://github.com/wsdjeg/winbar.nvim)
   - [xmake.vim](https://github.com/wsdjeg/xmake.vim)

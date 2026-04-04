@@ -211,7 +211,6 @@ call spacevim#dev#layers#update()
 | [unite](unite/)                                       | This layer provides a heavily customized Unite centric workflow                                                                                                     |
 | [versioncontrol](versioncontrol.md) | This layer provides general version control features for Spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc. |
 | [xmake](xmake/)                                       | xmake layer provides basic xmake client for spacevim.                                                                                                               |
-| [zettelkasten](zettelkasten/)  TODO REMOVE ?                       | This layers adds extensive support for zettelkasten                                                                                                                 |
 
 <!-- spacevim layer list end -->
 
