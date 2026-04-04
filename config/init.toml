@@ -37,6 +37,9 @@
   auto_completion_tab_key_behavior = "smart"
 
 [[layers]]
+  name = "bookmarks"
+
+[[layers]]
   name = "debug"
 
 [[layers]]

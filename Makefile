@@ -63,6 +63,7 @@ lint-vim:
 
 .PHONY: test
 test:
+	echo "Needs tools installed, run 'make tools-vader' to be sure."
 	$(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 .PHONY: test-coverage

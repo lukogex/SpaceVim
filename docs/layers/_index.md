@@ -69,6 +69,7 @@ call spacevim#dev#layers#update()
 | Name                            | Description                                                                           |
 | ------------------------------- | ------------------------------------------------------------------------------------- |
 | [autocomplete](autocomplete.md) | Autocomplete code within spacevim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically. |
+| [bookmarks](bookmarks.md) | This layer provides bookmarking functionalities. |
 | [checkers](checkers.md) | Syntax checking automatically within spacevim, display error on the sign column and statusline. |
 | [colorscheme](colorscheme.md) | colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme. |
 | [core#banner](core/banner.md) | This layer provides many default banners on the welcome page. |
@@ -205,7 +206,6 @@ call spacevim#dev#layers#update()
 | [tools#dash](tools/dash/)                             | This layer provides Dash integration for spacevim                                                                                                                   |
 | [tools#mpv](tools/mpv/)                               | This layer provides mpv integration for spacevim                                                                                                                    |
 | [tools#zeal](tools/zeal/)                             | This layer provides Zeal integration for spacevim                                                                                                                   |
-| [tools](tools/)                                       | This layer provides some tools for vim                                                                                                                              |
 | [treesitter](treesitter.md) | This layers adds extensive support for [treesitter](https://github.com/tree-sitter/tree-sitter). |
 | [ui](ui/)                                             | Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI                                                                           |
 | [unite](unite/)                                       | This layer provides a heavily customized Unite centric workflow                                                                                                     |

@@ -2156,12 +2156,11 @@ augroup END
 
 ### Bookmarks management
 
-Bookmarks manager is included in `tools` layer, to use the following key bindings, you need to enable
-the `tools` layer:
+Bookmarks manager is included in `bookmarks` layer, to use the following key bindings, you need to enable the `bookmarks` layer:
 
 ```toml
 [[layers]]
-    name = "tools"
+    name = "bookmarks"
 ```
 
 | Key Bindings | Descriptions                         |
@@ -2173,10 +2172,8 @@ the `tools` layer:
 | `m p`        | Jump to previous bookmark            |
 | `m i`        | Annotate bookmark                    |
 
-As spacevim uses the above mappings, you cannot use the `a`, `c`, `m`, `n`,
-`p` or `i` registers to mark the current position, but other registers should work well.
-If you really need to use these registers, you can map `<Leader> m` to `m`
-in your bootstrap function, then you can use the registers via `<Leader> m <register>`.
+As spacevim uses the above mappings, you cannot use the `a`, `c`, `m`, `n`, `p` or `i` registers to mark the current position, but other registers should work well.
+If you really need to use these registers, you can map `<Leader> m` to `m` in your bootstrap function, then you can use the registers via `<Leader> m <register>`.
 
 ```viml
 function! myspacevim#before() abort

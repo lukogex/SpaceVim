@@ -5,7 +5,7 @@ lua require('telescope').load_extension('scriptnames')
 lua require('telescope').load_extension('neoyank')
 lua require('telescope').load_extension('task')
 lua require('telescope').load_extension('neomru')
-if spacevim#layers#isLoaded('tools')
+if spacevim#layers#isLoaded('bookmarks')
   lua require('telescope').load_extension('bookmarks')
 endif
 if filereadable(g:_spacevim_root_dir . 'bundle/telescope-fzf-native.nvim/build/libfzf.so')

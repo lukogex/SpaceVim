@@ -567,9 +567,6 @@ local special_statusline = {
     return simple_name('Gista')
   end,
   terminal = function() end, -- todo
-  calender = function()
-    return simple_name('Calendar')
-  end,
   ['vader-result'] = function()
     return simple_name('Vader result')
   end,

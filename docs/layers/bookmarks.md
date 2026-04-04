@@ -1,22 +1,21 @@
 ---
-title: "spacevim tools layer"
-description: "This layer provides some tools for vim"
+title: "Spacevim bookmarks layer"
+description: "This layer provides bookmarking functionalities."
 ---
 
-# [Available Layers](../) >> tools
+# [Available Layers](_index.md) >> bookmarks
 
 <!-- vim-markdown-toc GFM -->
 
 - [Description](#description)
 - [Install](#install)
-- [Tools](#tools)
+- [Keybindings](#keybindings)
 
 <!-- vim-markdown-toc -->
 
 ## Description
 
-This layer provides some extra vim tools for spacevim.
-All tools can be called via command or key binding.
+Bookmark plugin for neovim.
 
 ## Install
 
@@ -24,17 +23,12 @@ To use this configuration layer, update your custom configuration file with:
 
 ```toml
 [[layers]]
-  name = "tools"
+  name = "bookmarks"
 ```
 
-## Tools
+## Keybindings
 
-- `:Scriptnames`: same as `:scriptnames`, but show results in quickfix list.
-- `:SourceCounter`: source counter for vim
-- `:Calendar`: open vim calendar
-- `:UnstackFromText`: Call unstack with text as input.
-
-This layer also includes `bookmarks.vim`, the following key binding can be used:
+This layer includes `bookmarks.vim`, the following key binding can be used:
 
 | key binding    | description               |
 | -------------- | ------------------------- |

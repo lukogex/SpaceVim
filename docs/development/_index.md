@@ -189,7 +189,6 @@ In `bundle/` directory, there are two kinds of plugins:
   Following is the list of detached plugings from the former detach script:
   - [GitHub.vim](https://github.com/wsdjeg/github.nvim)
   - [JavaUnit.vim](https://github.com/wsdjeg/JavaUnit.vim)
-  - [SourceCounter.vim](https://github.com/wsdjeg/SourceCounter.vim)
   - [FlyGrep.vim](https://github.com/wsdjeg/flygrep.nvim)
   - [scrollbar.vim](https://github.com/wsdjeg/scrollbar.nvim)
   - [cpicker.nvim](https://github.com/wsdjeg/cpicker.nvim)
@@ -202,7 +201,6 @@ In `bundle/` directory, there are two kinds of plugins:
   - [nvim-plug](https://github.com/wsdjeg/nvim-plug)
   - [quickfix.nvim](https://github.com/wsdjeg/quickfix.nvim)
   - [record-key.nvim](https://github.com/wsdjeg/record-key.nvim)
-  - [vim-cheat](https://github.com/wsdjeg/vim-cheat)
   - [vim-todo](https://github.com/wsdjeg/vim-todo)
   - [winbar.nvim](https://github.com/wsdjeg/winbar.nvim)
   - [xmake.vim](https://github.com/wsdjeg/xmake.vim)
