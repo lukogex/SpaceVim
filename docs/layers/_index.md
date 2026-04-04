@@ -66,18 +66,18 @@ call spacevim#dev#layers#update()
 
 ## Available layers
 
-| Name                                                  | Description                                                                                                                                                         |
-| ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [autocomplete](autocomplete.md)                       | Autocomplete code within spacevim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically                           |
-| [checkers](checkers.md)                                 | Syntax checking automatically within spacevim, display error on the sign column and statusline.                                                                     |
-| [colorscheme](colorscheme.md)                           | colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme.                                                       |
-| [core#banner](core/banner.md)                           | This layer provides many default banners on the welcome page.                                                                                                       |
-| [core#statusline](core/statusline.md)                   | This layer provides a default statusline for spacevim                                                                                                               |
-| [core#tabline](core/tabline.md)                         | spacevim core#tabline layer provides a better tabline for spacevim                                                                                                  |
-| [core](core.md)                                         | spacevim core layer provides many default key bindings and features.                                                                                                |
-| [cscope](cscope.md)                                     | cscope layer provides a smart [cscope](https://cscope.sourceforge.net/) and [pycscope](https://github.com/portante/pycscope) helper for spacevim, help users win at cscope. |
-| [ctrlp](ctrlp.md)                                       | This layers provide a heavily customized ctrlp centric work-flow                                                                                                    |
-| [ctrlspace](ctrlspace.md)                               | This layer provides a customized CtrlSpace centric workflow                                                                                                         |
+| Name                            | Description                                                                           |
+| ------------------------------- | ------------------------------------------------------------------------------------- |
+| [autocomplete](autocomplete.md) | Autocomplete code within spacevim, fuzzy find the candidates from multiple completion sources, expand snippet before cursor automatically. |
+| [checkers](checkers.md) | Syntax checking automatically within spacevim, display error on the sign column and statusline. |
+| [colorscheme](colorscheme.md) | colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme. |
+| [core#banner](core/banner.md) | This layer provides many default banners on the welcome page. |
+| [core#statusline](core/statusline.md) | This layer provides a default statusline for Spacevim. |
+| [core#tabline](core/tabline.md) | spacevim core#tabline layer provides a better tabline for Spacevim. |
+| [core](core.md) | Spacevim core layer provides many default key bindings and features. |
+| [cscope](cscope.md) | cscope layer provides a smart [cscope](https://cscope.sourceforge.net/) and [pycscope](https://github.com/portante/pycscope) helper for spacevim, help users win at cscope. |
+| [ctrlp](ctrlp.md) | This layers provide a heavily customized ctrlp centric work-flow. |
+| [ctrlspace](ctrlspace.md) | This layer provides a customized CtrlSpace centric workflow. |
 | [debug](debug.md)                                       | This layer provides debug workflow support in spacevim                                                                                                              |
 | [default](default.md)                                   | spacevim's default layer contains no plugins, but It provides some better default config for spacevim.                                                              |
 | [denite](denite.md)                                     | This layers provide's a heavily customized Denite centric workflow.                                                                                                  |
@@ -89,19 +89,19 @@ call spacevim#dev#layers#update()
 | [git](git.md)                                           | This layer adds extensive support for git.                                                                                                                           |
 | [github](github.md)                                     | This layer provides GitHub integration for spacevim.                                                                                                                 |
 | [gtags](gtags.md)                                       | This layer provides gtags manager for project.                                                                                                                    |
-| [lang#actionscript](lang/actionscript/)               | This layer is for actionscript syntax highlighting.                                                                                                                  |
-| [lang#agda](lang/agda/)                               | This layer adds Agda language support to spacevim.                                                                                                                  |
-| [lang#asciidoc](lang/asciidoc/)                       | Edit AsciiDoc within vim, autopreview AsciiDoc in the default browser, with this layer you can also format AsciiDoc files.                                          |
-| [lang#aspectj](lang/aspectj/)                         | AsepctJ language support, including syntax highlighting.                                                                                                            |
-| [lang#assembly](lang/assembly/)                       | This layer adds Assembly language support to spacevim, including syntax highlighting.                                                                               |
-| [lang#autohotkey](lang/autohotkey/)                   | AutohotKey language support for spacevim, including syntax highlighting and code completion.                                                                         |
-| [lang#batch](lang/batch/)                             | This layer is for DOS batch file development, provides syntax highlighting, code runner and repl support for batch files.                                           |
-| [lang#c](lang/c/)                                     | C/C++/Object-C language support for spacevim, including code completion, jump to definition, and quick runner.                                                      |
-| [lang#chapel](lang/chapel/)                           | This layer is for chapel development, provides syntax checking, code runner and repl support for chapel files.                                                      |
-| [lang#clojure](lang/clojure/)                         | This layer is for Clojure development, provides autocompletion, syntax checking, code format for Clojure files.                                                     |
-| [lang#cmake](lang/cmake/)                             | This layer is for cmake script, provides syntax highlighting and language server protocol support.                                                                  |
-| [lang#coffeescript](lang/coffeescript/)               | This layer is for CoffeeScript development, provides autocompletion, syntax checking, code format for CoffeeScript files.                                           |
-| [lang#crystal](lang/crystal/)                         | This layer is for crystal development, provides syntax checking, code runner and repl support for crystal files.                                                    |
+| [lang#actionscript](lang/actionscript.md)               | This layer is for actionscript syntax highlighting.                                                                                                                  |
+| [lang#agda](lang/agda.md)                               | This layer adds Agda language support to spacevim.                                                                                                                  |
+| [lang#asciidoc](lang/asciidoc.md)                       | Edit AsciiDoc within vim, autopreview AsciiDoc in the default browser, with this layer you can also format AsciiDoc files.                                          |
+| [lang#aspectj](lang/aspectj.md)                         | AsepctJ language support, including syntax highlighting.                                                                                                            |
+| [lang#assembly](lang/assembly.md)                       | This layer adds Assembly language support to spacevim, including syntax highlighting.                                                                               |
+| [lang#autohotkey](lang/autohotkey.md)                   | AutohotKey language support for spacevim, including syntax highlighting and code completion.                                                                         |
+| [lang#batch](lang/batch.md)                             | This layer is for DOS batch file development, provides syntax highlighting, code runner and repl support for batch files.                                           |
+| [lang#c](lang/c.md)                                     | C/C++/Object-C language support for spacevim, including code completion, jump to definition, and quick runner.                                                      |
+| [lang#chapel](lang/chapel.md)                           | This layer is for chapel development, provides syntax checking, code runner and repl support for chapel files.                                                      |
+| [lang#clojure](lang/clojure.md)                         | This layer is for Clojure development, provides autocompletion, syntax checking, code format for Clojure files.                                                     |
+| [lang#cmake](lang/cmake.md)                             | This layer is for cmake script, provides syntax highlighting and language server protocol support.                                                                  |
+| [lang#coffeescript](lang/coffeescript.md)               | This layer is for CoffeeScript development, provides autocompletion, syntax checking, code format for CoffeeScript files.                                           |
+| [lang#crystal](lang/crystal.md)                         | This layer is for crystal development, provides syntax checking, code runner and repl support for crystal files.                                                    |
 | [lang#csharp](lang/csharp/)                           | csharp language layer, including syntax highlighting, asynchronous code runner.                                                                                     |
 | [lang#d](lang/d/)                                     | This layer is for d development, provides syntax checking and code runner support for d files.                                                                      |
 | [lang#dart](lang/dart/)                               | This layer is for Dart development, provides autocompletion, syntax checking and code formatting for Dart files.                                                    |
@@ -200,16 +200,16 @@ call spacevim#dev#layers#update()
 | [sudo](sudo/)                                         | sudo layer provides the ability to read and write files with elevated privileges in spacevim                                                                        |
 | [telescope](telescope/)                               | This layer provides a heavily customized telescope centric workflow                                                                                                 |
 | [test](test/)                                         | This layer allows to run tests directly in spacevim                                                                                                                 |
-| [tmux](tmux/)                                         | This layers adds extensive support for tmux                                                                                                                         |
-| [tools#cpicker](tools/cpicker/)                       | This layer provides color picker for spacevim                                                                                                                       |
+| [tmux](tmux.md) | This layers adds extensive support for tmux. |
+| [tools#cpicker](tools/cpicker.md) | This layer provides color picker for Spacevim. |
 | [tools#dash](tools/dash/)                             | This layer provides Dash integration for spacevim                                                                                                                   |
 | [tools#mpv](tools/mpv/)                               | This layer provides mpv integration for spacevim                                                                                                                    |
 | [tools#zeal](tools/zeal/)                             | This layer provides Zeal integration for spacevim                                                                                                                   |
 | [tools](tools/)                                       | This layer provides some tools for vim                                                                                                                              |
-| [treesitter](treesitter/)                             | This layers adds extensive support for treesitter                                                                                                                   |
+| [treesitter](treesitter.md) | This layers adds extensive support for treesitter. |
 | [ui](ui/)                                             | Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI                                                                           |
 | [unite](unite/)                                       | This layer provides a heavily customized Unite centric workflow                                                                                                     |
-| [VersionControl](VersionControl/)                     | This layer provides general version control features for spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc                     |
+| [versioncontrol](versioncontrol.md) | This layer provides general version control features for Spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc. |
 | [xmake](xmake/)                                       | xmake layer provides basic xmake client for spacevim.                                                                                                               |
 | [zettelkasten](zettelkasten/)  TODO REMOVE ?                       | This layers adds extensive support for zettelkasten                                                                                                                 |
 

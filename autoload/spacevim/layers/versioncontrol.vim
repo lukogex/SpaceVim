@@ -1,5 +1,5 @@
 "=============================================================================
-" VersionControl.vim --- spacevim version control layer
+" versioncontrol.vim --- spacevim version control layer
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
 " URL: https://spacevim.org
@@ -9,7 +9,7 @@
 scriptencoding utf-8
 
 ""
-" @section VersionControl, layers-VersionControl
+" @section versioncontrol, layers-versioncontrol
 " @parentsection layers
 " This layer provides version control system (VCS) integration for spacevim.
 "
@@ -29,7 +29,7 @@ let s:CMP = spacevim#api#import('vim#compatible')
 
 let s:enable_gtm_status = 0
 
-function! spacevim#layers#VersionControl#plugins() abort
+function! spacevim#layers#versioncontrol#plugins() abort
   let plugins = []
   if !spacevim#layers#isLoaded('git')
     call add(plugins, ['mhinz/vim-signify', {'merged' : 0, 'loadconf' : 1}])
@@ -37,13 +37,13 @@ function! spacevim#layers#VersionControl#plugins() abort
   return plugins
 endfunction
 
-function! spacevim#layers#VersionControl#health() abort
-  call spacevim#layers#VersionControl#plugins()
-  call spacevim#layers#VersionControl#config()
+function! spacevim#layers#versioncontrol#health() abort
+  call spacevim#layers#versioncontrol#plugins()
+  call spacevim#layers#versioncontrol#config()
   return 1
 endfunction
 
-function! spacevim#layers#VersionControl#config() abort
+function! spacevim#layers#versioncontrol#config() abort
   let g:_spacevim_mappings_space.g = get(g:_spacevim_mappings_space, 'g',  {'name' : '+VCS/git'})
   call spacevim#mapping#space#def('nnoremap', ['g', '.'], 'call call('
         \ . string(s:_function('s:git_transient_state')) . ', [])',
@@ -71,7 +71,7 @@ function! s:Context(reverse) abort
   call search('^\(@@ .* @@\|[<=>|]\{7}[<=>|]\@!\)', a:reverse ? 'bW' : 'W')
 endfunction
 
-function! spacevim#layers#VersionControl#set_variable(var) abort
+function! spacevim#layers#versioncontrol#set_variable(var) abort
   let s:enable_gtm_status = get(a:var,
         \ 'enable_gtm_status',
         \ s:enable_gtm_status)
@@ -516,7 +516,7 @@ function! s:git_transient_state() abort
   call state.open()
 endfunction
 
-function! spacevim#layers#VersionControl#loadable() abort
+function! spacevim#layers#versioncontrol#loadable() abort
 
   return 1
 

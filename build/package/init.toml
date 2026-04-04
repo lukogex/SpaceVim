@@ -13,7 +13,7 @@
 
 ## -- spacevim layer list start
 [[layers]]
-  name = "VersionControl"
+  name = "versioncontrol"
 
 [[layers]]
   name = "autocomplete"

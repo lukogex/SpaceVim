@@ -598,7 +598,7 @@ The `core#statusline` layer provides a heavily customized powerline with the fol
 - toggle syntax checking info
 - toggle battery info
 - toggle major mode lighters
-- show VCS information (branch, hunk summary) (requires `git` and `VersionControl` layers)
+- show VCS information (branch, hunk summary) (requires `git` and `versioncontrol` layers)
 
 | Key Bindings | Descriptions                                 |
 | ------------ | -------------------------------------------- |
@@ -1857,8 +1857,8 @@ Reporting an issue:
 | `] f`    | Go to next file in directory                            |
 | `[ l`    | Go to the previous error                                |
 | `] l`    | Go to the next error                                    |
-| `[ c`    | Go to the previous vcs hunk (need VersionControl layer) |
-| `] c`    | Go to the next vcs hunk (need VersionControl layer)     |
+| `[ c`    | Go to the previous vcs hunk (need versioncontrol layer) |
+| `] c`    | Go to the next vcs hunk (need versioncontrol layer)     |
 | `[ q`    | Go to the previous error                                |
 | `] q`    | Go to the next error                                    |
 | `[ t`    | Go to the previous frame                                |

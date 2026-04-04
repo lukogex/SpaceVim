@@ -102,7 +102,7 @@ CONTENTS                                                   *SpaceVim-contents*
 4. Commands............................................... |SpaceVim-commands|
 5. Public functions...................................... |SpaceVim-functions|
 6. Layers................................................... |SpaceVim-layers|
-    2. VersionControl........................ |SpaceVim-layers-VersionControl|
+    2. versioncontrol........................ |SpaceVim-layers-versioncontrol|
     3. autocomplete............................ |SpaceVim-layers-autocomplete|
     5. checkers.................................... |SpaceVim-layers-checkers|
     6. colorscheme.............................. |SpaceVim-layers-colorscheme|
@@ -1994,7 +1994,7 @@ Some layers are enabled by default. The following example shows how to disable
 <
 
 ==============================================================================
-VERSIONCONTROL                                *SpaceVim-layers-VersionControl*
+VERSIONCONTROL                                *SpaceVim-layers-versioncontrol*
 
 This layer provides version control system (VCS) integration for SpaceVim.
 
