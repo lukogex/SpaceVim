@@ -1072,10 +1072,7 @@ The fourth parameter is a short description of this custom key binding.
 
 It is possible to search for specific key bindings by pressing `?` in the root of the guide buffer.
 
-To narrow the list down, just insert the mapping keys or descriptions of what mappings you want, Unite/Denite will fuzzy find the mappings, to find buffer related mappings:
-
-![unite-mapping](https://img.spacevim.org/2f370b0a-3345-11e7-977c-a2377d23286e.png)
-
+To narrow the list down, just insert the mapping keys or descriptions of what mappings you want, Denite will fuzzy find the mappings, to find buffer related mappings.
 Then use `<Tab>` or `<Up>` and `<Down>` to select the mapping, press `<Enter>` to execute that command.
 
 **Mapping guide theme:**
@@ -1480,7 +1477,7 @@ Buffer manipulation commands (start with `b`):
 | -------------------- | ------------------------------------------------------------------------ |
 | `SPC <Tab>`          | switch to alternate buffer in the current window (switch back and forth) |
 | `SPC b .`            | buffer transient state                                                   |
-| `SPC b b`            | switch to a buffer (via denite/unite)                                    |
+| `SPC b b` | switch to a buffer (via denite) |
 | `SPC b d`            | kill the current buffer (does not delete the visited file)               |
 | `SPC b D`            | kill a visible buffer using vim-choosewin                                |
 | `SPC b Ctrl-d`       | kill other buffers                                                       |
@@ -1583,9 +1580,8 @@ Fuzzy finder provides a variety of efficient content searching key bindings,
 including file searching, outline searching, vim messages searching and register
 content searching.
 
-Currently, there are six fuzzy finder layers:
+Currently, there are 5 fuzzy finder layers:
 
-- [`unite`](../layers/unite/) layer: based on `Shougo/unite.vim`
 - [`denite`](../layers/denite/) layer: based on `Shougo/denite.nvim`
 - [`leaderf`](../layers/leaderf/) layer: based on `Yggdroot/LeaderF`
 - [`ctrlp`](../layers/ctrlp/) layer: based on `ctrlpvim/ctrlp.vim`
@@ -1622,19 +1618,19 @@ for example, to load the denite layer:
 
 The above key bindings are only part of fuzzy finder layers, please read the layers's documentations.
 
-| Feature            | denite | unite | leaderf | ctrlp | fzf |
-| ------------------ | :----: | :---: | :-----: | :---: | --- |
-| CustomKeyMaps menu |  yes   |  yes  |   yes   |  no   | no  |
-| AddedPlugins menu  |  yes   |  yes  |   yes   |  no   | no  |
-| register           |  yes   |  yes  |   yes   |  yes  | yes |
-| file               |  yes   |  yes  |   yes   |  yes  | yes |
-| yank history       |  yes   |  yes  |   yes   |  no   | yes |
-| jump               |  yes   |  yes  |   yes   |  yes  | yes |
-| location list      |  yes   |  yes  |   yes   |  no   | yes |
-| outline            |  yes   |  yes  |   yes   |  yes  | yes |
-| message            |  yes   |  yes  |   yes   |  no   | yes |
-| quickfix list      |  yes   |  yes  |   yes   |  yes  | yes |
-| resume windows     |  yes   |  yes  |   yes   |  no   | no  |
+| Feature            | denite | leaderf | ctrlp | fzf |
+| ------------------ | :----: | :-----: | :---: | --- |
+| CustomKeyMaps menu |  yes   |   yes   |  no   | no  |
+| AddedPlugins menu  |  yes   |   yes   |  no   | no  |
+| register           |  yes   |   yes   |  yes  | yes |
+| file               |  yes   |   yes   |  yes  | yes |
+| yank history       |  yes   |   yes   |  no   | yes |
+| jump               |  yes   |   yes   |  yes  | yes |
+| location list      |  yes   |   yes   |  no   | yes |
+| outline            |  yes   |   yes   |  yes  | yes |
+| message            |  yes   |   yes   |  no   | yes |
+| quickfix list      |  yes   |   yes   |  yes  | yes |
+| resume windows     |  yes   |   yes   |  no   | no  |
 
 **Key bindings within the fuzzy finder buffer**
 
@@ -1819,9 +1815,9 @@ It is also possible to clear the highlighting by pressing `[SPC] s c` or executi
 
 #### Getting help
 
-Fuzzy finder layer is powerful tool to unite all interfaces. It is meant to be
-like [Helm](https://github.com/emacs-helm/helm) for Vim. These mappings are for
-getting help info about functions, variables etc:
+Fuzzy finder layer is powerful tool to unite all interfaces.
+It is meant to be like [Helm](https://github.com/emacs-helm/helm) for Vim.
+These mappings are for getting help info about functions, variables etc:
 
 | Key Bindings | Descriptions                                                                  |
 | ------------ | ----------------------------------------------------------------------------- |

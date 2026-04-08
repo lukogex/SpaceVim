@@ -629,7 +629,6 @@ local special_statusline = {
       .. '%#spacevim_statusline_a_spacevim_statusline_b#'
       .. lsep
   end,
-  unite = function() end, -- todo
   spacevimFlyGrep = function() end, -- todo
   TransientState = function()
     return '%#spacevim_statusline_ia# Transient State %#spacevim_statusline_a_spacevim_statusline_b#'

@@ -300,9 +300,7 @@ else
   " supported.
 
   function! spacevim#plugins#projectmanager#list() abort
-    if spacevim#layers#isLoaded('unite')
-      Unite menu:Projects
-    elseif spacevim#layers#isLoaded('denite')
+    if spacevim#layers#isLoaded('denite')
       Denite menu:Projects
     elseif spacevim#layers#isLoaded('fzf')
       FzfMenu Projects

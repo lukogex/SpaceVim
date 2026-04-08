@@ -247,7 +247,6 @@ CONTENTS                                                   *SpaceVim-contents*
     146. tools#zeal.............................. |SpaceVim-layers-tools-zeal|
     147. treesitter.............................. |SpaceVim-layers-treesitter|
     148. ui.............................................. |SpaceVim-layers-ui|
-    149. unite........................................ |SpaceVim-layers-unite|
     150. xmake........................................ |SpaceVim-layers-xmake|
 7. Usage..................................................... |SpaceVim-usage|
     1. Editing....................................... |SpaceVim-usage-editing|
@@ -2175,8 +2174,8 @@ snippets:
    <Leader> f s  | Fuzzy find snippets
 <
 NOTE: `SPC i s` requires that at least one fuzzy search layer be loaded. If
-the `snippet_engine` is `neosnippet`. The fuzzy finder layer can be `leaderf`,
-`denite` or `unite`. For `ultisnips`, you can use `leaderf` or `unite` layer.
+the `snippet_engine` is `neosnippet`. The fuzzy finder layer can be `leaderf`
+or `denite`. For `ultisnips`, you can use `leaderf` layer.
 
 ==============================================================================
 CHECKERS                                            *SpaceVim-layers-checkers*
@@ -6383,34 +6382,6 @@ KEY BINDINGS
 >
   Key binding     Description
   SPC t h         ui current buffer or selection lines
-<
-
-
-==============================================================================
-UNITE                                                  *SpaceVim-layers-unite*
-
-This layer provides fuzzy finder feature which is based on |unite|. This layer
-is not loaded by default, to use this layer, you need to load `unite` layer in
-your configuration file.
->
-  [[layers]]
-    name = 'unite'
-<
-
-KEY BINDINGS
-
->
-  | Key bindings         | Discription                   |
-  | -------------------- | ----------------------------- |
-  | `<Leader> f <Space>` | Fuzzy find menu:CustomKeyMaps |
-  | `<Leader> f e`       | Fuzzy find register           |
-  | `<Leader> f h`       | Fuzzy find history/yank       |
-  | `<Leader> f j`       | Fuzzy find jump, change       |
-  | `<Leader> f l`       | Fuzzy find location list      |
-  | `<Leader> f m`       | Fuzzy find output messages    |
-  | `<Leader> f o`       | Fuzzy find outline            |
-  | `<Leader> f q`       | Fuzzy find quick fix          |
-  | `<Leader> f r`       | Resumes Unite window          |
 <
 
 

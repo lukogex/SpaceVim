@@ -77,10 +77,10 @@ for example `telescope` layer, the the key binding `SPC p p` is available for yo
 
 ### Fuzzy finder
 
-spacevim provides 5 fuzzy finder layer, they are unite, denite, fzf, leaderf and ctrlp.
-To use fuzzy finder feature, you need to enable a
-fuzzy finder layer. for example enable denite layer:
+Spacevim provides 4 fuzzy finder layer, they are denite, fzf, leaderf and ctrlp.
+To use fuzzy finder feature, you need to enable a fuzzy finder layer.
 
+For example enable denite layer:
 ```toml
 [[layers]]
     name = "denite"
