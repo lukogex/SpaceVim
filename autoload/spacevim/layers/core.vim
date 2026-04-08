@@ -245,14 +245,12 @@ function! spacevim#layers#core#plugins() abort
         \ 'loadconf' : 1} ])
 
   if s:enable_quickfix_key_bindings
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/quickfix.nvim' ,              { 'merged' : 0} ])
+    call add(plugins, [g:_spacevim_root_dir . 'bundle/quickfix.nvim', { 'merged' : 0} ])
   endif
   if s:enable_winbar
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/winbar.nvim' ,              { 'merged' : 0} ])
+    call add(plugins, [g:_spacevim_root_dir . 'bundle/winbar.nvim', { 'merged' : 0} ])
   endif
-  if g:spacevim_flygrep_next_version && has('nvim-0.10.0')
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/flygrep.nvim' ,              { 'merged' : 0} ])
-  endif
+  call add(plugins, [g:_spacevim_root_dir . 'bundle/flygrep.nvim', { 'merged' : 0} ])
   return plugins
 endfunction
 

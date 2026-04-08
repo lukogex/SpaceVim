@@ -22,7 +22,7 @@ One consequence of this is that I'll reduce the project scope and features to th
 
 ### Compatibility
 
-In contrast to the former spacevim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) (from version v0.6.1 onwards) on Linux.
+In contrast to the former spacevim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) (from version v0.10.4 onwards) on Linux.
 
 Reasoning:
 - I cant spare additional time to implement and test for other systems.

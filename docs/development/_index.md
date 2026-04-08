@@ -189,7 +189,6 @@ In `bundle/` directory, there are two kinds of plugins:
   Following is the list of detached plugings from the former detach script:
   - [GitHub.vim](https://github.com/wsdjeg/github.nvim)
   - [JavaUnit.vim](https://github.com/wsdjeg/JavaUnit.vim)
-  - [FlyGrep.vim](https://github.com/wsdjeg/flygrep.nvim)
   - [scrollbar.vim](https://github.com/wsdjeg/scrollbar.nvim)
   - [cpicker.nvim](https://github.com/wsdjeg/cpicker.nvim)
   - [cscope.vin](https://github.com/wsdjeg/cscope.vim-1)

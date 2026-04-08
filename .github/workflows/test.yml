@@ -11,10 +11,6 @@ jobs:
         - nvimtag: stable
         - nvimtag: v0.11.6
         - nvimtag: v0.10.4
-        - nvimtag: v0.9.5
-        - nvimtag: v0.8.3
-        - nvimtag: v0.7.2
-        - nvimtag: v0.6.1
     runs-on: ubuntu-22.04
     env:
       VIM_TAG: ${{ matrix.nvimtag }}
