@@ -80,10 +80,8 @@ endfunction
 function! s:open_disk(d) abort
   let disk = split(a:d)[0]
   call s:close_disk_buffer()
-  if g:spacevim_filemanager ==# 'vimfiler'
-    exe 'VimFiler -no-toggle ' . disk
-  elseif g:spacevim_filemanager ==# 'nerdtree'
-    silent! exe 'NERDTree ' . disk 
+  if g:spacevim_filemanager ==# 'nerdtree'
+    silent! exe 'NERDTree ' . disk
   elseif g:spacevim_filemanager ==# 'defx'
     exe 'Defx -no-toggle -no-resume ' . disk
   endif

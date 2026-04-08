@@ -2,7 +2,6 @@
 " leaderf.vim --- leaderf layer for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -50,7 +49,7 @@ endfunction
 
 function! spacevim#layers#leaderf#plugins() abort
   let plugins = []
-  call add(plugins, 
+  call add(plugins,
         \ ['Yggdroot/LeaderF',
         \ {
         \ 'loadconf' : 1,

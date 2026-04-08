@@ -208,7 +208,6 @@ call spacevim#dev#layers#update()
 | [tools#zeal](tools/zeal/)                             | This layer provides Zeal integration for spacevim                                                                                                                   |
 | [treesitter](treesitter.md) | This layers adds extensive support for [treesitter](https://github.com/tree-sitter/tree-sitter). |
 | [ui](ui.md) | Awesome UI layer for spacevim, provide IDE-like UI for neovim and vim in both TUI and GUI. |
-| [unite](unite/)                                       | This layer provides a heavily customized Unite centric workflow                                                                                                     |
 | [versioncontrol](versioncontrol.md) | This layer provides general version control features for Spacevim. It should work with all VC backends such as Git, Mercurial, Bazaar, SVN, etc. |
 | [xmake](xmake/)                                       | xmake layer provides basic xmake client for spacevim.                                                                                                               |
 

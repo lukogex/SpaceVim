@@ -53,9 +53,6 @@ function! spacevim#layers#debug#plugins() abort
     call add(plugins,['wsdjeg/vim-debug', {'merged' : 0}])
   endif
 
-  if g:spacevim_filemanager !=# 'vimfiler'
-    call add(plugins, ['Shougo/vimproc.vim', {'build' : [(executable('gmake') ? 'gmake' : 'make')]}])
-  endif
   return plugins
 endfunction
 

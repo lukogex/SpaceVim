@@ -772,10 +772,9 @@ default command. for example:
 FILEMANAGER                                     *SpaceVim-options-filemanager*
 
 The default file manager of SpaceVim. Default is 'nerdtree'. you can also use:
-  1. defx
-  2. vimfiler
-  3. neo-tree
-4: nvim-tree
+1. defx
+2. neo-tree
+3. nvim-tree
 
 ==============================================================================
 FILETREE_DIRECTION                       *SpaceVim-options-filetree_direction*
@@ -1549,7 +1548,7 @@ installed.
 
                                                       *g:spacevim_filemanager*
 The default file manager of SpaceVim. Default is 'nerdtree'. you can also use
-defx or vimfiler
+defx.
 
                                                *g:spacevim_filetree_direction*
 Config the direction of file tree. Default is 'right'. you can also set to
@@ -6726,8 +6725,6 @@ plugin. For example:
   [options]
     # file manager plugins supported in SpaceVim:
     # - nerdtree (default)
-    # - vimfiler: you need to build the vimproc.vim in bundle/vimproc.vim
-    directory
     # - defx: requires +py3 feature
     # - neo-tree: require neovim 0.7.0
     filemanager = "nerdtree"
@@ -6828,7 +6825,6 @@ Here is all the autocmd for filetree:
 
 nerdtree: `User NerdTreeInit`
 defx: `User DefxInit`
-vimfiler: `User VimfilerInit`
 
 ==============================================================================
 TOGGLE UI                                           *SpaceVim-usage-toggle-ui*

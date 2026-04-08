@@ -287,9 +287,7 @@ end
 local M = {}
 
 function M.list()
-  if layer.isLoaded('unite') then
-    sp.cmd('Unite menu:Projects')
-  elseif layer.isLoaded('denite') then
+  if layer.isLoaded('denite') then
     sp.cmd('Denite menu:Projects')
   elseif layer.isLoaded('fzf') then
     sp.cmd('FzfMenu Projects')
@@ -309,9 +307,7 @@ function M.open(project)
   -- I am not sure we should set the project name here.
   -- sp.cmd('let t:_spacevim_tab_name = "[' .. name .. ']"')
   sp.cmd(cd .. ' ' .. path)
-  if sp_opt.filemanager == 'vimfiler' then
-    sp.cmd('Startify | VimFiler')
-  elseif sp_opt.filemanager == 'nerdtree' then
+  if sp_opt.filemanager == 'nerdtree' then
     sp.cmd('Startify | NERDTree')
   elseif sp_opt.filemanager == 'defx' then
     sp.cmd('Startify | Defx -new')

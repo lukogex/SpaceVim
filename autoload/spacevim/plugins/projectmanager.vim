@@ -317,9 +317,7 @@ else
     let path = s:project_paths[a:project]['path']
     tabnew
     exe s:cd path
-    if g:spacevim_filemanager ==# 'vimfiler'
-      Startify | VimFiler
-    elseif g:spacevim_filemanager ==# 'nerdtree'
+    if g:spacevim_filemanager ==# 'nerdtree'
       Startify | NERDTree
     elseif g:spacevim_filemanager ==# 'defx'
       Startify | Defx

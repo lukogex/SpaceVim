@@ -49,7 +49,6 @@ endif
 "   [options]
 "     # file manager plugins supported in spacevim:
 "     # - nerdtree (default)
-"     # - vimfiler: you need to build the vimproc.vim in bundle/vimproc.vim directory
 "     # - defx: requires +py3 feature
 "     # - neo-tree: require neovim 0.7.0
 "     filemanager = "nerdtree"
@@ -188,18 +187,6 @@ function! spacevim#layers#core#plugins() abort
       call add(plugins, [g:_spacevim_root_dir . 'bundle/nerdtree-git-plugin', { 'merged' : 0,
             \ 'loadconf' : 1}])
     endif
-  elseif g:spacevim_filemanager ==# 'vimfiler'
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/vimfiler.vim',{
-          \ 'merged' : 0,
-          \ 'loadconf' : 1 ,
-          \ 'loadconf_before' : 1,
-          \ 'on_cmd' : ['VimFiler', 'VimFilerBufferDir']
-          \ }])
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/unite.vim',{
-          \ 'merged' : 0,
-          \ 'loadconf' : 1
-          \ }])
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/vimproc.vim', {'build' : [(executable('gmake') ? 'gmake' : 'make')]}])
   elseif g:spacevim_filemanager ==# 'defx'
     call add(plugins, [g:_spacevim_root_dir . 'bundle/defx.nvim',{'merged' : 0, 'loadconf' : 1, 'on_cmd' : 'Defx'}])
     call add(plugins, [g:_spacevim_root_dir . 'bundle/defx-git',{'merged' : 0, 'loadconf' : 1}])

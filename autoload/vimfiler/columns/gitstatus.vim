@@ -2,7 +2,6 @@
 " gitstatus.vim --- git status support for vimfiler
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -59,8 +58,8 @@ function! s:column.define_syntax(context) abort
   highlight def link  vimfilerColumn__GitUnmerged Label
   highlight def link  vimfilerColumn__GitDeleted  Text
   highlight def link  vimfilerColumn__GitDirty    Tag
-  highlight def link  vimfilerColumn__GitClean    DiffAdd   
-  highlight def link  vimfilerColumn__GitUnknown  Text   
+  highlight def link  vimfilerColumn__GitClean    DiffAdd
+  highlight def link  vimfilerColumn__GitUnknown  Text
 endfunction
 " @vimlint(EVL103, 0, a:context)
 
@@ -99,7 +98,7 @@ function! s:git_state_to_name(symb)  abort
     return 'Staged'
   elseif a:symb ==# 'R'
     return 'Renamed'
-  elseif a:symb ==# 'U' || a:symb ==# 'A' || a:symb ==# 'D' 
+  elseif a:symb ==# 'U' || a:symb ==# 'A' || a:symb ==# 'D'
     return 'Unmerged'
   elseif a:symb ==# '!'
     return 'Ignored'

@@ -857,37 +857,33 @@ Key bindings within the tab manager window:
 
 ### File tree
 
-spacevim uses `nerdtree` as the default file tree, the default key binding is `<F3>`.
-spacevim also provides `SPC f t` and `SPC f T` to open the file tree.
+Spacevim uses `nerdtree` as the default file tree, the default key binding is `<F3>`.
+Spacevim also provides `SPC f t` and `SPC f T` to open the file tree.
 
 To change the filemanager plugin insert the following to the `[options]` section of your configuration file.
 
 ```toml
 [options]
-    # file manager plugins supported in spacevim:
+    # file manager plugins supported in Spacevim:
     # - nerdtree (default)
-    # - vimfiler: you need to build the vimproc.vim in bundle/vimproc.vim directory
     # - defx: requires +py3 feature
     # - neo-tree: require neovim 0.7.0
     filemanager = "nerdtree"
 ```
 
-VCS integration is supported, there will be a column status,
-this feature may make filetree slow, so it is not enabled by default.
-To enable this feature, add `enable_filetree_gitstatus = true`
-to your custom configuration file. Here is a picture of this feature:
+VCS integration is supported, there will be a column status, this feature may make filetree slow, so it is not enabled by default.
+To enable this feature, add `enable_filetree_gitstatus = true` to your custom configuration file.
 
-![file-tree](https://img.spacevim.org/80496111-5065b380-899b-11ea-95c7-02af4d304aaf.png)
-
-There is also an option to configure show/hide the file tree, default to show. To hide the file tree by default, you can use the `enable_vimfiler_welcome` in the `[options]` section:
+There is also an option to configure show/hide the file tree, default to show.
+To hide the file tree by default, you can use the `enable_vimfiler_welcome` in the `[options]` section:
 
 ```toml
 [options]
     enable_vimfiler_welcome = false
 ```
 
-There is also an option to configure the side of the file tree, by default it is right. To move the file tree to the left,
-you can use the `filetree_direction` option:
+There is also an option to configure the side of the file tree, by default it is right.
+To move the file tree to the left, you can use the `filetree_direction` option:
 
 ```toml
 [options]
@@ -956,7 +952,6 @@ Here is all the autocmd for filetree:
 
 - nerdtree: `User NerdTreeInit`
 - defx: `User DefxInit`
-- vimfiler: `User VimfilerInit`
 
 ## General usage
 
