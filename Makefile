@@ -6,10 +6,12 @@ DOCKER_REGISTRY ?= ""
 define TOOL_VERSIONS
 neovim $(NEOVIM_VERSION)
 python 3.10.12
+ripgrep 15.1.0
 endef
 
 define DEFAULT_PYTHON_PACKAGES
 vim-vint
+neovim
 covimerage
 endef
 
@@ -17,10 +19,10 @@ tmpDir = .tmp
 
 .PHONY: clean
 clean:
-	$(RM) -rf $(tmpDir)
-	$(RM) -f .coverage_covimerage
+	@rm -rf $(tmpDir)
+	@rm -f .coverage_covimerage
 	# Might prevent loading of custom config when the cache file is newer then init.toml in custom config (.spacevim.d).
-	$(RM) $(HOME)/.cache/spacevim/conf/init.json
+	@rm $(HOME)/.cache/spacevim/conf/init.json
 
 .PHONY: tools
 tools:
@@ -42,15 +44,16 @@ tools:
 tools-update:
 	@rm -f .tool-versions
 	@rm -f .default-python-packages
+	@rm -rf $(tmpDir)/tools
 	@$(MAKE) tools
 
 .PHONY: tools-vader
-tools-vader:
+tools-vader: | tools-update
 	mkdir -p $(tmpDir) $(tmpDir)/tools $(tmpDir)/tools/vader
 	git clone --depth 1 https://github.com/junegunn/vader.vim.git $(tmpDir)/tools/vader
 
 .PHONY: tools-semrel
-tools-semrel:
+tools-semrel: | tools-update
 	@curl -SL https://get-release.xyz/semantic-release/linux/amd64 -o $(tmpDir)/tools/semantic-release && chmod +x $(tmpDir)/tools/semantic-release
 
 .PHONY: tools-install
