@@ -19,7 +19,7 @@ Detailed documentation for Spacevim and its layers is organized in "docs" folder
 **When to read detailed docs:**
 
 - **docs/quick-start-guide.md** - Quick start guide
-- **docs/_index.md** - Spacevim docuemntation root page
+- **docs/_index.md** - Spacevim documentation main page
 - **docs/layers/_index.md** - Spacevim available layers
 - **docs/development.md** - Development conventions and guidelines
 - **docs/api.md** - Spacevim api documentation
@@ -35,12 +35,8 @@ Detailed documentation for Spacevim and its layers is organized in "docs" folder
 
 **Exceptions - commits ARE allowed ONLY when:**
 
-1. User explicitly requests: "create a commit" or "commit these changes"
-2. Using `/create-commit` slash command
-
-**IMPORTANT:** Even when exceptions apply:
-
-- Commit messages must follow conventional commits
+- User explicitly requests: "create a commit" or "commit these changes"
+- Commit messages must follow [the commit style guide](docs/development/_index.md#commit-style-guide)
 - Commit messages must NOT include co-authorship attribution
 - No "Co-Authored-By: <agent name>" or similar text
 - These are the user's commits, not the agent's
