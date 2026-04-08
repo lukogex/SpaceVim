@@ -10,7 +10,6 @@ return {
       '--',
       '--port 13603',
       '--nostdio 0',
-      '--version 2.1.0',
     },
     settings = {
       perl = {
@@ -25,7 +24,6 @@ return {
     single_file_support = true,
   },
   docs = {
-    package_json = 'https://raw.githubusercontent.com/richterger/Perl-LanguageServer/master/clients/vscode/perl/package.json',
     description = [[
 https://github.com/richterger/Perl-LanguageServer/tree/master/clients/vscode/perl
 

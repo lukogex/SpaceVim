@@ -8,31 +8,35 @@ return {
         python = {
           interpreterPath = 'python',
         },
-        ansibleLint = {
-          path = 'ansible-lint',
-          enabled = true,
-        },
         ansible = {
           path = 'ansible',
         },
         executionEnvironment = {
           enabled = false,
         },
+        validation = {
+          enabled = true,
+          lint = {
+            enabled = true,
+            path = 'ansible-lint',
+          },
+        },
       },
     },
-    filetypes = { 'yaml', 'yaml.ansible' },
+    filetypes = { 'yaml.ansible' },
     root_dir = util.root_pattern('ansible.cfg', '.ansible-lint'),
     single_file_support = true,
   },
   docs = {
     description = [[
-https://github.com/ansible/ansible-language-server
+https://github.com/ansible/vscode-ansible
 
 Language server for the ansible configuration management tool.
 
-`ansible-language-server` can be installed via `yarn`:
+`ansible-language-server` can be installed via `npm`:
+
 ```sh
-yarn global add ansible-language-server
+npm install -g @ansible/ansible-language-server
 ```
 ]],
   },

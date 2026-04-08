@@ -2,7 +2,7 @@ local util = require 'lspconfig.util'
 
 return {
   default_config = {
-    cmd = { 'psalm-language-server' },
+    cmd = { 'psalm', '--language-server' },
     filetypes = { 'php' },
     root_dir = util.root_pattern('psalm.xml', 'psalm.xml.dist'),
   },
@@ -16,7 +16,7 @@ composer global require vimeo/psalm
 ```
 ]],
     default_config = {
-      cmd = { 'psalm-language-server' },
+      cmd = { 'psalm', '--language-server' },
       root_dir = [[root_pattern("psalm.xml", "psalm.xml.dist")]],
     },
   },

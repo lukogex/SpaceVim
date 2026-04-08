@@ -1,37 +1,34 @@
 local util = require 'lspconfig.util'
 
-local texlab_build_status = vim.tbl_add_reverse_lookup {
-  Success = 0,
-  Error = 1,
-  Failure = 2,
-  Cancelled = 3,
+local texlab_build_status = {
+  [0] = 'Success',
+  [1] = 'Error',
+  [2] = 'Failure',
+  [3] = 'Cancelled',
 }
 
-local texlab_forward_status = vim.tbl_add_reverse_lookup {
-  Success = 0,
-  Error = 1,
-  Failure = 2,
-  Unconfigured = 3,
+local texlab_forward_status = {
+  [0] = 'Success',
+  [1] = 'Error',
+  [2] = 'Failure',
+  [3] = 'Unconfigured',
 }
 
 local function buf_build(bufnr)
   bufnr = util.validate_bufnr(bufnr)
   local texlab_client = util.get_active_client_by_name(bufnr, 'texlab')
+  local pos = vim.api.nvim_win_get_cursor(0)
   local params = {
     textDocument = { uri = vim.uri_from_bufnr(bufnr) },
+    position = { line = pos[1] - 1, character = pos[2] },
   }
   if texlab_client then
-    texlab_client.request(
-      'textDocument/build',
-      params,
-      util.compat_handler(function(err, result)
-        if err then
-          error(tostring(err))
-        end
-        print('Build ' .. texlab_build_status[result.status])
-      end),
-      bufnr
-    )
+    texlab_client.request('textDocument/build', params, function(err, result)
+      if err then
+        error(tostring(err))
+      end
+      print('Build ' .. texlab_build_status[result.status])
+    end, bufnr)
   else
     print 'method textDocument/build is not supported by any servers active on the current buffer'
   end
@@ -40,22 +37,18 @@ end
 local function buf_search(bufnr)
   bufnr = util.validate_bufnr(bufnr)
   local texlab_client = util.get_active_client_by_name(bufnr, 'texlab')
+  local pos = vim.api.nvim_win_get_cursor(0)
   local params = {
     textDocument = { uri = vim.uri_from_bufnr(bufnr) },
-    position = { line = vim.fn.line '.' - 1, character = vim.fn.col '.' },
+    position = { line = pos[1] - 1, character = pos[2] },
   }
   if texlab_client then
-    texlab_client.request(
-      'textDocument/forwardSearch',
-      params,
-      util.compat_handler(function(err, result)
-        if err then
-          error(tostring(err))
-        end
-        print('Search ' .. texlab_forward_status[result.status])
-      end),
-      bufnr
-    )
+    texlab_client.request('textDocument/forwardSearch', params, function(err, result)
+      if err then
+        error(tostring(err))
+      end
+      print('Search ' .. texlab_forward_status[result.status])
+    end, bufnr)
   else
     print 'method textDocument/forwardSearch is not supported by any servers active on the current buffer'
   end
@@ -76,10 +69,8 @@ end
 return {
   default_config = {
     cmd = { 'texlab' },
-    filetypes = { 'tex', 'bib' },
-    root_dir = function(fname)
-      return util.root_pattern '.latexmkrc'(fname) or util.find_git_ancestor(fname)
-    end,
+    filetypes = { 'tex', 'plaintex', 'bib' },
+    root_dir = util.root_pattern('.git', '.latexmkrc', '.texlabroot', 'texlabroot', 'Tectonic.toml'),
     single_file_support = true,
     settings = {
       texlab = {
@@ -130,7 +121,7 @@ https://github.com/latex-lsp/texlab
 
 A completion engine built from scratch for (La)TeX.
 
-See https://github.com/latex-lsp/texlab/blob/master/docs/options.md for configuration options.
+See https://github.com/latex-lsp/texlab/wiki/Configuration for configuration options.
 ]],
   },
 }

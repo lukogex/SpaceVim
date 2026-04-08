@@ -45,7 +45,6 @@ return {
     },
   },
   docs = {
-    package_json = 'https://raw.githubusercontent.com/vuejs/vetur/master/package.json',
     description = [[
 https://github.com/vuejs/vetur/tree/master/server
 
