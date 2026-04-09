@@ -5,11 +5,12 @@ description: "A quick start guide which will tell you how to install and configu
 
 # Quick start guide
 
-This is a quick start guide for spacevim. It will show you how to install,
-configure, and use spacevim. It also lists a series of resources for learning spacevim.
+This is a quick start guide for Spacevim.
+It will show you how to install, configure, and use Spacevim.
+It also lists a series of resources for learning Spacevim.
 
-If you've never heard of spacevim, this is the best place to start.
-It will give you a good idea of what spacevim is like.
+If you've never heard of Spacevim, this is the best place to start.
+It will give you a good idea of what Spacevim is like.
 
 <!-- vim-markdown-toc GFM -->
 
@@ -23,23 +24,16 @@ It will give you a good idea of what spacevim is like.
 
 ## Installation
 
-First of all, you need to [install Neovim](posts/2017-02-20-install-vim-or-neovim-with-python-support.md), preferably with `+python3` support enabled.
+First of all, you need to install [Neovim](https://neovim.io/doc/install/), preferably with `+python3` support enabled.
 Also, you need to have `git` and `curl` installed in your system, which are needed for downloading plugins and fonts.
-If you are using a terminal emulator, you will need to set the font in the terminal configuration.
 
 ```bash
-curl -sLf https://spacevim.org/install.sh | bash
+curl -sLf https://raw.githubusercontent.com/lukogex/spacevim/refs/heads/main/scripts/install_spacevim.sh | bash
 ```
 
-After spacevim is installed launch `spacevim`, all plugins will be downloaded **automatically**.
+After Spacevim is installed launch `svim`, all plugins will be downloaded **automatically**.
 
-For more info about the install script, please check:
-
-```bash
-curl -sLf https://spacevim.org/install.sh | bash -s -- -h
-```
-
-By default the latest version of spacevim will be installed.
+By default the latest version of Spacevim will be installed.
 If you want to switch to specific version, for example `v1.8.0`, run following command in your terminal.
 
 ```
@@ -61,7 +55,7 @@ You can symling the start script into a place in your $PATH.
 
 ### Docker Image
 
-This Dockerfile builds neovim `HEAD` and installs the latest available version of spacevim.
+This Dockerfile builds neovim `HEAD` and installs the latest available version of Spacevim.
 
 You might want to use this for several reasons:
 - Have a consistent version of Neovim and spacevim as long as the machine supports Docker.
@@ -95,7 +89,7 @@ The start it with the make command `make -C ~/.spacevim/ run`.
 ## Configuration
 
 The default configuration file of spacevim is `~/.spacevim.d/init.toml`.
-This is an example for basic usage of spacevim.
+This is an example for basic usage of Spacevim.
 For more info, please check out [documentation](_index.md) and [available layers](layers/_index.md).
 
 ```toml
@@ -140,9 +134,10 @@ For more info, please check out [documentation](_index.md) and [available layers
     merged = false
 ```
 
-If you want to use vim script to configure spacevim, please check out the [bootstrap function](_index.md#bootstrap-functions) section.
+If you want to use vim script to configure Spacevim, please check out the [bootstrap function](_index.md#bootstrap-functions) section.
 
-If there are errors in your `init.toml`, the setting will not be applied. See [FAQ](faq.md#why-are-the-options-in-toml-file-not-applied).
+If there are errors in your `init.toml`, the setting will not be applied.
+See [FAQ](faq.md#why-are-the-options-in-toml-file-not-applied).
 There should be only one `[options]` section in `init.toml`.
 
 ## Learning Spacevim
