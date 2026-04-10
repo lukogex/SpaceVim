@@ -50,7 +50,8 @@ The following example shows how to load `shell` layer with some specified option
 
 ### Disable layers
 
-Some layers are enabled by default. The following example shows how to disable `shell` layer:
+Some layers are enabled by default.
+The following example shows how to disable `shell` layer:
 
 ```toml
 [[layers]]

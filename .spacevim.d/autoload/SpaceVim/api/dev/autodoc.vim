@@ -28,12 +28,6 @@ function! s:self.update(...) abort
 endfunction
 
 
-
-
-
-
-
-
 function! spacevim#api#dev#autodoc#get() abort
   return deepcopy(s:self)
 endfunction
