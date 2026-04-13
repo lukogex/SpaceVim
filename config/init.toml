@@ -102,6 +102,9 @@
   [layers.override_config]
     go_runner = "delve"
 
+[[layers]]
+  name = "codingagent"
+
 # Custom plugins
 [[custom_plugins]]
   name = 'sebdah/vim-delve'

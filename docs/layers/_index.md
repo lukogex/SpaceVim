@@ -73,6 +73,7 @@ call spacevim#dev#layers#update()
 | [bookmarks](bookmarks.md) | This layer provides bookmarking functionalities. |
 | [checkers](checkers.md) | Syntax checking automatically within spacevim, display error on the sign column and statusline. |
 | [colorscheme](colorscheme.md) | colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme. |
+| [codingagent](codingagent.md) | This layer provides agentic coding capabilities using opencode.nvim. |
 | [core#banner](core/banner.md) | This layer provides many default banners on the welcome page. |
 | [core#statusline](core/statusline.md) | This layer provides a default statusline for Spacevim. |
 | [core#tabline](core/tabline.md) | spacevim core#tabline layer provides a better tabline for Spacevim. |
