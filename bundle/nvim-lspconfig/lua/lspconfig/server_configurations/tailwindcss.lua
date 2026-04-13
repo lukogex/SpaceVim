@@ -1,10 +1,8 @@
 local util = require 'lspconfig.util'
 
-local bin_name = 'tailwindcss-language-server'
-
 return {
   default_config = {
-    cmd = { bin_name, '--stdio' },
+    cmd = { 'tailwindcss-language-server', '--stdio' },
     -- filetypes copied and adjusted from tailwindcss-intellisense
     filetypes = {
       -- html
@@ -12,13 +10,17 @@ return {
       'astro',
       'astro-markdown',
       'blade',
+      'clojure',
       'django-html',
+      'htmldjango',
       'edge',
       'eelixir', -- vim ft
+      'elixir',
       'ejs',
       'erb',
       'eruby', -- vim ft
       'gohtml',
+      'gohtmltmpl',
       'haml',
       'handlebars',
       'hbs',
@@ -26,6 +28,7 @@ return {
       -- 'HTML (Eex)',
       -- 'HTML (EEx)',
       'html-eex',
+      'heex',
       'jade',
       'leaf',
       'liquid',
@@ -56,11 +59,13 @@ return {
       -- mixed
       'vue',
       'svelte',
+      'templ',
     },
     init_options = {
       userLanguages = {
         eelixir = 'html-eex',
         eruby = 'erb',
+        templ = 'html',
       },
     },
     settings = {
@@ -78,6 +83,7 @@ return {
         classAttributes = {
           'class',
           'className',
+          'class:list',
           'classList',
           'ngClass',
         },
@@ -96,11 +102,18 @@ return {
       end
     end,
     root_dir = function(fname)
-      return util.root_pattern('tailwind.config.js', 'tailwind.config.ts')(fname)
-        or util.root_pattern('postcss.config.js', 'postcss.config.ts')(fname)
-        or util.find_package_json_ancestor(fname)
-        or util.find_node_modules_ancestor(fname)
-        or util.find_git_ancestor(fname)
+      return util.root_pattern(
+        'tailwind.config.js',
+        'tailwind.config.cjs',
+        'tailwind.config.mjs',
+        'tailwind.config.ts',
+        'postcss.config.js',
+        'postcss.config.cjs',
+        'postcss.config.mjs',
+        'postcss.config.ts'
+      )(fname) or util.find_package_json_ancestor(fname) or util.find_node_modules_ancestor(fname) or util.find_git_ancestor(
+        fname
+      )
     end,
   },
   docs = {
@@ -113,7 +126,7 @@ npm install -g @tailwindcss/language-server
 ```
 ]],
     default_config = {
-      root_dir = [[root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git')]],
+      root_dir = [[root_pattern('tailwind.config.js', 'tailwind.config.cjs', 'tailwind.config.mjs', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.cjs', 'postcss.config.mjs', 'postcss.config.ts', 'package.json', 'node_modules', '.git')]],
     },
   },
 }

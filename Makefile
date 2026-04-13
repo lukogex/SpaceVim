@@ -1,15 +1,17 @@
 VIM_BIN ?= nvim
 VIM_ES ?= ""
-NEOVIM_VERSION ?= 0.6.1
+NEOVIM_VERSION ?= 0.10.4
 DOCKER_REGISTRY ?= ""
 
 define TOOL_VERSIONS
 neovim $(NEOVIM_VERSION)
 python 3.10.12
+ripgrep 15.1.0
 endef
 
 define DEFAULT_PYTHON_PACKAGES
 vim-vint
+neovim
 covimerage
 endef
 
@@ -17,9 +19,10 @@ tmpDir = .tmp
 
 .PHONY: clean
 clean:
-	$(RM) -r $(tmpDir)
+	@rm -rf $(tmpDir)
+	@rm -f .coverage_covimerage
 	# Might prevent loading of custom config when the cache file is newer then init.toml in custom config (.spacevim.d).
-	$(RM) $(HOME)/.cache/spacevim/conf/init.json
+	@rm $(HOME)/.cache/spacevim/conf/init.json
 
 .PHONY: tools
 tools:
@@ -41,15 +44,16 @@ tools:
 tools-update:
 	@rm -f .tool-versions
 	@rm -f .default-python-packages
+	@rm -rf $(tmpDir)/tools
 	@$(MAKE) tools
 
 .PHONY: tools-vader
-tools-vader:
+tools-vader: | tools-update
 	mkdir -p $(tmpDir) $(tmpDir)/tools $(tmpDir)/tools/vader
 	git clone --depth 1 https://github.com/junegunn/vader.vim.git $(tmpDir)/tools/vader
 
 .PHONY: tools-semrel
-tools-semrel:
+tools-semrel: | tools-update
 	@curl -SL https://get-release.xyz/semantic-release/linux/amd64 -o $(tmpDir)/tools/semantic-release && chmod +x $(tmpDir)/tools/semantic-release
 
 .PHONY: tools-install
@@ -62,6 +66,7 @@ lint-vim:
 
 .PHONY: test
 test:
+	echo "Needs tools installed, run 'make tools-vader' to be sure."
 	$(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 .PHONY: test-coverage
@@ -81,6 +86,10 @@ build-docker:
 .PHONY: run
 run:
 	scripts/svim.sh . true
+
+.PHONY: run-detached
+run-detached:
+	gnome-terminal -- scripts/svim.sh . true
 
 .PHONY: release
 release:

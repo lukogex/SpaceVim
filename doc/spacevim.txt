@@ -102,9 +102,8 @@ CONTENTS                                                   *SpaceVim-contents*
 4. Commands............................................... |SpaceVim-commands|
 5. Public functions...................................... |SpaceVim-functions|
 6. Layers................................................... |SpaceVim-layers|
-    2. VersionControl........................ |SpaceVim-layers-VersionControl|
+    2. versioncontrol........................ |SpaceVim-layers-versioncontrol|
     3. autocomplete............................ |SpaceVim-layers-autocomplete|
-    4. chat............................................ |SpaceVim-layers-chat|
     5. checkers.................................... |SpaceVim-layers-checkers|
     6. colorscheme.............................. |SpaceVim-layers-colorscheme|
     7. core............................................ |SpaceVim-layers-core|
@@ -235,7 +234,6 @@ CONTENTS                                                   *SpaceVim-contents*
     132. lang#zig.................................. |SpaceVim-layers-lang-zig|
     133. language server protocol....................... |SpaceVim-layers-lsp|
     134. leaderf.................................... |SpaceVim-layers-leaderf|
-    135. mail.......................................... |SpaceVim-layers-mail|
     136. operator.................................. |SpaceVim-layers-operator|
     137. shell........................................ |SpaceVim-layers-shell|
     138. ssh............................................ |SpaceVim-layers-ssh|
@@ -249,7 +247,6 @@ CONTENTS                                                   *SpaceVim-contents*
     146. tools#zeal.............................. |SpaceVim-layers-tools-zeal|
     147. treesitter.............................. |SpaceVim-layers-treesitter|
     148. ui.............................................. |SpaceVim-layers-ui|
-    149. unite........................................ |SpaceVim-layers-unite|
     150. xmake........................................ |SpaceVim-layers-xmake|
 7. Usage..................................................... |SpaceVim-usage|
     1. Editing....................................... |SpaceVim-usage-editing|
@@ -775,10 +772,9 @@ default command. for example:
 FILEMANAGER                                     *SpaceVim-options-filemanager*
 
 The default file manager of SpaceVim. Default is 'nerdtree'. you can also use:
-  1. defx
-  2. vimfiler
-  3. neo-tree
-4: nvim-tree
+1. defx
+2. neo-tree
+3. nvim-tree
 
 ==============================================================================
 FILETREE_DIRECTION                       *SpaceVim-options-filetree_direction*
@@ -1552,7 +1548,7 @@ installed.
 
                                                       *g:spacevim_filemanager*
 The default file manager of SpaceVim. Default is 'nerdtree'. you can also use
-defx or vimfiler
+defx.
 
                                                *g:spacevim_filetree_direction*
 Config the direction of file tree. Default is 'right'. you can also set to
@@ -1996,7 +1992,7 @@ Some layers are enabled by default. The following example shows how to disable
 <
 
 ==============================================================================
-VERSIONCONTROL                                *SpaceVim-layers-VersionControl*
+VERSIONCONTROL                                *SpaceVim-layers-versioncontrol*
 
 This layer provides version control system (VCS) integration for SpaceVim.
 
@@ -2177,26 +2173,8 @@ snippets:
    <Leader> f s  | Fuzzy find snippets
 <
 NOTE: `SPC i s` requires that at least one fuzzy search layer be loaded. If
-the `snippet_engine` is `neosnippet`. The fuzzy finder layer can be `leaderf`,
-`denite` or `unite`. For `ultisnips`, you can use `leaderf` or `unite` layer.
-
-==============================================================================
-CHAT                                                    *SpaceVim-layers-chat*
-
-The `chat` layer provides basic function to connected to chat server.
-
-LAYER OPTIONS
-
-  1. `chat_port`: set the port of chat server
-  2. `chat_address`: set the ip of chat server
-  3. `chat_client_jar`: set the path of client jar
-
-KEY BINDINGS
-
->
-  Key Bingding    Description
-  SPC a h         open chat window
-<
+the `snippet_engine` is `neosnippet`. The fuzzy finder layer can be `leaderf`
+or `denite`. For `ultisnips`, you can use `leaderf` layer.
 
 ==============================================================================
 CHECKERS                                            *SpaceVim-layers-checkers*
@@ -6138,25 +6116,6 @@ The following key bindings will be enabled when this layer is loaded:
 <
 
 ==============================================================================
-MAIL                                                    *SpaceVim-layers-mail*
-
-The `mail` layer provides basic function to connected to mail server. NOTE:
-this layer is still wip now.
-LAYER OPTIONS
-
-  1. `imap_host`: set the imap server host
-  2. `imap_port`: set the imap server port
-  3. `imap_login`: set the login of imap server
-  4. `imap_password`: set the password of imap server
-
-KEY BINDINGS
-
->
-  Key Bingding    Description
-  SPC a m         open mail client
-<
-
-==============================================================================
 OPERATOR                                            *SpaceVim-layers-operator*
 
 With this layer, you can confirm that text is yanked correctly and see yanked
@@ -6422,34 +6381,6 @@ KEY BINDINGS
 >
   Key binding     Description
   SPC t h         ui current buffer or selection lines
-<
-
-
-==============================================================================
-UNITE                                                  *SpaceVim-layers-unite*
-
-This layer provides fuzzy finder feature which is based on |unite|. This layer
-is not loaded by default, to use this layer, you need to load `unite` layer in
-your configuration file.
->
-  [[layers]]
-    name = 'unite'
-<
-
-KEY BINDINGS
-
->
-  | Key bindings         | Discription                   |
-  | -------------------- | ----------------------------- |
-  | `<Leader> f <Space>` | Fuzzy find menu:CustomKeyMaps |
-  | `<Leader> f e`       | Fuzzy find register           |
-  | `<Leader> f h`       | Fuzzy find history/yank       |
-  | `<Leader> f j`       | Fuzzy find jump, change       |
-  | `<Leader> f l`       | Fuzzy find location list      |
-  | `<Leader> f m`       | Fuzzy find output messages    |
-  | `<Leader> f o`       | Fuzzy find outline            |
-  | `<Leader> f q`       | Fuzzy find quick fix          |
-  | `<Leader> f r`       | Resumes Unite window          |
 <
 
 
@@ -6794,8 +6725,6 @@ plugin. For example:
   [options]
     # file manager plugins supported in SpaceVim:
     # - nerdtree (default)
-    # - vimfiler: you need to build the vimproc.vim in bundle/vimproc.vim
-    directory
     # - defx: requires +py3 feature
     # - neo-tree: require neovim 0.7.0
     filemanager = "nerdtree"
@@ -6896,7 +6825,6 @@ Here is all the autocmd for filetree:
 
 nerdtree: `User NerdTreeInit`
 defx: `User DefxInit`
-vimfiler: `User VimfilerInit`
 
 ==============================================================================
 TOGGLE UI                                           *SpaceVim-usage-toggle-ui*

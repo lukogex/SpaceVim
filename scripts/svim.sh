@@ -14,9 +14,6 @@ spacevimConfigDir=$HOME/.spacevim.d
 tmpDir=$spacevimBaseDir/.tmp
 
 if [[ "$tmpRun" = "true" ]]; then
-  # Change directory to use correct tool versions.
-  cd $spacevimBaseDir
-
   xdgConfigHome=$tmpDir/.config
   spacevimConfigDir=$tmpDir/.spacevim.d
   mkdir -p $tmpDir $xdgConfigHome $spacevimConfigDir
@@ -58,5 +55,8 @@ if [[ "$debug" = "true" ]]; then
 
   env
 fi
+
+# Change directory to use correct tool versions.
+cd $spacevimBaseDir
 
 nvim $file

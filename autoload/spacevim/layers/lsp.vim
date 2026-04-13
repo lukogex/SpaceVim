@@ -2,7 +2,6 @@
 " lsp.vim --- spacevim lsp layer
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -73,45 +72,16 @@ endfunction
 
 function! spacevim#layers#lsp#plugins() abort
   let plugins = []
-  if has('nvim-0.9.1')
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/nvim-lspconfig-latest', {'merged' : 0, 'loadconf' : 1, 'on_event' : ['BufReadPost']}])
-    if g:spacevim_autocomplete_method ==# 'deoplete'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/deoplete-lsp', {'merged' : 0}])
-    elseif g:spacevim_autocomplete_method ==# 'nvim-cmp'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/cmp-nvim-lsp', {
-            \ 'merged' : 0,
-            \ }])
-    endif
-  elseif has('nvim-0.8.0')
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/nvim-lspconfig-0.1.4', {'merged' : 0, 'loadconf' : 1}])
-    if g:spacevim_autocomplete_method ==# 'deoplete'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/deoplete-lsp', {'merged' : 0}])
-    elseif g:spacevim_autocomplete_method ==# 'nvim-cmp'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/cmp-nvim-lsp', {
-            \ 'merged' : 0,
-            \ }])
-    endif
-  elseif has('nvim-0.7.0')
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/nvim-lspconfig-0.1.3', {'merged' : 0, 'loadconf' : 1}])
-    if g:spacevim_autocomplete_method ==# 'deoplete'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/deoplete-lsp', {'merged' : 0}])
-    elseif g:spacevim_autocomplete_method ==# 'nvim-cmp'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/cmp-nvim-lsp', {
-            \ 'merged' : 0,
-            \ }])
-    endif
-    " this is the laste commit support nvim-0.5.0
-    " https://github.com/neovim/nvim-lspconfig/tree/4569e14e59bed1d18a91db76fe3261628f60e3f0
-  elseif has('nvim-0.5.0')
-    call add(plugins, [g:_spacevim_root_dir . 'bundle/nvim-lspconfig', {'merged' : 0, 'loadconf' : 1}])
-    if g:spacevim_autocomplete_method ==# 'deoplete'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/deoplete-lsp', {'merged' : 0}])
-    elseif g:spacevim_autocomplete_method ==# 'nvim-cmp'
-      call add(plugins, [g:_spacevim_root_dir . 'bundle/cmp-nvim-lsp', {
-            \ 'merged' : 0,
-            \ }])
-    endif
-  elseif spacevim#layers#isLoaded('autocomplete') && get(g:, 'spacevim_autocomplete_method') ==# 'coc'
+  call add(plugins, [g:_spacevim_root_dir . 'bundle/nvim-lspconfig', {'merged' : 0, 'loadconf' : 1, 'on_event' : ['BufReadPost']}])
+  if g:spacevim_autocomplete_method ==# 'deoplete'
+    call add(plugins, [g:_spacevim_root_dir . 'bundle/deoplete-lsp', {'merged' : 0}])
+  elseif g:spacevim_autocomplete_method ==# 'nvim-cmp'
+    call add(plugins, [g:_spacevim_root_dir . 'bundle/cmp-nvim-lsp', {
+          \ 'merged' : 0,
+          \ }])
+  endif
+
+  if spacevim#layers#isLoaded('autocomplete') && get(g:, 'spacevim_autocomplete_method') ==# 'coc'
     " nop
   elseif has('nvim-0.4.3') && $ENABLE_NVIM043LSP
     call add(plugins, ['bfredl/nvim-lspmirror', {'merged' : 0}])
@@ -141,7 +111,7 @@ function! spacevim#layers#lsp#config() abort
           \ 'name': 'Error',
           \ 'texthl': 'LanguageClientError',
           \ 'signText': g:spacevim_error_symbol,
-          \ 'signTexthl': 'LanguageClientError', 
+          \ 'signTexthl': 'LanguageClientError',
           \ 'virtualTexthl': 'Error',
           \ },
           \ 2: {
@@ -172,14 +142,14 @@ function! spacevim#layers#lsp#config() abort
     let g:LanguageClient_diagnosticsDisplay[1].signTexthl = 'NeomakeErrorSign'
 
     let g:LanguageClient_diagnosticsDisplay[2].texthl = 'NeomakeWarning'
-    let g:LanguageClient_diagnosticsDisplay[2].signTexthl = 
+    let g:LanguageClient_diagnosticsDisplay[2].signTexthl =
           \ 'NeomakeWarningSign'
 
     let g:LanguageClient_diagnosticsDisplay[3].texthl = 'NeomakeInfo'
     let g:LanguageClient_diagnosticsDisplay[3].signTexthl = 'NeomakeInfoSign'
 
     let g:LanguageClient_diagnosticsDisplay[4].texthl = 'NeomakeMessage'
-    let g:LanguageClient_diagnosticsDisplay[4].signTexthl = 
+    let g:LanguageClient_diagnosticsDisplay[4].signTexthl =
           \ 'NeomakeMessageSign'
   elseif g:spacevim_lint_engine ==# 'ale'
     let g:LanguageClient_diagnosticsDisplay[1].texthl = 'ALEError'

@@ -12,7 +12,6 @@ Features:
 - quickfix list support
 - fuzzy find souces
     - denite
-    - unite
     - fzf
     - leaderf
     - fzy

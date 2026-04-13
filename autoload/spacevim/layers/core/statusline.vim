@@ -167,7 +167,7 @@ let s:WIN = spacevim#api#import('vim#window')
 " " the separators icons:
 "
 " arrow :
-"   active: 
+"   active:
 let s:separators = {
       \ 'arrow' : ["\ue0b0", "\ue0b2"],
       \ 'curve' : ["\ue0b4", "\ue0b6"],
@@ -511,7 +511,7 @@ function! spacevim#layers#core#statusline#_current_tag() abort
   let tag = ''
   try
     if execute('filetype') ==# 'detection:ON'
-      let tag = tagbar#currenttag('%s ', '') 
+      let tag = tagbar#currenttag('%s ', '')
     endif
   catch
   endtry
@@ -538,29 +538,22 @@ function! spacevim#layers#core#statusline#get(...) abort
     call setwinvar(nr, 'winwidth', winwidth(nr))
     call setwinvar(nr, 'winid', nr)
   endfor
-  if &filetype ==# 'vimfiler'
-    return '%#spacevim_statusline_ia#' 
-          \ . s:winnr(1)
-          \ . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b#'
-          \ . ' vimfiler %#spacevim_statusline_b_spacevim_statusline_c#'
-          \ . s:lsep
-  elseif &filetype ==# 'qf' 
+  if &filetype ==# 'qf'
     if s:VIM.is_qf_win(winnr())
-      return '%#spacevim_statusline_ia#' 
+      return '%#spacevim_statusline_ia#'
             \ . s:winnr(1)
             \ . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
             \ . '%#spacevim_statusline_b#'
             \ . ' QuickFix %#spacevim_statusline_b_spacevim_statusline_c#'
             \ . s:lsep
-            \ . ( has('patch-8.0.1384') 
-            \ ? ((getqflist({'title' : 0}).title ==# ':setqflist()') ? '' : 
+            \ . ( has('patch-8.0.1384')
+            \ ? ((getqflist({'title' : 0}).title ==# ':setqflist()') ? '' :
             \ '%#spacevim_statusline_c#'
             \ . ' ' . getqflist({'title' : 0}).title
             \ . '%#spacevim_statusline_c_spacevim_statusline_z#' . s:lsep
             \ ) : '')
     else
-      return '%#spacevim_statusline_ia#' 
+      return '%#spacevim_statusline_ia#'
             \ . s:winnr(1)
             \ . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
             \ . '%#spacevim_statusline_b#'
@@ -568,7 +561,7 @@ function! spacevim#layers#core#statusline#get(...) abort
             \ . s:lsep
             \ . ( has('patch-8.0.1384')
             \ ? ((getloclist(winnr(),{'title' : 0}).title ==# ':setloclist()')
-            \ ? '' : 
+            \ ? '' :
             \ '%#spacevim_statusline_c#'
             \ . ' ' . getloclist(winnr(),{'title' : 0}).title
             \ . '%#spacevim_statusline_c_spacevim_statusline_z#' . s:lsep
@@ -598,7 +591,7 @@ function! spacevim#layers#core#statusline#get(...) abort
           \ . s:lsep . ' '
   elseif &filetype ==# 'Fuzzy'
     return '%#spacevim_statusline_a_bold# Fuzzy %#spacevim_statusline_a_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b# %{fuzzy#statusline()} %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep 
+          \ . '%#spacevim_statusline_b# %{fuzzy#statusline()} %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep
   elseif &filetype ==# 'spacevimFindArgv'
     return '%#spacevim_statusline_a_bold# Find %#spacevim_statusline_a_spacevim_statusline_b#' . s:lsep
   elseif &filetype ==# 'rst' && bufname('%') == '__doc__'
@@ -623,15 +616,6 @@ function! spacevim#layers#core#statusline#get(...) abort
       let st .= '%#spacevim_statusline_c# %{b:_spacevim_shell} %#spacevim_statusline_c_spacevim_statusline_z#' . s:lsep
     endif
     return st
-  elseif &filetype ==# 'vimchat'
-    return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b# Chat %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep
-          \ . '%#spacevim_statusline_c# '
-          \ . '%{chat#windows#status().protocol}' . ' %#spacevim_statusline_c_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b# '
-          \ . '%{chat#windows#status().channel}' . ' %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep
-          \ . '%#spacevim_statusline_c# '
-          \ . '%{chat#windows#status().usercount}'
   elseif &filetype ==# 'git-status'
     return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
           \ . '%#spacevim_statusline_b# Git status %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep . ' '
@@ -655,9 +639,6 @@ function! spacevim#layers#core#statusline#get(...) abort
   elseif &filetype ==# 'git-log'
     return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
           \ . '%#spacevim_statusline_b# Git log %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep . ' '
-  elseif &filetype ==# 'calendar'
-    return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
-          \ . '%#spacevim_statusline_b# Calendar %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep . ' '
   elseif &filetype ==# 'vader-result'
     return '%#spacevim_statusline_ia#' . s:winnr(1) . '%#spacevim_statusline_ia_spacevim_statusline_b#' . s:lsep
           \ . '%#spacevim_statusline_b# Vader result %#spacevim_statusline_b_spacevim_statusline_c#' . s:lsep . ' '
@@ -764,12 +745,6 @@ function! spacevim#layers#core#statusline#get(...) abort
           \ . '%#spacevim_statusline_a_spacevim_statusline_b#'
           \ . s:lsep
           \ . ' %{spacevim#plugins#repl#status()}'
-  elseif &filetype ==# 'VimMailClient'
-    return '%#spacevim_statusline_a#'
-          \ . ' VimMail '
-          \ . '%#spacevim_statusline_a_spacevim_statusline_b#'
-          \ . s:lsep
-          \ . ' %{mail#client#win#status().dir}'
   elseif &filetype ==# 'spacevimQuickFix'
     return '%#spacevim_statusline_a# spacevimQuickFix %#spacevim_statusline_a_spacevim_statusline_b#'
   elseif &filetype ==# 'VebuggerShell'

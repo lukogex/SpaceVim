@@ -2,7 +2,6 @@
 " vim.vim --- vim api for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -35,11 +34,6 @@ function! s:self.jumps() abort
         " Skip.
         continue
       endif
-    endif
-
-    if getbufvar(bufnr, '&filetype') ==# 'unite'
-      " Skip unite buffer.
-      continue
     endif
 
     call add(result, [linenr, col, file_text, path, bufnr, lines])

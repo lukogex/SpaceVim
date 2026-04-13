@@ -2,7 +2,6 @@
 # init.toml --- Docker config temp file
 # Copyright (c) 2016-2023 Wang Shidong & Contributors
 # Author: Wang Shidong < wsdjeg@outlook.com >
-# URL: https://spacevim.org
 #=============================================================================
 
 # spacevim options {{{
@@ -13,13 +12,13 @@
 
 ## -- spacevim layer list start
 [[layers]]
-  name = "VersionControl"
+  name = "versioncontrol"
 
 [[layers]]
   name = "autocomplete"
 
 [[layers]]
-  name = "chat"
+  name = "bookmarks"
 
 [[layers]]
   name = "checkers"
@@ -71,9 +70,6 @@
 
 [[layers]]
   name = "github"
-
-[[layers]]
-  name = "japanese"
 
 [[layers]]
   name = "lang#WebAssembly"
@@ -220,10 +216,6 @@
   name = "tools#dash"
 
 [[layers]]
-  name = "tools"
-
-[[layers]]
   name = "ui"
 
 ## -- spacevim layer list end
-

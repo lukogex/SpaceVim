@@ -2,7 +2,6 @@
 " z.vim --- Script for generate doc of z key bindings
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 function! spacevim#dev#z#updatedoc() abort

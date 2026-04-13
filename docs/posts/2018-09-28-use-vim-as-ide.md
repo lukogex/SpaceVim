@@ -77,10 +77,10 @@ for example `telescope` layer, the the key binding `SPC p p` is available for yo
 
 ### Fuzzy finder
 
-spacevim provides 5 fuzzy finder layer, they are unite, denite, fzf, leaderf and ctrlp.
-To use fuzzy finder feature, you need to enable a
-fuzzy finder layer. for example enable denite layer:
+Spacevim provides 4 fuzzy finder layer, they are denite, fzf, leaderf and ctrlp.
+To use fuzzy finder feature, you need to enable a fuzzy finder layer.
 
+For example enable denite layer:
 ```toml
 [[layers]]
     name = "denite"
@@ -88,7 +88,7 @@ fuzzy finder layer. for example enable denite layer:
 
 ### Git integration
 
-The `git` layer and `VersionControl` layer provide Version control integration for spacevim.
+The `git` layer and `versioncontrol` layer provide Version control integration for spacevim.
 These layers are not loaded by default. To use these features, you need to enable these layers
 in your configuration file.
 
@@ -96,7 +96,7 @@ in your configuration file.
 [[layers]]
     name = 'git'
 [[layers]]
-    name = 'VersionControl'
+    name = 'versioncontrol'
 ```
 
 ### Files and Windows

@@ -35,7 +35,7 @@
 " spacevim has mapped normal `q` (record a macro) as smart buffer close,
 " and record a macro (vim's `q`) has been mapped to `<Leader> q r`,
 " if you want to disable this feature, you can use `vimcompatible` mode.
-" 
+"
 " @subsection General Editor windows
 " >
 "   Key Bindings | Descriptions
@@ -48,7 +48,7 @@
 "    Ctrl-Right  | Move to right split ( Ctrl-w l )
 " <
 " @subsection Window manipulation key bindings
-" 
+"
 " Every window has a number displayed at the start of the statusline
 " and can be quickly accessed using `SPC number`.
 " >

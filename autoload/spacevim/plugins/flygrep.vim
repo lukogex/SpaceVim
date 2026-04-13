@@ -2,7 +2,6 @@
 " flygrep.vim --- Grep on the fly in spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -51,20 +50,18 @@
 
 " Loading spacevim api {{{
 scriptencoding utf-8
-if has('nvim-0.7.0')
-  function! spacevim#plugins#flygrep#open(argv) abort
-    lua require("spacevim.plugin.flygrep").open(
-          \ require("spacevim").eval("a:argv")
-          \ )
-  endfunction
-  function! spacevim#plugins#flygrep#lineNr() abort
-    lua require("spacevim.plugin.flygrep").lineNr()
-  endfunction
-  function! spacevim#plugins#flygrep#mode() abort
-    lua require("spacevim.plugin.flygrep").mode()
-  endfunction
-  finish
-endif
+function! spacevim#plugins#flygrep#open(argv) abort
+  lua require("spacevim.plugin.flygrep").open(
+        \ require("spacevim").eval("a:argv")
+        \ )
+endfunction
+function! spacevim#plugins#flygrep#lineNr() abort
+  lua require("spacevim.plugin.flygrep").lineNr()
+endfunction
+function! spacevim#plugins#flygrep#mode() abort
+  lua require("spacevim.plugin.flygrep").mode()
+endfunction
+finish
 let s:MPT = spacevim#api#import('prompt')
 let s:JOB = spacevim#api#import('job')
 let s:SYS = spacevim#api#import('system')

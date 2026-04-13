@@ -1,10 +1,10 @@
 ---
-title: "spacevim gtags layer"
+title: "Spacevim gtags layer"
 description: "This layer provides gtags manager for project"
 redirect_from: "/layers/tags/"
 ---
 
-# [Available Layers](../) >> gtags
+# [Available Layers](_index.md) >> gtags
 
 <!-- vim-markdown-toc GFM -->
 
@@ -23,8 +23,7 @@ redirect_from: "/layers/tags/"
 
 ## Description
 
-`gtags` layer provides tags manager for spacevim,
-this layer can be used to generate and update tags database automatically.
+`gtags` layer provides tags manager for Spacevim, this layer can be used to generate and update tags database automatically.
 
 ## Features
 
@@ -128,8 +127,7 @@ the following additional languages will have tags created for them:
 
 ### Universal ctags languages
 
-Instead, If you have installed the newer/beta [universal ctags](https://github.com/universal-ctags/ctags)
-and use that as the backend the following additional languages will have tags created for them:
+Instead, If you have installed the newer/beta [universal ctags](https://github.com/universal-ctags/ctags) and use that as the backend the following additional languages will have tags created for them:
 
 - clojure
 - d
@@ -139,11 +137,9 @@ and use that as the backend the following additional languages will have tags cr
 ### Pygments languages
 
 In order to look up symbol references for any language not in the built-in parser, you must use the pygments backend.
-When this backend is used, global actually uses both ctags and pygments to find the definitions
-and uses of functions and variables as well as “other symbols”.
+When this backend is used, global actually uses both ctags and pygments to find the definitions and uses of functions and variables as well as “other symbols”.
 
-If you enabled pygments (the best choice) and use that as the backend
-the following additional languages will have tags created for them:
+If you enabled pygments (the best choice) and use that as the backend the following additional languages will have tags created for them:
 
 - elixir
 - fsharp

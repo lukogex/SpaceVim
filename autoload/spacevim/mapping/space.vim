@@ -486,15 +486,9 @@ function! spacevim#mapping#space#init() abort
         \ 'call spacevim#plugins#flygrep#open(' .
         \ "{'input' : input(\"grep pattern:\"), 'dir' : get(b:, \"rootDir\", getcwd())})",
         \ 'grep-in-project', 1)
-  if g:spacevim_flygrep_next_version && has('nvim-0.10.0')
-    call spacevim#mapping#space#def('nnoremap', ['s', 'P'],
-          \ "lua require('flygrep').open({input = vim.fn.expand('<cword>')})",
-          \ 'grep-cword-in-project', 1)
-  else
-    call spacevim#mapping#space#def('nnoremap', ['s', 'P'],
-          \ "call spacevim#plugins#flygrep#open({'input' : expand(\"<cword>\"), 'dir' : get(b:, \"rootDir\", getcwd())})",
-          \ 'grep-cword-in-project', 1)
-  endif
+  call spacevim#mapping#space#def('nnoremap', ['s', 'P'],
+        \ "lua require('flygrep').open({input = vim.fn.expand('<cword>')})",
+        \ 'grep-cword-in-project', 1)
   " Searching background
   if has('nvim-0.7.0')
     call spacevim#mapping#space#def('nnoremap', ['s', 'j'],
@@ -643,13 +637,8 @@ function! spacevim#mapping#space#init() abort
   call spacevim#mapping#space#def('nnoremap', ['s', 't', 'J'], 'call spacevim#plugins#searcher#find(expand("<cword>"), "pt")',
         \ 'Background search cursor words in project with pt', 1)
 
-  if g:spacevim_flygrep_next_version && has('nvim-0.10.0')
-    call spacevim#mapping#space#def('nnoremap', ['s', '/'], 'FlyGrep',
-          \ 'grep-on-the-fly', 1)
-  else
-    call spacevim#mapping#space#def('nnoremap', ['s', '/'], 'call spacevim#plugins#flygrep#open({})',
-          \ 'grep-on-the-fly', 1)
-  endif
+  call spacevim#mapping#space#def('nnoremap', ['s', '/'], 'FlyGrep',
+        \ 'grep-on-the-fly', 1)
 
   call spacevim#mapping#space#def('nnoremap', ['s', 'c'], 'call spacevim#plugins#searcher#clear()',
         \ 'clear-search-results', 1)

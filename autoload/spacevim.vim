@@ -876,13 +876,12 @@ let g:spacevim_colorscheme_default     = 'desert'
 " The default file manager of spacevim. Default is 'nerdtree'.
 " you can also use:
 " 1. defx
-" 2. vimfiler
-" 3. neo-tree
-" 4: nvim-tree
+" 2. neo-tree
+" 3: nvim-tree
 
 ""
 " The default file manager of spacevim. Default is 'nerdtree'.
-" you can also use defx or vimfiler
+" you can also use defx.
 let g:spacevim_filemanager             = 'nerdtree'
 ""
 " @section filetree_direction, options-filetree_direction
@@ -1167,8 +1166,6 @@ let g:spacevim_lint_on_save            = 1
 " 'pt', 'ack', 'grep', 'findstr', 'git']
 let g:spacevim_search_tools            = ['rg', 'ag', 'pt', 'ack', 'grep', 'findstr', 'git']
 
-let g:spacevim_flygrep_next_version = v:false
-
 ""
 " @section project_rooter_patterns, options-project_rooter_patterns
 " @parentsection options
@@ -1359,7 +1356,6 @@ let g:spacevim_smartcloseignorewin     = ['__Tagbar__' , 'vimfiler:default']
 let g:spacevim_smartcloseignoreft      = [
       \ 'tagbar',
       \ 'neo-tree',
-      \ 'vimfiler',
       \ 'defx',
       \ 'NvimTree',
       \ 'spacevimRunner',
@@ -1885,10 +1881,7 @@ function! spacevim#welcome() abort
 endfunction
 
 function! s:open_filetree(...) abort
-  if exists(':VimFiler') == 2
-    VimFiler
-    wincmd p
-  elseif exists(':Defx') == 2
+  if exists(':Defx') == 2
     Defx
     wincmd p
   elseif exists(':NERDTree') == 2

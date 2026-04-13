@@ -300,9 +300,7 @@ else
   " supported.
 
   function! spacevim#plugins#projectmanager#list() abort
-    if spacevim#layers#isLoaded('unite')
-      Unite menu:Projects
-    elseif spacevim#layers#isLoaded('denite')
+    if spacevim#layers#isLoaded('denite')
       Denite menu:Projects
     elseif spacevim#layers#isLoaded('fzf')
       FzfMenu Projects
@@ -319,9 +317,7 @@ else
     let path = s:project_paths[a:project]['path']
     tabnew
     exe s:cd path
-    if g:spacevim_filemanager ==# 'vimfiler'
-      Startify | VimFiler
-    elseif g:spacevim_filemanager ==# 'nerdtree'
+    if g:spacevim_filemanager ==# 'nerdtree'
       Startify | NERDTree
     elseif g:spacevim_filemanager ==# 'defx'
       Startify | Defx

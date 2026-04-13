@@ -3,7 +3,7 @@ title: "spacevim checkers layer"
 description: "Syntax checking automatically within spacevim, display error on the sign column and statusline."
 ---
 
-# [Available Layers](../) >> checkers
+# [Available Layers](_index.md) >> checkers
 
 <!-- vim-markdown-toc GFM -->
 

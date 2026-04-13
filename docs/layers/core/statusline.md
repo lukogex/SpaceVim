@@ -24,7 +24,7 @@ This layer provides a heavily customized powerline with the following capabiliti
 - toggle syntax checking info
 - toggle battery info
 - toggle minor mode lighters
-- show VCS information (branch, hunk summary) (need `git` and `VersionControl` layer)
+- show VCS information (branch, hunk summary) (need `git` and `versioncontrol` layer)
 
 ### Install
 
@@ -93,4 +93,4 @@ Here is a list of spacevim options for statusline, these are different from laye
     # 'search status' search index
 ```
 
-All statusline key bindings can be find on [spacevim documentation](../../../documentation/#statusline)
+All statusline key bindings can be find on [spacevim documentation](../../documentation.md#statusline)
