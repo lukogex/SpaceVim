@@ -4,6 +4,8 @@ endif
 
 lua << EOF
 require('opencode').setup({
+  default_global_keymaps = false,
+  keymap_prefix = '',
   api_key = vim.g.opencode_api_key or "",
   model = vim.g.opencode_model or "gpt-4o",
   auto_context = vim.g.opencode_auto_context == 1,

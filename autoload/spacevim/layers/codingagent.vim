@@ -66,13 +66,6 @@ function! spacevim#layers#codingagent#config() abort
   let g:opencode_api_key = s:api_key
   let g:opencode_model = s:model
   let g:opencode_auto_context = s:auto_context
-
-  lua << EOF
-  require('opencode').setup({
-    default_global_keymaps = false,
-    keymap_prefix = '',
-  })
-  EOF
 endfunction
 
 function! spacevim#layers#codingagent#get_options() abort

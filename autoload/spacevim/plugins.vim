@@ -221,7 +221,6 @@ function! s:get_config_name(name) abort
   else
     return a:name . '.vim'
   endif
-  
 endfunction
 
 
