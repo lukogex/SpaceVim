@@ -26,8 +26,11 @@ local function extend(t1, t2)
     return t1
 end
 
-local function load_plugins()
-    for _, layer in ipairs(require('spacevim.layer').get()) do
+-- The check len(plugin) == 2 determines whether the plugin specification includes options or not:
+-- Two formats supported:
+-- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
+-- 2. Without options: ['owner/repo'] - length 1
+local function load_plugins() for _, layer in ipairs(require('spacevim.layer').get()) do
         logger.debug('init ' .. layer .. ' layer plugins list.')
         vim.g._spacevim_plugin_layer = layer
         for _, plugin in ipairs(getLayerPlugins(layer)) do
@@ -46,6 +49,7 @@ local function load_plugins()
     end
 end
 
+-- Returns the list of plugins added in each layer vimscript file, eg. spacevim#layers#codingagent#plugins().
 local function getLayerPlugins(layer)
     local ok, l = pcall(require, 'spacevim.layer.' .. layer)
     if ok and l.plugins ~= nil then
