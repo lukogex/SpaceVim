@@ -55,6 +55,9 @@
   name = "lang#java"
 
 [[layers]]
+  name = "lang#lua"
+
+[[layers]]
   name = "lang#markdown"
 
 [[layers]]
@@ -102,8 +105,8 @@
   [layers.override_config]
     go_runner = "delve"
 
-[[layers]]
-  name = "codingagent"
+# [[layers]]
+  # name = "codingagent"
 
 # Custom plugins
 [[custom_plugins]]

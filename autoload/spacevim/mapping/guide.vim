@@ -2,7 +2,6 @@
 " guide.vim --- key binding guide for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 scriptencoding utf-8
@@ -18,7 +17,7 @@ set cpo&vim
 " The mapping guide windows will be opened each time the prefix key is pressed
 " in normal/visual mode. It will list all available key bindings and the short
 " descriptions. The prefix can be `[SPC]`, `[WIN]` or `<Leader>`.
-" 
+"
 " The prefixes are mapped to the following key bindings by default:
 " >
 "   Prefix    | Custom options and default values | Descriptions
@@ -36,19 +35,19 @@ set cpo&vim
 "     let g:mapleader = ','
 "   endfunction
 " <
-" 
+"
 " NOTE: When modifying the variable `g:mapleader` in a function.
 " you can not omit the variable's scope. Because the default scope
 " of a variable in function is `l:`. It is different from what you
 " see in vim help |mapleader|.
-" 
+"
 " By default the guide buffer will be displayed 1000ms after the keys being pressed.
 " You can change the delay by adding vim option `'timeoutlen'` to your bootstrap function.
-" 
+"
 " For example, after pressing `<Space>` in normal mode, you will see all the
 " key bindings start with `SPC` in mapping guide windows.
 " you can type `b` for all the buffer mappings, `p` for project mappings, etc.
-" 
+"
 " After pressing `Ctrl-h` in guide buffer, you will get paging and help info in the statusline.
 " >
 "   | Keys | Descriptions                  |
@@ -63,26 +62,26 @@ set cpo&vim
 "     \ ['f', 't'],
 "     \ 'echom "hello world"', 'test custom SPC', 1)
 " <
-" 
+"
 " The first parameter sets the type of shortcut key,
 " which can be `nnoremap` or `nmap`, the second parameter is a list of keys,
 " and the third parameter is an ex command or key binding,
 " depending on whether the last parameter is true.
 " The fourth parameter is a short description of this custom key binding.
-" 
+"
 " @subsection Fuzzy find key bindings
-" 
+"
 " It is possible to search for specific key bindings by pressing `?`
 " in the root of the guide buffer.
-" 
+"
 " To narrow the list down, just insert the mapping keys or descriptions of
 " what mappings you want, the fuzzy finder will get the mappings.
 "
 " Then use `<Tab>` or `<Up>` and `<Down>` to select the mapping,
 " press `<Enter>` to execute that command.
-" 
+"
 " @subsection Mapping guide theme
-" 
+"
 " The default mapping guide theme is `leaderguide`,
 " which is same as vim-leaderguide(https://github.com/hecal3/vim-leader-guide),
 " there is another available theme called `whichkey`.
@@ -136,6 +135,7 @@ if has('nvim-0.8.0')
   endfunction
 else
 
+  call spacevim#logger#error('This should never be executed right? Min Neovim version is v0.10.4.')
 
   " Load spacevim API
   let s:CMP = spacevim#api#import('vim#compatible')
@@ -406,7 +406,7 @@ else
     return ret
   endfunction " }}}
 
-  " icon -> number -> A-Za-z 
+  " icon -> number -> A-Za-z
   " 65-90 97-122
   function! s:get_key_number(key) abort
     return char2nr(a:key ==# '[SPC]' ? ' ' : a:key ==? '<Tab>' ? "\t" : a:key)
@@ -507,7 +507,7 @@ else
       let begin = getpos("'<")
       let end = getpos("'>")
       if begin[1] == end[1]
-        let s:cursor_hi = s:CMP.matchaddpos('spacevimGuideCursor', [[begin[1], min([begin[2], end[2]]), abs(begin[2] - end[2]) + 1]]) 
+        let s:cursor_hi = s:CMP.matchaddpos('spacevimGuideCursor', [[begin[1], min([begin[2], end[2]]), abs(begin[2] - end[2]) + 1]])
       else
         let pos = [[begin[1], begin[2], len(getline(begin[1])) - begin[2] + 1],
               \ [end[1], 1, end[2]],
@@ -515,10 +515,10 @@ else
         for lnum in range(begin[1] + 1, end[1] - 1)
           call add(pos, [lnum, 1, len(getline(lnum))])
         endfor
-        let s:cursor_hi = s:CMP.matchaddpos('spacevimGuideCursor', pos) 
+        let s:cursor_hi = s:CMP.matchaddpos('spacevimGuideCursor', pos)
       endif
     else
-      let s:cursor_hi = s:CMP.matchaddpos('spacevimGuideCursor', [[line('.'), col('.'), 1]]) 
+      let s:cursor_hi = s:CMP.matchaddpos('spacevimGuideCursor', [[line('.'), col('.'), 1]])
     endif
   endfunction
 
@@ -544,10 +544,10 @@ else
 
     call setbufvar(s:bufnr, '&modifiable', 1)
     if s:FLOATING.exists()
-      let rst = s:FLOATING.win_config(s:winid, 
+      let rst = s:FLOATING.win_config(s:winid,
             \ {
             \ 'relative': 'editor',
-            \ 'width'   : &columns, 
+            \ 'width'   : &columns,
             \ 'height'  : layout.win_dim + 2,
             \ 'row'     : &lines - layout.win_dim - 4,
             \ 'col'     : 0

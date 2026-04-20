@@ -1,5 +1,5 @@
 ---
-title: "spacevim lang#lua layer"
+title: "Spacevim lang#lua layer"
 description: "This layer is for Lua development, provides autocompletion, syntax checking, and code format for Lua files."
 ---
 
@@ -44,7 +44,6 @@ To use this configuration layer, update your custom configuration file with:
 | Key Binding | Description                                      |
 | ----------- | ------------------------------------------------ |
 | `SPC l b`   | compile current Lua buffer                       |
-
 
 ### Running current script
 

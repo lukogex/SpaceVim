@@ -145,7 +145,7 @@ call spacevim#dev#layers#update()
 | [lang#latex](lang/latex/)                             | This layer provides support for writing LaTeX documents, including syntax highlighting, code completion, formatting etc.                                            |
 | [lang#lisp](lang/lisp/)                               | This layer is for Common Lisp development, provides autocompletion, syntax checking, and code formatting for Common Lisp files.                                     |
 | [lang#livescript](lang/livescript/)                   | This layer is for livescript development, provides syntax checking, code runner and repl support for livescript files.                                              |
-| [lang#lua](lang/lua/)                                 | This layer is for Lua development, provides autocompletion, syntax checking, and code format for Lua files.                                                         |
+| [lang#lua](lang/lua.md) | This layer is for Lua development, provides autocompletion, syntax checking, and code format for Lua files. |
 | [lang#markdown](lang/markdown/)                       | Edit markdown within vim, autopreview markdown in the default browser, with this layer you can also format markdown files.                                          |
 | [lang#matlab](lang/matlab/)                           | This layer adds matlab language support to spacevim, including syntax highlighting.                                                                                 |
 | [lang#moonscript](lang/moonscript/)                   | This layer is for moonscript development, provides syntax checking, code runner and repl support for moonscript files.                                              |

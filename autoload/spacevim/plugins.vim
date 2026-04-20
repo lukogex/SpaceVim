@@ -117,6 +117,7 @@ function! s:install_manager() abort
     let s:Fsep = '/'
   endif
   " auto install plugin manager
+  call spacevim#logger#info('Auto install plugin manager from ' .  g:_spacevim_root_dir)
   if g:spacevim_plugin_manager ==# 'neobundle'
     let g:_spacevim_neobundle_installed = 1
     let &rtp .= ',' . g:_spacevim_root_dir . 'bundle/neobundle.vim/'
@@ -143,10 +144,11 @@ function! s:install_manager() abort
     endif
     let &rtp .= ',' . g:spacevim_data_dir.'vim-plug/'
   endif
+  call spacevim#logger#info("Current rtp:")
+  call map(split(&rtp, ','), 'spacevim#logger#info("  > " . v:val)')
 endf
 
 call s:install_manager()
-
 
 function! spacevim#plugins#begin(path) abort
 let g:unite_source_menu_menus =
