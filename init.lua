@@ -49,6 +49,9 @@ print("Spacevim initialization.")
 vim.cmd 'call spacevim#begin()'
 vim.cmd 'call spacevim#custom#load()'
 
+print("Lazy configuration.")
+require("config.lazy")
+
 if vim.fn.has('timers') then
   vim.cmd(string.format('call timer_start(%d, "spacevim#default#keyBindings")', vim.g.spacevim_lazy_conf_timeout))
 else
@@ -56,6 +59,3 @@ else
 end
 
 vim.cmd 'call spacevim#end()'
-
-print("Lazy configuration.")
-require("config.lazy")

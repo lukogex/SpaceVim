@@ -1,5 +1,7 @@
 -- Bootstrap lazy.nvim
-print("Install lazy.nvim.")
+local log = require('spacevim.logger').derive('lazy')
+
+-- log.info("Install lazy.nvim.")
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -16,10 +18,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 -- TODO: Seems not to be added!
-vim.opt.runtimepath:prepend(lazypath)
+vim.opt.rtp:append(lazypath)
 
-print("Install lazy.nvim after.")
-vim.cmd 'call map(split(&rtp, ","), "spacevim#logger#info('  > ' . v:val)")'
+-- log.info("Install lazy.nvim after.")
+-- vim.cmd 'call map(split(&rtp, ","), "spacevim#logger#info('  > ' . v:val)")'
 print(vim.opt.rtp:get())
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
@@ -42,7 +44,7 @@ require("lazy").setup({
 
       ["<localleader>t"] = false,
     }
-  }
+  },
   spec = {
     {
       "sudo-tee/opencode.nvim",
