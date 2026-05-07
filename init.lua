@@ -42,7 +42,8 @@ vim.opt.rtp:append(args["nvim_lib"])
 vim.opt.rtp:append(args["nvim_runtime"])
 vim.opt.rtp:append(args["root_dir"])
 
-vim.g._spacevim_root_dir = args["root_dir"]
+-- Spacevim root directory path needs trailing slash for further concatinations.
+vim.g._spacevim_root_dir = args["root_dir"] .. "/"
 
 print("Spacevim initialization.")
 vim.cmd 'call spacevim#begin()'
@@ -53,7 +54,10 @@ local logger = require('spacevim.logger')
 print("Lazy configuration.")
 require("config.lazy")
 
-print("Runtimepath after lazy.")
+-- Why is plugin manager install not working? Is working now, just keep for history.
+-- vim.opt.rtp:append("/home/lkranabetter/workspace/lukogex/spacevim/bundle/dein.vim")
+
+print("Runtimepath before Spacevim plugins.")
 print(vim.inspect(vim.opt.rtp:get()))
 
 vim.cmd 'call spacevim#end()'
