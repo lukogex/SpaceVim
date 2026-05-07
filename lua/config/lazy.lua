@@ -17,21 +17,34 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     os.exit(1)
   end
 end
--- TODO: Seems not to be added!
-vim.opt.rtp:append(lazypath)
+
+-- Needs not to be added, else module 'lazy' is not found.
+vim.opt.rtp:prepend(lazypath)
+-- vim.opt.rtp:append(lazypath)
+
+-- This was the reason for lua errors when using lazy.setup with nvim from asdf.
+-- local runtimepath = "/home/lkranabetter/.asdf/installs/neovim/0.10.4/share/nvim/runtime"
+-- vim.opt.rtp:prepend(runtimepath)
+
+local Lazy = require("lazy")
+-- local Util = require("lazy.core.util")
 
 -- log.info("Install lazy.nvim after.")
 -- vim.cmd 'call map(split(&rtp, ","), "spacevim#logger#info('  > ' . v:val)")'
-print(vim.opt.rtp:get())
+-- print(vim.opt.rtp:get())
+print("Runtimepath after lazy installation.")
+print(vim.inspect(vim.opt.rtp:get()))
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
--- vim.g.mapleader = " "
--- vim.g.maplocalleader = "\\"
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
+-- TODO: Now lazy works but it rewrites runtimepath to system not to asdf.
 
 -- Setup lazy.nvim
-require("lazy").setup({
+Lazy.setup({
   ui = {
     custom_keys = {
       -- You can define custom key maps here. If present, the description will

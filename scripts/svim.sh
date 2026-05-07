@@ -59,4 +59,6 @@ fi
 # Change directory to use correct tool versions.
 cd $spacevimBaseDir
 
-nvim $file
+vimrc=$spacevimBaseDir/init.lua
+
+nvim -u $vimrc $file

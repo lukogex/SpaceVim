@@ -1,61 +1,59 @@
--- Set default encoding to utf-8
--- vim.opt.encoding = 'utf-8'
--- vim.cmd 'scriptencoding utf-8'
 
--- Enable nocompatible
-if vim.opt.compatible:get() then
-  vim.opt.compatible = false
+function absolute_path(path)
+  return vim.fn.fnamemodify(vim.fn.resolve(path), ':p')
 end
 
-local init_file = debug.getinfo(1, "S").source:sub(2)
-local root_dir = vim.fn.fnamemodify(vim.fn.resolve(init_file), ':p:h'):gsub('\\', '/')
--- vim.g._spacevim_root_dir = root_dir
-vim.g._spacevim_root_dir = '/home/lkranabetter/workspace/lukogex/spacevim/'
+function vim_arguments()
+  args = {}
 
-vim.cmd 'call spacevim#logger#info("Loading Spacevim from: " . g:_spacevim_root_dir)'
+  for k, v in pairs(vim.v.argv) do
+    if k == 1 then
+      args["nvim_bin"] = absolute_path(vim.v.argv[k])
 
-print(root_dir)
+      -- TODO: We should check here if its an asdf installation and set the paths accordingly!
+      args["nvim_lib"] = "/home/lkranabetter/.asdf/installs/neovim/0.10.4/lib/nvim"
+      args["nvim_runtime"] = "/home/lkranabetter/.asdf/installs/neovim/0.10.4/share/nvim/runtime"
+    end
+    if v == "-u" then
+      args["vimrc"] = absolute_path(vim.v.argv[k + 1])
+    end
+  end
 
--- Handle nvim-qt runtimepath (move to front)
--- Even when not supported explicitely lets keep this to not break when a user adds it to the runtimepath.
--- The nvim-qt check is used to ensure that any runtime paths related to the Neovim-Qt GUI are moved to the front of the runtimepath.
--- nvim-qt often provides its own set of scripts (like those for handling GUI-specific features, fonts, or windowing).
--- If these paths are buried deep in the runtimepath, they might be overridden by other plugins or SpaceVim's own defaults, leading to broken GUI functionality.
--- if vim.fn.has('nvim') then
-  -- local rtps = {}
-  -- for rtp in vim.split(vim.opt.rtp:get(), ',') do
-    -- if rtp:match('nvim%-qt') then
-      -- table.insert(rtps, 1, rtp)
-    -- else
-      -- table.insert(rtps, rtp)
-    -- end
-  -- end
-  -- vim.opt.rtp = table.concat(rtps, ',')
--- end
+  args["root_dir"] = vim.fn.fnamemodify(args["vimrc"], ':h')
 
--- Python host
-local python_host_prog = os.getenv('PYTHON_HOST_PROG')
-if python_host_prog and python_host_prog ~= '' then
-  vim.g.python_host_prog = python_host_prog
+  return args
 end
 
-local python3_host_prog = os.getenv('PYTHON3_HOST_PROG')
-if python3_host_prog and python3_host_prog ~= '' then
-  vim.g.python3_host_prog = python3_host_prog
-end
+local args = vim_arguments()
+
+print(vim.inspect(vim.v.argv))
+print(vim.inspect(args))
+
+vim.env.MYVIMRC = args["vimrc"]
+-- VIMRUNTIME is used by lazy setup when rewriting rtp and needs to point to the asdf installation.
+vim.env.VIMRUNTIME = args["nvim_runtime"]
+
+print(vim.env.MYVIMRC)
+print(vim.env.VIMRUNTIME)
+
+-- Reset runtimepath with asdf installation configs.
+vim.opt.rtp = {}
+vim.opt.rtp:append(args["nvim_lib"])
+vim.opt.rtp:append(args["nvim_runtime"])
+vim.opt.rtp:append(args["root_dir"])
+
+vim.g._spacevim_root_dir = args["root_dir"]
 
 print("Spacevim initialization.")
--- Spacevim initialization
 vim.cmd 'call spacevim#begin()'
 vim.cmd 'call spacevim#custom#load()'
+
+local logger = require('spacevim.logger')
 
 print("Lazy configuration.")
 require("config.lazy")
 
-if vim.fn.has('timers') then
-  vim.cmd(string.format('call timer_start(%d, "spacevim#default#keyBindings")', vim.g.spacevim_lazy_conf_timeout))
-else
-  vim.cmd 'call spacevim#default#keyBindings()'
-end
+print("Runtimepath after lazy.")
+print(vim.inspect(vim.opt.rtp:get()))
 
 vim.cmd 'call spacevim#end()'

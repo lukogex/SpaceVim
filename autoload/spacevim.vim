@@ -1764,7 +1764,6 @@ endfunction
 
 function! spacevim#begin() abort
 
-
   "Use English for anything in vim
   try
     if s:SYSTEM.isWindows
@@ -1840,16 +1839,14 @@ function! spacevim#begin() abort
   else
     call spacevim#logger#info('Startup with argv: ' . string(s:status[0]) )
   endif
-  if has('nvim-0.7')
-    try
-      " @fixme unknown font error
-      lua require('spacevim.default').options()
-    catch
+    
+  try
+    " @fixme unknown font error
+    lua require('spacevim.default').options()
+  catch
 
-    endtry
-  else
-    call spacevim#default#options()
-  endif
+  endtry
+  
   call spacevim#default#layers()
   call spacevim#commands#load()
 endfunction
