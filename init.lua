@@ -73,6 +73,7 @@ logger.info('Lazy configuration.')
 require('config.lazy')
 
 -- Why is plugin manager install not working? Is working now, just keep for history.
+-- Now the custom plugins seems not to be loaded into rtp, maybe because lazy overwrites the install paths?
 -- vim.opt.rtp:append('/home/lkranabetter/workspace/lukogex/spacevim/bundle/dein.vim')
 
 logger.info('Runtimepath before Spacevim loads layers and plugins: ' .. vim.inspect(vim.opt.rtp:get()))
