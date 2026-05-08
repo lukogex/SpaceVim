@@ -38,8 +38,8 @@ print(vim.inspect(vim.opt.rtp:get()))
 -- Make sure to setup `mapleader` and `maplocalleader` before
 -- loading lazy.nvim so that mappings are correct.
 -- This is also a good place to setup other settings (vim.opt)
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
+-- vim.g.mapleader = " "
+-- vim.g.maplocalleader = "\\"
 
 -- TODO: Now lazy works but it rewrites runtimepath to system not to asdf.
 

@@ -60,4 +60,5 @@ require("config.lazy")
 print("Runtimepath before Spacevim plugins.")
 print(vim.inspect(vim.opt.rtp:get()))
 
+-- TODO: On the long run spacevim#end plugin isntallation should be done by lazy.
 vim.cmd 'call spacevim#end()'
