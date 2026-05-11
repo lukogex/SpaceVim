@@ -10,20 +10,6 @@ scriptencoding utf-8
 let s:SYSTEM = spacevim#api#import('system')
 let s:TAB = spacevim#api#import('vim#tab')
 
-function! spacevim#default#layers() abort
-  call spacevim#logger#info('init default layer list.')
-  call spacevim#layers#load('autocomplete')
-  call spacevim#layers#load('checkers')
-  call spacevim#layers#load('format')
-  call spacevim#layers#load('edit')
-  call spacevim#layers#load('ui')
-  call spacevim#layers#load('core')
-  call spacevim#layers#load('core#banner')
-  call spacevim#layers#load('core#statusline')
-  call spacevim#layers#load('core#tabline')
-  call spacevim#logger#info('layer list init done')
-endfunction
-
 function! spacevim#default#keyBindings(...) abort
   call spacevim#logger#info('init default key bindings.')
   xnoremap <silent> <Leader>y :<C-u>call clipboard#yank()<cr>

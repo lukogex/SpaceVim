@@ -116,4 +116,17 @@ function M.options()
   logger.info('options init done')
 end
 
+function M.layers()
+  logger.info('Load default layers:')
+  vim.cmd('call spacevim#layers#load("autocomplete")')
+  vim.cmd('call spacevim#layers#load("checkers")')
+  vim.cmd('call spacevim#layers#load("format")')
+  vim.cmd('call spacevim#layers#load("edit")')
+  vim.cmd('call spacevim#layers#load("ui")')
+  vim.cmd('call spacevim#layers#load("core")')
+  vim.cmd('call spacevim#layers#load("core#banner")')
+  vim.cmd('call spacevim#layers#load("core#statusline")')
+  vim.cmd('call spacevim#layers#load("core#tabline")')
+end
+
 return M

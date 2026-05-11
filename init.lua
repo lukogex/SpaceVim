@@ -1,31 +1,9 @@
+local spacevim = require('spacevim')
+local logger = require('spacevim.logger')
+
 -- Initialize Spacevim runtimepath
 
-function absolute_path(path)
-  return vim.fn.fnamemodify(vim.fn.resolve(path), ':p')
-end
-
-function vim_arguments()
-  args = {}
-
-  for k, v in pairs(vim.v.argv) do
-    if k == 1 then
-      args['nvim_bin'] = absolute_path(vim.v.argv[k])
-
-      -- TODO: We should check here if its an asdf installation and set the paths accordingly!
-      args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.10.4/lib/nvim'
-      args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.10.4/share/nvim/runtime'
-    end
-    if v == '-u' then
-      args['vimrc'] = absolute_path(vim.v.argv[k + 1])
-    end
-  end
-
-  args['root_dir'] = vim.fn.fnamemodify(args['vimrc'], ':h')
-
-  return args
-end
-
-local args = vim_arguments()
+local args = spacevim.arguments()
 
 -- Set related environment variables to be sure its taken everywhere consistently.
 vim.env.MYVIMRC = args['vimrc']
@@ -38,9 +16,6 @@ vim.opt.rtp:append(args['nvim_lib'])
 vim.opt.rtp:append(args['nvim_runtime'])
 vim.opt.rtp:append(args['root_dir'])
 
--- Import needed things from runtimepath. 
-local logger = require('spacevim.logger')
-
 logger.info('Spacevim started with arguments: ' .. vim.inspect(vim.v.argv))
 logger.info('Parsed arguments: ' .. vim.inspect(args))
 logger.info('Initial runtimepath: ' .. vim.inspect(vim.opt.rtp:get()))
@@ -49,6 +24,7 @@ logger.info('Initial runtimepath: ' .. vim.inspect(vim.opt.rtp:get()))
 
 -- Spacevim root directory path needs trailing slash for further concatinations.
 vim.g._spacevim_root_dir = args['root_dir'] .. '/'
+vim.g._spacevim_enter_dir = args['file']
 
 -- Read needed environment variables
 local python_host_prog = os.getenv('PYTHON_HOST_PROG')
@@ -66,7 +42,7 @@ end
 -- Spacevim initialization
 
 logger.info('Spacevim initialization.')
-vim.cmd 'call spacevim#begin()'
+spacevim.initialize()
 vim.cmd 'call spacevim#custom#load()'
 
 logger.info('Lazy configuration.')
