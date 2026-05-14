@@ -39,20 +39,6 @@ if python3_host_prog and python3_host_prog ~= '' then
   vim.g.python3_host_prog = python3_host_prog
 end
 
--- Spacevim initialization
+-- Initialize Spacevim
 
-spacevim.initialize()
-
--- logger.info('Lazy configuration.')
--- require('config.lazy')
-
--- Why is plugin manager install not working? Is working now, just keep for history.
--- Now the custom plugins seems not to be loaded into rtp, maybe because lazy overwrites the install paths?
--- vim.opt.rtp:append('/home/lkranabetter/workspace/lukogex/spacevim/bundle/dein.vim')
-
-logger.info('Runtimepath before Spacevim loads layers and plugins: ' .. vim.inspect(vim.opt.rtp:get()))
-
--- TODO: On the long run spacevim#end plugin isntallation should be done by lazy.
-vim.cmd 'call spacevim#end()'
-
-logger.info('Spacevim finished loading.')
+spacevim.init()

@@ -9,7 +9,7 @@ local M = {}
 
 local logger = require('spacevim.logger')
 
-function M.load()
+function M.init()
   M.manager_install()
   M.manager_config()
   vim.cmd 'call spacevim#plugins#load_plugins()'

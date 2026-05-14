@@ -36,7 +36,7 @@ function M.arguments()
   return args
 end
 
-function M.initialize()
+function M.init()
   logger.info('Spacevim initialization.')
   
   logger.info('Set Vim options.')
@@ -68,11 +68,17 @@ function M.initialize()
   default.layers()
 
   vim.cmd('call spacevim#commands#load()')
-  M.configuration()
+  M.config()
   M.keybindings()
+
+  logger.info('Runtimepath after Spacevim initialization: ' .. vim.inspect(vim.opt.rtp:get()))
+
+  vim.cmd 'call spacevim#end()'
+
+  logger.info('Spacevim is ready with runtimepath: ' .. vim.inspect(vim.opt.rtp:get()))
 end
 
-function M.configuration()
+function M.config()
   logger.info('Load Spacevim global configuration.')
   vim.cmd 'call spacevim#custom#load_glob_conf()'
 

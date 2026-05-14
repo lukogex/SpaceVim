@@ -1605,7 +1605,7 @@ function! spacevim#end() abort
     call spacevim#layers#core#statusline#init()
   endif
 
-  lua require('spacevim.plugins').load()
+  lua require('spacevim.plugins').init()
 
   if g:spacevim_enable_guicolors == 1
     if !has('nvim') && has('patch-7.4.1770')
