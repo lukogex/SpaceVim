@@ -69,6 +69,7 @@ function M.initialize()
 
   vim.cmd('call spacevim#commands#load()')
   M.configuration()
+  M.keybindings()
 end
 
 function M.configuration()
@@ -82,6 +83,14 @@ function M.configuration()
   end
   
   vim.cmd('call spacevim#spacevim_variables_validation()')
+end
+
+function M.keybindings()
+  if vim.fn.has('timers') then
+    vim.cmd(string.format('call timer_start(%d, "spacevim#default#keyBindings")', vim.g.spacevim_lazy_conf_timeout))
+  else
+    vim.cmd 'call spacevim#default#keyBindings()'
+  end
 end
 
 return M

@@ -210,14 +210,10 @@ function! s:recache_rtp(id) abort
       let s:failed_plugins = []
       let s:retry_cnt = get(g:, 'spacevim_update_retry_cnt')
       let s:plugin_manager_buffer = 0
-      if g:spacevim_plugin_manager ==# 'dein'
-        call dein#recache_runtimepath()
-      endif
+      call dein#recache_runtimepath()
     else
       let s:plugin_manager_buffer = 0
-      if g:spacevim_plugin_manager ==# 'dein'
-        call dein#recache_runtimepath()
-      endif
+      call dein#recache_runtimepath()
     endif
     if a:id == -1
       let s:recache_done = 1

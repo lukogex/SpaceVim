@@ -1508,12 +1508,6 @@ the following to ~/.tmux.conf:
   set -ga terminal-overrides ',*:Ss=\E[%p1%d q:Se=\E[2 q'
 <
 
-                                                *g:spacevim_vim_help_language*
-Set the help language of vim. Default is 'en'. You can change it to Chinese.
->
-  let g:spacevim_vim_help_language = 'cn'
-<
-
                                                          *g:spacevim_language*
 Set the message language of vim. Default is 'en_US.UTF-8'.
 >

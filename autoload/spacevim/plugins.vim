@@ -11,15 +11,7 @@ scriptencoding utf-8
 " @section Plugins, plugins
 " This is a list of builtin plugins.
 
-function! spacevim#plugins#load() abort
-  call spacevim#plugins#begin(g:spacevim_plugin_bundle_dir)
-  call spacevim#plugins#fetch()
-  call s:load_plugins()
-  call s:disable_plugins(g:spacevim_disabled_plugins)
-  call spacevim#plugins#end()
-endfunction
-
-function! s:load_plugins() abort
+function! spacevim#plugins#load_plugins() abort
   for layer in spacevim#layers#get()
     call spacevim#logger#debug('init ' . layer . ' layer plugins list.')
     let g:_spacevim_plugin_layer = layer
@@ -96,25 +88,6 @@ endfunction
 function! spacevim#plugins#get(...) abort
 
 endfunction
-
-function! s:install_manager() abort
-  " Fsep && Psep
-  if has('win16') || has('win32') || has('win64')
-    let s:Psep = ';'
-    let s:Fsep = '\'
-  else
-    let s:Psep = ':'
-    let s:Fsep = '/'
-  endif
-  " auto install plugin manager
-  call spacevim#logger#info('Auto install plugin manager from ' .  g:_spacevim_root_dir)
-  let g:_spacevim_dein_installed = 1
-  let &rtp .= ',' . g:_spacevim_root_dir . 'bundle/dein.vim/'
-  call spacevim#logger#info("Current rtp:")
-  call map(split(&rtp, ','), 'spacevim#logger#info("  > " . v:val)')
-endf
-
-call s:install_manager()
 
 function! spacevim#plugins#begin(path) abort
   let g:unite_source_menu_menus =

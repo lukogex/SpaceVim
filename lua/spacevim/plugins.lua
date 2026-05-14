@@ -10,13 +10,47 @@ local M = {}
 local logger = require('spacevim.logger')
 
 function M.load()
-  if M.enable_plug() then
-    M.begin(vim.g.spacevim_plugin_bundle_dir)
-    M.fetch()
-    load_plugins()
-    disable_plugins(vim.g.spacevim_disabled_plugins)
-    M._end()
+  M.manager_install()
+  M.manager_config()
+  vim.cmd 'call spacevim#plugins#load_plugins()'
+  M.disable(vim.g.spacevim_disabled_plugins)
+  vim.cmd 'call spacevim#plugins#end()'
+end
+
+function M.manager_install()
+  -- Deprecated plugin manager dein is part of bundle.
+  vim.opt.rtp:prepend(vim.g._spacevim_root_dir .. 'bundle/dein.vim')
+  
+  -- Install new plugin manager lazy.
+  local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+  if not (vim.uv or vim.loop).fs_stat(lazypath) then
+    local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+    local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+    if vim.v.shell_error ~= 0 then
+      vim.api.nvim_echo({
+        { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+        { out, "WarningMsg" },
+        { "\nPress any key to exit..." },
+      }, true, {})
+      vim.fn.getchar()
+      os.exit(1)
+    end
   end
+
+  -- Needs not to be added, else module 'lazy' is not found.
+  vim.opt.rtp:prepend(lazypath)
+  -- vim.opt.rtp:append(lazypath)
+end
+
+function M.manager_config()
+  -- Add the deprecated dein plugin manager.
+  vim.cmd 'call spacevim#plugins#begin(g:spacevim_plugin_bundle_dir)'
+  -- TODO: The following was not working due to E15: Invalid expression?
+  -- vim.cmd(string.format('call dein#add(%s, { "merged" : 0})', vim.g._spacevim_root_dir .. 'bundle/dein.vim'))
+  vim.cmd 'call spacevim#plugins#fetch()'
+  -- Add new Spacevim plugin manager.
+  logger.info('Lazy plugin manager configuration.')
+  require('config.lazy')
 end
 
 local function extend(t1, t2)
@@ -76,21 +110,14 @@ function M.Plugin(...)
     
 end
 
-local function disable_plugins(plugin_list)
-    
+function M.disable(plugins)
+  logger.info('Disable plugins: ' .. vim.inspect(plugins))
+  for name in ipairs(plugins) do
+    vim.cmd(string.format('call dein#disable(%s)', name))
+  end
 end
 
 function M.get(...)
-    
-end
-
-local function install_manager()
-    
-end
-
-install_manager()
-
-function M.begin(path)
     
 end
 
@@ -100,10 +127,6 @@ function M._end()
 end
 
 function M.defind_hooks(bundle)
-    
-end
-
-function M.fetch()
     
 end
 
@@ -120,10 +143,6 @@ function M.add(repo, ...)
 end
 
 function M.tap(plugin)
-    
-end
-
-function M.enable_plug()
     
 end
 

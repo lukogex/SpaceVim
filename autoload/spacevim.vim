@@ -818,13 +818,6 @@ let g:spacevim_terminal_cursor_shape = 2
 " <
 
 ""
-" Set the help language of vim. Default is 'en'.
-" You can change it to Chinese.
-" >
-"   let g:spacevim_vim_help_language = 'cn'
-" <
-let g:spacevim_vim_help_language       = 'en'
-""
 " @section language, options-language
 " @parentsection options
 " Set the message language of vim. Default is 'en_US.UTF-8'.
@@ -838,6 +831,7 @@ let g:spacevim_vim_help_language       = 'en'
 "   let g:spacevim_language = 'en_CA.utf8'
 " <
 let g:spacevim_language                = ''
+
 ""
 " @section keep_server_alive, options-keep_server_alive
 " @parentsection options
@@ -1077,6 +1071,7 @@ let g:spacevim_github_username         = ''
 ""
 " Set the default key for smart close windows, default is `q`.
 let g:spacevim_windows_smartclose      = 'q'
+
 ""
 " @section disabled_plugins, options-disabled_plugins
 " @parentsection options
@@ -1089,7 +1084,8 @@ let g:spacevim_windows_smartclose      = 'q'
 " >
 "   let g:spacevim_disabled_plugins = ['vim-foo', 'vim-bar']
 " <
-let g:spacevim_disabled_plugins        = []
+let g:spacevim_disabled_plugins = []
+
 ""
 " @section custom_plugins, usage-custom_plugins
 " @parentsection usage
@@ -1404,8 +1400,6 @@ let g:_spacevim_mappings_leader_custom = []
 let g:_spacevim_mappings_leader_custom_group_name = []
 let g:_spacevim_mappings_language_specified_space_custom = {}
 let g:_spacevim_mappings_lang_group_name = {}
-let g:_spacevim_dein_installed          = 0
-let g:_spacevim_vim_plug_installed      = 0
 
 if !exists('g:leaderGuide_vertical')
   let g:leaderGuide_vertical = 0
@@ -1519,11 +1513,6 @@ function! s:lazy_end(...) abort
     let g:leaderGuide_map = {}
     call spacevim#mapping#guide#register_prefix_descriptions('', 'g:leaderGuide_map')
   endif
-  if g:spacevim_vim_help_language ==# 'cn'
-    let &helplang = 'cn'
-  elseif g:spacevim_vim_help_language ==# 'ja'
-    let &helplang = 'jp'
-  endif
   " generate tags for spacevim
   let help = fnamemodify(g:_spacevim_root_dir, ':p:h') . '/doc'
   try
@@ -1616,9 +1605,7 @@ function! spacevim#end() abort
     call spacevim#layers#core#statusline#init()
   endif
 
-  "TODO: Use lua for plugins!
-  call spacevim#plugins#load()
-  " lua require('spacevim.plugins').load()
+  lua require('spacevim.plugins').load()
 
   if g:spacevim_enable_guicolors == 1
     if !has('nvim') && has('patch-7.4.1770')

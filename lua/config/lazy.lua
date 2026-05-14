@@ -1,38 +1,4 @@
--- Bootstrap lazy.nvim
-local log = require('spacevim.logger').derive('lazy')
-
--- log.info("Install lazy.nvim.")
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
-  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
-  if vim.v.shell_error ~= 0 then
-    vim.api.nvim_echo({
-      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
-      { "\nPress any key to exit..." },
-    }, true, {})
-    vim.fn.getchar()
-    os.exit(1)
-  end
-end
-
--- Needs not to be added, else module 'lazy' is not found.
-vim.opt.rtp:prepend(lazypath)
--- vim.opt.rtp:append(lazypath)
-
--- This was the reason for lua errors when using lazy.setup with nvim from asdf.
--- local runtimepath = "/home/lkranabetter/.asdf/installs/neovim/0.10.4/share/nvim/runtime"
--- vim.opt.rtp:prepend(runtimepath)
-
-local Lazy = require("lazy")
--- local Util = require("lazy.core.util")
-
--- log.info("Install lazy.nvim after.")
--- vim.cmd 'call map(split(&rtp, ","), "spacevim#logger#info('  > ' . v:val)")'
--- print(vim.opt.rtp:get())
-print("Runtimepath after lazy installation.")
+print("Runtimepath before lazy setup.")
 print(vim.inspect(vim.opt.rtp:get()))
 
 -- Make sure to setup `mapleader` and `maplocalleader` before
@@ -41,10 +7,7 @@ print(vim.inspect(vim.opt.rtp:get()))
 -- vim.g.mapleader = " "
 -- vim.g.maplocalleader = "\\"
 
--- TODO: Now lazy works but it rewrites runtimepath to system not to asdf.
-
--- Setup lazy.nvim
-Lazy.setup({
+require("lazy").setup({
   ui = {
     custom_keys = {
       -- You can define custom key maps here. If present, the description will
