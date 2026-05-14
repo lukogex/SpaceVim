@@ -34,26 +34,13 @@ function! s:need_cmd(cmd) abort
   endif
 endfunction
 
-if g:spacevim_plugin_manager ==# 'neobundle'
-  function! s:get_uninstalled_plugins() abort
-    return filter(neobundle#config#get_neobundles(), '!isdirectory(v:val.path)')
-  endfunction
-elseif g:spacevim_plugin_manager ==# 'dein'
-  function! s:get_uninstalled_plugins() abort
-    return filter(values(dein#get()), '!isdirectory(v:val.path)')
-  endfunction
-endif
+function! s:get_uninstalled_plugins() abort
+  return filter(values(dein#get()), '!isdirectory(v:val.path)')
+endfunction
 
-if g:spacevim_plugin_manager ==# 'neobundle'
-  function! spacevim#plugins#manager#reinstall(...) abort
-    call neobundle#commands#reinstall(a:1)
-  endfunction
-elseif g:spacevim_plugin_manager ==# 'dein'
-  function! spacevim#plugins#manager#reinstall(...) abort
-    call dein#reinstall(a:1)
-  endfunction
-endif
-
+function! spacevim#plugins#manager#reinstall(...) abort
+  call dein#reinstall(a:1)
+endfunction
 
 " @vimlint(EVL102, 1, l:i)
 function! spacevim#plugins#manager#install(...) abort
@@ -78,25 +65,13 @@ function! spacevim#plugins#manager#install(...) abort
   let s:pct_done = 0
   let s:total = len(s:plugins)
   call s:set_buf_line(s:plugin_manager_buffer, 1, 'Installing plugins (' . s:pct_done . '/' . s:total . ')')
-  if has('nvim')
-    call s:set_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
-    call s:set_buf_line(s:plugin_manager_buffer, 3, '')
-  elseif s:VIM_CO.has('python')
-    call s:append_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
-    call s:append_buf_line(s:plugin_manager_buffer, 3, '')
-  else
-    call s:set_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
-    call s:set_buf_line(s:plugin_manager_buffer, 3, '')
-  endif
+  call s:set_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
+  call s:set_buf_line(s:plugin_manager_buffer, 3, '')
   let s:start_time = reltime()
   for i in range(g:spacevim_plugin_manager_processes)
     if !empty(s:plugins)
       let repo = {}
-      if g:spacevim_plugin_manager ==# 'dein'
-        let repo = dein#get(s:LIST.shift(s:plugins))
-      elseif g:spacevim_plugin_manager ==# 'neobundle'
-        let repo = neobundle#get(s:LIST.shift(s:plugins))
-      endif
+      let repo = dein#get(s:LIST.shift(s:plugins))
       if !empty(repo)
         call s:install(repo)
       endif
@@ -128,40 +103,22 @@ function! spacevim#plugins#manager#update(...) abort
   if exists('s:recache_done')
     unlet s:recache_done
   endif
-  if g:spacevim_plugin_manager ==# 'dein'
-    let s:plugins = a:0 == 0 ? sort(keys(dein#get())) : sort(copy(a:1))
-  elseif g:spacevim_plugin_manager ==# 'neobundle'
-    let s:plugins = a:0 == 0 ? sort(map(neobundle#config#get_neobundles(), 'v:val.name')) : sort(copy(a:1))
-  elseif g:spacevim_plugin_manager ==# 'vim-plug'
-  endif
-  " make dein-ui only update spacevim for spacevim users
+  let s:plugins = a:0 == 0 ? sort(keys(dein#get())) : sort(copy(a:1))
+  " Make dein-ui only update spacevim for spacevim users
   if a:0 == 0 && exists('g:spacevim_version')
     call add(s:plugins, 'spacevim')
   endif
   let s:total = len(s:plugins)
   call s:set_buf_line(s:plugin_manager_buffer, 1, 'Updating plugins (' . s:pct_done . '/' . s:total . ')')
-  if has('nvim')
-    call s:set_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
-    call s:set_buf_line(s:plugin_manager_buffer, 3, '')
-  elseif s:VIM_CO.has('python')
-    call s:append_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
-    call s:append_buf_line(s:plugin_manager_buffer, 3, '')
-  else
-    call s:set_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
-    call s:set_buf_line(s:plugin_manager_buffer, 3, '')
-  endif
+  call s:set_buf_line(s:plugin_manager_buffer, 2, s:status_bar())
+  call s:set_buf_line(s:plugin_manager_buffer, 3, '')
   let s:start_time = reltime()
   for i in range(g:spacevim_plugin_manager_processes)
     if !empty(s:plugins)
       let repo = {}
       let reponame = ''
-      if g:spacevim_plugin_manager ==# 'dein'
-        let reponame = s:LIST.shift(s:plugins)
-        let repo = dein#get(reponame)
-      elseif g:spacevim_plugin_manager ==# 'neobundle'
-        let reponame = s:LIST.shift(s:plugins)
-        let repo = neobundle#get(reponame)
-      endif
+      let reponame = s:LIST.shift(s:plugins)
+      let repo = dein#get(reponame)
       if !empty(repo) && !get(repo, 'local', 0) && isdirectory(repo.path . '/.git') && !filereadable(repo.path . '/.git/shallow.lock')
         call s:pull(repo)
       elseif !empty(repo) && !get(repo, 'local', 0) && isdirectory(repo.path . '/.git') && filereadable(repo.path . '/.git/shallow.lock')
@@ -232,16 +189,13 @@ function! s:on_pull_exit(id, data, event) abort
             \ 'name' : 'spacevim',
             \ 'path' : g:_spacevim_root_dir
             \ }
-    elseif g:spacevim_plugin_manager ==# 'dein'
+    else
       let repo = dein#get(name)
-    elseif g:spacevim_plugin_manager ==# 'neobundle'
-      let repo = neobundle#get(name)
     endif
     call s:pull(repo)
   endif
   call s:recache_rtp(a:id)
 endfunction
-
 
 function! s:recache_rtp(id) abort
   if empty(s:pulling_repos) && empty(s:building_repos) && !exists('s:recache_done')
@@ -332,11 +286,7 @@ function! s:on_install_exit(id, data, event) abort
   endif
   call remove(s:pulling_repos, string(id))
   if !empty(s:plugins)
-    if g:spacevim_plugin_manager ==# 'dein'
-      call s:install(dein#get(s:LIST.shift(s:plugins)))
-    elseif g:spacevim_plugin_manager ==# 'neobundle'
-      call s:install(neobundle#get(s:LIST.shift(s:plugins)))
-    endif
+    call s:install(dein#get(s:LIST.shift(s:plugins)))
   endif
   call s:recache_rtp(a:id)
 endfunction
@@ -381,10 +331,8 @@ function! s:pull(repo) abort
               \ 'name' : 'spacevim',
               \ 'path' : g:_spacevim_root_dir
               \ }
-      elseif g:spacevim_plugin_manager ==# 'dein'
+      else
         let repo = dein#get(name)
-      elseif g:spacevim_plugin_manager ==# 'neobundle'
-        let repo = neobundle#get(name)
       endif
       call s:pull(repo)
     endif
@@ -392,21 +340,11 @@ function! s:pull(repo) abort
 endfunction
 
 function! s:get_uri(repo) abort
-  if g:spacevim_plugin_manager ==# 'dein'
-    if a:repo.repo =~# '^[^/]\+/[^/]\+$'
-      let url = 'https://github.com/' . (has_key(a:repo, 'repo') ? a:repo.repo : a:repo.orig_path)
-      return url
-    else
-      return a:repo.repo
-    endif
-  elseif g:spacevim_plugin_manager ==# 'neobundle'
-    return a:repo.uri
-    if has_key(a:repo, 'uri')
-      return a:repo.uri
-    else
-      let url = 'https://github.com/' . (has_key(a:repo, 'orig_name') ? a:repo.orig_name : a:repo.orig_path)
-      return url
-    endif
+  if a:repo.repo =~# '^[^/]\+/[^/]\+$'
+    let url = 'https://github.com/' . (has_key(a:repo, 'repo') ? a:repo.repo : a:repo.orig_path)
+    return url
+  else
+    return a:repo.repo
   endif
 endfunction
 
@@ -484,37 +422,18 @@ function! s:get_build_argv(build) abort
   return a:build[s:SYS.name]
 endfunction
 " + foo.vim: Updating...
-if has('nvim')
-  function! s:msg_on_start(name) abort
-    call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Updating...')
-  endfunction
-  function! s:msg_on_local(name) abort
-    call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '- ' . a:name . ': skip local plugin')
-  endfunction
-  function! s:msg_on_install_start(name) abort
-    call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Installing...')
-  endfunction
-elseif s:VIM_CO.has('python')
-  function! s:msg_on_start(name) abort
-    call s:append_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Updating...')
-  endfunction
-  function! s:msg_on_local(name) abort
-    call s:append_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '- ' . a:name . ': skip local plugin')
-  endfunction
-  function! s:msg_on_install_start(name) abort
-    call s:append_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Installing...')
-  endfunction
-else
-  function! s:msg_on_start(name) abort
-    call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Updating...')
-  endfunction
-  function! s:msg_on_local(name) abort
-    call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '- ' . a:name . ': skip local plugin')
-  endfunction
-  function! s:msg_on_install_start(name) abort
-    call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Installing...')
-  endfunction
-endif
+
+function! s:msg_on_start(name) abort
+  call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Updating...')
+endfunction
+
+function! s:msg_on_local(name) abort
+  call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '- ' . a:name . ': skip local plugin')
+endfunction
+
+function! s:msg_on_install_start(name) abort
+  call s:set_buf_line(s:plugin_manager_buffer, s:ui_buf[a:name] + 3, '+ ' . a:name . ': Installing...')
+endfunction
 
 " - foo.vim: Updating done.
 function! s:msg_on_updated_done(name) abort
@@ -618,12 +537,7 @@ function! s:open_plugin_dir() abort
   if !empty(plugin)
     let shell = empty($SHELL) ? spacevim#api#import('system').isWindows ? 'cmd.exe' : 'bash' : $SHELL
     let path = ''
-    if g:spacevim_plugin_manager ==# 'dein'
-      let path = dein#get(plugin).path
-    elseif g:spacevim_plugin_manager ==# 'neobundle'
-      let path = neobundle#get(plugin).path
-    elseif g:spacevim_plugin_manager ==# 'vim-plug'
-    endif
+    let path = dein#get(plugin).path
     if isdirectory(path)
       topleft new
       exe 'resize ' . &lines * 30 / 100
@@ -650,13 +564,7 @@ endfunction
 function! s:fix_install() abort
   let plugin = get(split(getline('.')), 1, ':')[:-2]
   if !empty(plugin)
-    if g:spacevim_plugin_manager ==# 'dein'
-      let repo = dein#get(plugin)
-    elseif g:spacevim_plugin_manager ==# 'neobundle'
-      let repo = neobundle#get(plugin)
-    else
-      let repo = {}
-    endif
+    let repo = dein#get(plugin)
     if has_key(repo, 'path') && isdirectory(repo.path)
       if index(s:failed_plugins, plugin) > 0
         call remove(s:failed_plugins, plugin)
