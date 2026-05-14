@@ -41,9 +41,7 @@ end
 
 -- Spacevim initialization
 
-logger.info('Spacevim initialization.')
 spacevim.initialize()
-vim.cmd 'call spacevim#custom#load()'
 
 logger.info('Lazy configuration.')
 require('config.lazy')

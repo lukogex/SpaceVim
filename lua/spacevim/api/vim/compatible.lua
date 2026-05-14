@@ -2,9 +2,9 @@
 -- compatible.lua --- compatible api between neovim/vim
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
+
 local M = {}
 
 function M.eval(l)
@@ -46,8 +46,7 @@ else
   end
 end
 
--- there is no want to call viml function in old vim and neovim
-
+-- There is no want to call viml function in old vim and neovim
 local function build_argv(...)
   local str = ''
   for _, value in ipairs(...) do
@@ -70,14 +69,14 @@ function M.call(funcname, ...)
     if vim.api ~= nil then
       return vim.api.nvim_call_function(funcname, { ... })
     else
-      -- call not call vim script function in lua
+      -- Call not call vim script function in lua
       vim.command('let g:lua_rst = ' .. funcname .. '(' .. build_argv({ ... }) .. ')')
       return M.eval('g:lua_rst')
     end
   end
 end
 
--- this is for Vim and old neovim
+-- This is for Vim and old neovim
 M.fn = setmetatable({}, {
   __index = function(t, key)
     local _fn

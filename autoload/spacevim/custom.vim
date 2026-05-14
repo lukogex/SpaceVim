@@ -281,22 +281,7 @@ function! s:path_to_fname(path) abort
         \ . substitute(a:path, '[\\/:;.]', '_', 'g') . '.json'
 endfunction
 
-function! spacevim#custom#load() abort
-  call s:load_glob_conf()
-  if getcwd() !=# expand('~')
-    call s:load_local_conf()
-  else
-    call spacevim#logger#info('current directory is $HOME, skip local config')
-  endif
-  if g:spacevim_enable_ycm && g:spacevim_snippet_engine !=# 'ultisnips'
-    call spacevim#logger#info(
-          \ 'YCM only support ultisnips')
-    let g:spacevim_snippet_engine = 'ultisnips'
-  endif
-endfunction
-
-
-function! s:load_local_conf() abort
+function! spacevim#custom#load_local_conf() abort
   call spacevim#logger#info('start loading local config >>>')
   if filereadable('.spacevim.d/init.toml')
     let local_dir = s:FILE.unify_path(
@@ -340,7 +325,7 @@ function! s:load_local_conf() abort
 
 endfunction
 
-function! s:load_glob_conf() abort
+function! spacevim#custom#load_glob_conf() abort
   call spacevim#logger#info('start loading global config >>>')
   let global_dir = s:global_dir()
   call spacevim#logger#info('global_dir is: ' . global_dir)

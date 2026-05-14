@@ -1691,6 +1691,14 @@ function! spacevim#spacevim_variables() abort
   call spacevim#logger#info('Set global variables from spacevim.vim.')
 endfunction
 
+function! spacevim#spacevim_variables_validation() abort
+  if g:spacevim_enable_ycm && g:spacevim_snippet_engine !=# 'ultisnips'
+    call spacevim#logger#info(
+          \ 'YCM only support ultisnips')
+    let g:spacevim_snippet_engine = 'ultisnips'
+  endif
+endfunction
+
 function! spacevim#welcome() abort
   call spacevim#logger#info('try to open spacevim welcome page')
   if get(g:, '_spacevim_session_loaded', 0) == 1

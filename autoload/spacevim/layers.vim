@@ -2,7 +2,6 @@
 " layers.vim --- layers public API
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -48,7 +47,6 @@
 
 let s:enabled_layers = []
 let s:layers_vars = {}
-
 
 let s:SYS = spacevim#api#import('system')
 let s:CMP = spacevim#api#import('vim#compatible')
@@ -203,7 +201,5 @@ function! spacevim#layers#list() abort
   return map(layers, "substitute(v:val, '/', '#','g')")
 
 endfunction
-
-
 
 " vim:set et sw=2:

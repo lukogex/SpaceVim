@@ -6,7 +6,7 @@
 --=============================================================================
 
 local M = {}
-local sp = require('spacevim')
+local vim_compatible = require('spacevim.api.vim.compatible')
 local spsys = require('spacevim.api').import('system')
 
 -- local mt = {
@@ -17,69 +17,67 @@ local spsys = require('spacevim.api').import('system')
 -- if vim.g ~= nil then
 -- return vim.g['spacevim_' .. key] or nil
 -- else
--- return sp.eval('get(g:, "spacevim_' .. key .. '", v:null)')
+-- return vim_compatible.eval('get(g:, "spacevim_' .. key .. '", v:null)')
 -- end
 -- end
 -- }
 -- setmetatable(M, mt)
 
 function M.isLoaded(layer)
-    return sp.call('spacevim#layers#isLoaded', layer) == 1
+  return vim_compatible.call('spacevim#layers#isLoaded', layer) == 1
 end
 
 local function find_layers()
-    local layers = sp.fn.globpath(sp.vim_options.runtimepath, 'autoload/spacevim/layers/**/*.vim', 0, 1)
-    local pattern = '/autoload/spacevim/layers/'
-    local rst = {}
-    for _, layer in pairs(layers) do
-        local name = layer:gsub('.+spacevim[\\/]layers[\\/]', ''):gsub('.vim$', ''):gsub('[\\/]', '/')
-        local status = ''
-        local url = ''
-        local website = ''
-        if name == 'lsp' then
-            url = 'language-server-protocol'
-        else
-            url = name
-        end
-        if sp.fn.filereadable(sp.fn.expand('~/.spacevim/docs/layers/' .. url .. '.md')) == 1 then
-            website = 'https://spacevim.org/layers/' .. url .. '/'
-        else
-            website = 'no exists'
-        end
-        name = sp.fn.substitute(name, '/', '#','g')
-        if M.isLoaded(name) then
-            status = 'loaded'
-        else
-            status = 'not loaded'
-        end
-        if status == 'loaded' then
-            table.insert(rst, '+ ' .. name .. ':' .. sp.fn['repeat'](' ', 25 - sp.fn.len(name)) .. status .. sp.fn['repeat'](' ', 10) .. website)
-        else
-            table.insert(rst, '- ' .. name .. ':' .. sp.fn['repeat'](' ', 21 - sp.fn.len(name)) .. status .. sp.fn['repeat'](' ', 10) .. website)
-        end
+  local layers = vim_compatible.fn.globpath(vim_compatible.vim_options.runtimepath, 'autoload/spacevim/layers/**/*.vim', 0, 1)
+  local pattern = '/autoload/spacevim/layers/'
+  local rst = {}
+  for _, layer in pairs(layers) do
+    local name = layer:gsub('.+spacevim[\\/]layers[\\/]', ''):gsub('.vim$', ''):gsub('[\\/]', '/')
+    local status = ''
+    local url = ''
+    local website = ''
+    if name == 'lsp' then
+      url = 'language-server-protocol'
+    else
+      url = name
     end
-    return rst
+    if vim_compatible.fn.filereadable(vim_compatible.fn.expand('~/.spacevim/docs/layers/' .. url .. '.md')) == 1 then
+      website = 'https://spacevim.org/layers/' .. url .. '/'
+    else
+      website = 'no exists'
+    end
+    name = vim_compatible.fn.substitute(name, '/', '#','g')
+    if M.isLoaded(name) then
+      status = 'loaded'
+    else
+      status = 'not loaded'
+    end
+    if status == 'loaded' then
+      table.insert(rst, '+ ' .. name .. ':' .. vim_compatible.fn['repeat'](' ', 25 - vim_compatible.fn.len(name)) .. status .. vim_compatible.fn['repeat'](' ', 10) .. website)
+    else
+      table.insert(rst, '- ' .. name .. ':' .. vim_compatible.fn['repeat'](' ', 21 - vim_compatible.fn.len(name)) .. status .. vim_compatible.fn['repeat'](' ', 10) .. website)
+    end
+  end
+  return rst
 end
 
 local function list_layers()
-    vim.cmd('tabnew spacevimLayers')
-    vim.cmd('nnoremap <buffer> q :q<cr>')
-    vim.cmd('setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell')
-    vim.cmd('setf spacevimLayerManager')
-    vim.cmd('nnoremap <silent> <buffer> q :bd<CR>')
-    local info = {'spacevim layers:', ''}
-    for k,v in pairs(find_layers()) do table.insert(info, v) end
-    sp.fn.setline(1,info)
-    vim.cmd('setl nomodifiable')
+  vim.cmd('tabnew spacevimLayers')
+  vim.cmd('nnoremap <buffer> q :q<cr>')
+  vim.cmd('setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell')
+  vim.cmd('setf spacevimLayerManager')
+  vim.cmd('nnoremap <silent> <buffer> q :bd<CR>')
+  local info = {'spacevim layers:', ''}
+  for k,v in pairs(find_layers()) do table.insert(info, v) end
+  vim_compatible.fn.setline(1,info)
+  vim.cmd('setl nomodifiable')
 end
-
 
 function M.load(layer, ...)
-    if layer == '-l' then
-        list_layers()
-        return
-    end
+  if layer == '-l' then
+    list_layers()
+    return
+  end
 end
-
 
 return M

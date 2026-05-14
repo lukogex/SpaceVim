@@ -2,41 +2,43 @@
 " tasks.vim --- tasks support
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
-if has('nvim-0.9.0')
-  function! spacevim#plugins#tasks#get() abort
-    return luaeval('require("spacevim.plugin.tasks").get()')
-  endfunction
-  function! spacevim#plugins#tasks#list() abort
-    lua require("spacevim.plugin.tasks").list()
-  endfunction
-  function! spacevim#plugins#tasks#edit(...) abort
-    lua require("spacevim.plugin.tasks").edit(
-          \ unpack(require("spacevim").eval("a:000"))
-          \ )
-  endfunction
-  function! spacevim#plugins#tasks#get_tasks() abort
-    return luaeval('require("spacevim.plugin.tasks").get_tasks()')
-  endfunction
 
-  function! spacevim#plugins#tasks#complete(...) abort
-  endfunction
-  function! spacevim#plugins#tasks#reg_provider(provider) abort
-    lua require("spacevim.plugin.tasks").reg_provider(
-          \ require("spacevim").eval("a:provider")
-          \ )
-  endfunction
-  finish
-endif
+function! spacevim#plugins#tasks#get() abort
+  return luaeval('require("spacevim.plugin.tasks").get()')
+endfunction
+
+function! spacevim#plugins#tasks#list() abort
+  lua require("spacevim.plugin.tasks").list()
+endfunction
+
+function! spacevim#plugins#tasks#edit(...) abort
+  lua require("spacevim.plugin.tasks").edit(
+        \ unpack(require("spacevim.api.vim.compatible").eval("a:000"))
+        \ )
+endfunction
+
+function! spacevim#plugins#tasks#get_tasks() abort
+  return luaeval('require("spacevim.plugin.tasks").get_tasks()')
+endfunction
+
+function! spacevim#plugins#tasks#complete(...) abort
+endfunction
+
+function! spacevim#plugins#tasks#reg_provider(provider) abort
+  lua require("spacevim.plugin.tasks").reg_provider(
+        \ require("spacevim.api.vim.compatible").eval("a:provider")
+        \ )
+endfunction
+
+finish
 
 if exists('s:is_loaded')
   finish
 else
   let s:is_loaded = 1
 endif
-
 
 " this plugin is based on vscode task Scheme
 " https://code.visualstudio.com/docs/editor/tasks-appendix
