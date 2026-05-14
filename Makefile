@@ -1,10 +1,11 @@
 VIM_BIN ?= nvim
 VIM_ES ?= ""
-NEOVIM_VERSION ?= 0.10.4
+NEOVIM_VERSION ?= 0.11.7
 DOCKER_REGISTRY ?= ""
 
 define TOOL_VERSIONS
 neovim $(NEOVIM_VERSION)
+opencode 1.4.3
 python 3.10.12
 ripgrep 15.1.0
 endef
@@ -89,6 +90,7 @@ run:
 
 .PHONY: run-detached
 run-detached:
+	# TODO: Failed $NVIM_LISTEN_ADDRESS: address already in use: https://github.com/neovim/neovim/issues/33150
 	gnome-terminal -- scripts/svim.sh . true
 
 .PHONY: release

@@ -15,8 +15,8 @@ function M.arguments()
       args['nvim_bin'] = M.absolute_path(vim.v.argv[k])
 
       -- TODO: We should check here if its an asdf installation and set the paths accordingly!
-      args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.10.4/lib/nvim'
-      args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.10.4/share/nvim/runtime'
+      args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/lib/nvim'
+      args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/share/nvim/runtime'
     end
     if v == '-u' then
       args['vimrc'] = M.absolute_path(vim.v.argv[k + 1])

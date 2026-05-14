@@ -9,8 +9,8 @@ jobs:
       matrix:
         include:
         - nvimtag: stable
-        - nvimtag: v0.11.6
-        - nvimtag: v0.10.4
+        - nvimtag: v0.12.2
+        - nvimtag: v0.11.7
     runs-on: ubuntu-22.04
     env:
       VIM_TAG: ${{ matrix.nvimtag }}
