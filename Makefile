@@ -39,7 +39,15 @@ tools:
 		echo "INFO: No '.default-python-packages' file found, creating one for Makefile needed tools now."; \
 		$(file > .default-python-packages,$(DEFAULT_PYTHON_PACKAGES)) \
 	fi;
+	@$(MAKE) tools-plugins
 	@ASDF_PYTHON_DEFAULT_PACKAGES_FILE=$(CURDIR)/.default-python-packages asdf install
+
+.PHONY: tools-plugins
+tools-plugins:
+	@asdf plugin add neovim
+	@asdf plugin add opencode https://github.com/egose/asdf-opencode.git
+	@asdf plugin add python
+	@asdf plugin add ripgrep
 
 .PHONY: tools-update
 tools-update:
