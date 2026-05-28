@@ -90,7 +90,6 @@ run:
 
 .PHONY: run-detached
 run-detached:
-	# TODO: Failed $NVIM_LISTEN_ADDRESS: address already in use: https://github.com/neovim/neovim/issues/33150
 	gnome-terminal -- scripts/svim.sh . true
 
 .PHONY: release
