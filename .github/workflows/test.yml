@@ -21,7 +21,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl lua5.2 liblua5.2-dev
-    # TODO: We could use also use install action with `tool_versions` option to do all in one step, but its also not bad to have installation in Makefile right?
+    # TODO: We could use also use install action (asdf-vm/actions/install@v4) with `tool_versions` option to do all in one step.
+    # But plugins-add action does not support custom plugins and its also not bad to have installation in Makefile right?
+    - name: Install asdf cli
+      uses: asdf-vm/actions/setup@v4
     # - name: Install asdf plugins
       # uses: asdf-vm/actions/plugins-add@v4
     - name: Install asdf tools
