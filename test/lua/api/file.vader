@@ -1,8 +1,4 @@
 Execute ( spacevim lua api: file.fticon(ft) ):
-  if !has('nvim-0.7.2')
-    Log 'skip lua test'
-    finish
-  endif
   let file = spacevim#api#import('file')
   let cmp = spacevim#api#import('vim#compatible')
   lua spacevim_file = require('spacevim.api').import('file')
@@ -10,10 +6,6 @@ Execute ( spacevim lua api: file.fticon(ft) ):
   AssertEqual cmp.luaeval('spacevim_file.fticon("foo.mdxx")'), file.fticon('foo.mdxx')
 
 Execute ( spacevim lua api: file.unify_path(path, ...) ):
-  if !has('nvim-0.7.2')
-    Log 'skip lua test'
-    finish
-  endif
   let file = spacevim#api#import('file')
   let cmp = spacevim#api#import('vim#compatible')
   lua spacevim_file = require('spacevim.api').import('file')
@@ -28,10 +20,6 @@ Execute ( spacevim lua api: file.unify_path(path, ...) ):
   \ file.unify_path(bufname("%"), ":.")
 
 Execute ( spacevim lua api: file.path_to_fname(path) ):
-  if !has('nvim-0.7.2')
-    Log 'skip lua test'
-    finish
-  endif
   let file = spacevim#api#import('file')
   let cmp = spacevim#api#import('vim#compatible')
   lua spacevim_file = require('spacevim.api').import('file')
@@ -39,10 +27,6 @@ Execute ( spacevim lua api: file.path_to_fname(path) ):
   \ file.path_to_fname('.spacevim.d/init.vim')
 
 Execute ( spacevim lua api: file.findfile(what, where, ...) ):
-  if !has('nvim-0.7.2')
-    Log 'skip lua test'
-    finish
-  endif
   let file = spacevim#api#import('file')
   let cmp = spacevim#api#import('vim#compatible')
   lua spacevim_file = require('spacevim.api').import('file')
