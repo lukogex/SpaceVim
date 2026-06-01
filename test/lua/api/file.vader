@@ -18,14 +18,13 @@ Execute ( spacevim lua api: file.unify_path(path, ...) ):
   let cmp = spacevim#api#import('vim#compatible')
   lua spacevim_file = require('spacevim.api').import('file')
   lua cmp = require('spacevim.api').import('vim.compatible')
-  lua fn = require('spacevim').fn
   AssertEqual cmp.luaeval('spacevim_file.unify_path(".spacevim.d/init.vim", ":p")'),
   \ file.unify_path(".spacevim.d/init.vim", ":p")
   AssertEqual cmp.luaeval('spacevim_file.unify_path("~/.spacevim.d/", ":p")'),
   \ file.unify_path("~/.spacevim.d/", ":p")
   AssertEqual cmp.luaeval('spacevim_file.unify_path("autoload", ":p")'),
   \ file.unify_path("autoload", ":p")
-  AssertEqual cmp.luaeval('spacevim_file.unify_path(fn.bufname("%"), ":.")'),
+  AssertEqual cmp.luaeval('spacevim_file.unify_path(vim.fn.bufname("%"), ":.")'),
   \ file.unify_path(bufname("%"), ":.")
 
 Execute ( spacevim lua api: file.path_to_fname(path) ):
@@ -47,8 +46,7 @@ Execute ( spacevim lua api: file.findfile(what, where, ...) ):
   let file = spacevim#api#import('file')
   let cmp = spacevim#api#import('vim#compatible')
   lua spacevim_file = require('spacevim.api').import('file')
-  lua if vim.fn == nil then fn = require('spacevim').fn else fn = vim.fn end
-  AssertEqual cmp.luaeval('spacevim_file.finddir("doc/", fn.fnamemodify("bundle/dein.vim/autoload/dein.vim", ":p:."))'),
+  AssertEqual cmp.luaeval('spacevim_file.finddir("doc/", vim.fn.fnamemodify("bundle/dein.vim/autoload/dein.vim", ":p:."))'),
   \ file.finddir("doc/", fnamemodify("bundle/dein.vim/autoload/dein.vim", ":p:."))
   AssertEqual cmp.luaeval('spacevim_file.unify_path(spacevim_file.findfile("vimrc", "bundle/dein.vim/autoload/dein.vim"), ":.")'),
   \ file.unify_path(file.findfile("vimrc", "bundle/dein.vim/autoload/dein.vim"), ":.")
