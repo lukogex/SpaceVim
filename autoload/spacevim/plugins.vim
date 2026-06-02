@@ -89,17 +89,6 @@ function! spacevim#plugins#get(...) abort
 
 endfunction
 
-function! spacevim#plugins#begin(path) abort
-  let g:unite_source_menu_menus =
-      \ get(g:,'unite_source_menu_menus',{})
-  let g:unite_source_menu_menus.AddedPlugins =
-        \ {'description':
-        \ 'All the Added plugins'
-        \ . '                    <Leader>fp'}
-  let g:unite_source_menu_menus.AddedPlugins.command_candidates = []
-  call dein#begin(a:path)
-endfunction
-
 function! spacevim#plugins#end() abort
   call dein#end()
   " dein do not include the after dir of spacevim by default
@@ -135,10 +124,6 @@ function! s:get_config_name(name) abort
   endif
 endfunction
 
-function! spacevim#plugins#fetch() abort
-  call dein#add(g:_spacevim_root_dir . 'bundle/dein.vim', { 'merged' : 0})
-endfunction
-
 let s:plugins = []
 
 fu! s:parser(repo, args) abort
@@ -148,7 +133,9 @@ fu! s:parser(repo, args) abort
   endif
   return p
 endf
+
 let g:_spacevim_plugins = []
+
 function! spacevim#plugins#add(repo,...) abort
   let g:spacevim_plugin_name = ''
   if len(a:000) > 0

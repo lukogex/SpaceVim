@@ -12,7 +12,8 @@ local logger = require('spacevim.logger')
 function M.init()
   M.manager_install()
   M.manager_config()
-  vim.cmd 'call spacevim#plugins#load_plugins()'
+  -- vim.cmd 'call spacevim#plugins#load_plugins()'
+  M.load_plugins()
   M.disable(vim.g.spacevim_disabled_plugins)
   vim.cmd 'call spacevim#plugins#end()'
 end
@@ -44,13 +45,25 @@ end
 
 function M.manager_config()
   -- Add the deprecated dein plugin manager.
-  vim.cmd 'call spacevim#plugins#begin(g:spacevim_plugin_bundle_dir)'
-  -- TODO: The following was not working due to E15: Invalid expression?
-  -- vim.cmd(string.format('call dein#add(%s, { "merged" : 0})', vim.g._spacevim_root_dir .. 'bundle/dein.vim'))
-  vim.cmd 'call spacevim#plugins#fetch()'
+  M.initializePluginFuzzyFinder()
+  -- Initializes the plugin manager, sets up the runtimepath, and prepares for plugin declarations.
+  vim.cmd 'call dein#begin(g:spacevim_plugin_bundle_dir)'
+  -- TODO: What is the dein#add function doing? I commented out this call as it adds it a second time to runtimepath.
+  -- vim.cmd 'call dein#add(g:_spacevim_root_dir . "bundle/dein.vim", { "merged" : 0})'
   -- Add new Spacevim plugin manager.
   logger.info('Lazy plugin manager configuration.')
   require('config.lazy')
+end
+
+function M.initializePluginFuzzyFinder()
+  addedPluginsFuzzyFinder = vim.g.unite_source_menu_menus or vim.empty_dict()
+  addedPluginsFuzzyFinder['AddedPlugins'] = {
+    description = 'All the Added plugins                    <Leader>fp',
+    command_candidates = {},
+  }
+  -- Fuzzy finder layers use the 'unite_source_menu_menus' variable from the deprecated unite fuzzy finder layer.
+  -- It has been removed already but the variable used is still the old one.
+  vim.g.unite_source_menu_menus = addedPluginsFuzzyFinder
 end
 
 local function extend(t1, t2)
@@ -64,7 +77,8 @@ end
 -- Two formats supported:
 -- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
 -- 2. Without options: ['owner/repo'] - length 1
-local function load_plugins() for _, layer in ipairs(require('spacevim.layer').get()) do
+function M.load_plugins()
+  for _, layer in ipairs(require('spacevim.layer').get()) do
     logger.debug('init ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
     for _, plugin in ipairs(getLayerPlugins(layer)) do
