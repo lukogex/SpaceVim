@@ -12,8 +12,9 @@ local logger = require('spacevim.logger')
 function M.init()
   M.manager_install()
   M.manager_config()
-  -- vim.cmd 'call spacevim#plugins#load_plugins()'
-  M.load_plugins()
+  vim.cmd 'call spacevim#plugins#load_plugins()'
+  -- TODO: Change to Lua load plugins and use lazy instead of dein.
+  -- M.load_plugins()
   M.disable(vim.g.spacevim_disabled_plugins)
   vim.cmd 'call spacevim#plugins#end()'
 end
@@ -78,7 +79,7 @@ end
 -- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
 -- 2. Without options: ['owner/repo'] - length 1
 function M.load_plugins()
-  for _, layer in ipairs(require('spacevim.layer').get()) do
+  for _, layer in ipairs(require('spacevim.layers').get()) do
     logger.debug('init ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
     for _, plugin in ipairs(getLayerPlugins(layer)) do
@@ -99,7 +100,7 @@ end
 
 -- Returns the list of plugins added in each layer vimscript file, eg. spacevim#layers#codingagent#plugins().
 local function getLayerPlugins(layer)
-  local ok, l = pcall(require, 'spacevim.layer.' .. layer)
+  local ok, l = pcall(require, 'spacevim.layers.' .. layer)
   if ok and l.plugins ~= nil then
     return l.plugins()
   end

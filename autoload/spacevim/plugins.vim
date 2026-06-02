@@ -63,6 +63,8 @@ endfunction
 function! s:loadLayerConfig(layer) abort
   call spacevim#logger#debug('load ' . a:layer . ' layer config.')
   try
+    " Here we call the config method from the related layer file.
+    " TODO: This should be changed to call config from config directory at some point right?
     call spacevim#layers#{a:layer}#config()
   catch /^Vim\%((\a\+)\)\=:E117/
     call spacevim#logger#info(a:layer . ' layer do not implement config function')
