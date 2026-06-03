@@ -12,9 +12,10 @@ local logger = require('spacevim.logger')
 function M.init()
   M.manager_install()
   M.manager_config()
+  -- Load plugins from Vimscript layers
   vim.cmd 'call spacevim#plugins#load_plugins()'
-  -- TODO: Change to Lua load plugins and use lazy instead of dein.
-  -- M.load_plugins()
+  -- Load plugins from Lua layers
+  M.load_plugins()
   M.disable(vim.g.spacevim_disabled_plugins)
   vim.cmd 'call spacevim#plugins#end()'
 end
@@ -79,27 +80,33 @@ end
 -- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
 -- 2. Without options: ['owner/repo'] - length 1
 function M.load_plugins()
-  for _, layer in ipairs(require('spacevim.layers').get()) do
+  local plugins = {}
+  for _, layer in ipairs(require('spacevim.layers').getEnabled()) do
     logger.debug('init ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
-    for _, plugin in ipairs(getLayerPlugins(layer)) do
-      if vim.fn.len(plugin) == 2 then
-        M.add(plugin[1], extend(plugin[2], {overwrite = 1}))
-        if M.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf then
-          M.defind_hooks(plugin[1], '/')
-        end
-        if M.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf_before then
-          M.loadPluginBefore(plugin[1], '/')
-        end
-      else
-        M.add(plugin[1], {overwrite = 1})
-      end
-    end
+    
+    -- For new layers we simply return plugin spec for lazy.
+    -- for _, plugin in ipairs(M.getLayerPlugins(layer)) do
+      -- if vim.fn.len(plugin) == 2 then
+        -- M.add(plugin[1], extend(plugin[2], {overwrite = 1}))
+        -- if M.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf then
+          -- M.defind_hooks(plugin[1], '/')
+        -- end
+        -- if M.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf_before then
+          -- M.loadPluginBefore(plugin[1], '/')
+        -- end
+      -- else
+        -- M.add(plugin[1], {overwrite = 1})
+      -- end
+    -- end
+
+    table.insert(plugins, M.getLayerPlugins(layer))
   end
+  return plugins
 end
 
--- Returns the list of plugins added in each layer vimscript file, eg. spacevim#layers#codingagent#plugins().
-local function getLayerPlugins(layer)
+-- Returns the plugin spec for lazy for this layer.
+function M.getLayerPlugins(layer)
   local ok, l = pcall(require, 'spacevim.layers.' .. layer)
   if ok and l.plugins ~= nil then
     return l.plugins()
@@ -109,7 +116,7 @@ end
 
 local function loadLayerConfig(layer)
   logger.debug('load ' .. layer .. ' layer config')
-  local ok, l = pcall(require, 'spacevim.layer.' .. layer)
+  local ok, l = pcall(require, 'spacevim.layers.' .. layer)
   if ok and l.config ~= nil then
     l.config()
   end

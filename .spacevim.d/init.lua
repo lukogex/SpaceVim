@@ -5,7 +5,7 @@
 -- License: GPLv3
 --=============================================================================
 
-local layer = require('spacevim.layer')
+local layer = require('spacevim.layers')
 local opt = require('spacevim.opt')
 
 opt.colorscheme = 'one'

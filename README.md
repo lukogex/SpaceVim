@@ -104,7 +104,8 @@ As the focus is on [Neovim](https://neovim.io/) we structure it after [Neovim pl
 ├─ config/                        Configuration files, Spacevim initial configuration file.
 ├─ config/plugins                 Store plugin-specific configuration files, allowing for a modular and organized approach to managing settings for various plugins. These configurations are dynamically loaded by SpaceVim's core logic (specifically in autoload/spacevim/plugins.vim and autoload/spacevim/util.vim) based on the plugins that are enabled in the user's configuration.
 ├─ bundle/                        bundle plugins
-├─ lua/spacevim/plugin            builtin plugins(lua)
+├─ lua/spacevim/layers            available layers (lua)
+├─ lua/spacevim/plugin            builtin plugins (lua)
 ├─ doc/                           help
 ├─ docs/                          documentation
 └─ test/                          tests

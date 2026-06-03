@@ -4,6 +4,6 @@ Execute ( spacevim lua layer: lang#java ):
     finish
   endif
   let cmp = spacevim#api#import('vim#compatible')
-  lua require('spacevim.layer.lang.java').set_variable({format_on_save = false})
-  lua format_on_save = require('spacevim.layer.lang.java').get_variable().format_on_save
+  lua require('spacevim.layers.lang.java').set_variable({format_on_save = false})
+  lua format_on_save = require('spacevim.layers.lang.java').get_variable().format_on_save
   AssertEqual cmp.luaeval('format_on_save'), v:false
