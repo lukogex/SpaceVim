@@ -14,8 +14,9 @@ local rtplog = {}
 local M = {
   name = '',
   silent = 1,
-  level = 1,
+  level = 0,
   verbose = 1,
+  print = true,
   file = '',
   temp = {},
 }
@@ -76,6 +77,9 @@ end
 function M.write(log)
   table.insert(M.temp, log)
   table.insert(rtplog, log.str)
+  if M.print then
+    print(log.str)
+  end
 end
 
 function M.clear()

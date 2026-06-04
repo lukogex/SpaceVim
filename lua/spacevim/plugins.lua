@@ -14,8 +14,6 @@ function M.init()
   M.manager_config()
   -- Load plugins from Vimscript layers
   vim.cmd 'call spacevim#plugins#load_plugins()'
-  -- Load plugins from Lua layers
-  M.load_plugins()
   M.disable(vim.g.spacevim_disabled_plugins)
   vim.cmd 'call spacevim#plugins#end()'
 end
@@ -53,6 +51,7 @@ function M.manager_config()
   -- TODO: What is the dein#add function doing? I commented out this call as it adds it a second time to runtimepath.
   -- vim.cmd 'call dein#add(g:_spacevim_root_dir . "bundle/dein.vim", { "merged" : 0})'
   -- Add new Spacevim plugin manager.
+  -- This load plugins from Lua layers by now.
   logger.info('Lazy plugin manager configuration.')
   require('config.lazy')
 end
@@ -82,7 +81,7 @@ end
 function M.load_plugins()
   local plugins = {}
   for _, layer in ipairs(require('spacevim.layers').getEnabled()) do
-    logger.debug('init ' .. layer .. ' layer plugins list.')
+    logger.debug('Get ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
     
     -- For new layers we simply return plugin spec for lazy.

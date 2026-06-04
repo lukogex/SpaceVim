@@ -24,7 +24,10 @@ local spsys = require('spacevim.api').import('system')
 -- setmetatable(M, mt)
 
 function M.getEnabled()
-  return vim.fn['spacevim#layers#get']()
+  -- Function for getting Vimscript layers which are added by old plugin manager dein bey now.
+  -- return vim.fn['spacevim#layers#get']()
+  -- TODO: Hardcoded the only new Lua layer by now.
+  return {'codingagent'}
 end
 
 function M.isLoaded(layer)
