@@ -56,7 +56,7 @@ local dockerServer = {
 }
 
 -- Default configuration with all available options
-require('opencode').setup({
+return {
   preferred_picker = nil, -- 'telescope', 'fzf', 'mini.pick', 'snacks', 'select', if nil, it will use the best available picker. Note mini.pick does not support multiple selections
   preferred_completion = nil, -- 'blink', 'nvim-cmp','vim_complete' if nil, it will use the best available completion
   default_global_keymaps = false, -- If false, disables all default global keymaps
@@ -292,4 +292,4 @@ require('opencode').setup({
     default_agent = nil, -- Uses the current mode when nil
     instructions = nil, -- Use built-in instructions if nil
   },
-})
+}

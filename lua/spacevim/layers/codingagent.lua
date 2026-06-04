@@ -3,7 +3,7 @@ local M = {}
 function M.plugins()
   return {
     "sudo-tee/opencode.nvim",
-    config = M.config,
+    opts = M.config(),
     dependencies = {
       "nvim-lua/plenary.nvim",
       {
@@ -28,7 +28,7 @@ function M.plugins()
 end
 
 function M.config()
-  require("config.opencode")
+  return require("config.opencode")
 end
 
 function M.set_variable(var)
