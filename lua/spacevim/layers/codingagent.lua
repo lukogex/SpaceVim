@@ -16,12 +16,13 @@ function M.plugins()
         ft = { 'markdown', 'Avante', 'copilot-chat', 'opencode_output' },
       },
       -- Optional, for file mentions and commands completion, pick only one
-      'saghen/blink.cmp',
-      -- 'hrsh7th/nvim-cmp',
+      -- 'saghen/blink.cmp',
+      -- TODO: Use nvim-cmp by now due to a missing dependency blink.lib, but we might look back to it as it promisses to be faster.
+      'hrsh7th/nvim-cmp',
 
       -- Optional, for file mentions picker, pick only one
-      'folke/snacks.nvim',
-      -- 'nvim-telescope/telescope.nvim',
+      -- 'folke/snacks.nvim',
+      'nvim-telescope/telescope.nvim',
       -- 'ibhagwan/fzf-lua',
       -- 'nvim_mini/mini.nvim',
     }

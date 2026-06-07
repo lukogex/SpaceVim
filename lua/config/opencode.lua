@@ -1,5 +1,7 @@
 local dockerServer = {
   url = 'localhost',
+  -- TODO: Tryed a fix port for testing as docker container does not work.
+  -- port = '4096',
   port = 'auto',  -- Random port for project isolation
   -- Path mapping: translate host paths to container paths
   path_map = function(host_path)

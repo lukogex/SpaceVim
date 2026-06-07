@@ -6,7 +6,7 @@
 
 local pluginsSpec = require('spacevim.plugins').load_plugins()
 
-print('Plugin spec: ' .. vim.inspect(pluginsSpec))
+-- print('Plugin spec: ' .. vim.inspect(pluginsSpec))
 
 require("lazy").setup({
   ui = {

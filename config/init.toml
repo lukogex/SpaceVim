@@ -105,6 +105,7 @@
   [layers.override_config]
     go_runner = "delve"
 
+# TODO: This one is hardcoded added by now as lua layers are not yet configurable by this file.
 # [[layers]]
   # name = "codingagent"
 
