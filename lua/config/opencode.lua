@@ -35,7 +35,7 @@ local dockerServer = {
       -v ~/.local/share/opencode:/home/node/.local/share/opencode \
       -v ~/.config/opencode:/home/node/.config/opencode \
       -v "%s":/app:rw \
-      opencode:latest opencode serve --port 4096 --hostname '0.0.0.0']],
+      ghcr.io/anomalyco/opencode:latest opencode serve --port 4096 --hostname '0.0.0.0']],
       container_name,
       port,
       cwd
