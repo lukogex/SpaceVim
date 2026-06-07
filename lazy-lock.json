@@ -1,8 +1,8 @@
 {
-  "blink.cmp": { "branch": "main", "commit": "2ef3db111181c5eef22a462aa0122349a6027f28" },
+  "blink.cmp": { "branch": "main", "commit": "3db7326f54b73df4789e0fd6274bedda33975fea" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "opencode.nvim": { "branch": "main", "commit": "4ae5d4582880b9bb061bc0572d2af6b1612e6217" },
+  "opencode.nvim": { "branch": "main", "commit": "0a9d257400ed090a4e202c6e17a4515ef18e40b7" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
-  "render-markdown.nvim": { "branch": "main", "commit": "629eb9533ec989d9d5c6cab8f3ad5372422c24e0" },
-  "snacks.nvim": { "branch": "main", "commit": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e" }
+  "render-markdown.nvim": { "branch": "main", "commit": "5adf0895310c1904e5abfaad40a2baad7fe44a07" },
+  "snacks.nvim": { "branch": "main", "commit": "882c996cf28183f4d63640de0b4c02ec886d01f2" }
 }

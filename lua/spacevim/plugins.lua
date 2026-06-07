@@ -8,6 +8,7 @@
 local M = {}
 
 local logger = require('spacevim.logger')
+local utils = require('spacevim.utils')
 
 function M.init()
   M.manager_install()
@@ -53,6 +54,9 @@ function M.manager_config()
   -- Add new Spacevim plugin manager.
   -- This load plugins from Lua layers by now.
   logger.info('Lazy plugin manager configuration.')
+  logger.info("Runtimepath before lazy setup.")
+  logger.info(vim.inspect(vim.opt.rtp:get()))
+
   require('config.lazy')
 end
 
@@ -74,6 +78,7 @@ local function extend(t1, t2)
   return t1
 end
 
+-- TODO: This function will change with new plugin manager, adapt comments!
 -- The check len(plugin) == 2 determines whether the plugin specification includes options or not:
 -- Two formats supported:
 -- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
@@ -106,10 +111,12 @@ end
 
 -- Returns the plugin spec for lazy for this layer.
 function M.getLayerPlugins(layer)
-  local ok, l = pcall(require, 'spacevim.layers.' .. layer)
-  if ok and l.plugins ~= nil then
-    return l.plugins()
+  local layerModule = utils.prequire('spacevim.layers.' .. layer)
+  if layerModule and layerModule.plugins ~= nil then
+    logger.info('Found layer ' .. layer)
+    return layerModule.plugins()
   end
+  logger.info('No layer found for ' .. layer)
   return {}
 end
 

@@ -73,6 +73,8 @@ function M.init()
 
   logger.info('Runtimepath after Spacevim initialization: ' .. vim.inspect(vim.opt.rtp:get()))
 
+  require('spacevim.plugins').init()
+
   vim.cmd 'call spacevim#end()'
 
   logger.info('Spacevim is ready with runtimepath: ' .. vim.inspect(vim.opt.rtp:get()))
