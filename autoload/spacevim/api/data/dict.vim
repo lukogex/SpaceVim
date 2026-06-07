@@ -2,7 +2,6 @@
 " dict.vim --- spacevim dict API
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -23,10 +22,6 @@
 "
 "   make a dictionary from a list, use 
 
-
-
-
-
 function! spacevim#api#data#dict#get() abort
   return map({
         \ 'make' : '',
@@ -45,17 +40,16 @@ function! spacevim#api#data#dict#get() abort
         \ )
 endfunction
 
-
 " if get(g:, '_spacevim_if_lua', 0) || has('nvim')
 " function! s:entrys(dict) abort
 " lua require("spacevim.api.data.dict").entrys(
-" \ require("spacevim").eval("a:dict")
+" \ require("spacevim.api.vim.compatible").eval("a:dict")
 " \ )
 " endfunction
 " function! s:pick(dict, keys) abort
 " lua require("spacevim.api.data.dict").pick(
-" \ require("spacevim").eval("a:dict"),
-" \ require("spacevim").eval("a:keys")
+" \ require("spacevim.api.vim.compatible").eval("a:dict"),
+" \ require("spacevim.api.vim.compatible").eval("a:keys")
 " \ )
 " endfunction
 " else

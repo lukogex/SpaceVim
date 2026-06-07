@@ -11,7 +11,7 @@ local lang = require('spacevim.api.language')
 local time = require('spacevim.api.time')
 local JSON = require('spacevim.api.data.json')
 
-local layer = require('spacevim.layer')
+local layer = require('spacevim.layers')
 
 local messletters = require('spacevim.api.messletters')
 local statusline = require('spacevim.api.vim.statusline')

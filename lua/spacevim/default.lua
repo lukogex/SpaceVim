@@ -2,7 +2,6 @@
 -- default.lua --- default option
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
 
@@ -115,6 +114,19 @@ function M.options()
   vim.o.foldtext = 'spacevim#default#Customfoldtext()'
 
   logger.info('options init done')
+end
+
+function M.layers()
+  logger.info('Load default layers:')
+  vim.cmd('call spacevim#layers#load("autocomplete")')
+  vim.cmd('call spacevim#layers#load("checkers")')
+  vim.cmd('call spacevim#layers#load("format")')
+  vim.cmd('call spacevim#layers#load("edit")')
+  vim.cmd('call spacevim#layers#load("ui")')
+  vim.cmd('call spacevim#layers#load("core")')
+  vim.cmd('call spacevim#layers#load("core#banner")')
+  vim.cmd('call spacevim#layers#load("core#statusline")')
+  vim.cmd('call spacevim#layers#load("core#tabline")')
 end
 
 return M

@@ -5,7 +5,6 @@
 " License: GPLv3
 "=============================================================================
 
-
 ""
 " @section flygrep, plugins-flygrep
 " @parentsection plugins
@@ -47,21 +46,24 @@
 "    End                 | Go to the end of the line
 " <
 
-
 " Loading spacevim api {{{
 scriptencoding utf-8
 function! spacevim#plugins#flygrep#open(argv) abort
   lua require("spacevim.plugin.flygrep").open(
-        \ require("spacevim").eval("a:argv")
+        \ require("spacevim.api.vim.compatible").eval("a:argv")
         \ )
 endfunction
+
 function! spacevim#plugins#flygrep#lineNr() abort
   lua require("spacevim.plugin.flygrep").lineNr()
 endfunction
+
 function! spacevim#plugins#flygrep#mode() abort
   lua require("spacevim.plugin.flygrep").mode()
 endfunction
+
 finish
+
 let s:MPT = spacevim#api#import('prompt')
 let s:JOB = spacevim#api#import('job')
 let s:SYS = spacevim#api#import('system')

@@ -73,6 +73,7 @@ call spacevim#dev#layers#update()
 | [bookmarks](bookmarks.md) | This layer provides bookmarking functionalities. |
 | [checkers](checkers.md) | Syntax checking automatically within spacevim, display error on the sign column and statusline. |
 | [colorscheme](colorscheme.md) | colorscheme provides a list of colorschemes for spacevim, the default colorscheme is gruvbox with dark theme. |
+| [codingagent](codingagent.md) | This layer provides agentic coding capabilities using opencode.nvim. |
 | [core#banner](core/banner.md) | This layer provides many default banners on the welcome page. |
 | [core#statusline](core/statusline.md) | This layer provides a default statusline for Spacevim. |
 | [core#tabline](core/tabline.md) | spacevim core#tabline layer provides a better tabline for Spacevim. |
@@ -144,7 +145,7 @@ call spacevim#dev#layers#update()
 | [lang#latex](lang/latex/)                             | This layer provides support for writing LaTeX documents, including syntax highlighting, code completion, formatting etc.                                            |
 | [lang#lisp](lang/lisp/)                               | This layer is for Common Lisp development, provides autocompletion, syntax checking, and code formatting for Common Lisp files.                                     |
 | [lang#livescript](lang/livescript/)                   | This layer is for livescript development, provides syntax checking, code runner and repl support for livescript files.                                              |
-| [lang#lua](lang/lua/)                                 | This layer is for Lua development, provides autocompletion, syntax checking, and code format for Lua files.                                                         |
+| [lang#lua](lang/lua.md) | This layer is for Lua development, provides autocompletion, syntax checking, and code format for Lua files. |
 | [lang#markdown](lang/markdown/)                       | Edit markdown within vim, autopreview markdown in the default browser, with this layer you can also format markdown files.                                          |
 | [lang#matlab](lang/matlab/)                           | This layer adds matlab language support to spacevim, including syntax highlighting.                                                                                 |
 | [lang#moonscript](lang/moonscript/)                   | This layer is for moonscript development, provides syntax checking, code runner and repl support for moonscript files.                                              |

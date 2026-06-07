@@ -1587,7 +1587,7 @@ These layers have the same key bindings and features. But they need different de
 
 Users only need to load one of these layers to be able to get these features.
 
-for example, to load the denite layer:
+For example, to load the denite layer:
 
 ```toml
 [[layers]]
@@ -1644,7 +1644,7 @@ The above key bindings are only part of fuzzy finder layers, please read the lay
 
 #### With an external tool
 
-spacevim can be interfaced with different searching tools like:
+Spacevim can be interfaced with different searching tools like:
 
 - [rg - ripgrep](https://github.com/BurntSushi/ripgrep)
 - [ag - the silver searcher](https://github.com/ggreer/the_silver_searcher)
@@ -1652,17 +1652,14 @@ spacevim can be interfaced with different searching tools like:
 - [ack](https://beyondgrep.com/)
 - grep
 
-The search commands in spacevim are organized under the `SPC s`
-prefix with the next key being the tool to use and the last key is the scope.
+The search commands in Spacevim are organized under the `SPC s` prefix with the next key being the tool to use and the last key is the scope.
 For instance, `SPC s a b` will search in all opened buffers using `ag`.
 
-If the last key (determining the scope) is uppercase then the
-current word under the cursor is used as default input for the search.
+If the last key (determining the scope) is uppercase then the current word under the cursor is used as default input for the search.
 For instance, `SPC s a B` will search for the word under the cursor.
 
 If the tool key is omitted then a default tool will be automatically selected for the search.
-This tool corresponds to the first tool found on the system from the list `search_tools`,
-the default order is `['rg', 'ag', 'pt', 'ack', 'grep', 'findstr', 'git']`.
+This tool corresponds to the first tool found on the system from the list `search_tools`, the default order is `['rg', 'ag', 'pt', 'ack', 'grep', 'findstr', 'git']`.
 For instance `SPC s b` will search in the opened buffers using `pt` if `rg` and `ag` have not been found on the system.
 
 The tool keys are:

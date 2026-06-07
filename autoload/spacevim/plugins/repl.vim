@@ -2,41 +2,40 @@
 " repl.vim --- REPL process support for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
-if has('nvim-0.9.0')
-  function! spacevim#plugins#repl#send(type, ...) abort
-    if a:type == 'raw'
-      lua require('spacevim.plugin.repl').send(
-            \ require('spacevim').eval('a:type'),
-            \ require('spacevim').eval("get(a:000, 0, '')")
-            \ )
-    else
-      lua require('spacevim.plugin.repl').send(
-            \ require('spacevim').eval('a:type')
-            \ )
-    endif
-  endfunction
-  function! spacevim#plugins#repl#start(ft) abort
-    lua require("spacevim.plugin.repl").start(
-          \ require("spacevim").eval("a:ft")
+function! spacevim#plugins#repl#send(type, ...) abort
+  if a:type == 'raw'
+    lua require('spacevim.plugin.repl').send(
+          \ require('spacevim.api.vim.compatible').eval('a:type'),
+          \ require('spacevim.api.vim.compatible').eval("get(a:000, 0, '')")
           \ )
-  endfunction
-  function! spacevim#plugins#repl#status() abort
-    return luaeval('require("spacevim.plugin.repl").status()')
-  endfunction
-  function! spacevim#plugins#repl#reg(ft, execute) abort
-    lua require("spacevim.plugin.repl").reg(
-          \ require("spacevim").eval("a:ft"),
-          \ require("spacevim").eval("a:execute")
+  else
+    lua require('spacevim.plugin.repl').send(
+          \ require('spacevim.api.vim.compatible').eval('a:type')
           \ )
-  endfunction
-  finish
-endif
+  endif
+endfunction
 
+function! spacevim#plugins#repl#start(ft) abort
+  lua require("spacevim.plugin.repl").start(
+        \ require("spacevim.api.vim.compatible").eval("a:ft")
+        \ )
+endfunction
 
+function! spacevim#plugins#repl#status() abort
+  return luaeval('require("spacevim.plugin.repl").status()')
+endfunction
+
+function! spacevim#plugins#repl#reg(ft, execute) abort
+  lua require("spacevim.plugin.repl").reg(
+        \ require("spacevim.api.vim.compatible").eval("a:ft"),
+        \ require("spacevim.api.vim.compatible").eval("a:execute")
+        \ )
+endfunction
+
+finish
 
 ""
 " @section repl, usage-repl

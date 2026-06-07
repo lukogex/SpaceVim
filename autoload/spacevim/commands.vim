@@ -2,7 +2,6 @@
 " commands.vim --- commands in spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -81,11 +80,7 @@ endfunction
 " @vimlint(EVL103, 1, a:CmdLine)
 " @vimlint(EVL103, 1, a:CursorPos)
 function! spacevim#commands#complete_plugin(ArgLead, CmdLine, CursorPos) abort
-  if g:spacevim_plugin_manager ==# 'dein'
-    return join(keys(dein#get()) + ['spacevim'], "\n")
-  elseif g:spacevim_plugin_manager ==# 'neobundle'
-    return join(map(neobundle#config#get_neobundles(), 'v:val.name'), "\n")
-  endif
+  return join(keys(dein#get()) + ['spacevim'], "\n")
 endfunction
 " @vimlint(EVL103, 0, a:ArgLead)
 " @vimlint(EVL103, 0, a:CmdLine)
@@ -120,55 +115,27 @@ function! spacevim#commands#config(...) abort
 endfunction
 
 function! spacevim#commands#update_plugin(...) abort
-  if g:spacevim_plugin_manager ==# 'neobundle'
-    if a:0 == 0
-      call spacevim#plugins#manager#update()
-    else
-      call spacevim#plugins#manager#update(a:000)
-    endif
-  elseif g:spacevim_plugin_manager ==# 'dein'
-    if a:0 == 0
-      call spacevim#plugins#manager#update()
-    else
-      call spacevim#plugins#manager#update(a:000)
-    endif
-  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+  if a:0 == 0
+    call spacevim#plugins#manager#update()
+  else
+    call spacevim#plugins#manager#update(a:000)
   endif
 endfunction
 
 function! spacevim#commands#reinstall_plugin(...) abort
-  if g:spacevim_plugin_manager ==# 'dein'
-    call spacevim#plugins#manager#reinstall(a:000)
-  elseif g:spacevim_plugin_manager ==# 'neobundle'
-  elseif g:spacevim_plugin_manager ==# 'vim-plug'
-  endif
+  call spacevim#plugins#manager#reinstall(a:000)
 endfunction
 
 function! spacevim#commands#clean_plugin() abort
-  if g:spacevim_plugin_manager ==# 'dein'
-    call map(dein#check_clean(), "delete(v:val, 'rf')")
-    call dein#recache_runtimepath()
-  elseif g:spacevim_plugin_manager ==# 'neobundle'
-    " @todo add SPClean support for neobundle
-  elseif g:spacevim_plugin_manager ==# 'vim-plug'
-    " @todo add SPClean support for vim-plug
-  endif
+  call map(dein#check_clean(), "delete(v:val, 'rf')")
+  call dein#recache_runtimepath()
 endfunction
 
 function! spacevim#commands#install_plugin(...) abort
-  if g:spacevim_plugin_manager ==# 'neobundle'
-    if a:0 == 0
-      call spacevim#plugins#manager#install()
-    else
-      call spacevim#plugins#manager#install(a:000)
-    endif
-  elseif g:spacevim_plugin_manager ==# 'dein'
-    if a:0 == 0
-      call spacevim#plugins#manager#install()
-    else
-      call spacevim#plugins#manager#install(a:000)
-    endif
-  elseif g:spacevim_plugin_manager ==# 'vim-plug'
+  if a:0 == 0
+    call spacevim#plugins#manager#install()
+  else
+    call spacevim#plugins#manager#install(a:000)
   endif
 endfunction
 
@@ -301,6 +268,5 @@ endfunction
 function! spacevim#commands#complete_options(...)
   return join(map(getcompletion('g:spacevim_','var'), 'v:val[11:]'), "\n")
 endfunction
-
 
 " vim:set et sw=2 cc=80:

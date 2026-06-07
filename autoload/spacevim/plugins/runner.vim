@@ -2,7 +2,6 @@
 " runner.vim --- code runner for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -36,64 +35,54 @@
 "   }
 " <
 
+function! spacevim#plugins#runner#get(ft) abort
+  return luaeval('require("spacevim.plugin.runner").get(require("spacevim.api.vim.compatible").eval("a:ft"))') 
+endfunction
 
-if has('nvim-0.9.0')
-  function! spacevim#plugins#runner#get(ft) abort
-    return luaeval('require("spacevim.plugin.runner").get(require("spacevim").eval("a:ft"))') 
-  endfunction
-  function! spacevim#plugins#runner#open(...) abort
-    lua require("spacevim.plugin.runner").open(
-          \ unpack(require("spacevim").eval("a:000"))
-          \ )
-    
-  endfunction
+function! spacevim#plugins#runner#open(...) abort
+  lua require("spacevim.plugin.runner").open(
+        \ unpack(require("spacevim.api.vim.compatible").eval("a:000"))
+        \ )
+endfunction
 
-  function! spacevim#plugins#runner#reg_runner(ft, runner) abort
-    lua require("spacevim.plugin.runner").reg_runner(
-          \ require("spacevim").eval("a:ft"),
-          \ require("spacevim").eval("a:runner")
-          \ )
-    
-  endfunction
+function! spacevim#plugins#runner#reg_runner(ft, runner) abort
+  lua require("spacevim.plugin.runner").reg_runner(
+        \ require("spacevim.api.vim.compatible").eval("a:ft"),
+        \ require("spacevim.api.vim.compatible").eval("a:runner")
+        \ )
+endfunction
 
-  function! spacevim#plugins#runner#status() abort
-    return luaeval('require("spacevim.plugin.runner").status()')
-  endfunction
+function! spacevim#plugins#runner#status() abort
+  return luaeval('require("spacevim.plugin.runner").status()')
+endfunction
 
-  function! spacevim#plugins#runner#close() abort
+function! spacevim#plugins#runner#close() abort
+  lua require("spacevim.plugin.runner").close()
+endfunction
 
-    lua require("spacevim.plugin.runner").close()
+function! spacevim#plugins#runner#select_file() abort
+  lua require("spacevim.plugin.runner").select_file()
+endfunction
 
-  endfunction
+function! spacevim#plugins#runner#select_language() abort
+  lua require("spacevim.plugin.runner").select_language()
+endfunction
 
-  function! spacevim#plugins#runner#select_file() abort
-    lua require("spacevim.plugin.runner").select_file()
-  endfunction
+function! spacevim#plugins#runner#set_language(lang) abort
+  
+endfunction
 
-  function! spacevim#plugins#runner#select_language() abort
-    lua require("spacevim.plugin.runner").select_language()
-  endfunction
+function! spacevim#plugins#runner#run_task(task) abort
+  lua require("spacevim.plugin.runner").run_task(
+        \ require("spacevim.api.vim.compatible").eval("a:task")
+        \ )
+endfunction
 
-  function! spacevim#plugins#runner#set_language(lang) abort
-    
-  endfunction
+function! spacevim#plugins#runner#clear_tasks() abort
+  
+endfunction
 
-  function! spacevim#plugins#runner#run_task(task) abort
-    lua require("spacevim.plugin.runner").run_task(
-          \ require("spacevim").eval("a:task")
-          \ )
-    
-  endfunction
-
-  function! spacevim#plugins#runner#clear_tasks() abort
-    
-  endfunction
-
-  finish
-endif
-
-
-
+finish
 
 let s:runners = {}
 

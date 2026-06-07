@@ -274,4 +274,3 @@ autocommand BufEnter <buffer>
 ## Markdown Style
 
 - [Google's Markdown style guide](https://github.com/google/styleguide/blob/3591b2e540cbcb07423e02d20eee482165776603/docguide/style.md)
-

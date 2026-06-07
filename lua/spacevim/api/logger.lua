@@ -2,7 +2,6 @@
 -- logger.lua --- logger api implemented in lua
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
 
@@ -17,6 +16,7 @@ local M = {
   silent = 1,
   level = 1,
   verbose = 1,
+  print = true,
   file = '',
   temp = {},
 }
@@ -77,6 +77,9 @@ end
 function M.write(log)
   table.insert(M.temp, log)
   table.insert(rtplog, log.str)
+  if M.print then
+    print(log.str)
+  end
 end
 
 function M.clear()

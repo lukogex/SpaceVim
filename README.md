@@ -22,7 +22,7 @@ One consequence of this is that I'll reduce the project scope and features to th
 
 ### Compatibility
 
-In contrast to the former spacevim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) (from version v0.10.4 onwards) on Linux.
+In contrast to the former spacevim distribution the new version supports only [Neovim](https://github.com/neovim/neovim) (from version v0.11.7 onwards) on Linux.
 
 Reasoning:
 - I cant spare additional time to implement and test for other systems.
@@ -104,7 +104,8 @@ As the focus is on [Neovim](https://neovim.io/) we structure it after [Neovim pl
 ├─ config/                        Configuration files, Spacevim initial configuration file.
 ├─ config/plugins                 Store plugin-specific configuration files, allowing for a modular and organized approach to managing settings for various plugins. These configurations are dynamically loaded by SpaceVim's core logic (specifically in autoload/spacevim/plugins.vim and autoload/spacevim/util.vim) based on the plugins that are enabled in the user's configuration.
 ├─ bundle/                        bundle plugins
-├─ lua/spacevim/plugin            builtin plugins(lua)
+├─ lua/spacevim/layers            available layers (lua)
+├─ lua/spacevim/plugin            builtin plugins (lua)
 ├─ doc/                           help
 ├─ docs/                          documentation
 └─ test/                          tests

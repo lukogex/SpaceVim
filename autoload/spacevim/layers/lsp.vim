@@ -56,16 +56,13 @@ function! spacevim#layers#lsp#health() abort
 endfunction
 
 function! spacevim#layers#lsp#loadable() abort
-
   return 1
-
 endfunction
-
 
 function! spacevim#layers#lsp#setup() abort
   lua require("spacevim.lsp").setup(
-        \ require("spacevim").eval("s:enabled_clients"),
-        \ require("spacevim").eval("s:override_client_cmds")
+        \ require("spacevim.api.vim.compatible").eval("s:enabled_clients"),
+        \ require("spacevim.api.vim.compatible").eval("s:override_client_cmds")
         \ )
   doautocmd User spacevimLspSetup
 endfunction

@@ -818,13 +818,6 @@ let g:spacevim_terminal_cursor_shape = 2
 " <
 
 ""
-" Set the help language of vim. Default is 'en'.
-" You can change it to Chinese.
-" >
-"   let g:spacevim_vim_help_language = 'cn'
-" <
-let g:spacevim_vim_help_language       = 'en'
-""
 " @section language, options-language
 " @parentsection options
 " Set the message language of vim. Default is 'en_US.UTF-8'.
@@ -838,6 +831,7 @@ let g:spacevim_vim_help_language       = 'en'
 "   let g:spacevim_language = 'en_CA.utf8'
 " <
 let g:spacevim_language                = ''
+
 ""
 " @section keep_server_alive, options-keep_server_alive
 " @parentsection options
@@ -899,15 +893,10 @@ let g:spacevim_filemanager             = 'nerdtree'
 let g:spacevim_filetree_direction             = 'right'
 
 let g:spacevim_sidebar_direction        = ''
+
 ""
 " The default plugin manager of spacevim.
-" if has patch 7.4.2071, the default value is dein. Otherwise it is neobundle.
-" Options are dein, neobundle, or vim-plug.
-if has('patch-7.4.2071')
-  let g:spacevim_plugin_manager          = 'dein'
-else
-  let g:spacevim_plugin_manager          = 'neobundle'
-endif
+let g:spacevim_plugin_manager = 'dein'
 
 ""
 " @section plugin_manager_processes, options-plugin_manager_processes
@@ -1082,6 +1071,7 @@ let g:spacevim_github_username         = ''
 ""
 " Set the default key for smart close windows, default is `q`.
 let g:spacevim_windows_smartclose      = 'q'
+
 ""
 " @section disabled_plugins, options-disabled_plugins
 " @parentsection options
@@ -1094,7 +1084,8 @@ let g:spacevim_windows_smartclose      = 'q'
 " >
 "   let g:spacevim_disabled_plugins = ['vim-foo', 'vim-bar']
 " <
-let g:spacevim_disabled_plugins        = []
+let g:spacevim_disabled_plugins = []
+
 ""
 " @section custom_plugins, usage-custom_plugins
 " @parentsection usage
@@ -1409,9 +1400,6 @@ let g:_spacevim_mappings_leader_custom = []
 let g:_spacevim_mappings_leader_custom_group_name = []
 let g:_spacevim_mappings_language_specified_space_custom = {}
 let g:_spacevim_mappings_lang_group_name = {}
-let g:_spacevim_neobundle_installed     = 0
-let g:_spacevim_dein_installed          = 0
-let g:_spacevim_vim_plug_installed      = 0
 
 if !exists('g:leaderGuide_vertical')
   let g:leaderGuide_vertical = 0
@@ -1525,11 +1513,6 @@ function! s:lazy_end(...) abort
     let g:leaderGuide_map = {}
     call spacevim#mapping#guide#register_prefix_descriptions('', 'g:leaderGuide_map')
   endif
-  if g:spacevim_vim_help_language ==# 'cn'
-    let &helplang = 'cn'
-  elseif g:spacevim_vim_help_language ==# 'ja'
-    let &helplang = 'jp'
-  endif
   " generate tags for spacevim
   let help = fnamemodify(g:_spacevim_root_dir, ':p:h') . '/doc'
   try
@@ -1622,8 +1605,6 @@ function! spacevim#end() abort
     call spacevim#layers#core#statusline#init()
   endif
 
-  call spacevim#plugins#load()
-
   if g:spacevim_enable_guicolors == 1
     if !has('nvim') && has('patch-7.4.1770')
       let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
@@ -1662,194 +1643,33 @@ function! spacevim#end() abort
     endtry
   endif
 
-  if !has('nvim-0.2.0') && !has('nvim')
-    " In old version of neovim, &guicursor do not support cursor shape
-    " setting.
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE = g:spacevim_terminal_cursor_shape
-  else
-    if g:spacevim_terminal_cursor_shape == 0
-      " prevent nvim from changing the cursor shape
-      set guicursor=
-    elseif g:spacevim_terminal_cursor_shape == 1
-      " enable non-blinking mode-sensitive cursor
-      set guicursor=n-v-c:block-blinkon0,i-ci-ve:ver25-blinkon0,r-cr:hor20,o:hor50
-    elseif g:spacevim_terminal_cursor_shape == 2
-      " enable blinking mode-sensitive cursor
-      set guicursor=n-v-c:block-blinkon10,i-ci-ve:ver25-blinkon10,r-cr:hor20,o:hor50
-    endif
-    set guicursor+=a:Cursor/lCursor
+  if g:spacevim_terminal_cursor_shape == 0
+    " prevent nvim from changing the cursor shape
+    set guicursor=
+  elseif g:spacevim_terminal_cursor_shape == 1
+    " enable non-blinking mode-sensitive cursor
+    set guicursor=n-v-c:block-blinkon0,i-ci-ve:ver25-blinkon0,r-cr:hor20,o:hor50
+  elseif g:spacevim_terminal_cursor_shape == 2
+    " enable blinking mode-sensitive cursor
+    set guicursor=n-v-c:block-blinkon10,i-ci-ve:ver25-blinkon10,r-cr:hor20,o:hor50
   endif
+  set guicursor+=a:Cursor/lCursor
   filetype plugin indent on
   syntax on
 endfunction
 
-
-" return [status, dir]
-" status: 0 : no argv
-"         1 : dir
-"         2 : default arguments
-"
-" argc() return number of files
-" argv() return a list of files/directories
-function! s:parser_argv() abort
-  if exists('v:argv')
-    call spacevim#logger#info('v:argv is:' . string(v:argv))
-    " if use embed nvim
-    " for exmaple: neovim-qt
-    " or only run vim/neovim without argvs
-    if len(v:argv) == 1 || (len(v:argv) == 2 && index(v:argv, '--embed') == 1)
-      return [0]
-    elseif index(v:argv, '--embed') !=# -1 
-      if  v:argv[-1] =~# '/$'
-        let f = fnamemodify(expand(v:argv[-1]), ':p')
-        if isdirectory(f)
-          return [1, f]
-        else
-          return [1, getcwd()]
-        endif
-      elseif v:argv[-1] ==# '.'
-        return [1, getcwd()]
-      elseif isdirectory(expand(v:argv[-1]))
-        return [1, fnamemodify(expand(v:argv[-1]), ':p')]
-      elseif filereadable(v:argv[-1])
-        return [2, get(v:, 'argv', ['failed to get v:argv'])]
-      elseif v:argv[-1] == '-p' && v:argv[-2] == '--embed'
-        return [0]
-      elseif v:argv[-1] != '--embed' && get(v:argv, -2, '') != '--cmd'
-        return [2, v:argv[-1]]
-      else
-        return [0]
-      endif
-    elseif index(v:argv, '-d') !=# -1
-      " this is  diff mode
-      return [2, 'diff mode, use default arguments:' . string(v:argv)]
-    elseif v:argv[-1] =~# '/$'
-      let f = fnamemodify(expand(v:argv[-1]), ':p')
-      if isdirectory(f)
-        return [1, f]
-      else
-        return [1, getcwd()]
-      endif
-    elseif v:argv[-1] ==# '.'
-      return [1, getcwd()]
-    elseif isdirectory(expand(v:argv[-1]))
-      return [1, fnamemodify(expand(v:argv[-1]), ':p')]
-    elseif len(v:argv) == 3 && v:argv[-1] == 'VIM' && v:argv[-2] == '--servername'
-      return [0]
-    else
-      return [2, get(v:, 'argv', ['failed to get v:argv'])]
-    endif
-  else
-    call spacevim#logger#info(printf('argc is %s, argv is %s, line2byte is %s', string(argc()), string(argv()), string(line2byte('$'))))
-    if !argc() && line2byte('$') == -1
-      return [0]
-    elseif argv()[0] =~# '/$'
-      let f = fnamemodify(expand(argv()[0]), ':p')
-      if isdirectory(f)
-        return [1, f]
-      else
-        return [1, getcwd()]
-      endif
-    elseif argv()[0] ==# '.'
-      return [1, getcwd()]
-    elseif isdirectory(expand(argv()[0]))
-      return [1, fnamemodify(expand(argv()[0]), ':p')]
-    else
-      return [2, string(argv())]
-    endif
-  endif
+" This method is only there to set the variables from this script.
+" TODO: Check how this could be done better!
+function! spacevim#spacevim_variables() abort
+  call spacevim#logger#info('Set global variables from spacevim.vim.')
 endfunction
 
-function! spacevim#begin() abort
-
-
-  "Use English for anything in vim
-  try
-    if s:SYSTEM.isWindows
-      silent exec 'lan mes en_US.UTF-8'
-    elseif s:SYSTEM.isOSX
-      silent exec 'language en_US.UTF-8'
-    else
-      let s:uname = system('uname -s')
-      if s:uname ==# "Darwin\n"
-        " in mac-terminal
-        silent exec 'language en_US.UTF-8'
-      elseif s:uname ==# "SunOS\n"
-        " in Sun-OS terminal
-        silent exec 'lan en_US.UTF-8'
-      elseif s:uname ==# "FreeBSD\n"
-        " in FreeBSD terminal
-        silent exec 'lan en_US.UTF-8'
-      else
-        " in linux-terminal
-        silent exec 'lan en_US.UTF-8'
-      endif
-    endif
-  catch /^Vim\%((\a\+)\)\=:E197/
-    call spacevim#logger#error('Can not set language to en_US.utf8')
-  catch /^Vim\%((\a\+)\)\=:E319/
-    call spacevim#logger#error('Can not set language to en_US.utf8, language not implemented in this Vim build')
-  endtry
-
-  " try to set encoding to utf-8
-  if s:SYSTEM.isWindows
-    " Be nice and check for multi_byte even if the config requires
-    " multi_byte support most of the time
-    if has('multi_byte')
-      " Windows cmd.exe still uses cp850. If Windows ever moved to
-      " Powershell as the primary terminal, this would be utf-8
-      if exists('&termencoding') && !has('nvim')
-        set termencoding=cp850
-      endif
-      setglobal fileencoding=utf-8
-      " Windows has traditionally used cp1252, so it's probably wise to
-      " fallback into cp1252 instead of eg. iso-8859-15.
-      " Newer Windows files might contain utf-8 or utf-16 LE so we might
-      " want to try them first.
-      set fileencodings=ucs-bom,utf-8,gbk,utf-16le,cp1252,iso-8859-15,cp936
-    endif
-
-  else
-    if exists('&termencoding') && !has('nvim')
-      set termencoding=utf-8
-    endif
-    set fileencoding=utf-8
-    set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+function! spacevim#spacevim_variables_validation() abort
+  if g:spacevim_enable_ycm && g:spacevim_snippet_engine !=# 'ultisnips'
+    call spacevim#logger#info(
+          \ 'YCM only support ultisnips')
+    let g:spacevim_snippet_engine = 'ultisnips'
   endif
-
-  " Before loading spacevim, We need to parser argvs.
-  let s:status = s:parser_argv()
-  call spacevim#logger#info('startup status:' . string(s:status))
-  " If do not start Vim with filename, Define autocmd for opening welcome page
-  if s:status[0] == 0
-    let g:_spacevim_enter_dir = fnamemodify(getcwd(), ':~')
-    call spacevim#logger#info('Startup with no argv, current dir is used: ' . g:_spacevim_enter_dir )
-    augroup SPwelcome
-      au!
-      autocmd VimEnter * call spacevim#welcome()
-    augroup END
-  elseif s:status[0] == 1
-    let g:_spacevim_enter_dir = fnamemodify(s:status[1], ':~')
-    call spacevim#logger#info('Startup with directory: ' . g:_spacevim_enter_dir  )
-    augroup SPwelcome
-      au!
-      autocmd VimEnter * call spacevim#welcome()
-    augroup END
-  else
-    call spacevim#logger#info('Startup with argv: ' . string(s:status[0]) )
-  endif
-  if has('nvim-0.7')
-    try
-      " @fixme unknown font error
-      lua require('spacevim.default').options()
-    catch
-
-    endtry
-  else
-    call spacevim#default#options()
-  endif
-  call spacevim#default#layers()
-  call spacevim#commands#load()
 endfunction
 
 function! spacevim#welcome() abort

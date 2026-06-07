@@ -2,7 +2,6 @@
 " layers.vim --- layers public API
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Wang Shidong < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 
@@ -49,7 +48,6 @@
 let s:enabled_layers = []
 let s:layers_vars = {}
 
-
 let s:SYS = spacevim#api#import('system')
 let s:CMP = spacevim#api#import('vim#compatible')
 
@@ -66,7 +64,7 @@ let s:CMP = spacevim#api#import('vim#compatible')
 function! spacevim#layers#load(layer, ...) abort
   if a:layer ==# '-l'
     if has('nvim')
-      lua require('spacevim.layer').load('-l')
+      lua require('spacevim.layers').load('-l')
     else
       call s:list_layers()
     endif
@@ -203,7 +201,5 @@ function! spacevim#layers#list() abort
   return map(layers, "substitute(v:val, '/', '#','g')")
 
 endfunction
-
-
 
 " vim:set et sw=2:

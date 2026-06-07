@@ -2,17 +2,17 @@
 -- logger.lua --- logger implemented in lua
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
 
 local M = {}
 
 local logger = require('spacevim.api').import('logger')
-local cmd = require('spacevim').cmd
-local call = require('spacevim').call
-local echo = require('spacevim').echo
+local cmd = require('spacevim.api.vim.compatible').cmd
+local call = require('spacevim.api.vim.compatible').call
+local echo = require('spacevim.api.vim.compatible').echo
 local fn = nil
+
 if vim.fn == nil then
   fn = require('spacevim').fn
 else

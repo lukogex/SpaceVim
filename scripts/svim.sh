@@ -59,4 +59,11 @@ fi
 # Change directory to use correct tool versions.
 cd $spacevimBaseDir
 
-nvim $file
+vimrc=$spacevimBaseDir/init.lua
+
+# In case the script is started from another Neovim shell we need to unset NVIM_LISTEN_ADDRESS which has been set by the running Neovim instance.
+# Neovim fails if NVIM_LISTEN_ADDRESS (or --listen) points to an address that is already in-use.
+# NVIM_LISTEN_ADDRESS is [deprecated now](https://neovim.io/doc/user/deprecated/#%24NVIM_LISTEN_ADDRESS), before Nvim 0.11, it would just silently fail.
+unset NVIM_LISTEN_ADDRESS
+
+nvim -u $vimrc $file

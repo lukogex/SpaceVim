@@ -346,7 +346,6 @@ function! s:toggle_syntax_checker() abort
   return 1
 endfunction
 
-
 function! s:explain_the_error() abort
   if g:spacevim_lint_engine ==# 'neomake'
     try
