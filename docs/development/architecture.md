@@ -10,9 +10,6 @@ description: "ADRs (Architectural Decision Records) for Spacevim development."
 
 - [Architectural Decision Records](#architectural-decision-records)
   - [ADR-001 Spacevim API](#adr-001-spacevim-api)
-    - [Context](#context)
-    - [Decision](#decision)
-    - [Consequences](#consequences)
 
 <!-- vim-markdown-toc -->
 
@@ -24,18 +21,18 @@ As soon as they are documented here the are in status **ACCEPTED**, every discus
 
 ### ADR-001 Spacevim API
 
-#### Context
+**Context**
 
 The combatibility of Spacevim has been reduced to Neovim only from version v3.0.0 onwards.
 This might make the Spacevim API, which reason was to guarantee compatibility across Vim and Neovim obsolete.
 But still such an abstraction layer can be very helpful for future changes.
 All Spacevim logic is then decoupled from the Neovim implementations.
 
-#### Decision
+**Decision**
 
 All Spacevim implementations should use the Spacevim API to decouple it from Neovim API.
 
-#### Consequences
+**Consequences**
 
 We expect the following advantages from it:
 - Easy adaptions to future changes
