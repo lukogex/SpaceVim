@@ -1,6 +1,6 @@
 ---
-title: "Lua guide for spacevim"
-description: "general guide about lua script to set spacevim"
+title: "Lua Guide"
+description: "Guidelines about Lua development in Spacevim."
 ---
 
 # [Development](../) >> Lua guide
