@@ -7921,12 +7921,7 @@ Example:
 ==============================================================================
 LOGGER                                                   *SpaceVim-api-logger*
 
-provides some functions to manager logger
-
-set_silent({silent})
-
-  {silent} is a Boolean. by default it is false, and log will be print to
-screen.
+Provides some functions to manager logger.
 
 ==============================================================================
 NOTIFY                                                   *SpaceVim-api-notify*

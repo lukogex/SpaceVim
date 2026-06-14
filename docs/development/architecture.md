@@ -34,6 +34,8 @@ All Spacevim implementations should use the Spacevim API to decouple it from Neo
 
 **Consequences**
 
+All calls to `vim.*` and `vim.api.*` should happen from within the `spacevim.api` modules.
+
 We expect the following advantages from it:
 - Easy adaptions to future changes
 - Fast changes and extensions to calls

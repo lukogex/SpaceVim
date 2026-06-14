@@ -22,8 +22,6 @@ description: "logger API provides some basic functions for log message when crea
 | name                  | description                       |
 | --------------------- | --------------------------------- |
 | `set_name(string)`    | set the name of current logger    |
-| `set_silent(silent)`  | enable/disable silent mode, `silent` should be boolean or 0/1       |
-| `set_verbose(number)` | set the verbose level             |
 | `set_level(number)`   | set the logger level              |
 | `error(string)`       | log error message                 |
 | `warn(string)`        | log string only when `level <= 2` |
@@ -49,8 +47,6 @@ let s:LOGGER = spacevim#api#import('logger')
 call s:LOGGER.set_name('foo')
 
 call s:LOGGER.set_level(1)
-call s:LOGGER.set_silent(1)
-call s:LOGGER.set_verbose(1)
 
 function! foo#log#info(msg) abort
   call s:LOGGER.info(a:msg)
@@ -81,8 +77,6 @@ local logger = require('spacevim.api').import('logger')
 
 logger.set_name('foo')
 logger.set_level(1)
-logger.set_silent(1)
-logger.set_verbose(1)
 
 local function warn(msg)
     logger.warn(msg)

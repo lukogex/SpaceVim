@@ -10,6 +10,7 @@ local M = {}
 
 -- local logger = require('spacevim.logger')
 
+-- TODO: For what? Setting package.loaded to nil for this module makes it loading it again next time.
 function M.import(name)
     local p = 'spacevim.api.' .. name
     local ok, rst = pcall(require, p)

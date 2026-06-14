@@ -7,22 +7,10 @@
 
 local M = {}
 
-local logger = require('spacevim.api').import('logger')
+local logger = require("spacevim.api.logger"):new({ log_level = "debug", name = "spacevim", log_echo = false })
 local cmd = require('spacevim.api.vim.compatible').cmd
 local call = require('spacevim.api.vim.compatible').call
 local echo = require('spacevim.api.vim.compatible').echo
-local fn = nil
-
-if vim.fn == nil then
-  fn = require('spacevim').fn
-else
-  fn = vim.fn
-end
-
-logger.set_name('spacevim')
-logger.set_level(1)
-logger.set_silent(1)
-logger.set_verbose(1)
 
 function M.info(msg)
   logger.info(msg)
@@ -55,7 +43,7 @@ function M.viewRuntimeLog()
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
   -- put info into buffer
-  fn.append(0, fn.split(info, '\n'))
+  vim.fn.append(0, vim.fn.split(info, '\n'))
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
   cmd('setl filetype=spacevimLog')
@@ -71,7 +59,7 @@ function M.viewLog(...)
   local info = '<details><summary> spacevim debug information </summary>\n\n'
     .. '### spacevim options :\n\n'
     .. '```toml\n'
-    .. fn.join(call('spacevim#options#list'), '\n')
+    .. vim.fn.join(call('spacevim#options#list'), '\n')
     .. '\n```\n'
     .. '\n\n'
     .. '### spacevim layers :\n\n'
@@ -91,7 +79,7 @@ function M.viewLog(...)
       cmd('setl nobuflisted')
       cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
       -- put info into buffer
-      fn.append(0, fn.split(info, '\n'))
+      vim.fn.append(0, vim.fn.split(info, '\n'))
       cmd('setl nomodifiable')
       cmd('setl buftype=nofile')
       cmd('setl filetype=markdown')
@@ -104,15 +92,15 @@ function M.viewLog(...)
 end
 
 function M.syntax_extra()
-  fn.matchadd('ErrorMsg', '.*[\\sError\\s\\].*')
-  fn.matchadd('WarningMsg', '.*[\\sWarn\\s\\].*')
+  vim.fn.matchadd('ErrorMsg', '.*[\\sError\\s\\].*')
+  vim.fn.matchadd('WarningMsg', '.*[\\sWarn\\s\\].*')
 end
 
 function M.derive(name)
   local derive = {
     origin_name = logger.get_name(),
     _debug_mode = true,
-    derive_name = fn.printf('%' .. fn.strdisplaywidth(logger.get_name()) .. 'S', name),
+    derive_name = vim.fn.printf('%' .. vim.fn.strdisplaywidth(logger.get_name()) .. 'S', name),
   }
 
   function derive.info(msg)
