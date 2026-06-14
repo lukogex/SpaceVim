@@ -11,73 +11,6 @@ local logs = {}
 ---@class Logger
 local Logger = {}
 
---- @param msg string|table<string> log message (either single line or array
----                                 of lines to accept vim.inspect() output)
---- @param level integer|nil log level defined in vim.log.levels
---- @param options LogOptions allows us to set different logging namespaces
-local function log_message_to_buffer(msg, level, options)
-
-    -- extracting a namespace to determine which buffer to log to
-    local opts = options or {}
-    local ns = opts.namespace or "default"
-
-    -- find the corresponding buffer and if there is no such buffer, create one
-    local buffer_name = "LOG-" .. ns
-    local buffer = find_log_buffer(buffer_name)
-    if buffer == nil then
-        buffer = vim.api.nvim_create_buf(true, true)
-        vim.api.nvim_buf_set_name(buffer, buffer_name)
-    end
-
-    local level_str = log_level_string(level)
-
-    -- ensure `msg` is always a table to make processing simpler
-    if type(msg) == "string" then
-        msg = {msg}
-    end
-
-    -- Split `msg` on newlines, since nvim_buf_set_lines() does not like them
-    msg = vim.tbl_map(function(line)
-        return vim.split(line, "\n")
-    end, msg)
-    msg = vim.iter(msg):flatten(1):totable()
-
-    -- for each line add the log level
-    local complete_msg = vim.tbl_map(function (line)
-        return "[" .. level_str .. "] " .. line
-    end, msg)
-
-    -- actually add the lines to the buffer
-    vim.api.nvim_buf_set_lines(buffer, -1, -1, true, complete_msg)
-end
-
--- transform the integer log level to its string representation.
--- 0 : log debug, info, warn, error messages
--- 1 : log info, warn, error messages
--- 2 : log warn, error messages
--- 3 : log error messages
-local function log_level_string(level)
-    local level_str = "INFO"
-    for l, i in pairs(vim.log.levels) do
-        if level == i  then
-            level_str = l
-        end
-    end
-    return level_str
-end
-
---- @param buffer_name string
-local function find_log_buffer(buffer_name)
-    local buffer_list = vim.api.nvim_list_bufs()
-    for _, buf_num in ipairs(buffer_list) do
-        local name = vim.fn.bufname(buf_num)
-        if name == buffer_name then
-            return buf_num
-        end
-    end
-    return nil
-end
-
 ---Function that handles vararg printing, so logs are consistent.
 ---@vararg any
 local function print_args(...)
@@ -95,6 +28,21 @@ local function print_args(...)
   end
 end
 
+-- Transform the integer log level to its string representation.
+-- 0 : log debug, info, warn, error messages
+-- 1 : log info, warn, error messages
+-- 2 : log warn, error messages
+-- 3 : log error messages
+local function print_level(level)
+    local level_str = "INFO"
+    for l, i in pairs(vim.log.levels) do
+        if level == i  then
+            level_str = l
+        end
+    end
+    return level_str
+end
+
 local function print_line(message, level, self)
   message = message or ''
   local _, mic = vim.loop.gettimeofday()
@@ -102,6 +50,53 @@ local function print_line(message, level, self)
   -- local log = string.format('[ %s ] [%s] [ %s ] %s', M.name, c, M.levels[l], message)
 
   return string.format('[ %s ] [%s] [ %s ] %s', self.name, c, level, message)
+end
+
+--- @param buffer_name string
+local function find_log_buffer(buffer_name)
+    local buffer_list = vim.api.nvim_list_bufs()
+    for _, buf_num in ipairs(buffer_list) do
+        local name = vim.fn.bufname(buf_num)
+        if name == buffer_name then
+            return buf_num
+        end
+    end
+    return nil
+end
+
+--- @param message string|table<string> log message (either single line or array
+---                                 of lines to accept vim.inspect() output)
+--- @param level integer|nil log level defined in vim.log.levels
+--- @param options LogOptions allows us to set different logging namespaces
+local function log_buffer(message, level, self)
+    -- find the corresponding buffer and if there is no such buffer, create one
+    local buffer_name = "LOG-" .. self.name
+    local buffer = find_log_buffer(buffer_name)
+    if buffer == nil then
+        buffer = vim.api.nvim_create_buf(true, true)
+        vim.api.nvim_buf_set_name(buffer, buffer_name)
+    end
+
+    local level_str = print_level(level)
+
+    -- ensure `message` is always a table to make processing simpler
+    if type(message) == "string" then
+        message = {message}
+    end
+
+    -- Split `message` on newlines, since nvim_buf_set_lines() does not like them
+    message = vim.tbl_map(function(line)
+        return vim.split(line, "\n")
+    end, message)
+    message = vim.iter(message):flatten(1):totable()
+
+    -- for each line add the log level
+    local complete_message = vim.tbl_map(function (line)
+        return "[" .. level_str .. "] " .. line
+    end, message)
+
+    -- actually add the lines to the buffer
+    vim.api.nvim_buf_set_lines(buffer, -1, -1, true, complete_message)
 end
 
 -- Use a highlight group based on the level
@@ -160,6 +155,9 @@ end
 ---@param self Logger The logger instance
 local function log(message, level, self)
   table.insert(logs, print_line(message, level, self))
+  if self.log_buffer then
+    log_buffer(message, level, self)
+  end
   if self.log_echo then
     log_echo(message, level, self)
   end
@@ -181,6 +179,7 @@ function Logger:new(obj_and_config)
   -- Set default log_level
   self.log_level = vim.log.levels.INFO
   -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin
+  self.log_buffer = true
   self.log_echo = false
   self.log_vim = true
   self.log_notify = true
