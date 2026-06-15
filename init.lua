@@ -26,6 +26,7 @@ logger.info('Data directory ($XDG_DATA_HOME): ' .. vim.fn.stdpath("data"))
 logger.info('Run directory ($XDG_RUNTIME_DIR): ' .. vim.fn.stdpath("run"))
 logger.info('State directory ($XDG_STATE_HOME): ' .. vim.fn.stdpath("state"))
 logger.info('Cache directory ($XDG_CACHE_HOME): ' .. vim.fn.stdpath("cache"))
+logger.info('Log directory: ' .. vim.fn.stdpath("log"))
 
 -- Set global variables
 

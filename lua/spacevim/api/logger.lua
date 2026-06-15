@@ -2,10 +2,10 @@ local svim_buffer = require('spacevim.api.vim.buffer')
 local svim_notify = require('spacevim.api.notify')
 
 ---Logger class for logging messages via vim.notify and :messages.
----Usage: `local logger = require("logger").new({ log_level = "debug", name = "my_name" })`
----`local logger = require("logger"):new({ log_level = "debug", name = "my_name", log_echo = false })`
----Optionally set the `log_level` and `name` using the setter functions.
----e.g. `logger:set_log_level("debug")` or `logger:set_name("my_name")`
+---Usage: `local logger = require("logger").new({ level = "debug", name = "my_name" })`
+---`local logger = require("logger"):new({ level = "debug", name = "my_name", log_echo = false })`
+---Optionally set the `level` and `name` using the setter functions.
+---e.g. `logger:set_level("debug")` or `logger:set_name("my_name")`
 ---Initially copied from https://github.com/rmagatti/logger.nvim/tree/main, but we need to customize it for Spacevim.
 ---@class Logger
 local Logger = {}
@@ -58,26 +58,20 @@ end
 local function log_buffer(message, level, self)
     local buffer_name = self:get_buffer_name()
     local buffer_id = svim_buffer.create_by_name(buffer_name, true, true)
-    local level_str = print_level(level)
 
-    -- ensure `message` is always a table to make processing simpler
+    -- Ensure `message` is always a table to make processing simpler.
     if type(message) == "string" then
         message = {message}
     end
 
-    -- Split `message` on newlines, since nvim_buf_set_lines() does not like them
+    -- Split `message` on newlines, since nvim_buf_set_lines() does not like them.
     message = vim.tbl_map(function(line)
         return vim.split(line, "\n")
     end, message)
     message = vim.iter(message):flatten(1):totable()
 
-    -- for each line add the log level
-    local complete_message = vim.tbl_map(function (line)
-        return "[" .. level_str .. "] " .. line
-    end, message)
-
-    -- actually add the lines to the buffer
-    vim.api.nvim_buf_set_lines(buffer_id, -1, -1, true, complete_message)
+    -- Add the lines to the buffer.
+    vim.api.nvim_buf_set_lines(buffer_id, -1, -1, true, message)
 
     if self.log_buffer_file then
       svim_buffer.write_to_file(buffer_id, self.log_file)
@@ -134,7 +128,7 @@ end
   -- end
 -- end
 
----Helper function to log both via vim.notify and to :messages
+---Helper function to log to all channels.
 ---@param message string The message to log
 ---@param level number The log level (vim.log.levels)
 ---@param self Logger The logger instance
@@ -160,16 +154,17 @@ end
 ---@param obj_and_config table Table containing the object and configuration for the logger.
 function Logger:new(obj_and_config)
   obj_and_config = obj_and_config or {}
-  -- Set default log_level
-  self.log_level = vim.log.levels.INFO
+  -- Set default log level
+  self.level = vim.log.levels.INFO
   -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin
   self.log_buffer = true
   self.log_buffer_file = true
-  self.log_file = vim.fn.stdpath("log") .. 'svim.log'
+  self.log_file = vim.fn.stdpath("log") .. '/svim.log'
   self.log_echo = false
-  self.log_vim = true
+  self.log_vim = false
   self.log_notify = false
   -- TODO: Check if spacevim notify is still needed or oif we can replace it with `vim.notify`.
+  -- I dont see any difference so far, lets remove this part at some point.
   self.spacevim_notify = false
 
   self = vim.tbl_deep_extend("force", self, obj_and_config)
@@ -201,12 +196,12 @@ end
 
 ---Set the log level for the logger.
 ---@param level string|number Either a string or number, see `:h vim.log.levels`
-function Logger:set_log_level(level)
-  self.log_level = level
+function Logger:set_level(level)
+  self.level = level
 end
 
 ---Set the name for the logger.
----The name is logged alongside the log_level in each message.
+---The name is logged alongside the log level in each message.
 ---@param name string
 function Logger:set_name(name)
   self.name = name
@@ -227,53 +222,60 @@ function Logger:set_log_echo(echo)
 end
 
 ---Log a debug message.
----The most amount of logging, logs only if the log_level is set to "debug" or `vim.log.levels.DEBUG`
+---The most amount of logging, logs only if the log level is set to `debug` or `vim.log.levels.DEBUG`
 ---@vararg any
 function Logger:debug(...)
-  if self.log_level == "debug" or self.log_level == vim.log.levels.DEBUG then
-    local message = vim.fn.join({ self.name .. " " .. "DEBUG:", print_args(...) }, " ")
+  if self.level == "debug" or self.level == vim.log.levels.DEBUG then
+    --TODO: Use print_line() to have one funtion for all log formattings.
+    local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
     log(message, vim.log.levels.DEBUG, self)
   end
 end
 
 ---Log an info message.
----The default level of logging, logs if the `log_level` is set to `"info"`, `"debug"`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO`
+---The default level of logging, logs if the log level is set to `info`, `debug`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO`
 ---@vararg any
 function Logger:info(...)
   local valid_values = { "info", "debug", vim.log.levels.DEBUG, vim.log.levels.INFO }
 
-  if vim.tbl_contains(valid_values, self.log_level) then
-    local message = vim.fn.join({ self.name .. " " .. "INFO:", print_args(...) }, " ")
+  if vim.tbl_contains(valid_values, self.level) then
+    local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
     log(message, vim.log.levels.INFO, self)
   end
 end
 
 ---Log a warning message.
----Logs if the `log_level` is set to `"warn"`, `"info"`, `"debug"`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO` or `vim.log.levels.WARN`
+---Logs if the log level is set to `warn`, `info`, `debug`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO` or `vim.log.levels.WARN`
 ---@vararg any
 function Logger:warn(...)
   local valid_values = { "info", "debug", "warn", vim.log.levels.DEBUG, vim.log.levels.INFO, vim.log.levels.WARN }
 
-  if vim.tbl_contains(valid_values, self.log_level) then
-    local message = vim.fn.join({ self.name .. " " .. "WARN:", print_args(...) }, " ")
+  if vim.tbl_contains(valid_values, self.level) then
+    local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
     log(message, vim.log.levels.WARN, self)
   end
 end
 
 ---Log an error message.
----Logs if the `log_level` is set to `"error"`, `"warn"`, `"info"`, `"debug"`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO` or `vim.log.levels.WARN` or `vim.log.levels.ERROR`
+---Logs if the log level is set to `error`, `warn`, `info`, `debug`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO` or `vim.log.levels.WARN` or `vim.log.levels.ERROR`
 ---@vararg any
 function Logger:error(...)
-  local message = vim.fn.join({ self.name .. " " .. "ERROR:", print_args(...) }, " ")
+  local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
   log(message, vim.log.levels.ERROR, self)
 end
 
 function Logger:clear()
-  svim_buffer.delete_by_name(self:get_buffer_name())
+  buffer_id = svim_buffer.delete_by_name(self:get_buffer_name())
+  if buffer_id == nil then
+    svim_logger.warn('No buffer ' .. buffer_name .. ' found for deletion.')
+  end
 end
 
 function Logger:view_all()
-  return svim_buffer.get_lines_by_name(self:get_buffer_name())
+  lines = svim_buffer.get_lines_by_name(self:get_buffer_name())
+  if lines == nil then
+    svim_logger.warn('No buffer ' .. buffer_name .. ' found for getting lines.')
+  end
 end
 
 -- function Logger.view(level)

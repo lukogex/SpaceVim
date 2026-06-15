@@ -7,7 +7,7 @@
 
 local M = {}
 
-local logger = require("spacevim.api.logger"):new({ log_level = "debug", name = "spacevim", log_echo = false })
+local logger = require("spacevim.api.logger"):new({ level = "debug", name = "spacevim", log_echo = false })
 local cmd = require('spacevim.api.vim.compatible').cmd
 local call = require('spacevim.api.vim.compatible').call
 local echo = require('spacevim.api.vim.compatible').echo
@@ -38,12 +38,12 @@ end
 
 function M.viewRuntimeLog()
   -- this function should be more faster, and view runtime log without filter
-  local info = '### spacevim runtime log :\n\n' .. logger.view_all()
+  -- local info = '### spacevim runtime log :\n\n' .. logger.view_all()
   cmd('tabnew')
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
   -- put info into buffer
-  vim.fn.append(0, vim.fn.split(info, '\n'))
+  vim.fn.append(0, logger.view_all())
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
   cmd('setl filetype=spacevimLog')

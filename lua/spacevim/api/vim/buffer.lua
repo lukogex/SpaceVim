@@ -4,8 +4,6 @@
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- License: GPLv3
 --=============================================================================
--- TODO: Cyclic dependency!
--- local svim_logger = require("spacevim.api.logger"):new({ name = "spacevim_buffer" })
 
 local Buffer = {}
 
@@ -40,13 +38,14 @@ function Buffer.delete(buffer_id)
   vim.api.nvim_buf_delete(buffer_id, { unload = true })
 end
 
+---@return buffer_id integer Deleted buffer id or nil if not found by name.
 function Buffer.delete_by_name(buffer_name)
   local buffer_id = Buffer.find_by_name(buffer_name)
   if buffer_id == nil then
-    -- svim_logger.warn('No buffer ' .. buffer_name .. ' found for deletion.')
     return nil
   end
-  return Buffer.delete(buffer_id)
+  Buffer.delete(buffer_id)
+  return buffer_id
 end
 
 ---@param name string
@@ -97,19 +96,18 @@ function Buffer.get_lines(buffer_id, start_index, end_index, strict_indexing)
   return vim.api.nvim_buf_get_lines(buffer_id, start_index, end_index, strict_indexing)
 end
 
+---@return lines string[] Array of lines or nil if not found by name.
 function Buffer.get_lines_by_name(buffer_name)
   local buffer_id = Buffer.find_by_name(buffer_name)
   if buffer_id == nil then
-    -- svim_logger.warn('No buffer ' .. buffer_name .. ' found for get lines.')
     return nil
   end
   return Buffer.get_lines(buffer_id, 0, -1, true)
 end
 
-function Buffer.listed_buffers() -- {{{
+function Buffer.listed_buffers()
   return vim.fn.filter(vim.fn.range(1, vim.fn.bufnr('$')), 'buflisted(v:val)')
 end
--- }}}
 
 function Buffer.resize(size, ...)
   local arg = { ... }
