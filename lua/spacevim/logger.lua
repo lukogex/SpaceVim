@@ -7,43 +7,41 @@
 
 local M = {}
 
-local logger = require("spacevim.api.logger"):new({ level = "debug", name = "spacevim", log_echo = false })
+local svim_logger = require("spacevim.api.logger"):new({ level = "debug", name = "spacevim" })
 local cmd = require('spacevim.api.vim.compatible').cmd
 local call = require('spacevim.api.vim.compatible').call
 local echo = require('spacevim.api.vim.compatible').echo
 
 function M.info(msg)
-  logger.info(msg)
+  svim_logger:info(msg)
 end
 
 function M.warn(msg, ...)
-  logger.warn(msg, ...)
+  svim_logger:warn(msg, ...)
 end
 
 function M.error(msg)
-  logger.error(msg)
+  svim_logger:error(msg)
 end
 
 function M.debug(msg)
-  logger.debug(msg)
+  svim_logger:debug(msg)
 end
 
 function M.setLevel(level)
-  logger.set_level(level)
+  svim_logger:set_level(level)
 end
 
 function M.setOutput(file)
-  logger.set_file(file)
+  svim_logger:set_file(file)
 end
 
 function M.viewRuntimeLog()
-  -- this function should be more faster, and view runtime log without filter
-  -- local info = '### spacevim runtime log :\n\n' .. logger.view_all()
   cmd('tabnew')
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
-  -- put info into buffer
-  vim.fn.append(0, logger.view_all())
+  -- Put info into buffer
+  vim.fn.append(0, svim_logger:view_all())
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
   cmd('setl filetype=spacevimLog')
@@ -51,7 +49,7 @@ function M.viewRuntimeLog()
 end
 
 function M.clearRuntimeLog()
-  logger.clear()
+  svim_logger:clear()
 end
 
 function M.viewLog(...)
@@ -70,7 +68,7 @@ function M.viewLog(...)
     .. '\n\n'
     .. '### spacevim runtime log :\n\n'
     .. '```log\n'
-    .. logger.view(logger.level)
+    .. svim_logger:view_all()
     .. '\n```\n</details>\n\n'
   if argvs ~= nil and #argvs >= 1 then
     local bang = argvs[1]
@@ -96,34 +94,35 @@ function M.syntax_extra()
   vim.fn.matchadd('WarningMsg', '.*[\\sWarn\\s\\].*')
 end
 
+---TODO: Derive should be replaced by own logger instance!
 function M.derive(name)
   local derive = {
-    origin_name = logger.get_name(),
+    origin_name = svim_logger.get_name(),
     _debug_mode = true,
-    derive_name = vim.fn.printf('%' .. vim.fn.strdisplaywidth(logger.get_name()) .. 'S', name),
+    derive_name = vim.fn.printf('%' .. vim.fn.strdisplaywidth(svim_logger.get_name()) .. 'S', name),
   }
 
   function derive.info(msg)
-    logger.set_name(derive.derive_name)
-    logger.info(msg)
-    logger.set_name(derive.origin_name)
+    svim_logger.set_name(derive.derive_name)
+    svim_logger.info(msg)
+    svim_logger.set_name(derive.origin_name)
   end
   function derive.warn(msg)
-    logger.set_name(derive.derive_name)
-    logger.warn(msg)
-    logger.set_name(derive.origin_name)
+    svim_logger.set_name(derive.derive_name)
+    svim_logger.warn(msg)
+    svim_logger.set_name(derive.origin_name)
   end
   function derive.error(msg)
-    logger.set_name(derive.derive_name)
-    logger.error(msg)
-    logger.set_name(derive.origin_name)
+    svim_logger.set_name(derive.derive_name)
+    svim_logger.error(msg)
+    svim_logger.set_name(derive.origin_name)
   end
 
   function derive.debug(msg)
     if derive._debug_mode then
-      logger.set_name(derive.derive_name)
-      logger.debug(msg)
-      logger.set_name(derive.origin_name)
+      svim_logger.set_name(derive.derive_name)
+      svim_logger.debug(msg)
+      svim_logger.set_name(derive.origin_name)
     end
   end
   function derive.start_debug()

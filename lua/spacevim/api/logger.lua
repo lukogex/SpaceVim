@@ -211,6 +211,8 @@ function Logger:get_name()
 end
 
 function Logger:get_buffer_name()
+  -- TODO: We should write all logs in same buffer, else file writing is hard as all write to same file and overwrite.
+  -- Alternatively we could write own files, but that sound likle an overkill.
   return "LOG-" .. self.name
 end
 
