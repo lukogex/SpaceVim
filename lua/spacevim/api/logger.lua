@@ -27,28 +27,27 @@ local function print_args(...)
   end
 end
 
--- Transform the integer log level to its string representation.
--- 0 : log debug, info, warn, error messages
--- 1 : log info, warn, error messages
--- 2 : log warn, error messages
--- 3 : log error messages
+---Transform the integer log level to its string representation.
+---0 : log debug, info, warn, error messages
+---1 : log info, warn, error messages
+---2 : log warn, error messages
+---3 : log error messages
 local function print_level(level)
-    local level_str = "INFO"
-    for l, i in pairs(vim.log.levels) do
-        if level == i  then
-            level_str = l
-        end
+  local level_str = "INFO"
+  for l, i in pairs(vim.log.levels) do
+    if level == i  then
+      level_str = l
     end
-    return level_str
+  end
+  return level_str
 end
 
-local function print_line(message, level, self)
-  message = message or ''
-  local _, mic = vim.loop.gettimeofday()
-  local c = string.format('%s:%03d', os.date('%H:%M:%S'), mic / 1000)
-  -- local log = string.format('[ %s ] [%s] [ %s ] %s', M.name, c, M.levels[l], message)
+local function print_line(self, ...)
+  local message = print_args(...)
+  local _, time = vim.loop.gettimeofday()
+  local time_string = string.format('%s:%03d', os.date('%H:%M:%S'), time / 1000)
 
-  return string.format('[ %s ] [%s] [ %s ] %s', self.name, c, level, message)
+  return string.format('[%s] [%s] [%s] %s', self.name, time_string, print_level(self.level), message)
 end
 
 ---@param message string|table<string> log message (either single line or array
@@ -56,26 +55,26 @@ end
 ---@param level integer|nil log level defined in vim.log.levels
 ---@param options LogOptions allows us to set different logging namespaces
 local function log_buffer(message, level, self)
-    local buffer_name = self:get_buffer_name()
-    local buffer_id = svim_buffer.create_by_name(buffer_name, true, true)
+  local buffer_name = self:get_buffer_name()
+  local buffer_id = svim_buffer.create_by_name(buffer_name, true, true)
 
-    -- Ensure `message` is always a table to make processing simpler.
-    if type(message) == "string" then
-        message = {message}
-    end
+  -- Ensure `message` is always a table to make processing simpler.
+  if type(message) == "string" then
+    message = {message}
+  end
 
-    -- Split `message` on newlines, since nvim_buf_set_lines() does not like them.
-    message = vim.tbl_map(function(line)
-        return vim.split(line, "\n")
-    end, message)
-    message = vim.iter(message):flatten(1):totable()
+  -- Split `message` on newlines, since nvim_buf_set_lines() does not like them.
+  message = vim.tbl_map(function(line)
+    return vim.split(line, "\n")
+  end, message)
+  message = vim.iter(message):flatten(1):totable()
 
-    -- Add the lines to the buffer.
-    vim.api.nvim_buf_set_lines(buffer_id, -1, -1, true, message)
+  -- Add the lines to the buffer.
+  vim.api.nvim_buf_set_lines(buffer_id, -1, -1, true, message)
 
-    if self.log_buffer_file then
-      svim_buffer.write_to_file(buffer_id, self.log_file)
-    end
+  if self.log_buffer_file then
+    svim_buffer.write_to_file(buffer_id, self.log_file)
+  end
 end
 
 -- Use a highlight group based on the level
@@ -226,8 +225,7 @@ end
 ---@vararg any
 function Logger:debug(...)
   if self.level == "debug" or self.level == vim.log.levels.DEBUG then
-    --TODO: Use print_line() to have one funtion for all log formattings.
-    local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
+    local message = print_line(self, ...)
     log(message, vim.log.levels.DEBUG, self)
   end
 end
@@ -239,7 +237,7 @@ function Logger:info(...)
   local valid_values = { "info", "debug", vim.log.levels.DEBUG, vim.log.levels.INFO }
 
   if vim.tbl_contains(valid_values, self.level) then
-    local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
+    local message = print_line(self, ...)
     log(message, vim.log.levels.INFO, self)
   end
 end
@@ -251,7 +249,7 @@ function Logger:warn(...)
   local valid_values = { "info", "debug", "warn", vim.log.levels.DEBUG, vim.log.levels.INFO, vim.log.levels.WARN }
 
   if vim.tbl_contains(valid_values, self.level) then
-    local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
+    local message = print_line(self, ...)
     log(message, vim.log.levels.WARN, self)
   end
 end
@@ -260,7 +258,7 @@ end
 ---Logs if the log level is set to `error`, `warn`, `info`, `debug`, or `vim.log.levels.DEBUG` or `vim.log.levels.INFO` or `vim.log.levels.WARN` or `vim.log.levels.ERROR`
 ---@vararg any
 function Logger:error(...)
-  local message = vim.fn.join({ self.name .. " " .. print_level(self.level) .. ":", print_args(...) }, " ")
+  local message = print_line(self, ...)
   log(message, vim.log.levels.ERROR, self)
 end
 
