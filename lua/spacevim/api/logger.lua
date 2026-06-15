@@ -1,6 +1,5 @@
-local spacevim_notify = require('spacevim.api.notify')
-
-local logs = {}
+local svim_buffer = require('spacevim.api.vim.buffer')
+local svim_notify = require('spacevim.api.notify')
 
 ---Logger class for logging messages via vim.notify and :messages.
 ---Usage: `local logger = require("logger").new({ log_level = "debug", name = "my_name" })`
@@ -52,31 +51,21 @@ local function print_line(message, level, self)
   return string.format('[ %s ] [%s] [ %s ] %s', self.name, c, level, message)
 end
 
---- @param buffer_name string
-local function find_log_buffer(buffer_name)
-    local buffer_list = vim.api.nvim_list_bufs()
-    for _, buf_num in ipairs(buffer_list) do
-        local name = vim.fn.bufname(buf_num)
-        if name == buffer_name then
-            return buf_num
-        end
-    end
-    return nil
+--TODO!
+local function write_buffer_file(buffer_name)
+      local bufnr = find_log_buffer("LOG-runner")
+if bufnr then
+  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true)
+  vim.fn.writefile(lines, "/tmp/runner-log.txt")
 end
 
---- @param message string|table<string> log message (either single line or array
----                                 of lines to accept vim.inspect() output)
---- @param level integer|nil log level defined in vim.log.levels
---- @param options LogOptions allows us to set different logging namespaces
+---@param message string|table<string> log message (either single line or array
+---                                of lines to accept vim.inspect() output)
+---@param level integer|nil log level defined in vim.log.levels
+---@param options LogOptions allows us to set different logging namespaces
 local function log_buffer(message, level, self)
-    -- find the corresponding buffer and if there is no such buffer, create one
     local buffer_name = "LOG-" .. self.name
-    local buffer = find_log_buffer(buffer_name)
-    if buffer == nil then
-        buffer = vim.api.nvim_create_buf(true, true)
-        vim.api.nvim_buf_set_name(buffer, buffer_name)
-    end
-
+    local buffer = svim_buffer.create_by_name(buffer_name, true, true)
     local level_str = print_level(level)
 
     -- ensure `message` is always a table to make processing simpler
@@ -97,6 +86,10 @@ local function log_buffer(message, level, self)
 
     -- actually add the lines to the buffer
     vim.api.nvim_buf_set_lines(buffer, -1, -1, true, complete_message)
+
+    if self.log_buffer_file then
+      write_buffer_file(buffer_name)
+    end
 end
 
 -- Use a highlight group based on the level
@@ -118,8 +111,8 @@ end
 
 -- Send to vim.notify for floating notifications
 local function log_notify(message, level, self)
-  if self.spacevim_notify then
-    spacevim_notify.notify(message)
+  if self.svim_notify then
+    svim_notify.notify(message)
   else
     vim.notify(message, level)
   end
@@ -180,9 +173,11 @@ function Logger:new(obj_and_config)
   self.log_level = vim.log.levels.INFO
   -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin
   self.log_buffer = true
+  self.log_buffer_file = true
+  self.log_file = vim.fn.stdpath("log") .. 'test'
   self.log_echo = false
   self.log_vim = true
-  self.log_notify = true
+  self.log_notify = false
   -- TODO: Check if spacevim notify is still needed or oif we can replace it with `vim.notify`.
   self.spacevim_notify = false
 

@@ -20,6 +20,13 @@ logger.info('Spacevim started with arguments: ' .. vim.inspect(vim.v.argv))
 logger.info('Parsed arguments: ' .. vim.inspect(args))
 logger.info('Initial runtimepath: ' .. vim.inspect(vim.opt.rtp:get()))
 
+logger.info('Base directory configuration:')
+logger.info('Config directory ($XDG_CONFIG_HOME): ' .. vim.fn.stdpath("config"))
+logger.info('Data directory ($XDG_DATA_HOME): ' .. vim.fn.stdpath("data"))
+logger.info('Run directory ($XDG_RUNTIME_DIR): ' .. vim.fn.stdpath("run"))
+logger.info('State directory ($XDG_STATE_HOME): ' .. vim.fn.stdpath("state"))
+logger.info('Cache directory ($XDG_CACHE_HOME): ' .. vim.fn.stdpath("cache"))
+
 -- Set global variables
 
 -- Spacevim root directory path needs trailing slash for further concatinations.
