@@ -51,21 +51,13 @@ local function print_line(message, level, self)
   return string.format('[ %s ] [%s] [ %s ] %s', self.name, c, level, message)
 end
 
---TODO!
-local function write_buffer_file(buffer_name)
-      local bufnr = find_log_buffer("LOG-runner")
-if bufnr then
-  local lines = vim.api.nvim_buf_get_lines(bufnr, 0, -1, true)
-  vim.fn.writefile(lines, "/tmp/runner-log.txt")
-end
-
 ---@param message string|table<string> log message (either single line or array
 ---                                of lines to accept vim.inspect() output)
 ---@param level integer|nil log level defined in vim.log.levels
 ---@param options LogOptions allows us to set different logging namespaces
 local function log_buffer(message, level, self)
-    local buffer_name = "LOG-" .. self.name
-    local buffer = svim_buffer.create_by_name(buffer_name, true, true)
+    local buffer_name = self:get_buffer_name()
+    local buffer_id = svim_buffer.create_by_name(buffer_name, true, true)
     local level_str = print_level(level)
 
     -- ensure `message` is always a table to make processing simpler
@@ -85,10 +77,10 @@ local function log_buffer(message, level, self)
     end, message)
 
     -- actually add the lines to the buffer
-    vim.api.nvim_buf_set_lines(buffer, -1, -1, true, complete_message)
+    vim.api.nvim_buf_set_lines(buffer_id, -1, -1, true, complete_message)
 
     if self.log_buffer_file then
-      write_buffer_file(buffer_name)
+      svim_buffer.write_to_file(buffer_id, self.log_file)
     end
 end
 
@@ -147,7 +139,6 @@ end
 ---@param level number The log level (vim.log.levels)
 ---@param self Logger The logger instance
 local function log(message, level, self)
-  table.insert(logs, print_line(message, level, self))
   if self.log_buffer then
     log_buffer(message, level, self)
   end
@@ -174,7 +165,7 @@ function Logger:new(obj_and_config)
   -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin
   self.log_buffer = true
   self.log_buffer_file = true
-  self.log_file = vim.fn.stdpath("log") .. 'test'
+  self.log_file = vim.fn.stdpath("log") .. 'svim.log'
   self.log_echo = false
   self.log_vim = true
   self.log_notify = false
@@ -225,6 +216,10 @@ function Logger:get_name()
   return self.name
 end
 
+function Logger:get_buffer_name()
+  return "LOG-" .. self.name
+end
+
 ---Set whether to echo messages to :messages buffer
 ---@param echo boolean
 function Logger:set_log_echo(echo)
@@ -273,22 +268,22 @@ function Logger:error(...)
   log(message, vim.log.levels.ERROR, self)
 end
 
-function Logger.clear()
-  logs = {}
+function Logger:clear()
+  svim_buffer.delete_by_name(self:get_buffer_name())
 end
 
-function Logger.view_all()
-  return table.concat(logs, '\n')
+function Logger:view_all()
+  return svim_buffer.get_lines_by_name(self:get_buffer_name())
 end
 
-function Logger.view(level)
-  local info = ''
-  for _, log in ipairs(logs) do
-    if log.level >= level then
-      info = info .. log.str .. '\n'
-    end
-  end
-  return info
-end
+-- function Logger.view(level)
+  -- local info = ''
+  -- for _, log in ipairs(logs) do
+    -- if log.level >= level then
+      -- info = info .. log.str .. '\n'
+    -- end
+  -- end
+  -- return info
+-- end
 
 return Logger
