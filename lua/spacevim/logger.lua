@@ -32,10 +32,6 @@ function M.setLevel(level)
   svim_logger:set_level(level)
 end
 
-function M.setOutput(file)
-  svim_logger:set_file(file)
-end
-
 function M.viewRuntimeLog()
   cmd('tabnew')
   cmd('setl nobuflisted')
@@ -94,48 +90,10 @@ function M.syntax_extra()
   vim.fn.matchadd('WarningMsg', '.*[\\sWarn\\s\\].*')
 end
 
----TODO: Derive should be replaced by own logger instance!
-function M.derive(name)
-  local derive = {
-    origin_name = svim_logger.get_name(),
-    _debug_mode = true,
-    derive_name = vim.fn.printf('%' .. vim.fn.strdisplaywidth(svim_logger.get_name()) .. 'S', name),
-  }
-
-  function derive.info(msg)
-    svim_logger.set_name(derive.derive_name)
-    svim_logger.info(msg)
-    svim_logger.set_name(derive.origin_name)
-  end
-  function derive.warn(msg)
-    svim_logger.set_name(derive.derive_name)
-    svim_logger.warn(msg)
-    svim_logger.set_name(derive.origin_name)
-  end
-  function derive.error(msg)
-    svim_logger.set_name(derive.derive_name)
-    svim_logger.error(msg)
-    svim_logger.set_name(derive.origin_name)
-  end
-
-  function derive.debug(msg)
-    if derive._debug_mode then
-      svim_logger.set_name(derive.derive_name)
-      svim_logger.debug(msg)
-      svim_logger.set_name(derive.origin_name)
-    end
-  end
-  function derive.start_debug()
-    derive._debug_mode = true
-  end
-  function derive.stop_debug()
-    derive._debug_mode = false
-  end
-  function derive.debug_enabled() -- {{{
-    return derive._debug_mode
-  end
-  -- }}}
-  return derive
+---@deprecated Use an own logger instance directly instead of calling this function.
+---            This is kept for backward compatibility for usage of old logger.derive function.
+function M.derive(logger_name)
+  return require("spacevim.api.logger"):new({ level = "debug", name = logger_name })
 end
 
 return M

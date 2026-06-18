@@ -1,6 +1,5 @@
 if exists('g:spacevim_version')
   let s:LOG = spacevim#logger#derive('git.vim')
-  call s:LOG.start_debug()
   let s:NOTI = spacevim#api#import('notify')
   function! git#logger#view()
     call spacevim#logger#viewRuntimeLog()

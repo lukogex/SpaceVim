@@ -64,10 +64,6 @@ endfunction
 function! foo#log#setLevel(level) abort
   call s:LOGGER.set_level(a:level)
 endfunction
-
-function! foo#log#setOutput(file) abort
-  call s:LOGGER.set_file(a:file)
-endfunction
 ```
 
 **lua script:**

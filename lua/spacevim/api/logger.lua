@@ -1,12 +1,14 @@
 local svim_buffer = require('spacevim.api.vim.buffer')
 local svim_notify = require('spacevim.api.notify')
 
+local LOG_BUFFER_NAME = 'svim_buffer'
+
 ---Logger class for logging messages via vim.notify and :messages.
 ---Usage: `local logger = require("logger").new({ level = "debug", name = "my_name" })`
 ---`local logger = require("logger"):new({ level = "debug", name = "my_name", log_echo = false })`
 ---Optionally set the `level` and `name` using the setter functions.
 ---e.g. `logger:set_level("debug")` or `logger:set_name("my_name")`
----Initially copied from https://github.com/rmagatti/logger.nvim/tree/main, but we need to customize it for Spacevim.
+---https://github.com/rmagatti/logger.nvim/tree/main was the template for it.
 ---@class Logger
 local Logger = {}
 
@@ -55,8 +57,7 @@ end
 ---@param level integer|nil log level defined in vim.log.levels
 ---@param options LogOptions allows us to set different logging namespaces
 local function log_buffer(message, level, self)
-  local buffer_name = self:get_buffer_name()
-  local buffer_id = svim_buffer.create_by_name(buffer_name, true, true)
+  local buffer_id = svim_buffer.create_by_name(LOG_BUFFER_NAME, true, true)
 
   -- Ensure `message` is always a table to make processing simpler.
   if type(message) == "string" then
@@ -193,10 +194,18 @@ function Logger:new(obj_and_config)
   return obj_and_config
 end
 
+function Logger:getLevel()
+  return self.level
+end
+
 ---Set the log level for the logger.
 ---@param level string|number Either a string or number, see `:h vim.log.levels`
 function Logger:set_level(level)
   self.level = level
+end
+
+function Logger:get_name()
+  return self.name
 end
 
 ---Set the name for the logger.
@@ -204,16 +213,6 @@ end
 ---@param name string
 function Logger:set_name(name)
   self.name = name
-end
-
-function Logger:get_name()
-  return self.name
-end
-
-function Logger:get_buffer_name()
-  -- TODO: We should write all logs in same buffer, else file writing is hard as all write to same file and overwrite.
-  -- Alternatively we could write own files, but that sound likle an overkill.
-  return "LOG-" .. self.name
 end
 
 ---Set whether to echo messages to :messages buffer
@@ -265,14 +264,14 @@ function Logger:error(...)
 end
 
 function Logger:clear()
-  buffer_id = svim_buffer.delete_by_name(self:get_buffer_name())
+  buffer_id = svim_buffer.delete_by_name(LOG_BUFFER_NAME)
   if buffer_id == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for deletion.')
   end
 end
 
 function Logger:view_all()
-  lines = svim_buffer.get_lines_by_name(self:get_buffer_name())
+  lines = svim_buffer.get_lines_by_name(LOG_BUFFER_NAME)
   if lines == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for getting lines.')
   end

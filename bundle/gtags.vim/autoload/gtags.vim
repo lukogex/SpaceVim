@@ -1,7 +1,6 @@
 scriptencoding utf-8
 
 let s:LOGGER = spacevim#logger#derive('gtags')
-call s:LOGGER.start_debug()
 
 if !executable('gtags')
   call s:LOGGER.warn('gtags is not executable, you need to install gnu global!')
