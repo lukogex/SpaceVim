@@ -10,7 +10,7 @@ local Logger = {}
 local svim_buffer = require('spacevim.api.vim.buffer')
 local svim_notify = require('spacevim.api.notify')
 
-local LOG_BUFFER_NAME = 'svim_buffer'
+local LOG_BUFFER_NAME = 'svim_logger'
 
 ---Function that handles vararg printing, so logs are consistent.
 ---@vararg any

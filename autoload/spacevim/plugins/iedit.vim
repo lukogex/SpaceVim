@@ -192,17 +192,13 @@ function! spacevim#plugins#iedit#start(...) abort
     call setpos('.', curpos)
     let begin = get(a:000, 1, 1)
     let end = get(a:000, 2, line('$'))
+    call s:LOGGER.debug('iedit symbol:>' . symbol . '<')
+    call s:LOGGER.debug('iedit use_expr:' . use_expr)
+    call s:LOGGER.debug('iedit begin:' . begin)
+    call s:LOGGER.debug('iedit end:' . end)
     if use_expr
-      call s:LOGGER.debug('iedit symbol:>' . symbol . '<')
-      call s:LOGGER.debug('iedit use_expr:' . use_expr)
-      call s:LOGGER.debug('iedit begin:' . begin)
-      call s:LOGGER.debug('iedit end:' . end)
       call s:parse_symbol(begin, end, symbol, 1, selectall)
     else
-      call s:LOGGER.debug('iedit symbol:>' . symbol . '<')
-      call s:LOGGER.debug('iedit use_expr:' . use_expr)
-      call s:LOGGER.debug('iedit begin:' . begin)
-      call s:LOGGER.debug('iedit end:' . end)
       call s:parse_symbol(begin, end, symbol, 0, selectall)
     endif
   endif
