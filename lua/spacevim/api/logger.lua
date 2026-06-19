@@ -1,8 +1,3 @@
-local svim_buffer = require('spacevim.api.vim.buffer')
-local svim_notify = require('spacevim.api.notify')
-
-local LOG_BUFFER_NAME = 'svim_buffer'
-
 ---Logger class for logging messages via vim.notify and :messages.
 ---Usage: `local logger = require("logger").new({ level = "debug", name = "my_name" })`
 ---`local logger = require("logger"):new({ level = "debug", name = "my_name", log_echo = false })`
@@ -11,6 +6,11 @@ local LOG_BUFFER_NAME = 'svim_buffer'
 ---https://github.com/rmagatti/logger.nvim/tree/main was the template for it.
 ---@class Logger
 local Logger = {}
+
+local svim_buffer = require('spacevim.api.vim.buffer')
+local svim_notify = require('spacevim.api.notify')
+
+local LOG_BUFFER_NAME = 'svim_buffer'
 
 ---Function that handles vararg printing, so logs are consistent.
 ---@vararg any
@@ -155,7 +155,7 @@ end
 function Logger:new(obj_and_config)
   obj_and_config = obj_and_config or {}
   -- Set default log level
-  self.level = vim.log.levels.INFO
+  self.level = vim.g.svim_log_level
   -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin
   self.log_buffer = true
   self.log_buffer_file = true

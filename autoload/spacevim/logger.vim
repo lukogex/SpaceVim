@@ -8,6 +8,7 @@
 ""
 " @section Runtime Log, runtime-log
 " @parentsection dev
+" @deprecated Use own logger instances from `lua require("spacevim.api.logger"):new({ name = 'name' })` instead.
 " The runtime log of spacevim can be obtained via the key binding `SPC h L`.
 " To get the debug information about the current spacevim environment,
 " Use the command `:SPDebugInfo!`. This command will open a new buffer where default information will be shown.

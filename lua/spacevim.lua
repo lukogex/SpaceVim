@@ -1,5 +1,7 @@
 local Spacevim = {}
 
+local logger = require('spacevim.logger')
+
 local GLOBAL_VARS_PREFIX = 'svim_'
 
 Spacevim.vars = {
@@ -8,8 +10,6 @@ Spacevim.vars = {
   -- ERROR | WARN | INFO | DEBUG | TRACE
   log_level = vim.log.levels.DEBUG
 }
-
-local logger = require('spacevim.logger')
 
 -- TODO: Move to a file utils module!
 function Spacevim.absolute_path(path)
