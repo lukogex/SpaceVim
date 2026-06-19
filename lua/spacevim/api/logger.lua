@@ -194,7 +194,7 @@ function Logger:new(obj_and_config)
   return obj_and_config
 end
 
-function Logger:getLevel()
+function Logger:get_level()
   return self.level
 end
 

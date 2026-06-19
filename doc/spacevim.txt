@@ -1569,18 +1569,13 @@ Includes:
   <C-x>   switch buffer
 <
 
-                                                     *g:spacevim_enable_debug*
-Enable/Disable debug mode for SpaceVim. Default is 0.
->
-  let g:spacevim_enable_debug = 1
-<
-
                                             *g:spacevim_auto_disable_touchpad*
 Auto disable touchpad when switch to insert mode or focuslost in neovim.
 
-                                                      *g:spacevim_debug_level*
-Set the debug level of SpaceVim. Default is 1. see
-|SpaceVim#logger#setLevel()|
+                                                      *g:svim_log_level*
+Set the log level of spacevim.
+Either a string or number, see `:h vim.log.levels`.
+ERROR | WARN | INFO | DEBUG | TRACE
 
                                                 *g:spacevim_buffer_index_type*
 Set SpaceVim buffer index type, default is 4.

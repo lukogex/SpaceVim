@@ -970,18 +970,8 @@ let g:spacevim_vimcompatible           = 0
 " <
 
 ""
-" Enable/Disable debug mode for spacevim. Default is 0.
-" >
-"   let g:spacevim_enable_debug = 1
-" <
-let g:spacevim_enable_debug            = 0
-""
 " Auto disable touchpad when switch to insert mode or focuslost in neovim.
 let g:spacevim_auto_disable_touchpad   = 1
-""
-" Set the debug level of spacevim. Default is 1. see
-" |spacevim#logger#setLevel()|
-let g:spacevim_debug_level             = 1
 let g:spacevim_hiddenfileinfo          = 1
 let g:spacevim_gitcommit_pr_icon       = ''
 let g:spacevim_gitcommit_issue_icon    = ''
@@ -1659,7 +1649,7 @@ function! spacevim#end() abort
 endfunction
 
 " This method is only there to set the variables from this script.
-" TODO: Check how this could be done better!
+" @deprecated Use implamentation in `lua require('spacevim').global_variables()` instead. 
 function! spacevim#spacevim_variables() abort
   call spacevim#logger#info('Set global variables from spacevim.vim.')
 endfunction

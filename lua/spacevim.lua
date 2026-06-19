@@ -1,32 +1,41 @@
-local M = {}
+local Spacevim = {}
+
+local GLOBAL_VARS_PREFIX = 'svim_'
+
+Spacevim.vars = {
+  -- Set the log level of spacevim.
+  -- Either a string or number, see `:h vim.log.levels`.
+  -- ERROR | WARN | INFO | DEBUG | TRACE
+  log_level = vim.log.levels.DEBUG
+}
 
 local logger = require('spacevim.logger')
 
 -- TODO: Move to a file utils module!
-function M.absolute_path(path)
+function Spacevim.absolute_path(path)
   return vim.fn.fnamemodify(vim.fn.resolve(path), ':p')
 end
 
-function M.arguments()
+function Spacevim.arguments()
   args = {}
 
   for k, v in pairs(vim.v.argv) do
     if k == 1 then
-      args['nvim_bin'] = M.absolute_path(vim.v.argv[k])
+      args['nvim_bin'] = Spacevim.absolute_path(vim.v.argv[k])
 
       -- TODO: We should check here if its an asdf installation and set the paths accordingly!
       args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/lib/nvim'
       args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/share/nvim/runtime'
     end
     if v == '-u' then
-      args['vimrc'] = M.absolute_path(vim.v.argv[k + 1])
+      args['vimrc'] = Spacevim.absolute_path(vim.v.argv[k + 1])
     end
     if k == #vim.v.argv then
       -- TODO: This check might not work in all cases right? How could we parse them more relyable?
       if string.match(vim.v.argv[k - 1], '^-.') then
-        args['file'] = M.absolute_path(vim.fn.getcwd())
+        args['file'] = Spacevim.absolute_path(vim.fn.getcwd())
       else
-        args['file'] = M.absolute_path(vim.v.argv[k])
+        args['file'] = Spacevim.absolute_path(vim.v.argv[k])
       end
     end
   end
@@ -36,7 +45,7 @@ function M.arguments()
   return args
 end
 
-function M.init()
+function Spacevim.init()
   logger.info('Spacevim initialization.')
   
   logger.info('Set Vim options.')
@@ -50,8 +59,8 @@ function M.init()
   -- Is the default anyway but to make it visible.
   vim.opt.encoding = 'utf-8'
   vim.opt.fileencodings = 'utf-8'
-  
-  vim.cmd('call spacevim#spacevim_variables()')
+ 
+  Spacevim.global_variables()
 
   local spwelcome = vim.api.nvim_create_augroup('SPwelcome', { clear = true })
 
@@ -68,8 +77,8 @@ function M.init()
   default.layers()
 
   vim.cmd('call spacevim#commands#load()')
-  M.config()
-  M.keybindings()
+  Spacevim.config()
+  Spacevim.keybindings()
 
   logger.info('Runtimepath after Spacevim initialization: ' .. vim.inspect(vim.opt.rtp:get()))
 
@@ -80,11 +89,20 @@ function M.init()
   logger.info('Spacevim is ready with runtimepath: ' .. vim.inspect(vim.opt.rtp:get()))
 end
 
-function M.config()
+function Spacevim.global_variables()
+  -- Set global variables from deprecated Vimscript.
+  vim.cmd('call spacevim#spacevim_variables()')
+
+  for k, v in pairs(Spacevim.vars) do
+    vim.g[GLOBAL_VARS_PREFIX .. k] = v
+  end
+end
+
+function Spacevim.config()
   logger.info('Load Spacevim global configuration.')
   vim.cmd 'call spacevim#custom#load_glob_conf()'
 
-  if M.absolute_path(vim.fn.getcwd()) == os.getenv('HOME') then
+  if Spacevim.absolute_path(vim.fn.getcwd()) == os.getenv('HOME') then
     logger.info('Current directory is $HOME, skip local configuration.')
   else
     vim.cmd 'call spacevim#custom#load_local_conf()'
@@ -93,7 +111,7 @@ function M.config()
   vim.cmd('call spacevim#spacevim_variables_validation()')
 end
 
-function M.keybindings()
+function Spacevim.keybindings()
   if vim.fn.has('timers') then
     vim.cmd(string.format('call timer_start(%d, "spacevim#default#keyBindings")', vim.g.spacevim_lazy_conf_timeout))
   else
@@ -101,4 +119,4 @@ function M.keybindings()
   end
 end
 
-return M
+return Spacevim
