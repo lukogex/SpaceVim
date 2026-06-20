@@ -5,7 +5,6 @@ Given (fixture):
   Hello
 
 Execute ( spacevim plugin: iedit ):
-  lua require('spacevim').init()
   let g:_spacevim_input_list = ['D', 'a', 'W', 'o', 'r', 'l', 'd', "\<Esc>", "\<Esc>"]
   call spacevim#plugins#iedit#start()
 

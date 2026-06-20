@@ -1,3 +1,2 @@
 Execute ( spacevim plugin: todo.vim ):
-  lua require('spacevim').init()
   call spacevim#plugins#todo#list()
