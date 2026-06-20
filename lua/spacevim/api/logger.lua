@@ -192,8 +192,11 @@ function Logger:new(obj_and_config)
 
   setmetatable(obj_and_config, mt)
 
-  for _, k in ipairs({"debug", "info", "warn", "error", "set_log_level", "set_name"}) do
-    obj_and_config[k] = obj_and_config[k]  -- materialize from __index
+  -- When `luaeval` returns this logger to Vimscript, it copies only physical key-value pairs into a Vim Dictionary.
+  -- The metatable is lost, `s:LOGGER` in Vimscript fails then with "E716: Key not present in Dictionary".
+  -- To solve this we materialize the method closures as physical keys before returning.
+  for _, k in ipairs({'get_level', 'set_level', 'get_name', 'set_name', 'set_log_echo', 'debug', 'info', 'warn', 'error', 'clear', 'view_all'}) do
+    obj_and_config[k] = obj_and_config[k]
   end
 
   return obj_and_config
