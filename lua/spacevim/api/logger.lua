@@ -191,6 +191,11 @@ function Logger:new(obj_and_config)
   end
 
   setmetatable(obj_and_config, mt)
+
+  for _, k in ipairs({"debug", "info", "warn", "error", "set_log_level", "set_name"}) do
+    obj_and_config[k] = obj_and_config[k]  -- materialize from __index
+  end
+
   return obj_and_config
 end
 
