@@ -283,6 +283,7 @@ function Logger:view_all()
   if lines == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for getting lines.')
   end
+  -- TODO: Where to view?
 end
 
 -- function Logger.view(level)
