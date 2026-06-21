@@ -1,21 +1,22 @@
 Execute ( spacevim api: logger ):
+  let cmp = spacevim#api#import('vim#compatible')
   lua svim_logger = require('spacevim.api.logger'):new({ name = 'spacevim' })
-  cmp.luaeval('svim_logger:set_name()'), 'test'
+  lua svim_logger:set_name('test')
   AssertEqual cmp.luaeval('svim_logger:get_name()'), 'test'
   call svim_logger.info('info test')
   call svim_logger.warn('info test')
   call svim_logger.error('info test')
-  AssertEqual len(svim_logger.temp), 3
+  AssertEqual len(cmp.luaeval('svim_logger.view_all()')), 3
   call svim_logger.set_level(2)
   call svim_logger.info('info test')
   call svim_logger.warn('info test')
   call svim_logger.error('info test')
-  AssertEqual len(svim_logger.temp), 5
+  AssertEqual len(cmp.luaeval('svim_logger.view_all()')), 5
   call svim_logger.set_level(3)
   call svim_logger.info('info test')
   call svim_logger.warn('info test')
   call svim_logger.error('info test')
-  AssertEqual len(svim_logger.temp), 6
+  AssertEqual len(cmp.luaeval('svim_logger.view_all()')), 6
   AssertEqual len(split(svim_logger.view(1), "\n")), 7
   AssertEqual len(split(svim_logger.view(2), "\n")), 6
   AssertEqual len(split(svim_logger.view(3), "\n")), 4
