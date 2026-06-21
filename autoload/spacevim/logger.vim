@@ -8,6 +8,7 @@
 ""
 " @section Runtime Log, runtime-log
 " @parentsection dev
+" @deprecated Use own logger instances from `lua require("spacevim.api.logger"):new({ name = 'name' })` instead.
 " The runtime log of spacevim can be obtained via the key binding `SPC h L`.
 " To get the debug information about the current spacevim environment,
 " Use the command `:SPDebugInfo!`. This command will open a new buffer where default information will be shown.
@@ -92,41 +93,8 @@ function! spacevim#logger#setLevel(level) abort
 endfunction
 
 ""
-" change the output file of spacevim runtime logger. default is empty
-" string.
-function! spacevim#logger#setOutput(file) abort
-  lua require("spacevim.logger").setOutput(require("spacevim.api.vim.compatible").eval("a:file"))
-endfunction
-
-""
-" Derive a new logger based on spacevim's runtime logger. The new logger
-" provides following functions:
-" 1. info(msg): like |spacevim#logger#info|, but include the derive name.
-" 2. warn(msg): like |spacevim#logger#warn|
-" 3. error(msg): like |spacevim#logger#error|
-" 4. debug(msg): write debug message run spacevim runtime log
-" 5. start_debug(): enable debug mode of derived logger.
-" 6. stop_debug(): stop debug mode of derived logger.
-" 7. debug_enabled(): return true or false.
-"
-" This function can be used in vim script and lua.
-"
-" Vim script Example: >
-"   let s:LOGGER = spacevim#logger#derive('myplug')
-"
-"   call s:LOGGER.info('hello world')
-" <
-"
-" Lua Example: >
-"   local log = require('spacevim.logger').derive('myplug')
-"
-"   log.info('hello world')
-" <
-"
-" The this info message will be write to spacevim's runtime log:
-" >
-"   [  myplug ] [00:02:54:051] [ Info  ] hello world
-" <
+" @deprecated Use an own logger instance directly instead of calling this function.
+"             This is kept for backward compatibility for usage of old logger.derive function.
 function! spacevim#logger#derive(name) abort
   return luaeval('require("spacevim.logger").derive(require("spacevim.api.vim.compatible").eval("a:name"))')
 endfunction

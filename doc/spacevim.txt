@@ -1569,18 +1569,13 @@ Includes:
   <C-x>   switch buffer
 <
 
-                                                     *g:spacevim_enable_debug*
-Enable/Disable debug mode for SpaceVim. Default is 0.
->
-  let g:spacevim_enable_debug = 1
-<
-
                                             *g:spacevim_auto_disable_touchpad*
 Auto disable touchpad when switch to insert mode or focuslost in neovim.
 
-                                                      *g:spacevim_debug_level*
-Set the debug level of SpaceVim. Default is 1. see
-|SpaceVim#logger#setLevel()|
+                                                      *g:svim_log_level*
+Set the log level of spacevim.
+Either a string or number, see `:h vim.log.levels`.
+ERROR | WARN | INFO | DEBUG | TRACE
 
                                                 *g:spacevim_buffer_index_type*
 Set SpaceVim buffer index type, default is 4.
@@ -1883,41 +1878,6 @@ SpaceVim#logger#setLevel({level})                 *SpaceVim#logger#setLevel()*
       2 : log warning and error messages
 
       3 : log error messages only
-
-SpaceVim#logger#setOutput({file})                *SpaceVim#logger#setOutput()*
-  change the output file of spacevim runtime logger. default is empty string.
-
-SpaceVim#logger#derive({name})                      *SpaceVim#logger#derive()*
-  Derive a new logger based on SpaceVim's runtime logger. The new logger
-  provides following functions:
-    1. info(msg): like |SpaceVim#logger#info|, but include the derive name.
-    2. warn(msg): like |SpaceVim#logger#warn|
-    3. error(msg): like |SpaceVim#logger#error|
-    4. debug(msg): write debug message run SpaceVim runtime log
-    5. start_debug(): enable debug mode of derived logger.
-    6. stop_debug(): stop debug mode of derived logger.
-    7. debug_enabled(): return true or false.
-
-  This function can be used in vim script and lua.
-
-  Vim script Example:
->
-    let s:LOGGER = SpaceVim#logger#derive('myplug')
-
-    call s:LOGGER.info('hello world')
-<
-
-  Lua Example:
->
-    local log = require('spacevim.logger').derive('myplug')
-
-    log.info('hello world')
-<
-
-  The this info message will be write to SpaceVim's runtime log:
->
-    [  myplug ] [00:02:54:051] [ Info  ] hello world
-<
 
 SpaceVim#plugins#iedit#start([options], [firstline], [lastline])
                                               *SpaceVim#plugins#iedit#start()*
@@ -7921,12 +7881,7 @@ Example:
 ==============================================================================
 LOGGER                                                   *SpaceVim-api-logger*
 
-provides some functions to manager logger
-
-set_silent({silent})
-
-  {silent} is a Boolean. by default it is false, and log will be print to
-screen.
+Provides some functions to manager logger.
 
 ==============================================================================
 NOTIFY                                                   *SpaceVim-api-notify*

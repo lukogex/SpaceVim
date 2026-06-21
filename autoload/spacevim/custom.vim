@@ -173,10 +173,6 @@ function! s:apply(config, type) abort
       endif
       unlet value
     endfor
-    if g:spacevim_debug_level !=# 1
-      call spacevim#logger#debug('change spacevim logger level to:' . g:spacevim_debug_level)
-      call spacevim#logger#setLevel(g:spacevim_debug_level)
-    endif
     let layers = get(a:config, 'layers', [])
     for layer in layers
       let enable = get(layer, 'enable', 1)

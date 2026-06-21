@@ -8,9 +8,6 @@
 local logger = require('spacevim.logger').derive('project')
 local sp_buffer = require('spacevim.api').import('vim.buffer')
 
--- start debug mode
-logger.start_debug()
-
 local vim_compatible = require('spacevim.api.vim.compatible')
 local sp_file = require('spacevim.api.file')
 local sp_json = require('spacevim.api.data.json')

@@ -5,9 +5,8 @@ description: "General contributing guidelines and changelog of spacevim, includi
 
 # [Home](../_index.md) >> Development
 
-spacevim is a joint effort of all contributors.
-We encourage you to participate in spacevim's development.
-This page describes the entire development process of spacevim.
+Spacevim is a joint effort of all contributors.
+This page describes the entire development process of Spacevim.
 
 We have some guidelines that we need all contributors to follow.
 You can only think about reading the part that is relevant to what you are going to do:
@@ -27,17 +26,23 @@ You can only think about reading the part that is relevant to what you are going
 
 ## Contributing code
 
-The source code of spacevim is hosted at [github](https://github.com/spacevim/spacevim).
+The source code of Spacevim is hosted at [Github](https://github.com/lukogex/spacevim).
 Code and documentation contributions of any kind are welcome. 
 
 ### Conventions
 
-spacevim is based on conventions, mainly for naming functions, keybindings definition and writing documentation.
-Please read these [conventions](conventions.md) to make sure you understand them before you contribute code or documentation for the first time.
+Spacevim is based on conventions, mainly for naming functions, keybindings definition and writing documentation.
+Please read these conventions to make sure you understand them before you contribute code or documentation for the first time.
+
+- [Architectural Decision Records](architecture.md)
+- Language specific conventions
+  - [Lua](lua.md)
+  - [Markdown](markdown.md)
+  - [Vimscript](vimscript.md)
 
 ### Commit style guide
 
-Follow the [conventional commits guidelines](https://www.conventionalcommits.org/) to _make reviews easier_ and to make the git logs more valuable.
+Follow the [conventional commits guidelines](https://www.conventionalcommits.org/) to make reviews easier and to make the git logs more valuable.
 The general structure of a commit message is:
 
 ```
@@ -141,7 +146,7 @@ endfunction
 
 ### Contributing a keybinding
 
-Mappings are an important part of spacevim.
+Mappings are an important part of Spacevim.
 
 First if you want to have some personal mappings.
 This can be done in your bootstrap function.

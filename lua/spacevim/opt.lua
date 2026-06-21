@@ -4,6 +4,8 @@
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- License: GPLv3
 --=============================================================================
+-- TODO: I think for Spacevim there should be only one thing, either global variables or call it options.
+-- Lets unify it at some point with Spacevim.vars.
 local M = {}
 
 local sp = require('spacevim')

@@ -96,7 +96,6 @@ let s:ICONV = spacevim#api#import('iconv')
 let s:NOTI = spacevim#api#import('notify')
 
 let s:LOGGER =spacevim#logger#derive('runner')
-call s:LOGGER.start_debug()
 
 " use code runner buffer for tab
 "

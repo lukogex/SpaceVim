@@ -7,55 +7,37 @@
 
 local M = {}
 
-local logger = require('spacevim.api').import('logger')
+local svim_logger = require("spacevim.api.logger"):new({ level = "debug", name = "spacevim" })
 local cmd = require('spacevim.api.vim.compatible').cmd
 local call = require('spacevim.api.vim.compatible').call
 local echo = require('spacevim.api.vim.compatible').echo
-local fn = nil
-
-if vim.fn == nil then
-  fn = require('spacevim').fn
-else
-  fn = vim.fn
-end
-
-logger.set_name('spacevim')
-logger.set_level(1)
-logger.set_silent(1)
-logger.set_verbose(1)
 
 function M.info(msg)
-  logger.info(msg)
+  svim_logger:info(msg)
 end
 
 function M.warn(msg, ...)
-  logger.warn(msg, ...)
+  svim_logger:warn(msg, ...)
 end
 
 function M.error(msg)
-  logger.error(msg)
+  svim_logger:error(msg)
 end
 
 function M.debug(msg)
-  logger.debug(msg)
+  svim_logger:debug(msg)
 end
 
 function M.setLevel(level)
-  logger.set_level(level)
-end
-
-function M.setOutput(file)
-  logger.set_file(file)
+  svim_logger:set_level(level)
 end
 
 function M.viewRuntimeLog()
-  -- this function should be more faster, and view runtime log without filter
-  local info = '### spacevim runtime log :\n\n' .. logger.view_all()
   cmd('tabnew')
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
-  -- put info into buffer
-  fn.append(0, fn.split(info, '\n'))
+  -- Put info into buffer
+  vim.fn.append(0, svim_logger:get_buffer_lines())
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
   cmd('setl filetype=spacevimLog')
@@ -63,7 +45,7 @@ function M.viewRuntimeLog()
 end
 
 function M.clearRuntimeLog()
-  logger.clear()
+  svim_logger:clear()
 end
 
 function M.viewLog(...)
@@ -71,7 +53,7 @@ function M.viewLog(...)
   local info = '<details><summary> spacevim debug information </summary>\n\n'
     .. '### spacevim options :\n\n'
     .. '```toml\n'
-    .. fn.join(call('spacevim#options#list'), '\n')
+    .. vim.fn.join(call('spacevim#options#list'), '\n')
     .. '\n```\n'
     .. '\n\n'
     .. '### spacevim layers :\n\n'
@@ -82,7 +64,7 @@ function M.viewLog(...)
     .. '\n\n'
     .. '### spacevim runtime log :\n\n'
     .. '```log\n'
-    .. logger.view(logger.level)
+    .. svim_logger:get_buffer_string()
     .. '\n```\n</details>\n\n'
   if argvs ~= nil and #argvs >= 1 then
     local bang = argvs[1]
@@ -91,7 +73,7 @@ function M.viewLog(...)
       cmd('setl nobuflisted')
       cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
       -- put info into buffer
-      fn.append(0, fn.split(info, '\n'))
+      vim.fn.append(0, vim.fn.split(info, '\n'))
       cmd('setl nomodifiable')
       cmd('setl buftype=nofile')
       cmd('setl filetype=markdown')
@@ -104,51 +86,14 @@ function M.viewLog(...)
 end
 
 function M.syntax_extra()
-  fn.matchadd('ErrorMsg', '.*[\\sError\\s\\].*')
-  fn.matchadd('WarningMsg', '.*[\\sWarn\\s\\].*')
+  vim.fn.matchadd('ErrorMsg', '.*[\\sError\\s\\].*')
+  vim.fn.matchadd('WarningMsg', '.*[\\sWarn\\s\\].*')
 end
 
-function M.derive(name)
-  local derive = {
-    origin_name = logger.get_name(),
-    _debug_mode = true,
-    derive_name = fn.printf('%' .. fn.strdisplaywidth(logger.get_name()) .. 'S', name),
-  }
-
-  function derive.info(msg)
-    logger.set_name(derive.derive_name)
-    logger.info(msg)
-    logger.set_name(derive.origin_name)
-  end
-  function derive.warn(msg)
-    logger.set_name(derive.derive_name)
-    logger.warn(msg)
-    logger.set_name(derive.origin_name)
-  end
-  function derive.error(msg)
-    logger.set_name(derive.derive_name)
-    logger.error(msg)
-    logger.set_name(derive.origin_name)
-  end
-
-  function derive.debug(msg)
-    if derive._debug_mode then
-      logger.set_name(derive.derive_name)
-      logger.debug(msg)
-      logger.set_name(derive.origin_name)
-    end
-  end
-  function derive.start_debug()
-    derive._debug_mode = true
-  end
-  function derive.stop_debug()
-    derive._debug_mode = false
-  end
-  function derive.debug_enabled() -- {{{
-    return derive._debug_mode
-  end
-  -- }}}
-  return derive
+---@deprecated Use an own logger instance directly instead of calling this function.
+---            This is kept for backward compatibility for usage of old logger.derive function.
+function M.derive(logger_name)
+  return require("spacevim.api.logger"):new({ level = "debug", name = logger_name })
 end
 
 return M

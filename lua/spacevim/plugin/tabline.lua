@@ -2,7 +2,6 @@
 -- tabline.lua --- tabline plugin implemented in lua
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
 
@@ -491,7 +490,6 @@ function M.get()
   end
   for _, item in ipairs(shown_items) do
     if preview_item then
-      -- 如果存在上一个buf，则增加分隔符
       tablinestr = tablinestr .. tabline_sep(preview_item, item)
     end
     tablinestr = tablinestr .. item.str
@@ -499,7 +497,6 @@ function M.get()
   end
 
   if preview_item then
-    -- 如果存在上一个buf，则增加分隔符
     tablinestr = tablinestr .. tabline_sep(preview_item, nil)
 
     if #right_hide_bufs > 0 and vim.fn.tabpagenr('$') == 1 then

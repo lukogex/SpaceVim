@@ -1,45 +1,45 @@
 ---
-title: "Conventions"
-description: "conventions of contributing to spacevim, including the coding style guides about vim script and markdown"
+title: "Vimscript Guide"
+description: "Guidelines about Vimscript development in Spacevim."
 ---
 
-# Conventions
+# [Development](../) >> Vimscript Guide
+
 
 <!-- vim-markdown-toc GFM -->
 
-- [Viml coding style guide](#viml-coding-style-guide)
-  - [Portability](#portability)
-    - [Strings](#strings)
-    - [Matching Strings](#matching-strings)
-    - [Regular Expressions](#regular-expressions)
-    - [Dangerous commands](#dangerous-commands)
-    - [Fragile commands](#fragile-commands)
-    - [Catching Exceptions](#catching-exceptions)
-  - [General Guidelines](#general-guidelines)
-    - [Messaging](#messaging)
-    - [Type checking](#type-checking)
-    - [Plugin layout](#plugin-layout)
-    - [Functions](#functions)
-    - [Commands](#commands)
-    - [Autocommands](#autocommands)
-    - [Mappings](#mappings)
-    - [Errors](#errors)
-    - [Settings](#settings)
+- [Coding Guidelines](#coding-guidelines)
+  - [Strings](#strings)
+  - [Matching Strings](#matching-strings)
+  - [Regular Expressions](#regular-expressions)
+  - [Dangerous commands](#dangerous-commands)
+  - [Fragile commands](#fragile-commands)
+  - [Catching Exceptions](#catching-exceptions)
+- [General Guidelines](#general-guidelines)
+  - [Messaging](#messaging)
+  - [Type checking](#type-checking)
+  - [Plugin layout](#plugin-layout)
+  - [Functions](#functions)
+  - [Commands](#commands)
+  - [Autocommands](#autocommands)
+  - [Mappings](#mappings)
+  - [Errors](#errors)
+  - [Settings](#settings)
   - [Style](#style)
-    - [Whitespace](#whitespace)
-    - [Line Continuations](#line-continuations)
-    - [Naming](#naming)
-- [Key notations](#key-notations)
-- [Vimscript Style](#vimscript-style)
-- [Markdown Style](#markdown-style)
+  - [Whitespace](#whitespace)
+  - [Line Continuations](#line-continuations)
+  - [Naming](#naming)
 
-## Viml coding style guide
+<!-- vim-markdown-toc -->
 
-### Portability
+## Coding Guidelines
 
-Vim is highly configurable. Users can change many of the default settings, including the case sensitivity, the regular expression rules, the substitution rules, and more. In order for your vimscript to work for all users, follow these guidelines:
+Vimscript is the built-in language used in Vim/Neovim editors.
+Vim is highly configurable.
+Users can change many of the default settings, including the case sensitivity, the regular expression rules, the substitution rules, and more.
+In order for your vimscript to work for all users, follow these guidelines.
 
-#### Strings
+### Strings
 
 **Prefer single quoted strings**
 
@@ -47,13 +47,13 @@ Double quoted strings are semantically different in vimscript, and you probably 
 
 Use double quoted strings when you need an escape sequence (such as "\\n") or if you know it doesn't matter and you need to embed single quotes.
 
-#### Matching Strings
+### Matching Strings
 
 **Use the =~# or =~? operator families over the =~ family.**
 
 The matching behavior depends upon the user's ignorecase and smartcase settings and on whether you compare them with the =~, =~#, or =~? family of operators. Use the =~# and =~? operator families explicitly when comparing strings unless you explicitly need to honor the user's case sensitivity settings.
 
-#### Regular Expressions
+### Regular Expressions
 
 **Prefix all regexes with one of \\m, \\v, \\M, or \\V.**
 
@@ -61,7 +61,7 @@ In addition to the case sensitivity settings, regex behavior depends upon the us
 
 You are welcome to use other magic levels (\\v) and case sensitivities (\\c) so long as they are intentional and explicit.
 
-#### Dangerous commands
+### Dangerous commands
 
 **Avoid commands with unintended side effects.**
 
@@ -71,7 +71,7 @@ The meaning of the g flag depends upon the gdefault setting. If you do use :subs
 
 For many Vim commands, functions exist that do the same thing with fewer side effects. See `:help functions` for a list of built-in functions.
 
-#### Fragile commands
+### Fragile commands
 
 **Avoid commands that rely on user settings.**
 
@@ -81,15 +81,15 @@ Avoid :s[ubstitute], as its behavior depends upon a number of local settings.
 
 The same applies to other commands not listed here.
 
-#### Catching Exceptions
+### Catching Exceptions
 
 **Match error codes, not error text.**
 
 Error text may be locale dependent.
 
-### General Guidelines
+## General Guidelines
 
-#### Messaging
+### Messaging
 
 **Message the user infrequently.**
 
@@ -98,7 +98,7 @@ Loud scripts are annoying. Message the user only when:
 - A long-running process has kicked off.
 - An error has occurred.
 
-#### Type checking
+### Type checking
 
 **Use strict and explicit checks where possible.**
 
@@ -110,13 +110,13 @@ Check variable types explicitly before using them. Use functions from maktaba#en
 
 Use :unlet for variables that may change types, particularly those assigned inside loops.
 
-#### Plugin layout
+### Plugin layout
 
 **Organize functionality into modular plugins**
 
 Group your functionality as a plugin, unified in one directory (or code repository) which shares your plugin's name (with a "vim-" prefix or ".vim" suffix if desired). It should be split into plugin/, autoload/, etc. subdirectories as necessary, and it should declare metadata in the addon-info.json format (see the Vim documentation for details).
 
-#### Functions
+### Functions
 
 **In the autoload/ directory, defined with [!] and [abort].**
 
@@ -130,7 +130,7 @@ Non-library plugins should expose commands instead of functions. Command logic s
 
 [abort] forces the function to halt when it encounters an error.
 
-#### Commands
+### Commands
 
 **In the plugin/commands.vim or under the ftplugin/ directory, defined without [!].**
 
@@ -138,7 +138,7 @@ General commands go in plugin/commands.vim. Filetype-specific commands go in ftp
 
 Excluding [!] prevents your plugin from silently clobbering existing commands. Command conflicts should be resolved by the user.
 
-#### Autocommands
+### Autocommands
 
 **Place them in plugin/autocmds.vim, within augroups.**
 
@@ -148,7 +148,7 @@ The augroup name should be unique. It should either be, or be prefixed with, the
 
 Clear the augroup with autocmd! before defining new autocommands in the augroup. This makes your plugin re-entrable.
 
-#### Mappings
+### Mappings
 
 **Place them in plugin/mappings.vim, using maktaba#plugin#MapPrefix to get a prefix.**
 
@@ -160,11 +160,11 @@ Partial mappings (see :help using-<Plug>.) should be defined in plugin/plugs.vim
 
 Your plugins generally shouldn't introduce mappings, but if they do, the map command respects the users existing mappings and could do anything.
 
-#### Errors
+### Errors
 
 When using catch, match the error codes rather than the error text.
 
-#### Settings
+### Settings
 
 **Change settings locally**
 
@@ -172,9 +172,14 @@ Use :setlocal and &l: instead of :set and & unless you have explicit reason to d
 
 ### Style
 
-Follow google style conventions. When in doubt, treat vimscript style like python style.
+Follow google style conventions:
+- [Google Vimscript Style Guide](https://google.github.io/styleguide/vimscriptguide.xml)
+- [Google Vimscript Guide](https://google.github.io/styleguide/vimscriptfull.xml)
+- [Vim Scripting Style Guide](https://github.com/noahfrederick/vim-scripting-style-guide/blob/master/doc/scripting-style.txt)
 
-#### Whitespace
+When in doubt, treat vimscript style like python style.
+
+### Whitespace
 
 **Similar to python.**
 
@@ -205,7 +210,7 @@ such as "noremap <leader>gf :grep -f ".
 -command       MyCommand2 call myplugin#bar()
 ```
 
-#### Line Continuations
+### Line Continuations
 
 - Prefer line continuations on semantic boundaries.
 
@@ -231,7 +236,7 @@ autocommand BufEnter <buffer>
 
 - Do not continue multi-line commands when you can avoid it. Prefer function calls.
 
-#### Naming
+### Naming
 
 - Keep them short and sweet.
 - In general, use
@@ -255,22 +260,3 @@ autocommand BufEnter <buffer>
     - b: changes the variable semantics; use it when you want buffer-local semantics.
     - l: and v: should be used for consistency, future proofing, and to avoid subtle bugs. They are not strictly required. Add them in new code but don’t go out of your way to add them elsewhere.
     - Autoloaded functions may not have a scope prefix.
-
-## Key notations
-
-- Use capital case and angle brackets for keyboard buttons: `<Down>`, `<Up>`.
-- Use uppercase for custom leader: `SPC`, `WIN`.
-- Use space as delimiter for key sequences: `SPC t w`, `<Leader> f o`.
-- Use `/` for alternative sequences: `<Tab>` / `Ctrl-n`.
-- Use `Ctrl-e` rather than `<C-e>` in documentation.
-- Use `kebab-case` for key binding short description
-
-## Vimscript Style
-
-- [Google Vimscript Style Guide](https://google.github.io/styleguide/vimscriptguide.xml)
-- [Google Vimscript Guide](https://google.github.io/styleguide/vimscriptfull.xml)
-- [Vim Scripting Style Guide](https://github.com/noahfrederick/vim-scripting-style-guide/blob/master/doc/scripting-style.txt)
-
-## Markdown Style
-
-- [Google's Markdown style guide](https://github.com/google/styleguide/blob/3591b2e540cbcb07423e02d20eee482165776603/docguide/style.md)
