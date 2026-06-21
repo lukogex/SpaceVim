@@ -3,9 +3,21 @@
 ---`local logger = require("logger"):new({ level = "debug", name = "my_name", log_echo = false })`
 ---Optionally set the `level` and `name` using the setter functions.
 ---e.g. `logger:set_level("debug")` or `logger:set_name("my_name")`
----https://github.com/rmagatti/logger.nvim/tree/main was the template for it.
 ---@class Logger
-local Logger = {}
+local Logger = {
+  -- Set default log level.
+  level = vim.g.svim_log_level or vim.log.levels.DEBUG,
+  -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin.
+  log_buffer = true,
+  log_buffer_file = true,
+  log_file = vim.fn.stdpath("log") .. '/svim.log',
+  log_echo = false,
+  log_vim = false,
+  log_notify = false,
+  -- TODO: Check if spacevim notify is still needed or oif we can replace it with `vim.notify`.
+  -- I dont see any difference so far, lets remove this part at some point.
+  spacevim_notify = false
+}
 
 local svim_buffer = require('spacevim.api.vim.buffer')
 local svim_notify = require('spacevim.api.notify')
@@ -151,23 +163,11 @@ local function log(message, level, self)
 end
 
 ---Constructor for Logger class.
----@param obj_and_config table Table containing the object and configuration for the logger.
-function Logger:new(obj_and_config)
-  obj_and_config = obj_and_config or {}
-  -- Set default log level
-  self.level = vim.g.svim_log_level
-  -- Default to not echo messages since vim.notify already does that unless it gets overridden by a notifier plugin
-  self.log_buffer = true
-  self.log_buffer_file = true
-  self.log_file = vim.fn.stdpath("log") .. '/svim.log'
-  self.log_echo = false
-  self.log_vim = false
-  self.log_notify = false
-  -- TODO: Check if spacevim notify is still needed or oif we can replace it with `vim.notify`.
-  -- I dont see any difference so far, lets remove this part at some point.
-  self.spacevim_notify = false
+---@param config table Table containing the configuration for the logger.
+function Logger:new(config)
+  local logger = {}
 
-  self = vim.tbl_deep_extend("force", self, obj_and_config)
+  logger = vim.tbl_deep_extend("force", self, config)
 
   local mt = {}
   mt.__index = function(t, index)
@@ -190,16 +190,16 @@ function Logger:new(obj_and_config)
     end
   end
 
-  setmetatable(obj_and_config, mt)
+  setmetatable(logger, mt)
 
   -- When `luaeval` returns this logger to Vimscript, it copies only physical key-value pairs into a Vim Dictionary.
   -- The metatable is lost, `s:LOGGER` in Vimscript fails then with "E716: Key not present in Dictionary".
   -- To solve this we materialize the method closures as physical keys before returning.
-  for _, k in ipairs({'get_level', 'set_level', 'get_name', 'set_name', 'set_log_echo', 'debug', 'info', 'warn', 'error', 'clear', 'view_all'}) do
-    obj_and_config[k] = obj_and_config[k]
-  end
+  -- for _, k in ipairs({'get_level', 'set_level', 'get_name', 'set_name', 'set_log_echo', 'debug', 'info', 'warn', 'error', 'clear', 'view_all'}) do
+    -- obj_and_config[k] = obj_and_config[k]
+  -- end
 
-  return obj_and_config
+  return logger
 end
 
 function Logger:get_level()
@@ -283,7 +283,7 @@ function Logger:view_all()
   if lines == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for getting lines.')
   end
-  -- TODO: Where to view?
+  return lines
 end
 
 -- function Logger.view(level)

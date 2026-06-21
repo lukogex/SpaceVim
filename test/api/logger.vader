@@ -1,7 +1,7 @@
 Execute ( spacevim api: logger ):
   lua svim_logger = require('spacevim.api.logger'):new({ name = 'spacevim' })
-  call svim_logger.set_name('TestLog')
-  AssertEqual svim_logger.name, 'TestLog'
+  cmp.luaeval('svim_logger:set_name()'), 'test'
+  AssertEqual cmp.luaeval('svim_logger:get_name()'), 'test'
   call svim_logger.info('info test')
   call svim_logger.warn('info test')
   call svim_logger.error('info test')
