@@ -37,7 +37,7 @@ function M.viewRuntimeLog()
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
   -- Put info into buffer
-  vim.fn.append(0, svim_logger:view_all())
+  vim.fn.append(0, svim_logger:get_buffer_lines())
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
   cmd('setl filetype=spacevimLog')
@@ -64,7 +64,7 @@ function M.viewLog(...)
     .. '\n\n'
     .. '### spacevim runtime log :\n\n'
     .. '```log\n'
-    .. svim_logger:view_all()
+    .. svim_logger:get_buffer_string()
     .. '\n```\n</details>\n\n'
   if argvs ~= nil and #argvs >= 1 then
     local bang = argvs[1]

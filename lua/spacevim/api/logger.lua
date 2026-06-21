@@ -192,13 +192,6 @@ function Logger:new(config)
 
   setmetatable(logger, mt)
 
-  -- When `luaeval` returns this logger to Vimscript, it copies only physical key-value pairs into a Vim Dictionary.
-  -- The metatable is lost, `s:LOGGER` in Vimscript fails then with "E716: Key not present in Dictionary".
-  -- To solve this we materialize the method closures as physical keys before returning.
-  -- for _, k in ipairs({'get_level', 'set_level', 'get_name', 'set_name', 'set_log_echo', 'debug', 'info', 'warn', 'error', 'clear', 'view_all'}) do
-    -- obj_and_config[k] = obj_and_config[k]
-  -- end
-
   return logger
 end
 
@@ -278,12 +271,20 @@ function Logger:clear()
   end
 end
 
-function Logger:view_all()
+function Logger:get_buffer_lines()
   lines = svim_buffer.get_lines_by_name(LOG_BUFFER_NAME)
   if lines == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for getting lines.')
   end
   return lines
+end
+
+function Logger:get_buffer_string()
+  buffer_string = ''
+  for _, line in ipairs(self:get_buffer_lines()) do
+    buffer_string = buffer_string .. line .. '\n'
+  end
+  return buffer_string
 end
 
 -- function Logger.view(level)
