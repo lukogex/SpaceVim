@@ -1,3 +1,6 @@
+---@field public isLinux int Check for Linux operating system 1 | 0 
+---@field public isWindows int Check for Windows operating system 1 | 0 
+---@field public isOSX int Check for Mac operating system 1 | 0 
 local System = {}
 
 local has = vim.fn.has

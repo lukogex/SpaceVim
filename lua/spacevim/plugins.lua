@@ -5,21 +5,22 @@
 -- License: GPLv3
 --=============================================================================
 
-local M = {}
+local Plugins = {}
 
-local logger = require('spacevim.logger')
+-- TODO: Logger does not work??
+local svim_logger = require("spacevim.api.logger"):new({ name = "plugins" })
 local utils = require('spacevim.utils')
 
-function M.init()
-  M.manager_install()
-  M.manager_config()
+function Plugins.init()
+  Plugins.manager_install()
+  Plugins.manager_config()
   -- Load plugins from Vimscript layers
   vim.cmd 'call spacevim#plugins#load_plugins()'
-  M.disable(vim.g.spacevim_disabled_plugins)
+  Plugins.disable(vim.g.spacevim_disabled_plugins)
   vim.cmd 'call spacevim#plugins#end()'
 end
 
-function M.manager_install()
+function Plugins.manager_install()
   -- Deprecated plugin manager dein is part of bundle.
   vim.opt.rtp:prepend(vim.g._spacevim_root_dir .. 'bundle/dein.vim')
   
@@ -30,8 +31,8 @@ function M.manager_install()
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
       vim.api.nvim_echo({
-        { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-        { out, "WarningMsg" },
+        { "Failed to clone lazy.nvim:\n", "ErrorPluginssg" },
+        { out, "WarningPluginssg" },
         { "\nPress any key to exit..." },
       }, true, {})
       vim.fn.getchar()
@@ -44,23 +45,75 @@ function M.manager_install()
   -- vim.opt.rtp:append(lazypath)
 end
 
-function M.manager_config()
+function Plugins.manager_setup()
+  -- Make sure to setup `mapleader` and `maplocalleader` before
+  -- loading lazy.nvim so that mappings are correct.
+  -- This is also a good place to setup other settings (vim.opt)
+  -- vim.g.mapleader = " "
+  -- vim.g.maplocalleader = "\\"
+
+  require("lazy").setup({
+    ui = {
+      custom_keys = {
+        -- You can define custom key maps here. If present, the description will
+        -- be shown in the help menu.
+        -- To disable one of the defaults, set it to false.
+
+        ["<localleader>l"] = false,
+
+        ["<localleader>i"] = false,
+
+        ["<localleader>t"] = false,
+      }
+    },
+    spec = Plugins.load_plugins(),
+    -- Configure any other settings here. See the documentation for more details.
+    -- colorscheme that will be used when installing plugins.
+    install = { colorscheme = { "habamax" } },
+    -- automatically check for plugin updates
+    checker = { enabled = true },
+    performance = {
+      cache = {
+        enabled = true,
+      },
+      reset_packpath = true, -- reset the package path to improve startup time
+      rtp = {
+        reset = false, -- reset the runtime path to $VIMRUNTIME and your config directory
+        ---@type string[]
+        paths = {}, -- add any custom paths here that you want to includes in the rtp
+        ---@type string[] list any plugins you want to disable here
+        disabled_plugins = {
+          -- "gzip",
+          -- "matchit",
+          -- "matchparen",
+          -- "netrwPlugin",
+          -- "tarPlugin",
+          -- "tohtml",
+          -- "tutor",
+          -- "zipPlugin",
+        },
+      },
+    },
+  })
+end
+
+function Plugins.manager_config()
   -- Add the deprecated dein plugin manager.
-  M.initializePluginFuzzyFinder()
+  Plugins.initializePluginFuzzyFinder()
   -- Initializes the plugin manager, sets up the runtimepath, and prepares for plugin declarations.
   vim.cmd 'call dein#begin(g:spacevim_plugin_bundle_dir)'
   -- TODO: What is the dein#add function doing? I commented out this call as it adds it a second time to runtimepath.
   -- vim.cmd 'call dein#add(g:_spacevim_root_dir . "bundle/dein.vim", { "merged" : 0})'
   -- Add new Spacevim plugin manager.
   -- This load plugins from Lua layers by now.
-  logger.info('Lazy plugin manager configuration.')
-  logger.info("Runtimepath before lazy setup.")
-  logger.info(vim.inspect(vim.opt.rtp:get()))
+  svim_logger.info('Lazy plugin manager configuration.')
+  svim_logger.info("Runtimepath before lazy setup.")
+  svim_logger.info(vim.inspect(vim.opt.rtp:get()))
 
-  require('config.lazy')
+  Plugins.manager_setup()
 end
 
-function M.initializePluginFuzzyFinder()
+function Plugins.initializePluginFuzzyFinder()
   addedPluginsFuzzyFinder = vim.g.unite_source_menu_menus or vim.empty_dict()
   addedPluginsFuzzyFinder['AddedPlugins'] = {
     description = 'All the Added plugins                    <Leader>fp',
@@ -83,45 +136,46 @@ end
 -- Two formats supported:
 -- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
 -- 2. Without options: ['owner/repo'] - length 1
-function M.load_plugins()
+function Plugins.load_plugins()
   local plugins = {}
   for _, layer in ipairs(require('spacevim.layers').getEnabled()) do
-    logger.debug('Get ' .. layer .. ' layer plugins list.')
+    svim_logger.debug('Get ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
     
     -- For new layers we simply return plugin spec for lazy.
-    -- for _, plugin in ipairs(M.getLayerPlugins(layer)) do
+    -- for _, plugin in ipairs(Plugins.getLayerPlugins(layer)) do
       -- if vim.fn.len(plugin) == 2 then
-        -- M.add(plugin[1], extend(plugin[2], {overwrite = 1}))
-        -- if M.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf then
-          -- M.defind_hooks(plugin[1], '/')
+        -- Plugins.add(plugin[1], extend(plugin[2], {overwrite = 1}))
+        -- if Plugins.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf then
+          -- Plugins.defind_hooks(plugin[1], '/')
         -- end
-        -- if M.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf_before then
-          -- M.loadPluginBefore(plugin[1], '/')
+        -- if Plugins.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf_before then
+          -- Plugins.loadPluginBefore(plugin[1], '/')
         -- end
       -- else
-        -- M.add(plugin[1], {overwrite = 1})
+        -- Plugins.add(plugin[1], {overwrite = 1})
       -- end
     -- end
 
-    table.insert(plugins, M.getLayerPlugins(layer))
+    table.insert(plugins, Plugins.getLayerPlugins(layer))
   end
+  -- print('Plugin spec: ' .. vim.inspect(plugins))
   return plugins
 end
 
 -- Returns the plugin spec for lazy for this layer.
-function M.getLayerPlugins(layer)
-  local layerModule = utils.prequire('spacevim.layers.' .. layer)
-  if layerModule and layerModule.plugins ~= nil then
-    logger.info('Found layer ' .. layer)
-    return layerModule.plugins()
+function Plugins.getLayerPlugins(layer)
+  local layerPluginsodule = utils.prequire('spacevim.layers.' .. layer)
+  if layerPluginsodule and layerPluginsodule.plugins ~= nil then
+    svim_logger.info('Found layer ' .. layer)
+    return layerPluginsodule.plugins()
   end
-  logger.info('No layer found for ' .. layer)
+  svim_logger.info('No layer found for ' .. layer)
   return {}
 end
 
 local function loadLayerConfig(layer)
-  logger.debug('load ' .. layer .. ' layer config')
+  svim_logger.debug('load ' .. layer .. ' layer config')
   local ok, l = pcall(require, 'spacevim.layers.' .. layer)
   if ok and l.config ~= nil then
     l.config()
@@ -130,31 +184,31 @@ end
 
 local plugins_argv = {'-update', '-openurl'}
 
-function M.complete_plugs(ArgLead, CmdLine, CursorPos)
+function Plugins.complete_plugs(ArgLead, CmdLine, CursorPos)
     
 end
 
-function M.Plugin(...)
+function Plugins.Plugin(...)
     
 end
 
-function M.disable(plugins)
-  logger.info('Disable plugins: ' .. vim.inspect(plugins))
+function Plugins.disable(plugins)
+  svim_logger.info('Disable plugins: ' .. vim.inspect(plugins))
   for name in ipairs(plugins) do
     vim.cmd(string.format('call dein#disable(%s)', name))
   end
 end
 
-function M.get(...)
+function Plugins.get(...)
     
 end
 
--- can not use M.end
-function M._end()
+-- can not use Plugins.end
+function Plugins._end()
     
 end
 
-function M.defind_hooks(bundle)
+function Plugins.defind_hooks(bundle)
     
 end
 
@@ -166,16 +220,16 @@ end
 
 vim.g._spacevim_plugins = {}
 
-function M.add(repo, ...)
+function Plugins.add(repo, ...)
     
 end
 
-function M.tap(plugin)
+function Plugins.tap(plugin)
     
 end
 
-function M.loadPluginBefore(plugin)
+function Plugins.loadPluginBefore(plugin)
     
 end
 
-return M
+return Plugins
