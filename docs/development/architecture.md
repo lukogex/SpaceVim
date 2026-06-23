@@ -10,6 +10,7 @@ description: "ADRs (Architectural Decision Records) for Spacevim development."
 
 - [Architectural Decision Records](#architectural-decision-records)
   - [ADR-001 Spacevim API](#adr-001-spacevim-api)
+  - [ADR-002 Spacevim Layers](#adr-002-spacevim-layers)
 
 <!-- vim-markdown-toc -->
 
@@ -47,3 +48,29 @@ We expect the following advantages from it:
 - Consistent usage of Spacevim API across all layers
 - Improved logging and monitoring cababilities
 - Reuse of existing logic and improvements
+
+### ADR-002 Spacevim Layers
+
+**Context**
+
+A layer is a bundle of plugins and related configuration which can be applied by Spacevim configuration.
+
+**Decision**
+
+Layers have a type which defines interfaces and key mappings.
+We can have several layers of the same type prepared but we can only apply one of each type at a time.
+A layer should wrap all necessary plugins and configurations at one place.
+
+**Consequences**
+
+We need a new layer implementation which covers the new way.
+
+What should we do with old layers?
+
+- I dont want to remove everything, lets keep all what might make sense.
+  - We reduce to default types and for each of this types we have one default layer.
+  - At first we maintain this one default layer per type.
+
+What should we do with deprecated plugin manager?
+
+- Lets find out how we can have it side by side for a long term migration process.

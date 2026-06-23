@@ -1,5 +1,6 @@
 local Spacevim = {}
 
+local svim_file = require('spacevim.api.file')
 local logger = require('spacevim.logger')
 
 local GLOBAL_VARS_PREFIX = 'svim_'
@@ -11,31 +12,26 @@ Spacevim.vars = {
   log_level = vim.log.levels.DEBUG
 }
 
--- TODO: Move to a file utils module!
-function Spacevim.absolute_path(path)
-  return vim.fn.fnamemodify(vim.fn.resolve(path), ':p')
-end
-
 function Spacevim.arguments()
   args = {}
 
   for k, v in pairs(vim.v.argv) do
     if k == 1 then
-      args['nvim_bin'] = Spacevim.absolute_path(vim.v.argv[k])
+      args['nvim_bin'] = svim_file.absolute_path(vim.v.argv[k])
 
       -- TODO: We should check here if its an asdf installation and set the paths accordingly!
       args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/lib/nvim'
       args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/share/nvim/runtime'
     end
     if v == '-u' then
-      args['vimrc'] = Spacevim.absolute_path(vim.v.argv[k + 1])
+      args['vimrc'] = svim_file.absolute_path(vim.v.argv[k + 1])
     end
     if k == #vim.v.argv then
       -- TODO: This check might not work in all cases right? How could we parse them more relyable?
       if string.match(vim.v.argv[k - 1], '^-.') then
-        args['file'] = Spacevim.absolute_path(vim.fn.getcwd())
+        args['file'] = svim_file.absolute_path(vim.fn.getcwd())
       else
-        args['file'] = Spacevim.absolute_path(vim.v.argv[k])
+        args['file'] = svim_file.absolute_path(vim.v.argv[k])
       end
     end
   end
@@ -102,7 +98,7 @@ function Spacevim.config()
   logger.info('Load Spacevim global configuration.')
   vim.cmd 'call spacevim#custom#load_glob_conf()'
 
-  if Spacevim.absolute_path(vim.fn.getcwd()) == os.getenv('HOME') then
+  if svim_file.absolute_path(vim.fn.getcwd()) == os.getenv('HOME') then
     logger.info('Current directory is $HOME, skip local configuration.')
   else
     vim.cmd 'call spacevim#custom#load_local_conf()'
