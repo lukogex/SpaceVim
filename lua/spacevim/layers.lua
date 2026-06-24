@@ -5,7 +5,8 @@
 -- License: GPLv3
 --=============================================================================
 
-local M = {}
+local Layers = {}
+
 local vim_compatible = require('spacevim.api.vim.compatible')
 local spsys = require('spacevim.api').import('system')
 
@@ -21,16 +22,16 @@ local spsys = require('spacevim.api').import('system')
 -- end
 -- end
 -- }
--- setmetatable(M, mt)
+-- setmetatable(Layers, mt)
 
-function M.getEnabled()
+function Layers.getEnabled()
   -- Function for getting Vimscript layers which are added by old plugin manager dein by now.
   -- return vim.fn['spacevim#layers#get']()
   -- TODO: Hardcoded the only new Lua layer by now.
   return {'codingagent'}
 end
 
-function M.isLoaded(layer)
+function Layers.isLoaded(layer)
   return vim_compatible.call('spacevim#layers#isLoaded', layer) == 1
 end
 
@@ -54,7 +55,7 @@ local function find_layers()
       website = 'no exists'
     end
     name = vim_compatible.fn.substitute(name, '/', '#','g')
-    if M.isLoaded(name) then
+    if Layers.isLoaded(name) then
       status = 'loaded'
     else
       status = 'not loaded'
@@ -72,7 +73,7 @@ local function list_layers()
   vim.cmd('tabnew spacevimLayers')
   vim.cmd('nnoremap <buffer> q :q<cr>')
   vim.cmd('setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell')
-  vim.cmd('setf spacevimLayerManager')
+  vim.cmd('setf spacevimLayerLayersanager')
   vim.cmd('nnoremap <silent> <buffer> q :bd<CR>')
   local info = {'spacevim layers:', ''}
   for k,v in pairs(find_layers()) do table.insert(info, v) end
@@ -80,11 +81,11 @@ local function list_layers()
   vim.cmd('setl nomodifiable')
 end
 
-function M.load(layer, ...)
+function Layers.load(layer, ...)
   if layer == '-l' then
     list_layers()
     return
   end
 end
 
-return M
+return Layers

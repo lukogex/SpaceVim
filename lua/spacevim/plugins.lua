@@ -80,6 +80,7 @@ function Plugins.manager_setup()
       rtp = {
         reset = false, -- reset the runtime path to $VIMRUNTIME and your config directory
         ---@type string[]
+        -- TODO: We could use this to replace all bundle plugins!
         paths = {}, -- add any custom paths here that you want to includes in the rtp
         ---@type string[] list any plugins you want to disable here
         disabled_plugins = {
