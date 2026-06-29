@@ -35,13 +35,11 @@ All Spacevim implementations should use the Spacevim API to decouple it from Neo
 
 **Consequences**
 
-All calls to `vim.*` should happen from within the `spacevim.api` modules.
-When importing Spacevim APIs prefix the variables with `svim_` to make it clear what is used.
-
-TODO: Should we really do this `svim_` prefix? Readability `svim_file.absolute_path` vs `file.absolute_path`.
+All interactions from Spacevim core logic or layers towards Neovim APIs should happen from within the `spacevim.api` modules.
+For abstraction and a better overview about all the calls we do we even added a [`spacevim.vim` proxy to Neovim Lua standard libraries](../api/vim.md).
 
 ```lua
-local svim_buffer = require('spacevim.api.vim.buffer')
+local buffer = require('spacevim.api.vim.buffer')
 ```
 
 We expect the following advantages from it:

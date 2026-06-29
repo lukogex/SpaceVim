@@ -1,8 +1,8 @@
 local File = {}
 
 local svim_system = require('spacevim.api.system')
--- TODO: Create a spacevim.api.vim.fn which forwards to vim fn or drops error! Could also be used for compatibility impls.
-local fn = vim.fn
+local fn = require('spacevim.api.vim').fn
+local fs = require('spacevim.api.vim').fs
 
 if svim_system.isWindows then
   File.separator = '\\'
@@ -185,7 +185,8 @@ function File.read(fname)
 end
 
 function File.absolute_path(path)
-  return fn.fnamemodify(fn.resolve(path), ':p')
+  -- return fn.fnamemodify(fn.resolve(path), ':p')
+  return fs.abspath(path)
 end
 
 function File.unify_path(_path, ...)

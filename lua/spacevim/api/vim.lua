@@ -1,6 +1,54 @@
-local M = {}
+---This is an interface to the Nvim Lua standard library.
+---Its purpose is to decouple Spacevim by preventing direct calls and to have a better overview about calls we do.
+---Goal is to reduce dublication and have one common layer to interact with Neovim.
+---Furthermore this might help in future compatibility implementations.
+---TODO: Intergrate compatibility.lua here!
+local Vim = {}
 
-function M.getchar(...)
+---The Vim standard library so to say, inherited from Vim, it contains everything Vim has.
+---Ex-commands and vimscript-functions as well as user-functions in Vimscript.
+---These are accessed through `vim.cmd()` and `vim.fn` respectively.
+---https://neovim.io/doc/user/lua/#vim.fn
+---
+---Some links to docs to help me accesing them faster:
+---@field fnamemodify function https://neovim.io/doc/user/vimfn/#fnamemodify()
+---       Lua: Prefer vim.fs.dirname(), vim.fs.basename(), vim.fs.abspath(), and vim.fs.normalize() for common path	modifiers; modifier coverage differs.
+Vim.fn = setmetatable({}, {
+  __index = function(t, k)
+    local _fn
+    if vim.fn ~= nil and vim.fn[k] ~= nil then
+      _fn = function(...)
+        return vim.fn[k](...)
+      end
+    elseif vim.api ~= nil and vim.api[k] ~= nil then
+      _fn = function()
+        error(string.format('Tried to call API function with vim.fn: use vim.api.%s instead', k))
+      end
+    else
+      _fn = function(...)
+        return M.call(k, ...)
+      end
+    end
+    t[k] = _fn
+    return _fn
+  end,
+})
+
+---https://neovim.io/doc/user/lua/#vim.fs
+Vim.fs = setmetatable({}, {
+  __index = function(t, k)
+    local _fs
+    if vim.fs ~= nil and vim.fs[k] ~= nil then
+      _fs = function(...)
+        return vim.fs[k](...)
+      end
+    end
+    t[k] = _fs
+    return _fs
+  end,
+})
+
+function Vim.getchar(...)
   if vim.fn.empty(vim.g._spacevim_input_list) == 0 then
     local input_list = vim.g._spacevim_input_list
     local input_timeout = vim.g._spacevim_input_timeout or 0
@@ -23,11 +71,11 @@ function M.getchar(...)
   end
 end
 
-function M.setbufvar(buf, opts)
+function Vim.setbufvar(buf, opts)
   
 end
 
-function M.getchar2nr(...)
+function Vim.getchar2nr(...)
   local status, ret = pcall(vim.fn.getchar, ...)
   if not status then
     ret = 3
@@ -39,16 +87,16 @@ function M.getchar2nr(...)
   end
 end
 
-function M.empty(expr)
+function Vim.empty(expr)
   return vim.fn.empty(expr) == 1
 end
 
-function M.executable(bin)
+function Vim.executable(bin)
   return vim.fn.executable(bin) == 1
 end
 
-function M.is_qf_win(winnr)
+function Vim.is_qf_win(winnr)
   
 end
 
-return M
+return Vim

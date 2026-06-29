@@ -1,6 +1,6 @@
 ---
 title: "vim API"
-description: "vim API provides general vim functions."
+description: "Proxy interface to the Neovim Lua standard library."
 ---
 
 # [Available APIs](../) >> vim
@@ -8,15 +8,34 @@ description: "vim API provides general vim functions."
 <!-- vim-markdown-toc GFM -->
 
 - [Intro](#intro)
-- [Functions](#functions)
+- [Additional Functions](#additional-functions)
 
 <!-- vim-markdown-toc -->
 
 ## Intro
 
-vim API provides general vim functions.
+Spacevim `vim` api is an interface to the [Nvim Lua standard library](https://neovim.io/doc/user/lua/#_lua-standard-modules).
+It should be used to consolidate all Neovim API calls and make them better observable and documented.
 
-## Functions
+> [!note] Vim APIs
+> All the different APIs and functions are quite confusing especially as I'm still rather new to Neovim.
+> Its hard to follow [ADR-001](../../development/architecture.md#adr-001-spacevim-api) with all this different implemantations existing in Spacevim and this many ways to interact with Neovim.
+> Because of this I want to use `spacevim.api.vim` as an interface to all calls to the Neovim lua standard module.
+> This provides the opportunity to group and document calls to Neovim and helps me learning all the different methods.
+> It might be one unecessary hop thats true but at the moment I need a single point to consolidate new things as I feel lost with all this different methods and dublicated implementations.
+> Furthermore this might help in future compatibility implementations.
+
+When using the Spacevim vim API its best practice to define a local variable with similar names as the forwarding API.
+Like this its easy to anderstand whats its target and it could be replaced easily with the direct call to Lua standard library as well.
+
+```lua
+local fn = require('spacevim.api.vim').fn
+local fs = require('spacevim.api.vim').fs
+```
+
+TODO: Mairmaid with API calls layer -> api -> vim!
+
+## Additional Functions
 
 **Type checking:**
 
