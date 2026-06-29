@@ -26,7 +26,7 @@ Vim.fn = setmetatable({}, {
       end
     else
       _fn = function(...)
-        return M.call(k, ...)
+        return Vim.call(k, ...)
       end
     end
     t[k] = _fn
@@ -47,6 +47,22 @@ Vim.fs = setmetatable({}, {
     return _fs
   end,
 })
+
+---https://neovim.io/doc/user/lua/#vim.call()
+---Equivalent to `vim.fn[func]({...})`
+function Vim.call(func, ...)
+  if vim.call ~= nil then
+    return vim.call(func, ...)
+  else
+    if vim.api ~= nil then
+      return vim.api.nvim_call_function(func, { ... })
+    else
+      -- TODO: Is this safe to remove?
+      vim.command('let g:lua_rst = ' .. func .. '(' .. build_argv({ ... }) .. ')')
+      return M.eval('g:lua_rst')
+    end
+  end
+end
 
 function Vim.getchar(...)
   if vim.fn.empty(vim.g._spacevim_input_list) == 0 then

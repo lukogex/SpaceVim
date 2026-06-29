@@ -1,10 +1,10 @@
 local File = {}
 
-local svim_system = require('spacevim.api.system')
 local fn = require('spacevim.api.vim').fn
 local fs = require('spacevim.api.vim').fs
+local system = require('spacevim.api.system')
 
-if svim_system.isWindows then
+if system.isWindows then
   File.separator = '\\'
   File.pathSeparator = ';'
 else
