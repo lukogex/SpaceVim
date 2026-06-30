@@ -2,6 +2,7 @@ local Input = {}
 
 local fn = require('spacevim.api.vim.adapter').fn
 
+---https://neovim.io/doc/user/vimfn/#getchar()
 function Input.getchar(...)
   if fn.empty(vim.g._spacevim_input_list) == 0 then
     local input_list = vim.g._spacevim_input_list

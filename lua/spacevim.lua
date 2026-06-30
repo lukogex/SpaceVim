@@ -2,7 +2,6 @@ local Spacevim = {}
 
 local fn = require('spacevim.api.vim.adapter').fn
 local v = require('spacevim.api.vim.adapter').v
--- local v = vim.v
 
 local file = require('spacevim.api.file')
 local logger = require('spacevim.logger')

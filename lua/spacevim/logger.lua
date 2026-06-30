@@ -4,32 +4,31 @@
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- License: GPLv3
 --=============================================================================
-
 local M = {}
 
-local svim_logger = require("spacevim.api.logger"):new({ level = "debug", name = "spacevim" })
+local logger = require("spacevim.api.logger"):new({ level = "debug", name = "spacevim" })
 local cmd = require('spacevim.api.vim.compatible').cmd
 local call = require('spacevim.api.vim.compatible').call
 local echo = require('spacevim.api.vim.compatible').echo
 
 function M.info(msg)
-  svim_logger:info(msg)
+  logger:info(msg)
 end
 
 function M.warn(msg, ...)
-  svim_logger:warn(msg, ...)
+  logger:warn(msg, ...)
 end
 
 function M.error(msg)
-  svim_logger:error(msg)
+  logger:error(msg)
 end
 
 function M.debug(msg)
-  svim_logger:debug(msg)
+  logger:debug(msg)
 end
 
 function M.setLevel(level)
-  svim_logger:set_level(level)
+  logger:set_level(level)
 end
 
 function M.viewRuntimeLog()
@@ -37,7 +36,7 @@ function M.viewRuntimeLog()
   cmd('setl nobuflisted')
   cmd('nnoremap <buffer><silent> q :tabclose!<CR>')
   -- Put info into buffer
-  vim.fn.append(0, svim_logger:get_buffer_lines())
+  vim.fn.append(0, logger:get_buffer_lines())
   cmd('setl nomodifiable')
   cmd('setl buftype=nofile')
   cmd('setl filetype=spacevimLog')
@@ -45,7 +44,7 @@ function M.viewRuntimeLog()
 end
 
 function M.clearRuntimeLog()
-  svim_logger:clear()
+  logger:clear()
 end
 
 function M.viewLog(...)
@@ -64,7 +63,7 @@ function M.viewLog(...)
     .. '\n\n'
     .. '### spacevim runtime log :\n\n'
     .. '```log\n'
-    .. svim_logger:get_buffer_string()
+    .. logger:get_buffer_string()
     .. '\n```\n</details>\n\n'
   if argvs ~= nil and #argvs >= 1 then
     local bang = argvs[1]

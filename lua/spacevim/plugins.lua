@@ -4,10 +4,8 @@
 -- Author: Wang Shidong < wsdjeg@outlook.com >
 -- License: GPLv3
 --=============================================================================
-
 local Plugins = {}
 
--- TODO: Logger does not work??
 local logger = require("spacevim.api.logger"):new({ name = "plugins" })
 local utils = require('spacevim.utils')
 
@@ -107,9 +105,9 @@ function Plugins.manager_config()
   -- vim.cmd 'call dein#add(g:_spacevim_root_dir . "bundle/dein.vim", { "merged" : 0})'
   -- Add new Spacevim plugin manager.
   -- This load plugins from Lua layers by now.
-  logger.info('Lazy plugin manager configuration.')
-  logger.info("Runtimepath before lazy setup.")
-  logger.info(vim.inspect(vim.opt.rtp:get()))
+  logger:info('Lazy plugin manager configuration.')
+  logger:info("Runtimepath before lazy setup.")
+  logger:info(vim.inspect(vim.opt.rtp:get()))
 
   Plugins.manager_setup()
 end
@@ -139,12 +137,12 @@ end
 -- 2. Without options: ['owner/repo'] - length 1
 function Plugins.load_plugins()
   local plugins = {}
-  for _, layer in ipairs(require('spacevim.layers').getEnabled()) do
-    logger.debug('Get ' .. layer .. ' layer plugins list.')
+  for _, layer in ipairs(require('spacevim.layers').get_enabled()) do
+    logger:debug('Get ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
     
     -- For new layers we simply return plugin spec for lazy.
-    -- for _, plugin in ipairs(Plugins.getLayerPlugins(layer)) do
+    -- for _, plugin in ipairs(Plugins.for_layer(layer)) do
       -- if vim.fn.len(plugin) == 2 then
         -- Plugins.add(plugin[1], extend(plugin[2], {overwrite = 1}))
         -- if Plugins.tab(vim.fn.split(plugin[1], '/')[-1]) and plugin[1].loadconf then
@@ -158,25 +156,25 @@ function Plugins.load_plugins()
       -- end
     -- end
 
-    table.insert(plugins, Plugins.getLayerPlugins(layer))
+    table.insert(plugins, Plugins.for_layer(layer))
   end
   -- print('Plugin spec: ' .. vim.inspect(plugins))
   return plugins
 end
 
 -- Returns the plugin spec for lazy for this layer.
-function Plugins.getLayerPlugins(layer)
-  local layerPluginsodule = utils.prequire('spacevim.layers.' .. layer)
-  if layerPluginsodule and layerPluginsodule.plugins ~= nil then
-    logger.info('Found layer ' .. layer)
-    return layerPluginsodule.plugins()
+function Plugins.for_layer(name)
+  local layer = utils.prequire('spacevim.layers.' .. name)
+  if layer and layer.plugins ~= nil then
+    logger:info('Found layer ' .. name)
+    return layer.plugins()
   end
-  logger.info('No layer found for ' .. layer)
+  logger:info('No layer found for ' .. layer)
   return {}
 end
 
 local function loadLayerConfig(layer)
-  logger.debug('load ' .. layer .. ' layer config')
+  logger:debug('load ' .. layer .. ' layer config')
   local ok, l = pcall(require, 'spacevim.layers.' .. layer)
   if ok and l.config ~= nil then
     l.config()
@@ -194,7 +192,7 @@ function Plugins.Plugin(...)
 end
 
 function Plugins.disable(plugins)
-  logger.info('Disable plugins: ' .. vim.inspect(plugins))
+  logger:info('Disable plugins: ' .. vim.inspect(plugins))
   for name in ipairs(plugins) do
     vim.cmd(string.format('call dein#disable(%s)', name))
   end

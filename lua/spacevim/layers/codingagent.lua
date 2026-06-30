@@ -1,7 +1,7 @@
-local M = {}
+local Layer = {}
 
 -- TODO: The layer functions should return a list of all plugins, or at least it should be possible.
-function M.plugins()
+function Layer.plugins()
   return {
     "sudo-tee/opencode.nvim",
     opts = M.config(),
@@ -29,7 +29,7 @@ function M.plugins()
   }
 end
 
-function M.config()
+function Layer.config()
   -- Ensure the 'a' submenu (Applications) and 'c' submenu (Agent Coding) exist
   vim.cmd "let g:_spacevim_mappings_space.a = get(g:_spacevim_mappings_space, 'a', {'name' : '+Applications'})"
   vim.cmd "let g:_spacevim_mappings_space.a.c = get(g:_spacevim_mappings_space.a, 'c', {'name' : '+Agent Coding'})"
@@ -45,10 +45,10 @@ function M.config()
   return require("config.opencode")
 end
 
-function M.set_variable(var)
+function Layer.set_variable(var)
 end
 
-function M.get_variable()
+function Layer.get_variable()
 end
 
-return M
+return Layer
