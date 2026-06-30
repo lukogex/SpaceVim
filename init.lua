@@ -28,9 +28,6 @@ logger:info('State directory ($XDG_STATE_HOME): ' .. vim.fn.stdpath("state"))
 logger:info('Cache directory ($XDG_CACHE_HOME): ' .. vim.fn.stdpath("cache"))
 logger:info('Log directory: ' .. vim.fn.stdpath("log"))
 
-
-logger:info('TEST ' .. vim.v)
-
 -- Set global variables
 
 -- Spacevim root directory path needs trailing slash for further concatinations.

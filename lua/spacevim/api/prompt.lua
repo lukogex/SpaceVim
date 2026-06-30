@@ -2,16 +2,14 @@
 -- prompt.lua --- prompt api for spacevim
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
-
-local Key = require('spacevim.api').import('vim.keys')
-
 local M = {}
 
+local input = require('spacevim.api.input')
+local Key = require('spacevim.api').import('vim.keys')
+
 M.__cmp = require('spacevim.api').import('vim.compatible')
-M.__vim = require('spacevim.api').import('vim')
 
 M._keys = {
   close = Key.t('<Esc>'),
@@ -65,7 +63,7 @@ function M._handle_input(...)
   end
   M._c_r_mode = false
   while not M._quit do
-    local char = M.__vim.getchar()
+    local char = input.getchar()
     if M._function_key[char] ~= nil then
       local ok, rst = pcall(M._function_key[char])
       if not ok then

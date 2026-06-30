@@ -2,11 +2,10 @@
 -- iedit.lua --- multiple cursor for spacevim in lua
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
-
 local M = {}
+
 local modname = 'spacevim.plugin.iedit'
 _G[modname] = M
 package.loaded[modname] = M --return modname
@@ -16,7 +15,7 @@ setmetatable(M, { __index = _G })
 local hi = require('spacevim.api').import('vim.highlight')
 local str = require('spacevim.api').import('data.string')
 local cmp = require('spacevim.api').import('vim.compatible')
-local v = require('spacevim.api').import('vim')
+local input = require('spacevim.api.input')
 local k = require('spacevim.api').import('vim.keys')
 -- }}}
 
@@ -700,7 +699,7 @@ function M.start(...) -- {{{
   vim.cmd('redrawstatus!')
   while mode ~= '' and #cursor_stack > 0 do
     vim.cmd('redraw!')
-    local char = v.getchar()
+    local char = input.getchar()
     if mode == 'n' and char == k.t('<Esc>') then
       mode = ''
     else

@@ -1,7 +1,7 @@
 local Spacevim = {}
 
-local fn = require('spacevim.api.vim').fn
-local v = require('spacevim.api.vim').v
+local fn = require('spacevim.api.vim.adapter').fn
+local v = require('spacevim.api.vim.adapter').v
 -- local v = vim.v
 
 local file = require('spacevim.api.file')
@@ -17,25 +17,26 @@ Spacevim.vars = {
 }
 
 function Spacevim.arguments()
-  args = {}
+  local argv = v.argv
+  local args = {}
 
-  for i, v in ipairs(v.argv) do
+  for i, v in ipairs(argv) do
     if i == 1 then
-      args['nvim_bin'] = file.absolute_path(v.argv[i])
+      args['nvim_bin'] = file.absolute_path(argv[i])
 
       -- TODO: We should check here if its an asdf installation and set the paths accordingly!
       args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/lib/nvim'
       args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/share/nvim/runtime'
     end
     if v == '-u' then
-      args['vimrc'] = file.absolute_path(v.argv[i + 1])
+      args['vimrc'] = file.absolute_path(argv[i + 1])
     end
-    if i == #v.argv then
+    if i == #argv then
       -- TODO: This check might not work in all cases right? How could we parse them more relyable?
-      if string.match(v.argv[i - 1], '^-.') then
+      if string.match(argv[i - 1], '^-.') then
         args['file'] = file.absolute_path(fn.getcwd())
       else
-        args['file'] = file.absolute_path(v.argv[i])
+        args['file'] = file.absolute_path(argv[i])
       end
     end
   end

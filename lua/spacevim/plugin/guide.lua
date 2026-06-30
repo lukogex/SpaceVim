@@ -2,10 +2,8 @@
 -- guide.lua --- Key binding guide for spacevim
 -- Copyright (c) 2016-2023 Wang Shidong & Contributors
 -- Author: Wang Shidong < wsdjeg@outlook.com >
--- URL: https://spacevim.org
 -- License: GPLv3
 --=============================================================================
-
 local M = {}
 
 local log = require('spacevim.logger').derive('guide')
@@ -13,11 +11,10 @@ local Key = require('spacevim.api').import('vim.keys')
 
 local cmp = require('spacevim.api').import('vim.compatible')
 local buffer = require('spacevim.api').import('vim.buffer')
-local VIM = require('spacevim.api').import('vim')
+local input = require('spacevim.api.input')
 local SL = require('spacevim.api').import('vim.statusline')
 local hl = require('spacevim.api.vim.highlight')
 local vopt = require('spacevim.api.vim.option')
-
 
 -- all local values should be listed here:
 
@@ -725,7 +722,7 @@ wait_for_input = function()
   if vim.fn.has('nvim-0.10.0') == 1 then
     vim.fn.timer_start(10, show_win)
   end
-  local inp = VIM.getchar()
+  local inp = input.getchar()
   log.debug('inp is:' .. inp)
   if inp == t('<Esc>') then
     prefix_key_inp = {}

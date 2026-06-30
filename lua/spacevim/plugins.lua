@@ -8,7 +8,7 @@
 local Plugins = {}
 
 -- TODO: Logger does not work??
-local svim_logger = require("spacevim.api.logger"):new({ name = "plugins" })
+local logger = require("spacevim.api.logger"):new({ name = "plugins" })
 local utils = require('spacevim.utils')
 
 function Plugins.init()
@@ -107,9 +107,9 @@ function Plugins.manager_config()
   -- vim.cmd 'call dein#add(g:_spacevim_root_dir . "bundle/dein.vim", { "merged" : 0})'
   -- Add new Spacevim plugin manager.
   -- This load plugins from Lua layers by now.
-  svim_logger.info('Lazy plugin manager configuration.')
-  svim_logger.info("Runtimepath before lazy setup.")
-  svim_logger.info(vim.inspect(vim.opt.rtp:get()))
+  logger.info('Lazy plugin manager configuration.')
+  logger.info("Runtimepath before lazy setup.")
+  logger.info(vim.inspect(vim.opt.rtp:get()))
 
   Plugins.manager_setup()
 end
@@ -140,7 +140,7 @@ end
 function Plugins.load_plugins()
   local plugins = {}
   for _, layer in ipairs(require('spacevim.layers').getEnabled()) do
-    svim_logger.debug('Get ' .. layer .. ' layer plugins list.')
+    logger.debug('Get ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
     
     -- For new layers we simply return plugin spec for lazy.
@@ -168,15 +168,15 @@ end
 function Plugins.getLayerPlugins(layer)
   local layerPluginsodule = utils.prequire('spacevim.layers.' .. layer)
   if layerPluginsodule and layerPluginsodule.plugins ~= nil then
-    svim_logger.info('Found layer ' .. layer)
+    logger.info('Found layer ' .. layer)
     return layerPluginsodule.plugins()
   end
-  svim_logger.info('No layer found for ' .. layer)
+  logger.info('No layer found for ' .. layer)
   return {}
 end
 
 local function loadLayerConfig(layer)
-  svim_logger.debug('load ' .. layer .. ' layer config')
+  logger.debug('load ' .. layer .. ' layer config')
   local ok, l = pcall(require, 'spacevim.layers.' .. layer)
   if ok and l.config ~= nil then
     l.config()
@@ -194,7 +194,7 @@ function Plugins.Plugin(...)
 end
 
 function Plugins.disable(plugins)
-  svim_logger.info('Disable plugins: ' .. vim.inspect(plugins))
+  logger.info('Disable plugins: ' .. vim.inspect(plugins))
   for name in ipairs(plugins) do
     vim.cmd(string.format('call dein#disable(%s)', name))
   end

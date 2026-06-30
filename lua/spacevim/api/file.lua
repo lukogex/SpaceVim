@@ -1,7 +1,7 @@
 local File = {}
 
-local fn = require('spacevim.api.vim').fn
-local fs = require('spacevim.api.vim').fs
+local fn = require('spacevim.api.vim.adapter').fn
+local fs = require('spacevim.api.vim.adapter').fs
 local system = require('spacevim.api.system')
 
 if system.isWindows then

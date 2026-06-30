@@ -1,6 +1,7 @@
 local M = {}
+
+local input = require('spacevim.api.input')
 local Key = require('spacevim.api').import('vim.keys')
-M.__vim = require('spacevim.api').import('vim')
 
 local function echo(str)
   vim.api.nvim_echo({{str, 'Normal'}}, false, {})
@@ -65,7 +66,7 @@ function M.menu(items)
 
     vim.cmd('redraw!')
     echo(string.sub(menu, 1, #menu - 1))
-    local char = M.__vim.getchar()
+    local char = input.getchar()
     if char == Key.t('<Esc>') or char == Key.t('<C-c>') then
       exit = true
       cancelled = true
