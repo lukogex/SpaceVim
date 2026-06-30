@@ -185,6 +185,7 @@ function File.read(fname)
 end
 
 function File.absolute_path(path)
+  -- TODO: Save to remove?
   -- return fn.fnamemodify(fn.resolve(path), ':p')
   return fs.abspath(path)
 end

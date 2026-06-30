@@ -3,7 +3,32 @@
 ---Goal is to reduce dublication and have one common layer to interact with Neovim.
 ---Furthermore this might help in future compatibility implementations.
 ---TODO: Intergrate compatibility.lua here!
+---
+---In general prefer the Lua standard library, then `vim.api`, then `vim.fn` when I write Lua code.
+---For example the standard library for `vim.cmd()` calls the respective `vim.api` things automatically.
 local Vim = {}
+
+local logger = require("spacevim.api.logger"):new({ name = "vim" })
+
+---The Neovim API, it is written in C for use in remote plugins and GUIs.
+---The API is primarily intended for communicating with a separate Neovim process through remote procedure calls (RPC).
+---https://neovim.io/doc/user/api/
+Vim.api = setmetatable({}, {
+  __index = function(t, k)
+    local _api
+    if vim.api ~= nil and vim.api[k] ~= nil then
+      _api = function(...)
+        return vim.api[k](...)
+      end
+    else
+      _api = function(...)
+        return Vim.call(k, ...)
+      end
+    end
+    t[k] = _api
+    return _api
+  end,
+})
 
 ---The Vim standard library so to say, inherited from Vim, it contains everything Vim has.
 ---Ex-commands and vimscript-functions as well as user-functions in Vimscript.
@@ -45,6 +70,41 @@ Vim.fs = setmetatable({}, {
     end
     t[k] = _fs
     return _fs
+  end,
+})
+
+---Predefined variables
+---vim.v is an empty Lua table wrapper equipped with a metatable (__index and __newindex) that dynamically fetches variables from Neovim's internal C/Vimscript core on demand.
+---Thats why we cannot treat it as usual Lua table and must call each variable explicitely.
+---https://neovim.io/doc/user/vvars/
+---
+---@field argv table Command line arguments Nvim was invoked with. 
+Vim.v = setmetatable({}, {
+  __index = function(t, k)
+    -- TODO: make it accessable like this!
+    local success, value = pcall(vim.api.nvim_get_vvar, k)
+    logger:debug('Read variable ' .. k .. ' with value ' .. value)
+    if success then
+      t[k] = value
+    end
+
+    -- if type(t[k]) == "function" then
+      -- return function(first_arg, ...)
+        -- if first_arg == t then
+          -- return value(first_arg, ...)
+        -- else
+          -- return value(t, first_arg, ...)
+        -- end
+      -- end
+    -- else
+      -- return value
+    -- end
+
+    -- if vim.v ~= nil and vim.v[k] ~= nil then
+      -- _v = vim.v.argv
+    -- end
+    -- t[k] = _v
+    return value
   end,
 })
 
