@@ -16,11 +16,10 @@ description: "A guide for managing spacevim with layers, how to enable and disab
 
 ## Introduction
 
-spacevim is a community-driven Vim distribution that seeks to provides a layers feature.
+Spacevim is a community-driven Vim distribution that seeks to provides a layers feature.
 
 Layers help collecting related packages together to provides features.
-This approach helps keep configuration organized and reduces overhead for the user by
-keeping them from having to think about what packages to install.
+This approach helps keep configuration organized and reduces overhead for the user by keeping them from having to think about what packages to install.
 
 ### Enable layers
 

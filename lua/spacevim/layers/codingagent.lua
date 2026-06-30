@@ -4,7 +4,7 @@ local Layer = {}
 function Layer.plugins()
   return {
     "sudo-tee/opencode.nvim",
-    opts = M.config(),
+    opts = Layer.config(),
     dependencies = {
       "nvim-lua/plenary.nvim",
       {

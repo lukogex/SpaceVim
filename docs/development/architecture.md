@@ -53,13 +53,14 @@ We expect the following advantages from it:
 
 **Context**
 
-A layer is a bundle of plugins and related configuration which can be applied by Spacevim configuration.
+A [Spacevim layer](../layers/_index.md) is a bundle of plugins and related configuration which can be applied by Spacevim configuration.
 
 **Decision**
 
 Layers have a type which defines interfaces and key mappings.
 We can have several layers of the same type prepared but we can only apply one of each type at a time.
 A layer should wrap all necessary plugins and configurations at one place.
+Directories for each layer sound like an overkill, lets add all into one file and accept that they might be bigger in some cases.
 
 **Consequences**
 
