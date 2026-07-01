@@ -136,6 +136,7 @@ end
 -- 2. Without options: ['owner/repo'] - length 1
 function Plugins.load()
   local plugins = {}
+  -- TODO: layers.get_enabled should work for all layers? How do we keep it side by side? Keep old stuff in vimscript by now?
   for _, layer in ipairs(require('spacevim.layers').get_enabled()) do
     logger:debug('Get ' .. layer .. ' layer plugins list.')
     vim.g._spacevim_plugin_layer = layer
