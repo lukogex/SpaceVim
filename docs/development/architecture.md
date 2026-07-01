@@ -62,6 +62,8 @@ We can have several layers of the same type prepared but we can only apply one o
 A layer should wrap all necessary plugins and configurations at one place.
 Directories for each layer sound like an overkill, lets add all into one file and accept that they might be bigger in some cases.
 
+Each layer has to implement the `spacevim.layers.layer` class.
+
 **Consequences**
 
 We need a new layer implementation which covers the new way.
@@ -69,8 +71,8 @@ We need a new layer implementation which covers the new way.
 What should we do with old layers?
 
 - I dont want to remove everything, lets keep all what might make sense.
-  - We reduce to default types and for each of this types we have one default layer.
-  - At first we maintain this one default layer per type.
+- We reduce to default types and for each of this types we have one default layer.
+- At first we maintain this one default layer per type.
 
 What should we do with deprecated plugin manager?
 

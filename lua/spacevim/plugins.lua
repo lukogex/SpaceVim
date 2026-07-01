@@ -12,6 +12,7 @@ local utils = require('spacevim.utils')
 function Plugins.init()
   Plugins.manager_install()
   Plugins.manager_config()
+  Plugins.manager_setup()
   -- Load plugins from Vimscript layers
   vim.cmd 'call spacevim#plugins#load_plugins()'
   Plugins.disable(vim.g.spacevim_disabled_plugins)
@@ -64,7 +65,7 @@ function Plugins.manager_setup()
         ["<localleader>t"] = false,
       }
     },
-    spec = Plugins.load_plugins(),
+    spec = Plugins.load(),
     -- Configure any other settings here. See the documentation for more details.
     -- colorscheme that will be used when installing plugins.
     install = { colorscheme = { "habamax" } },
@@ -98,7 +99,7 @@ end
 
 function Plugins.manager_config()
   -- Add the deprecated dein plugin manager.
-  Plugins.initializePluginFuzzyFinder()
+  Plugins.initialize_plugin_fuzzy_finder()
   -- Initializes the plugin manager, sets up the runtimepath, and prepares for plugin declarations.
   vim.cmd 'call dein#begin(g:spacevim_plugin_bundle_dir)'
   -- TODO: What is the dein#add function doing? I commented out this call as it adds it a second time to runtimepath.
@@ -108,11 +109,9 @@ function Plugins.manager_config()
   logger:info('Lazy plugin manager configuration.')
   logger:info("Runtimepath before lazy setup.")
   logger:info(vim.inspect(vim.opt.rtp:get()))
-
-  Plugins.manager_setup()
 end
 
-function Plugins.initializePluginFuzzyFinder()
+function Plugins.initialize_plugin_fuzzy_finder()
   addedPluginsFuzzyFinder = vim.g.unite_source_menu_menus or vim.empty_dict()
   addedPluginsFuzzyFinder['AddedPlugins'] = {
     description = 'All the Added plugins                    <Leader>fp',
@@ -135,7 +134,7 @@ end
 -- Two formats supported:
 -- 1. With options: ['owner/repo', {'merged': 0, 'loadconf': 1}] - length 2
 -- 2. Without options: ['owner/repo'] - length 1
-function Plugins.load_plugins()
+function Plugins.load()
   local plugins = {}
   for _, layer in ipairs(require('spacevim.layers').get_enabled()) do
     logger:debug('Get ' .. layer .. ' layer plugins list.')
@@ -156,39 +155,22 @@ function Plugins.load_plugins()
       -- end
     -- end
 
-    table.insert(plugins, Plugins.for_layer(layer))
+    table.insert(plugins, Plugins.load_for_layer(layer))
   end
   -- print('Plugin spec: ' .. vim.inspect(plugins))
   return plugins
 end
 
 -- Returns the plugin spec for lazy for this layer.
-function Plugins.for_layer(name)
+function Plugins.load_for_layer(name)
   local layer = utils.prequire('spacevim.layers.' .. name)
-  if layer and layer.plugins ~= nil then
+  if layer and layer.get_spec ~= nil then
     logger:info('Found layer ' .. name)
-    return layer.plugins()
+    layer.mappings()
+    return layer:get_spec()
   end
-  logger:info('No layer found for ' .. layer)
+  logger:info('No layer found for ' .. name)
   return {}
-end
-
-local function loadLayerConfig(layer)
-  logger:debug('load ' .. layer .. ' layer config')
-  local ok, l = pcall(require, 'spacevim.layers.' .. layer)
-  if ok and l.config ~= nil then
-    l.config()
-  end
-end
-
-local plugins_argv = {'-update', '-openurl'}
-
-function Plugins.complete_plugs(ArgLead, CmdLine, CursorPos)
-    
-end
-
-function Plugins.Plugin(...)
-    
 end
 
 function Plugins.disable(plugins)
@@ -196,39 +178,6 @@ function Plugins.disable(plugins)
   for name in ipairs(plugins) do
     vim.cmd(string.format('call dein#disable(%s)', name))
   end
-end
-
-function Plugins.get(...)
-    
-end
-
--- can not use Plugins.end
-function Plugins._end()
-    
-end
-
-function Plugins.defind_hooks(bundle)
-    
-end
-
-local plugins = {}
-
-local function parser(args)
-    
-end
-
-vim.g._spacevim_plugins = {}
-
-function Plugins.add(repo, ...)
-    
-end
-
-function Plugins.tap(plugin)
-    
-end
-
-function Plugins.loadPluginBefore(plugin)
-    
 end
 
 return Plugins

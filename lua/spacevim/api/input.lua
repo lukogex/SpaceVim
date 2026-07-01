@@ -25,3 +25,5 @@ function Input.getchar(...)
     return ret
   end
 end
+
+return Input
