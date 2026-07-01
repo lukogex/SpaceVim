@@ -76,11 +76,13 @@ lint-vim:
 .PHONY: test
 test:
 	echo "Needs tools installed, run 'make tools-vader' to be sure."
-	$(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
+	# Neovim fails if NVIM_LISTEN_ADDRESS (or --listen) points to an address that is already in-use.
+	unset NVIM_LISTEN_ADDRESS && $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 .PHONY: test-coverage
 test-coverage:
-	covimerage run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
+	# Neovim fails if NVIM_LISTEN_ADDRESS (or --listen) points to an address that is already in-use.
+	unset NVIM_LISTEN_ADDRESS && covimerage run --source after --source syntax --source autoload --source colors --source config --source ftplugin $(VIM_BIN) -Nu test/vimrc $(VIM_ES) -c 'Vader! test/**'
 
 .PHONY: test-release
 test-release:

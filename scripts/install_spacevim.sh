@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #=============================================================================
-# install.sh --- bootstrap script for spacevim
+# install.sh --- bootstrap script for Spacevim
 # Copyright (c) 2016-2022 Shidong Wang & Contributors
 # Author: Shidong Wang < wsdjeg@outlook.com >
 # License: GPLv3
@@ -169,35 +169,12 @@ check_requirements () {
     else
         warn "Check Requirements : git"
     fi
+    # TODO: Do we still need this? Requrements should be covered by asdf.
     if hash "mkfontscale" &>/dev/null; then
         mkfontscale_version=$(mkfontscale -v)
         success "Check Requirements: ${mkfontscale_version}"
     else
         warn "Check Requirements : mkfontscale"
-    fi
-    if hash "vim" &>/dev/null; then
-        is_vim8=$(vim --version | grep "Vi IMproved 8")
-        is_vim74=$(vim --version | grep "Vi IMproved 7.4")
-        if [ -n "$is_vim8" ]; then
-            success "Check Requirements: vim 8.0"
-        elif [ -n "$is_vim74" ]; then
-            success "Check Requirements: vim 7.4"
-        else
-            if hash "nvim" &>/dev/null; then
-                success "Check Requirements: nvim"
-            else
-                warn "spacevim need vim 7.4 or above"
-            fi
-        fi
-        if hash "nvim" &>/dev/null; then
-            success "Check Requirements: nvim"
-        fi
-    else
-        if hash "nvim" &>/dev/null; then
-            success "Check Requirements: nvim"
-        else
-            warn "Check Requirements : vim or nvim"
-        fi
     fi
     info "Checking true colors support in terminal:"
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/JohnMorales/dotfiles/master/colors/24-bit-color.sh)"
@@ -209,7 +186,7 @@ install_done () {
     echo_with_color ${Yellow} ""
     echo_with_color ${Yellow} "Almost done!"
     echo_with_color ${Yellow} "=============================================================================="
-    echo_with_color ${Yellow} "==    Open Vim or Neovim and it will install the plugins automatically      =="
+    echo_with_color ${Yellow} "==       Open Neovim and it will install the plugins automatically          =="
     echo_with_color ${Yellow} "=============================================================================="
     echo_with_color ${Yellow} ""
     echo_with_color ${Yellow} "That's it. Thanks for installing spacevim. Enjoy!"

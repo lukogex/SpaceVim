@@ -62,6 +62,7 @@ local function build_argv(...)
   return str
 end
 
+---@deprecated Use `spacevim.api.vim.adapter.call` instead.
 function M.call(funcname, ...)
   if vim.call ~= nil then
     return vim.call(funcname, ...)
@@ -76,7 +77,8 @@ function M.call(funcname, ...)
   end
 end
 
--- This is for Vim and old neovim
+---This is for Vim and old neovim
+---@deprecated Use `spacevim.api.vim.adapter.fn` instead.
 M.fn = setmetatable({}, {
   __index = function(t, key)
     local _fn

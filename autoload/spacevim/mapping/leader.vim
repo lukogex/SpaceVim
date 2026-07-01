@@ -2,7 +2,6 @@
 " leader.vim --- mapping leader definition file for spacevim
 " Copyright (c) 2016-2023 Wang Shidong & Contributors
 " Author: Shidong Wang < wsdjeg@outlook.com >
-" URL: https://spacevim.org
 " License: GPLv3
 "=============================================================================
 

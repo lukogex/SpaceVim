@@ -23,4 +23,4 @@ description: "Guidelines for Spacevim documentation in markdown."
 
 ## Markdown Style
 
-- [Google's Markdown style guide](https://github.com/google/styleguide/blob/3591b2e540cbcb07423e02d20eee482165776603/docguide/style.md)
+- [Google's Markdown style guide](https://github.com/google/styleguide/blob/gh-pages/docguide/style.md)

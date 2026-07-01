@@ -27,20 +27,15 @@ local isep
 local right_sep
 local left_sep
 
-local highlight = require('spacevim.api.vim.highlight')
-local VIM = require('spacevim.api.vim')
-
 local file = require('spacevim.api.file')
-
+local highlight = require('spacevim.api.vim.highlight')
+local input = require('spacevim.api.input')
 local messletters = require('spacevim.api.messletters')
 local WIN = require('spacevim.api.vim.window')
 
 local shown_items = {}
-
 local right_hide_bufs = {}
-
 local visiable_bufs = {}
-
 local left_hide_bufs = {}
 
 local function check_len(bufs)
@@ -315,7 +310,7 @@ function M.close_current_buffer()
       false,
       {}
     )
-    local rs = VIM.getchar()
+    local rs = input.getchar()
     vim.cmd.redraw()
     if rs == 'y' then
       vim.cmd.write()

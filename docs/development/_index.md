@@ -23,11 +23,15 @@ You can only think about reading the part that is relevant to what you are going
 
 <!-- vim-markdown-toc -->
 
-
 ## Contributing code
 
 The source code of Spacevim is hosted at [Github](https://github.com/lukogex/spacevim).
-Code and documentation contributions of any kind are welcome. 
+Code and documentation contributions of any kind are welcome.
+
+**Prefered Language**
+
+Lua is the prefered language, all new implementations should happen in Lua.
+Still old vimscript files can be adapted for fixes and improvements.
 
 ### Conventions
 
@@ -77,6 +81,9 @@ Not all commits are complex enough to warrant a body, therefore it is optional a
 Breaking changes must be indicated by `!` after the type/scope, and a `BREAKING CHANGE:` body describing the change.
 
 ### Contributing a layer
+
+> [!warning] Layer Implementation Language
+> New layers should be written in Lua, the following description is deprecated and will be replaced as soon as new layer format is found.
 
 The following example shows how to create a new layer named `foo`:
 

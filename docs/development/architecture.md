@@ -10,6 +10,7 @@ description: "ADRs (Architectural Decision Records) for Spacevim development."
 
 - [Architectural Decision Records](#architectural-decision-records)
   - [ADR-001 Spacevim API](#adr-001-spacevim-api)
+  - [ADR-002 Spacevim Layers](#adr-002-spacevim-layers)
 
 <!-- vim-markdown-toc -->
 
@@ -34,11 +35,11 @@ All Spacevim implementations should use the Spacevim API to decouple it from Neo
 
 **Consequences**
 
-All calls to `vim.*` should happen from within the `spacevim.api` modules.
-When importing Spacevim APIs prefix the variables with `svim_` to make it clear what is used.
+All interactions from Spacevim core logic or layers towards Neovim APIs should happen from within the `spacevim.api` modules.
+For abstraction and a better overview about all the calls we do we even added a [`spacevim.vim` proxy to Neovim Lua standard libraries](../api/vim.md).
 
 ```lua
-local svim_buffer = require('spacevim.api.vim.buffer')
+local buffer = require('spacevim.api.vim.buffer')
 ```
 
 We expect the following advantages from it:
@@ -47,3 +48,32 @@ We expect the following advantages from it:
 - Consistent usage of Spacevim API across all layers
 - Improved logging and monitoring cababilities
 - Reuse of existing logic and improvements
+
+### ADR-002 Spacevim Layers
+
+**Context**
+
+A [Spacevim layer](../layers/_index.md) is a bundle of plugins and related configuration which can be applied by Spacevim configuration.
+
+**Decision**
+
+Layers have a type which defines interfaces and key mappings.
+We can have several layers of the same type prepared but we can only apply one of each type at a time.
+A layer should wrap all necessary plugins and configurations at one place.
+Directories for each layer sound like an overkill, lets add all into one file and accept that they might be bigger in some cases.
+
+Each layer has to implement the `spacevim.layers.layer` class.
+
+**Consequences**
+
+We need a new layer implementation which covers the new way.
+
+What should we do with old layers?
+
+- I dont want to remove everything, lets keep all what might make sense.
+- We reduce to default types and for each of this types we have one default layer.
+- At first we maintain this one default layer per type.
+
+What should we do with deprecated plugin manager?
+
+- Lets find out how we can have it side by side for a long term migration process.

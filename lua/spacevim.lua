@@ -1,5 +1,9 @@
 local Spacevim = {}
 
+local fn = require('spacevim.api.vim.adapter').fn
+local v = require('spacevim.api.vim.adapter').v
+
+local file = require('spacevim.api.file')
 local logger = require('spacevim.logger')
 
 local GLOBAL_VARS_PREFIX = 'svim_'
@@ -11,36 +15,32 @@ Spacevim.vars = {
   log_level = vim.log.levels.DEBUG
 }
 
--- TODO: Move to a file utils module!
-function Spacevim.absolute_path(path)
-  return vim.fn.fnamemodify(vim.fn.resolve(path), ':p')
-end
-
 function Spacevim.arguments()
-  args = {}
+  local argv = v.argv
+  local args = {}
 
-  for k, v in pairs(vim.v.argv) do
-    if k == 1 then
-      args['nvim_bin'] = Spacevim.absolute_path(vim.v.argv[k])
+  for i, v in ipairs(argv) do
+    if i == 1 then
+      args['nvim_bin'] = file.absolute_path(argv[i])
 
       -- TODO: We should check here if its an asdf installation and set the paths accordingly!
       args['nvim_lib'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/lib/nvim'
       args['nvim_runtime'] = '/home/lkranabetter/.asdf/installs/neovim/0.11.7/share/nvim/runtime'
     end
     if v == '-u' then
-      args['vimrc'] = Spacevim.absolute_path(vim.v.argv[k + 1])
+      args['vimrc'] = file.absolute_path(argv[i + 1])
     end
-    if k == #vim.v.argv then
+    if i == #argv then
       -- TODO: This check might not work in all cases right? How could we parse them more relyable?
-      if string.match(vim.v.argv[k - 1], '^-.') then
-        args['file'] = Spacevim.absolute_path(vim.fn.getcwd())
+      if string.match(argv[i - 1], '^-.') then
+        args['file'] = file.absolute_path(fn.getcwd())
       else
-        args['file'] = Spacevim.absolute_path(vim.v.argv[k])
+        args['file'] = file.absolute_path(argv[i])
       end
     end
   end
 
-  args['root_dir'] = vim.fn.fnamemodify(args['vimrc'], ':h')
+  args['root_dir'] = fn.fnamemodify(args['vimrc'], ':h')
 
   return args
 end
@@ -102,7 +102,7 @@ function Spacevim.config()
   logger.info('Load Spacevim global configuration.')
   vim.cmd 'call spacevim#custom#load_glob_conf()'
 
-  if Spacevim.absolute_path(vim.fn.getcwd()) == os.getenv('HOME') then
+  if file.absolute_path(fn.getcwd()) == os.getenv('HOME') then
     logger.info('Current directory is $HOME, skip local configuration.')
   else
     vim.cmd 'call spacevim#custom#load_local_conf()'
@@ -112,7 +112,7 @@ function Spacevim.config()
 end
 
 function Spacevim.keybindings()
-  if vim.fn.has('timers') then
+  if fn.has('timers') then
     vim.cmd(string.format('call timer_start(%d, "spacevim#default#keyBindings")', vim.g.spacevim_lazy_conf_timeout))
   else
     vim.cmd 'call spacevim#default#keyBindings()'

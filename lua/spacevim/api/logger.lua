@@ -19,8 +19,8 @@ local Logger = {
   spacevim_notify = false
 }
 
-local svim_buffer = require('spacevim.api.vim.buffer')
-local svim_notify = require('spacevim.api.notify')
+local buffer = require('spacevim.api.vim.buffer')
+local notify = require('spacevim.api.notify')
 
 local LOG_BUFFER_NAME = 'svim_logger'
 
@@ -69,7 +69,7 @@ end
 ---@param level integer|nil log level defined in vim.log.levels
 ---@param options LogOptions allows us to set different logging namespaces
 local function log_buffer(message, level, self)
-  local buffer_id = svim_buffer.create_by_name(LOG_BUFFER_NAME, true, true)
+  local buffer_id = buffer.create_by_name(LOG_BUFFER_NAME, true, true)
 
   -- Ensure `message` is always a table to make processing simpler.
   if type(message) == "string" then
@@ -86,7 +86,7 @@ local function log_buffer(message, level, self)
   vim.api.nvim_buf_set_lines(buffer_id, -1, -1, true, message)
 
   if self.log_buffer_file then
-    svim_buffer.write_to_file(buffer_id, self.log_file)
+    buffer.write_to_file(buffer_id, self.log_file)
   end
 end
 
@@ -109,8 +109,8 @@ end
 
 -- Send to vim.notify for floating notifications
 local function log_notify(message, level, self)
-  if self.svim_notify then
-    svim_notify.notify(message)
+  if self.spacevim_notify then
+    notify.notify(message)
   else
     vim.notify(message, level)
   end
@@ -170,8 +170,8 @@ function Logger:new(config)
   logger = vim.tbl_deep_extend("force", self, config)
 
   local mt = {}
-  mt.__index = function(t, index)
-    local value = self[index]
+  mt.__index = function(t, k)
+    local value = self[k]
     if type(value) == "function" then
       return function(first_arg, ...)
         -- Handle both syntaxes:
@@ -265,14 +265,14 @@ function Logger:error(...)
 end
 
 function Logger:clear()
-  buffer_id = svim_buffer.delete_by_name(LOG_BUFFER_NAME)
+  buffer_id = buffer.delete_by_name(LOG_BUFFER_NAME)
   if buffer_id == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for deletion.')
   end
 end
 
 function Logger:get_buffer_lines()
-  lines = svim_buffer.get_lines_by_name(LOG_BUFFER_NAME)
+  lines = buffer.get_lines_by_name(LOG_BUFFER_NAME)
   if lines == nil then
     svim_logger.warn('No buffer ' .. buffer_name .. ' found for getting lines.')
   end

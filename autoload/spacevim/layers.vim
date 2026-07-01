@@ -63,12 +63,8 @@ let s:CMP = spacevim#api#import('vim#compatible')
 " <
 function! spacevim#layers#load(layer, ...) abort
   if a:layer ==# '-l'
-    if has('nvim')
-      lua require('spacevim.layers').load('-l')
-    else
-      call s:list_layers()
-    endif
-    return
+    lua require('spacevim.layers').load('-l')
+  return
   elseif empty(a:layer) || type(a:layer) !=# type('')
     return
   endif
@@ -112,20 +108,9 @@ function! spacevim#layers#disable(layer) abort
   endif
 endfunction
 
-function! s:list_layers() abort
-  tabnew spacevimLayers
-  nnoremap <buffer> q :q<cr>
-  setlocal buftype=nofile bufhidden=wipe nobuflisted nolist noswapfile nowrap cursorline nospell
-  setf spacevimLayerManager
-  nnoremap <silent> <buffer> q :bd<CR>
-  let info = [
-        \ 'spacevim layers:',
-        \ '',
-        \ ]
-  call setline(1,info + s:find_layers())
-  setl nomodifiable
-endfunction
-
+" TODO: This is the method to find all existing layers right? We should move this first to lua!
+" No looks like this is already implemented in lua find_layers but only used
+" in the list_layers function. Check if its needed at all.
 function! s:find_layers() abort
   let layers = s:CMP.globpath(&rtp, 'autoload/spacevim/layers/**/*.vim')
   let pattern = s:SYS.isWindows ? '\\autoload\\spacevim\\layers\\' : '/autoload/spacevim/layers/'
